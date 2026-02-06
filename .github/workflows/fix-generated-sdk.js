@@ -7,7 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const glob = require('glob');
+const { glob } = require('node:fs');
 
 // Configuration
 const MODELS_DIR = process.argv[2] || './models';
