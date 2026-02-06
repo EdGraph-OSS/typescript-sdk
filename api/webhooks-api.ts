@@ -30,9 +30,9 @@ import type { TenantApiWebhookV1CreateWebhookRequest } from '../models';
 // @ts-ignore
 import type { TenantApiWebhookV1PaginatedItemsResponse } from '../models';
 // @ts-ignore
-import type { TenantApiWebhookV1UpdateWebhookRequest } from '../models';
+import type { TenantApiWebhookV1PaginatedWebhookEventItemsResponse } from '../models';
 // @ts-ignore
-import type { TenantApiWebhookV1WebhookEventsResponse } from '../models';
+import type { TenantApiWebhookV1UpdateWebhookRequest } from '../models';
 // @ts-ignore
 import type { TenantApiWebhookV1WebhookIdResponse } from '../models';
 // @ts-ignore
@@ -130,10 +130,14 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * 
          * @param {string} tenantId 
+         * @param {number} [pageSize] 
+         * @param {number} [pageIndex] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllWebhookSubscriptionsAsync: async (tenantId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAllWebhookSubscriptionsAsync: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllWebhookSubscriptionsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/webhooks/events`
@@ -152,6 +156,22 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (pageIndex !== undefined) {
+                localVarQueryParameter['pageIndex'] = pageIndex;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['orderBy'] = orderBy;
+            }
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
 
 
     
@@ -351,11 +371,15 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} tenantId 
+         * @param {number} [pageSize] 
+         * @param {number} [pageIndex] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllWebhookSubscriptionsAsync(tenantId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiWebhookV1WebhookEventsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllWebhookSubscriptionsAsync(tenantId, options);
+        async getAllWebhookSubscriptionsAsync(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiWebhookV1PaginatedWebhookEventItemsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllWebhookSubscriptionsAsync(tenantId, pageSize, pageIndex, orderBy, filter, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WebhooksApi.getAllWebhookSubscriptionsAsync']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -442,8 +466,8 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllWebhookSubscriptionsAsync(requestParameters: WebhooksApiGetAllWebhookSubscriptionsAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiWebhookV1WebhookEventsResponse> {
-            return localVarFp.getAllWebhookSubscriptionsAsync(requestParameters.tenantId, options).then((request) => request(axios, basePath));
+        getAllWebhookSubscriptionsAsync(requestParameters: WebhooksApiGetAllWebhookSubscriptionsAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiWebhookV1PaginatedWebhookEventItemsResponse> {
+            return localVarFp.getAllWebhookSubscriptionsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -532,6 +556,34 @@ export interface WebhooksApiGetAllWebhookSubscriptionsAsyncRequest {
      * @memberof WebhooksApiGetAllWebhookSubscriptionsAsync
      */
     readonly tenantId: string
+
+    /**
+     * 
+     * @type {number}
+     * @memberof WebhooksApiGetAllWebhookSubscriptionsAsync
+     */
+    readonly pageSize?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof WebhooksApiGetAllWebhookSubscriptionsAsync
+     */
+    readonly pageIndex?: number
+
+    /**
+     * 
+     * @type {string}
+     * @memberof WebhooksApiGetAllWebhookSubscriptionsAsync
+     */
+    readonly orderBy?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof WebhooksApiGetAllWebhookSubscriptionsAsync
+     */
+    readonly filter?: string
 }
 
 /**
@@ -664,7 +716,7 @@ export class WebhooksApi extends BaseAPI {
      * @memberof WebhooksApi
      */
     public getAllWebhookSubscriptionsAsync(requestParameters: WebhooksApiGetAllWebhookSubscriptionsAsyncRequest, options?: RawAxiosRequestConfig) {
-        return WebhooksApiFp(this.configuration).getAllWebhookSubscriptionsAsync(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
+        return WebhooksApiFp(this.configuration).getAllWebhookSubscriptionsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

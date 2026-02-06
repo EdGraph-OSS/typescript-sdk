@@ -134,5 +134,23 @@ export interface IdentityApiUserV2UserProfileResponse {
      * @memberof IdentityApiUserV2UserProfileResponse
      */
     'tenantAdmin'?: boolean | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof IdentityApiUserV2UserProfileResponse
+     */
+    'isDeleted'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof IdentityApiUserV2UserProfileResponse
+     */
+    'deletedDateTime'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof IdentityApiUserV2UserProfileResponse
+     */
+    'deletedBy'?: string | null;
 }
 

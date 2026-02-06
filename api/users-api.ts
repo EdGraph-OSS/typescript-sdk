@@ -247,6 +247,64 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * 
+         * @summary Get All Users
+         * @param {string} tenantId 
+         * @param {number} [pageSize] 
+         * @param {number} [pageIndex] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAllFormUsers: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getAllFormUsers', 'tenantId', tenantId)
+            const localVarPath = `/tenants/{tenantId}/forms/users`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (pageIndex !== undefined) {
+                localVarQueryParameter['pageIndex'] = pageIndex;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['orderBy'] = orderBy;
+            }
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Retrieves a list of users associated to this tenant
          * @param {string} tenantId 
          * @param {number} [pageSize] 
@@ -916,6 +974,23 @@ export const UsersApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Get All Users
+         * @param {string} tenantId 
+         * @param {number} [pageSize] 
+         * @param {number} [pageIndex] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAllFormUsers(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserBasicListResponsePaginatedItemsViewModel>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllFormUsers(tenantId, pageSize, pageIndex, orderBy, filter, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UsersApi.getAllFormUsers']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Retrieves a list of users associated to this tenant
          * @param {string} tenantId 
          * @param {number} [pageSize] 
@@ -1153,6 +1228,16 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         },
         /**
          * 
+         * @summary Get All Users
+         * @param {UsersApiGetAllFormUsersRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAllFormUsers(requestParameters: UsersApiGetAllFormUsersRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserBasicListResponsePaginatedItemsViewModel> {
+            return localVarFp.getAllFormUsers(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Retrieves a list of users associated to this tenant
          * @param {UsersApiGetAllTenantUsersAsyncRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -1370,6 +1455,48 @@ export interface UsersApiDeleteTenantUserAsyncRequest {
      * @memberof UsersApiDeleteTenantUserAsync
      */
     readonly userId: string
+}
+
+/**
+ * Request parameters for getAllFormUsers operation in UsersApi.
+ * @export
+ * @interface UsersApiGetAllFormUsersRequest
+ */
+export interface UsersApiGetAllFormUsersRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiGetAllFormUsers
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiGetAllFormUsers
+     */
+    readonly pageSize?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiGetAllFormUsers
+     */
+    readonly pageIndex?: number
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiGetAllFormUsers
+     */
+    readonly orderBy?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiGetAllFormUsers
+     */
+    readonly filter?: string
 }
 
 /**
@@ -1810,6 +1937,18 @@ export class UsersApi extends BaseAPI {
      */
     public deleteTenantUserAsync(requestParameters: UsersApiDeleteTenantUserAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).deleteTenantUserAsync(requestParameters.tenantId, requestParameters.userId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get All Users
+     * @param {UsersApiGetAllFormUsersRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getAllFormUsers(requestParameters: UsersApiGetAllFormUsersRequest, options?: RawAxiosRequestConfig) {
+        return UsersApiFp(this.configuration).getAllFormUsers(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

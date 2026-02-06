@@ -484,10 +484,11 @@ export const InstancesApplicationsApiAxiosParamCreator = function (configuration
          * @param {string} instanceId 
          * @param {number} applicationId 
          * @param {number} [year] 
+         * @param {boolean} [loadEducationOrganizations] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getApplicationByIdAsync: async (tenantId: string, instanceId: string, applicationId: number, year?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getApplicationByIdAsync: async (tenantId: string, instanceId: string, applicationId: number, year?: number, loadEducationOrganizations?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getApplicationByIdAsync', 'tenantId', tenantId)
             // verify required parameter 'instanceId' is not null or undefined
@@ -515,6 +516,10 @@ export const InstancesApplicationsApiAxiosParamCreator = function (configuration
 
             if (year !== undefined) {
                 localVarQueryParameter['year'] = year;
+            }
+
+            if (loadEducationOrganizations !== undefined) {
+                localVarQueryParameter['loadEducationOrganizations'] = loadEducationOrganizations;
             }
 
 
@@ -947,11 +952,12 @@ export const InstancesApplicationsApiFp = function(configuration?: Configuration
          * @param {string} instanceId 
          * @param {number} applicationId 
          * @param {number} [year] 
+         * @param {boolean} [loadEducationOrganizations] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getApplicationByIdAsync(tenantId: string, instanceId: string, applicationId: number, year?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getApplicationByIdAsync(tenantId, instanceId, applicationId, year, options);
+        async getApplicationByIdAsync(tenantId: string, instanceId: string, applicationId: number, year?: number, loadEducationOrganizations?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getApplicationByIdAsync(tenantId, instanceId, applicationId, year, loadEducationOrganizations, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['InstancesApplicationsApi.getApplicationByIdAsync']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1138,7 +1144,7 @@ export const InstancesApplicationsApiFactory = function (configuration?: Configu
          * @throws {RequiredError}
          */
         getApplicationByIdAsync(requestParameters: InstancesApplicationsApiGetApplicationByIdAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse> {
-            return localVarFp.getApplicationByIdAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.applicationId, requestParameters.year, options).then((request) => request(axios, basePath));
+            return localVarFp.getApplicationByIdAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.applicationId, requestParameters.year, requestParameters.loadEducationOrganizations, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1534,6 +1540,13 @@ export interface InstancesApplicationsApiGetApplicationByIdAsyncRequest {
      * @memberof InstancesApplicationsApiGetApplicationByIdAsync
      */
     readonly year?: number
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof InstancesApplicationsApiGetApplicationByIdAsync
+     */
+    readonly loadEducationOrganizations?: boolean
 }
 
 /**
@@ -1851,7 +1864,7 @@ export class InstancesApplicationsApi extends BaseAPI {
      * @memberof InstancesApplicationsApi
      */
     public getApplicationByIdAsync(requestParameters: InstancesApplicationsApiGetApplicationByIdAsyncRequest, options?: RawAxiosRequestConfig) {
-        return InstancesApplicationsApiFp(this.configuration).getApplicationByIdAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.applicationId, requestParameters.year, options).then((request) => request(this.axios, this.basePath));
+        return InstancesApplicationsApiFp(this.configuration).getApplicationByIdAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.applicationId, requestParameters.year, requestParameters.loadEducationOrganizations, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

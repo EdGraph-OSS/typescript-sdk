@@ -58,6 +58,8 @@ import type { EdfiAdminApiEdfiAdminV1ResetInstanceResponse } from '../models';
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1SetInstanceIsDefaultRequest } from '../models';
 // @ts-ignore
+import type { EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest } from '../models';
+// @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse } from '../models';
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1UpdateInstanceRequest } from '../models';
@@ -1420,10 +1422,11 @@ export const InstancesApiAxiosParamCreator = function (configuration?: Configura
          * @summary Tests the connection of the Instance.
          * @param {string} tenantId 
          * @param {string} instanceId 
+         * @param {EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest} [edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        testInstanceConnection: async (tenantId: string, instanceId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        testInstanceConnection: async (tenantId: string, instanceId: string, edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest?: EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('testInstanceConnection', 'tenantId', tenantId)
             // verify required parameter 'instanceId' is not null or undefined
@@ -1448,9 +1451,12 @@ export const InstancesApiAxiosParamCreator = function (configuration?: Configura
 
 
     
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1463,10 +1469,11 @@ export const InstancesApiAxiosParamCreator = function (configuration?: Configura
          * @param {string} tenantId 
          * @param {string} instanceId 
          * @param {number} year 
+         * @param {EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest} [edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        testInstanceYearConnection: async (tenantId: string, instanceId: string, year: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        testInstanceYearConnection: async (tenantId: string, instanceId: string, year: number, edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest?: EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('testInstanceYearConnection', 'tenantId', tenantId)
             // verify required parameter 'instanceId' is not null or undefined
@@ -1494,9 +1501,12 @@ export const InstancesApiAxiosParamCreator = function (configuration?: Configura
 
 
     
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2123,11 +2133,12 @@ export const InstancesApiFp = function(configuration?: Configuration) {
          * @summary Tests the connection of the Instance.
          * @param {string} tenantId 
          * @param {string} instanceId 
+         * @param {EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest} [edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async testInstanceConnection(tenantId: string, instanceId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.testInstanceConnection(tenantId, instanceId, options);
+        async testInstanceConnection(tenantId: string, instanceId: string, edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest?: EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testInstanceConnection(tenantId, instanceId, edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['InstancesApi.testInstanceConnection']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2138,11 +2149,12 @@ export const InstancesApiFp = function(configuration?: Configuration) {
          * @param {string} tenantId 
          * @param {string} instanceId 
          * @param {number} year 
+         * @param {EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest} [edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async testInstanceYearConnection(tenantId: string, instanceId: string, year: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.testInstanceYearConnection(tenantId, instanceId, year, options);
+        async testInstanceYearConnection(tenantId: string, instanceId: string, year: number, edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest?: EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testInstanceYearConnection(tenantId, instanceId, year, edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['InstancesApi.testInstanceYearConnection']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2513,7 +2525,7 @@ export const InstancesApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         testInstanceConnection(requestParameters: InstancesApiTestInstanceConnectionRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse> {
-            return localVarFp.testInstanceConnection(requestParameters.tenantId, requestParameters.instanceId, options).then((request) => request(axios, basePath));
+            return localVarFp.testInstanceConnection(requestParameters.tenantId, requestParameters.instanceId, requestParameters.edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2523,7 +2535,7 @@ export const InstancesApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         testInstanceYearConnection(requestParameters: InstancesApiTestInstanceYearConnectionRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse> {
-            return localVarFp.testInstanceYearConnection(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, options).then((request) => request(axios, basePath));
+            return localVarFp.testInstanceYearConnection(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -3357,6 +3369,13 @@ export interface InstancesApiTestInstanceConnectionRequest {
      * @memberof InstancesApiTestInstanceConnection
      */
     readonly instanceId: string
+
+    /**
+     * 
+     * @type {EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest}
+     * @memberof InstancesApiTestInstanceConnection
+     */
+    readonly edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest?: EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest
 }
 
 /**
@@ -3385,6 +3404,13 @@ export interface InstancesApiTestInstanceYearConnectionRequest {
      * @memberof InstancesApiTestInstanceYearConnection
      */
     readonly year: number
+
+    /**
+     * 
+     * @type {EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest}
+     * @memberof InstancesApiTestInstanceYearConnection
+     */
+    readonly edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest?: EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest
 }
 
 /**
@@ -3849,7 +3875,7 @@ export class InstancesApi extends BaseAPI {
      * @memberof InstancesApi
      */
     public testInstanceConnection(requestParameters: InstancesApiTestInstanceConnectionRequest, options?: RawAxiosRequestConfig) {
-        return InstancesApiFp(this.configuration).testInstanceConnection(requestParameters.tenantId, requestParameters.instanceId, options).then((request) => request(this.axios, this.basePath));
+        return InstancesApiFp(this.configuration).testInstanceConnection(requestParameters.tenantId, requestParameters.instanceId, requestParameters.edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3861,7 +3887,7 @@ export class InstancesApi extends BaseAPI {
      * @memberof InstancesApi
      */
     public testInstanceYearConnection(requestParameters: InstancesApiTestInstanceYearConnectionRequest, options?: RawAxiosRequestConfig) {
-        return InstancesApiFp(this.configuration).testInstanceYearConnection(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, options).then((request) => request(this.axios, this.basePath));
+        return InstancesApiFp(this.configuration).testInstanceYearConnection(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

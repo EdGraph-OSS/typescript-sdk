@@ -48,6 +48,8 @@ import type { EdfiAdminApiEdfiAdminV1EdFiConnectionUpdatedResponse } from '../mo
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1EdFiOdsBackupDescriptorsPaginatedItemsResponse } from '../models';
 // @ts-ignore
+import type { EdfiAdminApiEdfiAdminV1ResourcesByInstanceYearPaginatedItemsResponse } from '../models';
+// @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest } from '../models';
 // @ts-ignore
 import type { IMSAdminApiV1ConnectionsConnectionTestedResponse } from '../models';
@@ -557,6 +559,72 @@ export const ConnectionsApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * 
+         * @summary Retrieves an Ed-Fi Resources by Instance Id and Year.
+         * @param {string} tenantId 
+         * @param {string} instanceId 
+         * @param {number} year 
+         * @param {number} [pageIndex] 
+         * @param {number} [pageSize] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEdFiResourcesByInstanceYear: async (tenantId: string, instanceId: string, year: number, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getEdFiResourcesByInstanceYear', 'tenantId', tenantId)
+            // verify required parameter 'instanceId' is not null or undefined
+            assertParamExists('getEdFiResourcesByInstanceYear', 'instanceId', instanceId)
+            // verify required parameter 'year' is not null or undefined
+            assertParamExists('getEdFiResourcesByInstanceYear', 'year', year)
+            const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/resources`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
+                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
+                .replace(`{${"year"}}`, encodeURIComponent(String(year)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            if (pageIndex !== undefined) {
+                localVarQueryParameter['pageIndex'] = pageIndex;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['orderBy'] = orderBy;
+            }
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Retrieves a list of Connections.
          * @param {string} tenantId 
          * @param {number} [pageSize] 
@@ -1000,6 +1068,25 @@ export const ConnectionsApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Retrieves an Ed-Fi Resources by Instance Id and Year.
+         * @param {string} tenantId 
+         * @param {string} instanceId 
+         * @param {number} year 
+         * @param {number} [pageIndex] 
+         * @param {number} [pageSize] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getEdFiResourcesByInstanceYear(tenantId: string, instanceId: string, year: number, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdfiAdminApiEdfiAdminV1ResourcesByInstanceYearPaginatedItemsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getEdFiResourcesByInstanceYear(tenantId, instanceId, year, pageIndex, pageSize, orderBy, filter, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ConnectionsApi.getEdFiResourcesByInstanceYear']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Retrieves a list of Connections.
          * @param {string} tenantId 
          * @param {number} [pageSize] 
@@ -1197,6 +1284,16 @@ export const ConnectionsApiFactory = function (configuration?: Configuration, ba
          */
         getEdFiOdsBackupCodesDescriptorsAsync(requestParameters: ConnectionsApiGetEdFiOdsBackupCodesDescriptorsAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdfiAdminApiEdfiAdminV1EdFiOdsBackupDescriptorsPaginatedItemsResponse> {
             return localVarFp.getEdFiOdsBackupCodesDescriptorsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Retrieves an Ed-Fi Resources by Instance Id and Year.
+         * @param {ConnectionsApiGetEdFiResourcesByInstanceYearRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEdFiResourcesByInstanceYear(requestParameters: ConnectionsApiGetEdFiResourcesByInstanceYearRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdfiAdminApiEdfiAdminV1ResourcesByInstanceYearPaginatedItemsResponse> {
+            return localVarFp.getEdFiResourcesByInstanceYear(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1563,6 +1660,62 @@ export interface ConnectionsApiGetEdFiOdsBackupCodesDescriptorsAsyncRequest {
 }
 
 /**
+ * Request parameters for getEdFiResourcesByInstanceYear operation in ConnectionsApi.
+ * @export
+ * @interface ConnectionsApiGetEdFiResourcesByInstanceYearRequest
+ */
+export interface ConnectionsApiGetEdFiResourcesByInstanceYearRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConnectionsApiGetEdFiResourcesByInstanceYear
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ConnectionsApiGetEdFiResourcesByInstanceYear
+     */
+    readonly instanceId: string
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ConnectionsApiGetEdFiResourcesByInstanceYear
+     */
+    readonly year: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ConnectionsApiGetEdFiResourcesByInstanceYear
+     */
+    readonly pageIndex?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ConnectionsApiGetEdFiResourcesByInstanceYear
+     */
+    readonly pageSize?: number
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ConnectionsApiGetEdFiResourcesByInstanceYear
+     */
+    readonly orderBy?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ConnectionsApiGetEdFiResourcesByInstanceYear
+     */
+    readonly filter?: string
+}
+
+/**
  * Request parameters for getPagedConnections operation in ConnectionsApi.
  * @export
  * @interface ConnectionsApiGetPagedConnectionsRequest
@@ -1855,6 +2008,18 @@ export class ConnectionsApi extends BaseAPI {
      */
     public getEdFiOdsBackupCodesDescriptorsAsync(requestParameters: ConnectionsApiGetEdFiOdsBackupCodesDescriptorsAsyncRequest, options?: RawAxiosRequestConfig) {
         return ConnectionsApiFp(this.configuration).getEdFiOdsBackupCodesDescriptorsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Retrieves an Ed-Fi Resources by Instance Id and Year.
+     * @param {ConnectionsApiGetEdFiResourcesByInstanceYearRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectionsApi
+     */
+    public getEdFiResourcesByInstanceYear(requestParameters: ConnectionsApiGetEdFiResourcesByInstanceYearRequest, options?: RawAxiosRequestConfig) {
+        return ConnectionsApiFp(this.configuration).getEdFiResourcesByInstanceYear(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

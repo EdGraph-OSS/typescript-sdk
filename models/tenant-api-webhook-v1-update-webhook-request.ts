@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { TenantApiWebhookV1WebhookSchema } from './tenant-api-webhook-v1-webhook-schema';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { TenantApiWebhookV1WebhookSubscriberResponse } from './tenant-api-webhook-v1-webhook-subscriber-response';
 
 /**
@@ -77,5 +80,19 @@ export interface TenantApiWebhookV1UpdateWebhookRequest {
      * @memberof TenantApiWebhookV1UpdateWebhookRequest
      */
     'eventSubscriptions'?: Array<TenantApiWebhookV1WebhookSubscriberResponse> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof TenantApiWebhookV1UpdateWebhookRequest
+     */
+    'subscriptions'?: Array<string> | null;
+    /**
+     * 
+     * @type {TenantApiWebhookV1WebhookSchema}
+     * @memberof TenantApiWebhookV1UpdateWebhookRequest
+     */
+    'webhookSchema'?: TenantApiWebhookV1WebhookSchema;
 }
+
+
 

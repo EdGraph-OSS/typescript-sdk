@@ -40,6 +40,8 @@ export * from './api/environments-reporting-periods-api';
 export * from './api/environments-reporting-periods-categories-api';
 export * from './api/environments-reporting-periods-rules-records-api';
 export * from './api/environments-reporting-periods-submissions-api';
+export * from './api/evaluation-settings-api';
+export * from './api/evaluations-api';
 export * from './api/form-components-api';
 export * from './api/forms-api';
 export * from './api/gateways-api';

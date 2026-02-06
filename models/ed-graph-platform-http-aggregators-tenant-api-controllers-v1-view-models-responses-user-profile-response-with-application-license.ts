@@ -146,5 +146,23 @@ export interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsR
      * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
      */
     'mfaCompleted'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
+     */
+    'isDeleted'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
+     */
+    'deletedDateTime'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
+     */
+    'deletedBy'?: string | null;
 }
 
