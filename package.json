@@ -1,7 +1,7 @@
 {
-  "name": "@edgraph/platform-client",
-  "version": "0.0.8",
-  "description": "OpenAPI client for @edgraph/platform-client",
+  "name": "@edgraph-oss/platform-client",
+  "version": "0.0.9",
+  "description": "OpenAPI client for @edgraph-oss/platform-client",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "typescript",
     "openapi-client",
     "openapi-generator",
-    "@edgraph/platform-client"
+    "@edgraph-oss/platform-client"
   ],
   "license": "Unlicense",
   "main": "./dist/index.js",
