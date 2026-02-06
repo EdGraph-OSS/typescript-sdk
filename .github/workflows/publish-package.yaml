@@ -25,6 +25,9 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@EdGraph-OSS'
 
+      - name: Install script dependencies
+        run: npm install glob
+
       - name: "Fix Generated SDK"
         run: node ./.github/workflows/fix-generated-sdk.js
 
