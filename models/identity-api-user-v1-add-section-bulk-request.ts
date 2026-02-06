@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { IdentityApiUserV1AddSectionBulkRequest Types SectionDto } from './identity-api-user-v1-add-section-bulk-request types section-dto';
+import type { IdentityApiUserV1AddSectionBulkRequestTypesSectionDto } from './identity-api-user-v1-add-section-bulk-request-types-section-dto';
 
 /**
  * 
