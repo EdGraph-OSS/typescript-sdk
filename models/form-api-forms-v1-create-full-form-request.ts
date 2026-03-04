@@ -77,6 +77,12 @@ export interface FormApiFormsV1CreateFullFormRequest {
      * @memberof FormApiFormsV1CreateFullFormRequest
      */
     'sections'?: Array<FormApiFormsV1CreateFullSectionRequest> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof FormApiFormsV1CreateFullFormRequest
+     */
+    'image'?: string | null;
 }
 
 

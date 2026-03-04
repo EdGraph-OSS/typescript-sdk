@@ -116,5 +116,11 @@ export interface EdGraphHttpAggregatorsTenantApiServicesFormsV1Form {
      * @memberof EdGraphHttpAggregatorsTenantApiServicesFormsV1Form
      */
     'isDeleted'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesFormsV1Form
+     */
+    'image'?: string | null;
 }
 

@@ -56,5 +56,11 @@ export interface FormApiSectionsV1UpdateSectionRequest {
      * @memberof FormApiSectionsV1UpdateSectionRequest
      */
     'order'?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof FormApiSectionsV1UpdateSectionRequest
+     */
+    'subHeading'?: string | null;
 }
 

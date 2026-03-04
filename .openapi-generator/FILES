@@ -3,6 +3,7 @@
 README.md
 api.ts
 api/analytics-connectors-api.ts
+api/analytics-data-lake-api.ts
 api/analytics-user-authorizations-api.ts
 api/apiclients-api.ts
 api/applications-api.ts
@@ -11,6 +12,7 @@ api/applications-tiles-api.ts
 api/cache-api.ts
 api/capacities-api.ts
 api/categories-api.ts
+api/changes-logs-api.ts
 api/clients-secrets-api.ts
 api/collections-api.ts
 api/configurations-api.ts
@@ -61,6 +63,8 @@ api/my-extensions-api.ts
 api/my-preferences-api.ts
 api/my-profile-api.ts
 api/my-tenants-api.ts
+api/observation-configuration-api.ts
+api/observations-api.ts
 api/onboarding-steps-api.ts
 api/onboarding-steps-connections-api.ts
 api/organizations-api.ts
@@ -74,6 +78,7 @@ api/reports-api.ts
 api/rules-api.ts
 api/sections-api.ts
 api/settings-api.ts
+api/specifications-api.ts
 api/staff-classifications-api.ts
 api/state-reporting-steps-api.ts
 api/submissions-api.ts
@@ -121,6 +126,8 @@ models/analytics-api-groups-v1-create-group-request.ts
 models/analytics-api-groups-v1-group-response.ts
 models/analytics-api-groups-v1-group-users-response.ts
 models/analytics-api-groups-v1-groups-response.ts
+models/analytics-api-lakehouses-v1-lakehouse-record.ts
+models/analytics-api-lakehouses-v1-paginated-lakehouse-records-response.ts
 models/analytics-api-reports-v1-analytics-embed-token.ts
 models/analytics-api-reports-v1-analytics-report-dataset.ts
 models/analytics-api-reports-v1-analytics-report.ts
@@ -143,6 +150,8 @@ models/application-api-application-v1-application-type.ts
 models/application-api-application-v1-paginated-items-response.ts
 models/application-api-application-v1-role.ts
 models/application-api-application-v1-url-type.ts
+models/change-log-change-v1-change-log-response-paginated-items-view-model.ts
+models/change-log-change-v1-change-log-response.ts
 models/data-sync-api-connection-v1-connection-list-response-paginated-items-view-model.ts
 models/data-sync-api-connection-v1-connection-list-response.ts
 models/data-sync-api-connection-v1-connection-metadata.ts
@@ -405,6 +414,7 @@ models/edfi-admin-api-edfi-admin-v1-create-instance-request-school-year.ts
 models/edfi-admin-api-edfi-admin-v1-create-instance-request.ts
 models/edfi-admin-api-edfi-admin-v1-create-local-education-agency-request.ts
 models/edfi-admin-api-edfi-admin-v1-create-onboarding-step-request.ts
+models/edfi-admin-api-edfi-admin-v1-create-specification-request.ts
 models/edfi-admin-api-edfi-admin-v1-create-state-education-agency-request.ts
 models/edfi-admin-api-edfi-admin-v1-create-vendor-request.ts
 models/edfi-admin-api-edfi-admin-v1-database-tier.ts
@@ -439,6 +449,9 @@ models/edfi-admin-api-edfi-admin-v1-education-organization-category-descriptor.t
 models/edfi-admin-api-edfi-admin-v1-education-organization.ts
 models/edfi-admin-api-edfi-admin-v1-education-service-center-created-response.ts
 models/edfi-admin-api-edfi-admin-v1-education-service-center.ts
+models/edfi-admin-api-edfi-admin-v1-export-specifications-request.ts
+models/edfi-admin-api-edfi-admin-v1-export-status.ts
+models/edfi-admin-api-edfi-admin-v1-export-type.ts
 models/edfi-admin-api-edfi-admin-v1-gender-representation.ts
 models/edfi-admin-api-edfi-admin-v1-generate-reports-response.ts
 models/edfi-admin-api-edfi-admin-v1-get-local-education-agency-profile-response.ts
@@ -485,9 +498,17 @@ models/edfi-admin-api-edfi-admin-v1-save-claim-set-request.ts
 models/edfi-admin-api-edfi-admin-v1-save-claim-set-response.ts
 models/edfi-admin-api-edfi-admin-v1-school-count-representation.ts
 models/edfi-admin-api-edfi-admin-v1-schools-by-type-report-response.ts
+models/edfi-admin-api-edfi-admin-v1-search-specifications-request.ts
 models/edfi-admin-api-edfi-admin-v1-secret-encryption-metadata.ts
 models/edfi-admin-api-edfi-admin-v1-secret-value-type.ts
 models/edfi-admin-api-edfi-admin-v1-set-instance-is-default-request.ts
+models/edfi-admin-api-edfi-admin-v1-specification-deleted-response.ts
+models/edfi-admin-api-edfi-admin-v1-specification-purged-response.ts
+models/edfi-admin-api-edfi-admin-v1-specification-recovered-response.ts
+models/edfi-admin-api-edfi-admin-v1-specification-response.ts
+models/edfi-admin-api-edfi-admin-v1-specification-updated-response.ts
+models/edfi-admin-api-edfi-admin-v1-specifications-exported-response.ts
+models/edfi-admin-api-edfi-admin-v1-specifications-search-response.ts
 models/edfi-admin-api-edfi-admin-v1-state-education-agency-created-response.ts
 models/edfi-admin-api-edfi-admin-v1-state-education-agency.ts
 models/edfi-admin-api-edfi-admin-v1-student-economic-situation-report-response.ts
@@ -518,6 +539,7 @@ models/edfi-admin-api-edfi-admin-v1-update-instance-application-request.ts
 models/edfi-admin-api-edfi-admin-v1-update-instance-request.ts
 models/edfi-admin-api-edfi-admin-v1-update-local-education-agency-request.ts
 models/edfi-admin-api-edfi-admin-v1-update-onboarding-step-request.ts
+models/edfi-admin-api-edfi-admin-v1-update-specification-request.ts
 models/edfi-admin-api-edfi-admin-v1-update-state-education-agency-request.ts
 models/edfi-admin-api-edfi-admin-v1-update-vendor-request.ts
 models/edfi-admin-api-edfi-admin-v1-vendor-created-response.ts
@@ -535,6 +557,7 @@ models/evaluation-api-evaluation-settings-v1-users-set-response.ts
 models/evaluation-api-evaluations-v1-campus-response-paginated-items-view-model.ts
 models/evaluation-api-evaluations-v1-campus-response.ts
 models/evaluation-api-evaluations-v1-create-evaluation-request.ts
+models/evaluation-api-evaluations-v1-evaluation-count-response.ts
 models/evaluation-api-evaluations-v1-evaluation-created-response.ts
 models/evaluation-api-evaluations-v1-evaluation-deleted-response.ts
 models/evaluation-api-evaluations-v1-evaluation-response-paginated-items-view-model.ts
@@ -592,6 +615,11 @@ models/form-api-submissions-v1-submission-response.ts
 models/form-api-submissions-v1-submission-updated-response.ts
 models/form-api-submissions-v1-submissions-exported-response.ts
 models/form-api-submissions-v1-update-submission-request.ts
+models/google-protobuf-well-known-types-list-value.ts
+models/google-protobuf-well-known-types-null-value.ts
+models/google-protobuf-well-known-types-struct.ts
+models/google-protobuf-well-known-types-value-kind-oneof-case.ts
+models/google-protobuf-well-known-types-value.ts
 models/identity-api-api-client-v1-access-token-type.ts
 models/identity-api-api-client-v1-api-claim.ts
 models/identity-api-api-client-v1-api-client-created-response.ts

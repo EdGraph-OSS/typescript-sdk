@@ -68,6 +68,12 @@ export interface FormApiFormsV1CreateFormRequest {
      * @memberof FormApiFormsV1CreateFormRequest
      */
     'status'?: FormApiFormsV1FormStatus;
+    /**
+     * 
+     * @type {string}
+     * @memberof FormApiFormsV1CreateFormRequest
+     */
+    'image'?: string | null;
 }
 
 

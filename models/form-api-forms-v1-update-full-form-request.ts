@@ -83,6 +83,12 @@ export interface FormApiFormsV1UpdateFullFormRequest {
      * @memberof FormApiFormsV1UpdateFullFormRequest
      */
     'sections'?: Array<FormApiFormsV1UpdateFullSectionRequest> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof FormApiFormsV1UpdateFullFormRequest
+     */
+    'image'?: string | null;
 }
 
 

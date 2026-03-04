@@ -647,6 +647,52 @@ export const InstancesApplicationsApiAxiosParamCreator = function (configuration
         },
         /**
          * 
+         * @summary Regenerates an application\'s API Client Credentials
+         * @param {string} tenantId 
+         * @param {string} instanceId 
+         * @param {number} applicationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        regenerateApplicationApiClientCredentials: async (tenantId: string, instanceId: string, applicationId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('regenerateApplicationApiClientCredentials', 'tenantId', tenantId)
+            // verify required parameter 'instanceId' is not null or undefined
+            assertParamExists('regenerateApplicationApiClientCredentials', 'instanceId', instanceId)
+            // verify required parameter 'applicationId' is not null or undefined
+            assertParamExists('regenerateApplicationApiClientCredentials', 'applicationId', applicationId)
+            const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId}/apiclients/regenerate`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
+                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
+                .replace(`{${"applicationId"}}`, encodeURIComponent(String(applicationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Copies an Application from one instance to another/other instance(s)
          * @param {string} tenantId 
          * @param {string} instanceId 
@@ -998,6 +1044,21 @@ export const InstancesApplicationsApiFp = function(configuration?: Configuration
         },
         /**
          * 
+         * @summary Regenerates an application\'s API Client Credentials
+         * @param {string} tenantId 
+         * @param {string} instanceId 
+         * @param {number} applicationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async regenerateApplicationApiClientCredentials(tenantId: string, instanceId: string, applicationId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdfiAdminApiEdfiAdminV1RegenerateApiClientSecretResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.regenerateApplicationApiClientCredentials(tenantId, instanceId, applicationId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InstancesApplicationsApi.regenerateApplicationApiClientCredentials']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Copies an Application from one instance to another/other instance(s)
          * @param {string} tenantId 
          * @param {string} instanceId 
@@ -1165,6 +1226,16 @@ export const InstancesApplicationsApiFactory = function (configuration?: Configu
          */
         regenerateApiClientSecretAsync(requestParameters: InstancesApplicationsApiRegenerateApiClientSecretAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdfiAdminApiEdfiAdminV1RegenerateApiClientSecretResponse> {
             return localVarFp.regenerateApiClientSecretAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.applicationId, requestParameters.apiClientId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Regenerates an application\'s API Client Credentials
+         * @param {InstancesApplicationsApiRegenerateApplicationApiClientCredentialsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        regenerateApplicationApiClientCredentials(requestParameters: InstancesApplicationsApiRegenerateApplicationApiClientCredentialsRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdfiAdminApiEdfiAdminV1RegenerateApiClientSecretResponse> {
+            return localVarFp.regenerateApplicationApiClientCredentials(requestParameters.tenantId, requestParameters.instanceId, requestParameters.applicationId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1634,6 +1705,34 @@ export interface InstancesApplicationsApiRegenerateApiClientSecretAsyncRequest {
 }
 
 /**
+ * Request parameters for regenerateApplicationApiClientCredentials operation in InstancesApplicationsApi.
+ * @export
+ * @interface InstancesApplicationsApiRegenerateApplicationApiClientCredentialsRequest
+ */
+export interface InstancesApplicationsApiRegenerateApplicationApiClientCredentialsRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof InstancesApplicationsApiRegenerateApplicationApiClientCredentials
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof InstancesApplicationsApiRegenerateApplicationApiClientCredentials
+     */
+    readonly instanceId: string
+
+    /**
+     * 
+     * @type {number}
+     * @memberof InstancesApplicationsApiRegenerateApplicationApiClientCredentials
+     */
+    readonly applicationId: number
+}
+
+/**
  * Request parameters for syncApplicationAsync operation in InstancesApplicationsApi.
  * @export
  * @interface InstancesApplicationsApiSyncApplicationAsyncRequest
@@ -1889,6 +1988,18 @@ export class InstancesApplicationsApi extends BaseAPI {
      */
     public regenerateApiClientSecretAsync(requestParameters: InstancesApplicationsApiRegenerateApiClientSecretAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesApplicationsApiFp(this.configuration).regenerateApiClientSecretAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.applicationId, requestParameters.apiClientId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Regenerates an application\'s API Client Credentials
+     * @param {InstancesApplicationsApiRegenerateApplicationApiClientCredentialsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InstancesApplicationsApi
+     */
+    public regenerateApplicationApiClientCredentials(requestParameters: InstancesApplicationsApiRegenerateApplicationApiClientCredentialsRequest, options?: RawAxiosRequestConfig) {
+        return InstancesApplicationsApiFp(this.configuration).regenerateApplicationApiClientCredentials(requestParameters.tenantId, requestParameters.instanceId, requestParameters.applicationId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

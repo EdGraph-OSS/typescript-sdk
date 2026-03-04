@@ -98,5 +98,11 @@ export interface FormApiSectionsV1SectionResponse {
      * @memberof FormApiSectionsV1SectionResponse
      */
     'order'?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof FormApiSectionsV1SectionResponse
+     */
+    'subHeading'?: string | null;
 }
 

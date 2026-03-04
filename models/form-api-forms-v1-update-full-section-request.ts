@@ -53,5 +53,11 @@ export interface FormApiFormsV1UpdateFullSectionRequest {
      * @memberof FormApiFormsV1UpdateFullSectionRequest
      */
     'order'?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof FormApiFormsV1UpdateFullSectionRequest
+     */
+    'subHeading'?: string | null;
 }
 

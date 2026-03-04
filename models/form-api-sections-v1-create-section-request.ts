@@ -50,5 +50,11 @@ export interface FormApiSectionsV1CreateSectionRequest {
      * @memberof FormApiSectionsV1CreateSectionRequest
      */
     'order'?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof FormApiSectionsV1CreateSectionRequest
+     */
+    'subHeading'?: string | null;
 }
 

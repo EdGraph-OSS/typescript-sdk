@@ -56,10 +56,12 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} [tags] 
          * @param {boolean} [isVisible] 
          * @param {string} [version] 
+         * @param {boolean} [identityRequired] 
+         * @param {boolean} [rolesRequired] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createReportAsync: async (tenantId: string, file?: File, name?: string, shortDescription?: string, description?: string, tags?: string, isVisible?: boolean, version?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createReportAsync: async (tenantId: string, file?: File, name?: string, shortDescription?: string, description?: string, tags?: string, isVisible?: boolean, version?: string, identityRequired?: boolean, rolesRequired?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createReportAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/reports`
@@ -107,6 +109,14 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
     
             if (version !== undefined) { 
                 localVarFormParams.append('Version', version as any);
+            }
+    
+            if (identityRequired !== undefined) { 
+                localVarFormParams.append('IdentityRequired', String(identityRequired) as any);
+            }
+    
+            if (rolesRequired !== undefined) { 
+                localVarFormParams.append('RolesRequired', String(rolesRequired) as any);
             }
     
     
@@ -511,11 +521,13 @@ export const ReportsApiFp = function(configuration?: Configuration) {
          * @param {string} [tags] 
          * @param {boolean} [isVisible] 
          * @param {string} [version] 
+         * @param {boolean} [identityRequired] 
+         * @param {boolean} [rolesRequired] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createReportAsync(tenantId: string, file?: File, name?: string, shortDescription?: string, description?: string, tags?: string, isVisible?: boolean, version?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnalyticsApiReportsV1ReportIdResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createReportAsync(tenantId, file, name, shortDescription, description, tags, isVisible, version, options);
+        async createReportAsync(tenantId: string, file?: File, name?: string, shortDescription?: string, description?: string, tags?: string, isVisible?: boolean, version?: string, identityRequired?: boolean, rolesRequired?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnalyticsApiReportsV1ReportIdResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createReportAsync(tenantId, file, name, shortDescription, description, tags, isVisible, version, identityRequired, rolesRequired, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ReportsApi.createReportAsync']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -650,7 +662,7 @@ export const ReportsApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         createReportAsync(requestParameters: ReportsApiCreateReportAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<AnalyticsApiReportsV1ReportIdResponse> {
-            return localVarFp.createReportAsync(requestParameters.tenantId, requestParameters.file, requestParameters.name, requestParameters.shortDescription, requestParameters.description, requestParameters.tags, requestParameters.isVisible, requestParameters.version, options).then((request) => request(axios, basePath));
+            return localVarFp.createReportAsync(requestParameters.tenantId, requestParameters.file, requestParameters.name, requestParameters.shortDescription, requestParameters.description, requestParameters.tags, requestParameters.isVisible, requestParameters.version, requestParameters.identityRequired, requestParameters.rolesRequired, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -786,6 +798,20 @@ export interface ReportsApiCreateReportAsyncRequest {
      * @memberof ReportsApiCreateReportAsync
      */
     readonly version?: string
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ReportsApiCreateReportAsync
+     */
+    readonly identityRequired?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ReportsApiCreateReportAsync
+     */
+    readonly rolesRequired?: boolean
 }
 
 /**
@@ -1049,7 +1075,7 @@ export class ReportsApi extends BaseAPI {
      * @memberof ReportsApi
      */
     public createReportAsync(requestParameters: ReportsApiCreateReportAsyncRequest, options?: RawAxiosRequestConfig) {
-        return ReportsApiFp(this.configuration).createReportAsync(requestParameters.tenantId, requestParameters.file, requestParameters.name, requestParameters.shortDescription, requestParameters.description, requestParameters.tags, requestParameters.isVisible, requestParameters.version, options).then((request) => request(this.axios, this.basePath));
+        return ReportsApiFp(this.configuration).createReportAsync(requestParameters.tenantId, requestParameters.file, requestParameters.name, requestParameters.shortDescription, requestParameters.description, requestParameters.tags, requestParameters.isVisible, requestParameters.version, requestParameters.identityRequired, requestParameters.rolesRequired, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

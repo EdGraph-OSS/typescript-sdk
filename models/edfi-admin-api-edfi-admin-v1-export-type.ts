@@ -20,19 +20,13 @@
  * @enum {string}
  */
 
-export const FormApiQuestionsV1QuestionType = {
+export const EdfiAdminApiEdfiAdminV1ExportType = {
     Unknown: 'Unknown',
-    TextArea: 'TextArea',
-    Select: 'Select',
-    Date: 'Date',
-    Radio: 'Radio',
-    CustomComponent: 'CustomComponent',
-    Scoring: 'Scoring',
-    Html: 'Html',
-    Image: 'Image'
+    Json: 'Json',
+    Csv: 'Csv'
 } as const;
 
-export type FormApiQuestionsV1QuestionType = typeof FormApiQuestionsV1QuestionType[keyof typeof FormApiQuestionsV1QuestionType];
+export type EdfiAdminApiEdfiAdminV1ExportType = typeof EdfiAdminApiEdfiAdminV1ExportType[keyof typeof EdfiAdminApiEdfiAdminV1ExportType];
 
 
 

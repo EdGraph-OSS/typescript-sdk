@@ -74,6 +74,12 @@ export interface FormApiFormsV1UpdateFormRequest {
      * @memberof FormApiFormsV1UpdateFormRequest
      */
     'status'?: FormApiFormsV1FormStatus;
+    /**
+     * 
+     * @type {string}
+     * @memberof FormApiFormsV1UpdateFormRequest
+     */
+    'image'?: string | null;
 }
 
 
