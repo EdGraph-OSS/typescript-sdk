@@ -97,6 +97,7 @@ export * from './api/submissions-api';
 export * from './api/subscriptions-api';
 export * from './api/tags-api';
 export * from './api/tenant-branding-api';
+export * from './api/tenant-dsl-api';
 export * from './api/tenant-instances-api';
 export * from './api/tenant-security-score-sync-api';
 export * from './api/tenant-setting-types-api';

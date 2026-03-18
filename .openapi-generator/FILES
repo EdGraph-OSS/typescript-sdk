@@ -85,6 +85,7 @@ api/submissions-api.ts
 api/subscriptions-api.ts
 api/tags-api.ts
 api/tenant-branding-api.ts
+api/tenant-dsl-api.ts
 api/tenant-instances-api.ts
 api/tenant-security-score-sync-api.ts
 api/tenant-setting-types-api.ts
@@ -158,6 +159,11 @@ models/data-sync-api-connection-v1-connection-metadata.ts
 models/data-sync-api-connection-v1-connection-profile-response.ts
 models/data-sync-api-connection-v1-connection-tested-response.ts
 models/data-sync-api-connection-v1-test-connection-request.ts
+models/data-sync-api-dsl-v1-create-job-request.ts
+models/data-sync-api-dsl-v1-dsl-job-executed-response.ts
+models/data-sync-api-dsl-v1-dsl-profile.ts
+models/data-sync-api-dsl-v1-job-created-response.ts
+models/data-sync-api-dsl-v1-update-job-request.ts
 models/data-sync-api-ed-fi-roster-sync-v1-ed-fi-roster-sync-job-mode.ts
 models/data-sync-api-ed-fi-roster-sync-v1-ed-fi-roster-sync-job-profile.ts
 models/data-sync-api-ed-fi-roster-sync-v1-ed-fi-roster-sync-job-provider.ts
