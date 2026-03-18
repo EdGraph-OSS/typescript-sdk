@@ -24,29 +24,23 @@ import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError
 // @ts-ignore
 import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 // @ts-ignore
-import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse } from '../models';
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse } from '../models';
 // @ts-ignore
-import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse } from '../models';
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest } from '../models';
 // @ts-ignore
-import type { EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel } from '../models';
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse } from '../models';
 // @ts-ignore
-import type { EvaluationApiEvaluationsV1CreateEvaluationRequest } from '../models';
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse } from '../models';
 // @ts-ignore
-import type { EvaluationApiEvaluationsV1EvaluationCountResponse } from '../models';
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse } from '../models';
 // @ts-ignore
-import type { EvaluationApiEvaluationsV1EvaluationCreatedResponse } from '../models';
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse } from '../models';
 // @ts-ignore
-import type { EvaluationApiEvaluationsV1EvaluationDeletedResponse } from '../models';
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse } from '../models';
 // @ts-ignore
-import type { EvaluationApiEvaluationsV1EvaluationResponse } from '../models';
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse } from '../models';
 // @ts-ignore
-import type { EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel } from '../models';
-// @ts-ignore
-import type { EvaluationApiEvaluationsV1EvaluationUpdatedResponse } from '../models';
-// @ts-ignore
-import type { EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel } from '../models';
-// @ts-ignore
-import type { EvaluationApiEvaluationsV1UpdateEvaluationRequest } from '../models';
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel } from '../models';
 // @ts-ignore
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
@@ -59,11 +53,11 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
          * 
          * @summary Creates a new Observation for a given tenant
          * @param {string} tenantId 
-         * @param {EvaluationApiEvaluationsV1CreateEvaluationRequest} [evaluationApiEvaluationsV1CreateEvaluationRequest] 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createObservation: async (tenantId: string, evaluationApiEvaluationsV1CreateEvaluationRequest?: EvaluationApiEvaluationsV1CreateEvaluationRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createObservation: async (tenantId: string, edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createObservation', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations`
@@ -90,7 +84,7 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(evaluationApiEvaluationsV1CreateEvaluationRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -147,11 +141,11 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getObservation: async (tenantId: string, observationId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getObservationById: async (tenantId: string, observationId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
-            assertParamExists('getObservation', 'tenantId', tenantId)
+            assertParamExists('getObservationById', 'tenantId', tenantId)
             // verify required parameter 'observationId' is not null or undefined
-            assertParamExists('getObservation', 'observationId', observationId)
+            assertParamExists('getObservationById', 'observationId', observationId)
             const localVarPath = `/tenants/{tenantId}/observations/{observationId}`
                 .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
                 .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)));
@@ -183,55 +177,17 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
         },
         /**
          * 
-         * @param {string} tenantId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getObservationCount: async (tenantId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenantId' is not null or undefined
-            assertParamExists('getObservationCount', 'tenantId', tenantId)
-            const localVarPath = `/tenants/{tenantId}/observations/count`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Searches the Campuses associated with an Observation for a given Tenant.
+         * @summary Get Available Campuses
          * @param {string} tenantId 
          * @param {number} [pageSize] 
          * @param {number} [pageIndex] 
          * @param {string} [orderBy] 
-         * @param {string} [filter] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        searchObservationCampuses: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getPaginatedAvailableCampuses: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
-            assertParamExists('searchObservationCampuses', 'tenantId', tenantId)
+            assertParamExists('getPaginatedAvailableCampuses', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/campuses`
                 .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -261,6 +217,60 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get Paginated Available Forms
+         * @param {string} tenantId 
+         * @param {number} [pageIndex] 
+         * @param {number} [pageSize] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPaginatedAvailableForms: async (tenantId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getPaginatedAvailableForms', 'tenantId', tenantId)
+            const localVarPath = `/tenants/{tenantId}/observations/forms/available`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            if (pageIndex !== undefined) {
+                localVarQueryParameter['pageIndex'] = pageIndex;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['orderBy'] = orderBy;
+            }
+
             if (filter !== undefined) {
                 localVarQueryParameter['filter'] = filter;
             }
@@ -278,18 +288,19 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
         },
         /**
          * 
-         * @summary Searches the Staff associated with an Observation for a given Tenant.
+         * @summary Get paginated evaluees
          * @param {string} tenantId 
          * @param {number} [pageSize] 
          * @param {number} [pageIndex] 
          * @param {string} [orderBy] 
-         * @param {string} [filter] 
+         * @param {string} [campus] 
+         * @param {string} [evalueeId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        searchObservationEvaluees: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getPaginatedEvaluees: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, campus?: string, evalueeId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
-            assertParamExists('searchObservationEvaluees', 'tenantId', tenantId)
+            assertParamExists('getPaginatedEvaluees', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/evaluees`
                 .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -319,8 +330,12 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
+            if (campus !== undefined) {
+                localVarQueryParameter['campus'] = campus;
+            }
+
+            if (evalueeId !== undefined) {
+                localVarQueryParameter['evalueeId'] = evalueeId;
             }
 
 
@@ -336,134 +351,24 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
         },
         /**
          * 
-         * @summary Searches the Forms associated with an Observation for a given Tenant.
+         * @summary Get Paginated Observations for a given tenant
          * @param {string} tenantId 
          * @param {number} [pageSize] 
          * @param {number} [pageIndex] 
          * @param {string} [orderBy] 
-         * @param {string} [filter] 
+         * @param {string} [campus] 
+         * @param {string} [evalueeName] 
+         * @param {string} [evalueeId] 
+         * @param {string} [formId] 
+         * @param {string} [status] 
+         * @param {string} [from] 
+         * @param {string} [to] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        searchObservationForms: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getPaginatedObservations: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, campus?: string, evalueeName?: string, evalueeId?: string, formId?: string, status?: string, from?: string, to?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
-            assertParamExists('searchObservationForms', 'tenantId', tenantId)
-            const localVarPath = `/tenants/{tenantId}/observations/forms`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
-
-            if (pageSize !== undefined) {
-                localVarQueryParameter['pageSize'] = pageSize;
-            }
-
-            if (pageIndex !== undefined) {
-                localVarQueryParameter['pageIndex'] = pageIndex;
-            }
-
-            if (orderBy !== undefined) {
-                localVarQueryParameter['orderBy'] = orderBy;
-            }
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Searches the Appraisers associated with an Observation for a given Tenant.
-         * @param {string} tenantId 
-         * @param {number} [pageSize] 
-         * @param {number} [pageIndex] 
-         * @param {string} [orderBy] 
-         * @param {string} [filter] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        searchObservationObservers: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenantId' is not null or undefined
-            assertParamExists('searchObservationObservers', 'tenantId', tenantId)
-            const localVarPath = `/tenants/{tenantId}/observations/observers`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
-
-            if (pageSize !== undefined) {
-                localVarQueryParameter['pageSize'] = pageSize;
-            }
-
-            if (pageIndex !== undefined) {
-                localVarQueryParameter['pageIndex'] = pageIndex;
-            }
-
-            if (orderBy !== undefined) {
-                localVarQueryParameter['orderBy'] = orderBy;
-            }
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Searches the Observations for a given tenant
-         * @param {string} tenantId 
-         * @param {number} [pageSize] 
-         * @param {number} [pageIndex] 
-         * @param {string} [orderBy] 
-         * @param {string} [filter] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        searchObservations: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenantId' is not null or undefined
-            assertParamExists('searchObservations', 'tenantId', tenantId)
+            assertParamExists('getPaginatedObservations', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations`
                 .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -493,8 +398,32 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
+            if (campus !== undefined) {
+                localVarQueryParameter['campus'] = campus;
+            }
+
+            if (evalueeName !== undefined) {
+                localVarQueryParameter['evalueeName'] = evalueeName;
+            }
+
+            if (evalueeId !== undefined) {
+                localVarQueryParameter['evalueeId'] = evalueeId;
+            }
+
+            if (formId !== undefined) {
+                localVarQueryParameter['formId'] = formId;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+
+            if (to !== undefined) {
+                localVarQueryParameter['to'] = to;
             }
 
 
@@ -510,21 +439,18 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
         },
         /**
          * 
-         * @summary Updates an Observation for a given tenant
+         * @summary Get submitted Observations count
          * @param {string} tenantId 
-         * @param {string} observationId 
-         * @param {EvaluationApiEvaluationsV1UpdateEvaluationRequest} [evaluationApiEvaluationsV1UpdateEvaluationRequest] 
+         * @param {string} [evalueeId] 
+         * @param {string} [campus] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateObservation: async (tenantId: string, observationId: string, evaluationApiEvaluationsV1UpdateEvaluationRequest?: EvaluationApiEvaluationsV1UpdateEvaluationRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSubmittedObservationsCount: async (tenantId: string, evalueeId?: string, campus?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
-            assertParamExists('updateObservation', 'tenantId', tenantId)
-            // verify required parameter 'observationId' is not null or undefined
-            assertParamExists('updateObservation', 'observationId', observationId)
-            const localVarPath = `/tenants/{tenantId}/observations/{observationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)));
+            assertParamExists('getSubmittedObservationsCount', 'tenantId', tenantId)
+            const localVarPath = `/tenants/{tenantId}/submittedobservations`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -532,7 +458,7 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -540,14 +466,19 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            if (evalueeId !== undefined) {
+                localVarQueryParameter['evalueeId'] = evalueeId;
+            }
+
+            if (campus !== undefined) {
+                localVarQueryParameter['campus'] = campus;
+            }
+
 
     
-            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
-
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(evaluationApiEvaluationsV1UpdateEvaluationRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -568,12 +499,12 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
          * 
          * @summary Creates a new Observation for a given tenant
          * @param {string} tenantId 
-         * @param {EvaluationApiEvaluationsV1CreateEvaluationRequest} [evaluationApiEvaluationsV1CreateEvaluationRequest] 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createObservation(tenantId: string, evaluationApiEvaluationsV1CreateEvaluationRequest?: EvaluationApiEvaluationsV1CreateEvaluationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EvaluationApiEvaluationsV1EvaluationCreatedResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createObservation(tenantId, evaluationApiEvaluationsV1CreateEvaluationRequest, options);
+        async createObservation(tenantId: string, edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createObservation(tenantId, edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.createObservation']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -586,7 +517,7 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteObservation(tenantId: string, observationId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EvaluationApiEvaluationsV1EvaluationDeletedResponse>> {
+        async deleteObservation(tenantId: string, observationId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteObservation(tenantId, observationId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.deleteObservation']?.[localVarOperationServerIndex]?.url;
@@ -600,122 +531,99 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getObservation(tenantId: string, observationId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EvaluationApiEvaluationsV1EvaluationResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getObservation(tenantId, observationId, options);
+        async getObservationById(tenantId: string, observationId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getObservationById(tenantId, observationId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getObservation']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getObservationById']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
-         * @param {string} tenantId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getObservationCount(tenantId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EvaluationApiEvaluationsV1EvaluationCountResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getObservationCount(tenantId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getObservationCount']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @summary Searches the Campuses associated with an Observation for a given Tenant.
+         * @summary Get Available Campuses
          * @param {string} tenantId 
          * @param {number} [pageSize] 
          * @param {number} [pageIndex] 
+         * @param {string} [orderBy] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPaginatedAvailableCampuses(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPaginatedAvailableCampuses(tenantId, pageSize, pageIndex, orderBy, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getPaginatedAvailableCampuses']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Get Paginated Available Forms
+         * @param {string} tenantId 
+         * @param {number} [pageIndex] 
+         * @param {number} [pageSize] 
          * @param {string} [orderBy] 
          * @param {string} [filter] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async searchObservationCampuses(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchObservationCampuses(tenantId, pageSize, pageIndex, orderBy, filter, options);
+        async getPaginatedAvailableForms(tenantId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPaginatedAvailableForms(tenantId, pageIndex, pageSize, orderBy, filter, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.searchObservationCampuses']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getPaginatedAvailableForms']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
-         * @summary Searches the Staff associated with an Observation for a given Tenant.
+         * @summary Get paginated evaluees
          * @param {string} tenantId 
          * @param {number} [pageSize] 
          * @param {number} [pageIndex] 
          * @param {string} [orderBy] 
-         * @param {string} [filter] 
+         * @param {string} [campus] 
+         * @param {string} [evalueeId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async searchObservationEvaluees(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchObservationEvaluees(tenantId, pageSize, pageIndex, orderBy, filter, options);
+        async getPaginatedEvaluees(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, campus?: string, evalueeId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPaginatedEvaluees(tenantId, pageSize, pageIndex, orderBy, campus, evalueeId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.searchObservationEvaluees']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getPaginatedEvaluees']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
-         * @summary Searches the Forms associated with an Observation for a given Tenant.
+         * @summary Get Paginated Observations for a given tenant
          * @param {string} tenantId 
          * @param {number} [pageSize] 
          * @param {number} [pageIndex] 
          * @param {string} [orderBy] 
-         * @param {string} [filter] 
+         * @param {string} [campus] 
+         * @param {string} [evalueeName] 
+         * @param {string} [evalueeId] 
+         * @param {string} [formId] 
+         * @param {string} [status] 
+         * @param {string} [from] 
+         * @param {string} [to] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async searchObservationForms(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchObservationForms(tenantId, pageSize, pageIndex, orderBy, filter, options);
+        async getPaginatedObservations(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, campus?: string, evalueeName?: string, evalueeId?: string, formId?: string, status?: string, from?: string, to?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPaginatedObservations(tenantId, pageSize, pageIndex, orderBy, campus, evalueeName, evalueeId, formId, status, from, to, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.searchObservationForms']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getPaginatedObservations']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
-         * @summary Searches the Appraisers associated with an Observation for a given Tenant.
+         * @summary Get submitted Observations count
          * @param {string} tenantId 
-         * @param {number} [pageSize] 
-         * @param {number} [pageIndex] 
-         * @param {string} [orderBy] 
-         * @param {string} [filter] 
+         * @param {string} [evalueeId] 
+         * @param {string} [campus] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async searchObservationObservers(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchObservationObservers(tenantId, pageSize, pageIndex, orderBy, filter, options);
+        async getSubmittedObservationsCount(tenantId: string, evalueeId?: string, campus?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSubmittedObservationsCount(tenantId, evalueeId, campus, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.searchObservationObservers']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @summary Searches the Observations for a given tenant
-         * @param {string} tenantId 
-         * @param {number} [pageSize] 
-         * @param {number} [pageIndex] 
-         * @param {string} [orderBy] 
-         * @param {string} [filter] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async searchObservations(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchObservations(tenantId, pageSize, pageIndex, orderBy, filter, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.searchObservations']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @summary Updates an Observation for a given tenant
-         * @param {string} tenantId 
-         * @param {string} observationId 
-         * @param {EvaluationApiEvaluationsV1UpdateEvaluationRequest} [evaluationApiEvaluationsV1UpdateEvaluationRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateObservation(tenantId: string, observationId: string, evaluationApiEvaluationsV1UpdateEvaluationRequest?: EvaluationApiEvaluationsV1UpdateEvaluationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EvaluationApiEvaluationsV1EvaluationUpdatedResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateObservation(tenantId, observationId, evaluationApiEvaluationsV1UpdateEvaluationRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.updateObservation']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getSubmittedObservationsCount']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -735,8 +643,8 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createObservation(requestParameters: ObservationsApiCreateObservationRequest, options?: RawAxiosRequestConfig): AxiosPromise<EvaluationApiEvaluationsV1EvaluationCreatedResponse> {
-            return localVarFp.createObservation(requestParameters.tenantId, requestParameters.evaluationApiEvaluationsV1CreateEvaluationRequest, options).then((request) => request(axios, basePath));
+        createObservation(requestParameters: ObservationsApiCreateObservationRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse> {
+            return localVarFp.createObservation(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -745,87 +653,68 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteObservation(requestParameters: ObservationsApiDeleteObservationRequest, options?: RawAxiosRequestConfig): AxiosPromise<EvaluationApiEvaluationsV1EvaluationDeletedResponse> {
+        deleteObservation(requestParameters: ObservationsApiDeleteObservationRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse> {
             return localVarFp.deleteObservation(requestParameters.tenantId, requestParameters.observationId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get an Observation for a given tenant
-         * @param {ObservationsApiGetObservationRequest} requestParameters Request parameters.
+         * @param {ObservationsApiGetObservationByIdRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getObservation(requestParameters: ObservationsApiGetObservationRequest, options?: RawAxiosRequestConfig): AxiosPromise<EvaluationApiEvaluationsV1EvaluationResponse> {
-            return localVarFp.getObservation(requestParameters.tenantId, requestParameters.observationId, options).then((request) => request(axios, basePath));
+        getObservationById(requestParameters: ObservationsApiGetObservationByIdRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse> {
+            return localVarFp.getObservationById(requestParameters.tenantId, requestParameters.observationId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {ObservationsApiGetObservationCountRequest} requestParameters Request parameters.
+         * @summary Get Available Campuses
+         * @param {ObservationsApiGetPaginatedAvailableCampusesRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getObservationCount(requestParameters: ObservationsApiGetObservationCountRequest, options?: RawAxiosRequestConfig): AxiosPromise<EvaluationApiEvaluationsV1EvaluationCountResponse> {
-            return localVarFp.getObservationCount(requestParameters.tenantId, options).then((request) => request(axios, basePath));
+        getPaginatedAvailableCampuses(requestParameters: ObservationsApiGetPaginatedAvailableCampusesRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse> {
+            return localVarFp.getPaginatedAvailableCampuses(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @summary Searches the Campuses associated with an Observation for a given Tenant.
-         * @param {ObservationsApiSearchObservationCampusesRequest} requestParameters Request parameters.
+         * @summary Get Paginated Available Forms
+         * @param {ObservationsApiGetPaginatedAvailableFormsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        searchObservationCampuses(requestParameters: ObservationsApiSearchObservationCampusesRequest, options?: RawAxiosRequestConfig): AxiosPromise<EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel> {
-            return localVarFp.searchObservationCampuses(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
+        getPaginatedAvailableForms(requestParameters: ObservationsApiGetPaginatedAvailableFormsRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse> {
+            return localVarFp.getPaginatedAvailableForms(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @summary Searches the Staff associated with an Observation for a given Tenant.
-         * @param {ObservationsApiSearchObservationEvalueesRequest} requestParameters Request parameters.
+         * @summary Get paginated evaluees
+         * @param {ObservationsApiGetPaginatedEvalueesRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        searchObservationEvaluees(requestParameters: ObservationsApiSearchObservationEvalueesRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse> {
-            return localVarFp.searchObservationEvaluees(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
+        getPaginatedEvaluees(requestParameters: ObservationsApiGetPaginatedEvalueesRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse> {
+            return localVarFp.getPaginatedEvaluees(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.campus, requestParameters.evalueeId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @summary Searches the Forms associated with an Observation for a given Tenant.
-         * @param {ObservationsApiSearchObservationFormsRequest} requestParameters Request parameters.
+         * @summary Get Paginated Observations for a given tenant
+         * @param {ObservationsApiGetPaginatedObservationsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        searchObservationForms(requestParameters: ObservationsApiSearchObservationFormsRequest, options?: RawAxiosRequestConfig): AxiosPromise<EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel> {
-            return localVarFp.searchObservationForms(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
+        getPaginatedObservations(requestParameters: ObservationsApiGetPaginatedObservationsRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel> {
+            return localVarFp.getPaginatedObservations(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.campus, requestParameters.evalueeName, requestParameters.evalueeId, requestParameters.formId, requestParameters.status, requestParameters.from, requestParameters.to, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @summary Searches the Appraisers associated with an Observation for a given Tenant.
-         * @param {ObservationsApiSearchObservationObserversRequest} requestParameters Request parameters.
+         * @summary Get submitted Observations count
+         * @param {ObservationsApiGetSubmittedObservationsCountRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        searchObservationObservers(requestParameters: ObservationsApiSearchObservationObserversRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse> {
-            return localVarFp.searchObservationObservers(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Searches the Observations for a given tenant
-         * @param {ObservationsApiSearchObservationsRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        searchObservations(requestParameters: ObservationsApiSearchObservationsRequest, options?: RawAxiosRequestConfig): AxiosPromise<EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel> {
-            return localVarFp.searchObservations(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Updates an Observation for a given tenant
-         * @param {ObservationsApiUpdateObservationRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateObservation(requestParameters: ObservationsApiUpdateObservationRequest, options?: RawAxiosRequestConfig): AxiosPromise<EvaluationApiEvaluationsV1EvaluationUpdatedResponse> {
-            return localVarFp.updateObservation(requestParameters.tenantId, requestParameters.observationId, requestParameters.evaluationApiEvaluationsV1UpdateEvaluationRequest, options).then((request) => request(axios, basePath));
+        getSubmittedObservationsCount(requestParameters: ObservationsApiGetSubmittedObservationsCountRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse> {
+            return localVarFp.getSubmittedObservationsCount(requestParameters.tenantId, requestParameters.evalueeId, requestParameters.campus, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -845,10 +734,10 @@ export interface ObservationsApiCreateObservationRequest {
 
     /**
      * 
-     * @type {EvaluationApiEvaluationsV1CreateEvaluationRequest}
+     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest}
      * @memberof ObservationsApiCreateObservation
      */
-    readonly evaluationApiEvaluationsV1CreateEvaluationRequest?: EvaluationApiEvaluationsV1CreateEvaluationRequest
+    readonly edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest
 }
 
 /**
@@ -873,276 +762,262 @@ export interface ObservationsApiDeleteObservationRequest {
 }
 
 /**
- * Request parameters for getObservation operation in ObservationsApi.
+ * Request parameters for getObservationById operation in ObservationsApi.
  * @export
- * @interface ObservationsApiGetObservationRequest
+ * @interface ObservationsApiGetObservationByIdRequest
  */
-export interface ObservationsApiGetObservationRequest {
+export interface ObservationsApiGetObservationByIdRequest {
     /**
      * 
      * @type {string}
-     * @memberof ObservationsApiGetObservation
+     * @memberof ObservationsApiGetObservationById
      */
     readonly tenantId: string
 
     /**
      * 
      * @type {string}
-     * @memberof ObservationsApiGetObservation
+     * @memberof ObservationsApiGetObservationById
      */
     readonly observationId: string
 }
 
 /**
- * Request parameters for getObservationCount operation in ObservationsApi.
+ * Request parameters for getPaginatedAvailableCampuses operation in ObservationsApi.
  * @export
- * @interface ObservationsApiGetObservationCountRequest
+ * @interface ObservationsApiGetPaginatedAvailableCampusesRequest
  */
-export interface ObservationsApiGetObservationCountRequest {
+export interface ObservationsApiGetPaginatedAvailableCampusesRequest {
     /**
      * 
      * @type {string}
-     * @memberof ObservationsApiGetObservationCount
-     */
-    readonly tenantId: string
-}
-
-/**
- * Request parameters for searchObservationCampuses operation in ObservationsApi.
- * @export
- * @interface ObservationsApiSearchObservationCampusesRequest
- */
-export interface ObservationsApiSearchObservationCampusesRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ObservationsApiSearchObservationCampuses
+     * @memberof ObservationsApiGetPaginatedAvailableCampuses
      */
     readonly tenantId: string
 
     /**
      * 
      * @type {number}
-     * @memberof ObservationsApiSearchObservationCampuses
+     * @memberof ObservationsApiGetPaginatedAvailableCampuses
      */
     readonly pageSize?: number
 
     /**
      * 
      * @type {number}
-     * @memberof ObservationsApiSearchObservationCampuses
+     * @memberof ObservationsApiGetPaginatedAvailableCampuses
      */
     readonly pageIndex?: number
 
     /**
      * 
      * @type {string}
-     * @memberof ObservationsApiSearchObservationCampuses
+     * @memberof ObservationsApiGetPaginatedAvailableCampuses
      */
     readonly orderBy?: string
-
-    /**
-     * 
-     * @type {string}
-     * @memberof ObservationsApiSearchObservationCampuses
-     */
-    readonly filter?: string
 }
 
 /**
- * Request parameters for searchObservationEvaluees operation in ObservationsApi.
+ * Request parameters for getPaginatedAvailableForms operation in ObservationsApi.
  * @export
- * @interface ObservationsApiSearchObservationEvalueesRequest
+ * @interface ObservationsApiGetPaginatedAvailableFormsRequest
  */
-export interface ObservationsApiSearchObservationEvalueesRequest {
+export interface ObservationsApiGetPaginatedAvailableFormsRequest {
     /**
      * 
      * @type {string}
-     * @memberof ObservationsApiSearchObservationEvaluees
+     * @memberof ObservationsApiGetPaginatedAvailableForms
      */
     readonly tenantId: string
 
     /**
      * 
      * @type {number}
-     * @memberof ObservationsApiSearchObservationEvaluees
+     * @memberof ObservationsApiGetPaginatedAvailableForms
+     */
+    readonly pageIndex?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ObservationsApiGetPaginatedAvailableForms
+     */
+    readonly pageSize?: number
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetPaginatedAvailableForms
+     */
+    readonly orderBy?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetPaginatedAvailableForms
+     */
+    readonly filter?: string
+}
+
+/**
+ * Request parameters for getPaginatedEvaluees operation in ObservationsApi.
+ * @export
+ * @interface ObservationsApiGetPaginatedEvalueesRequest
+ */
+export interface ObservationsApiGetPaginatedEvalueesRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetPaginatedEvaluees
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ObservationsApiGetPaginatedEvaluees
      */
     readonly pageSize?: number
 
     /**
      * 
      * @type {number}
-     * @memberof ObservationsApiSearchObservationEvaluees
+     * @memberof ObservationsApiGetPaginatedEvaluees
      */
     readonly pageIndex?: number
 
     /**
      * 
      * @type {string}
-     * @memberof ObservationsApiSearchObservationEvaluees
+     * @memberof ObservationsApiGetPaginatedEvaluees
      */
     readonly orderBy?: string
 
     /**
      * 
      * @type {string}
-     * @memberof ObservationsApiSearchObservationEvaluees
+     * @memberof ObservationsApiGetPaginatedEvaluees
      */
-    readonly filter?: string
-}
+    readonly campus?: string
 
-/**
- * Request parameters for searchObservationForms operation in ObservationsApi.
- * @export
- * @interface ObservationsApiSearchObservationFormsRequest
- */
-export interface ObservationsApiSearchObservationFormsRequest {
     /**
      * 
      * @type {string}
-     * @memberof ObservationsApiSearchObservationForms
+     * @memberof ObservationsApiGetPaginatedEvaluees
+     */
+    readonly evalueeId?: string
+}
+
+/**
+ * Request parameters for getPaginatedObservations operation in ObservationsApi.
+ * @export
+ * @interface ObservationsApiGetPaginatedObservationsRequest
+ */
+export interface ObservationsApiGetPaginatedObservationsRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly tenantId: string
 
     /**
      * 
      * @type {number}
-     * @memberof ObservationsApiSearchObservationForms
+     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly pageSize?: number
 
     /**
      * 
      * @type {number}
-     * @memberof ObservationsApiSearchObservationForms
+     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly pageIndex?: number
 
     /**
      * 
      * @type {string}
-     * @memberof ObservationsApiSearchObservationForms
+     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly orderBy?: string
 
     /**
      * 
      * @type {string}
-     * @memberof ObservationsApiSearchObservationForms
+     * @memberof ObservationsApiGetPaginatedObservations
      */
-    readonly filter?: string
+    readonly campus?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetPaginatedObservations
+     */
+    readonly evalueeName?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetPaginatedObservations
+     */
+    readonly evalueeId?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetPaginatedObservations
+     */
+    readonly formId?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetPaginatedObservations
+     */
+    readonly status?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetPaginatedObservations
+     */
+    readonly from?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetPaginatedObservations
+     */
+    readonly to?: string
 }
 
 /**
- * Request parameters for searchObservationObservers operation in ObservationsApi.
+ * Request parameters for getSubmittedObservationsCount operation in ObservationsApi.
  * @export
- * @interface ObservationsApiSearchObservationObserversRequest
+ * @interface ObservationsApiGetSubmittedObservationsCountRequest
  */
-export interface ObservationsApiSearchObservationObserversRequest {
+export interface ObservationsApiGetSubmittedObservationsCountRequest {
     /**
      * 
      * @type {string}
-     * @memberof ObservationsApiSearchObservationObservers
-     */
-    readonly tenantId: string
-
-    /**
-     * 
-     * @type {number}
-     * @memberof ObservationsApiSearchObservationObservers
-     */
-    readonly pageSize?: number
-
-    /**
-     * 
-     * @type {number}
-     * @memberof ObservationsApiSearchObservationObservers
-     */
-    readonly pageIndex?: number
-
-    /**
-     * 
-     * @type {string}
-     * @memberof ObservationsApiSearchObservationObservers
-     */
-    readonly orderBy?: string
-
-    /**
-     * 
-     * @type {string}
-     * @memberof ObservationsApiSearchObservationObservers
-     */
-    readonly filter?: string
-}
-
-/**
- * Request parameters for searchObservations operation in ObservationsApi.
- * @export
- * @interface ObservationsApiSearchObservationsRequest
- */
-export interface ObservationsApiSearchObservationsRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ObservationsApiSearchObservations
-     */
-    readonly tenantId: string
-
-    /**
-     * 
-     * @type {number}
-     * @memberof ObservationsApiSearchObservations
-     */
-    readonly pageSize?: number
-
-    /**
-     * 
-     * @type {number}
-     * @memberof ObservationsApiSearchObservations
-     */
-    readonly pageIndex?: number
-
-    /**
-     * 
-     * @type {string}
-     * @memberof ObservationsApiSearchObservations
-     */
-    readonly orderBy?: string
-
-    /**
-     * 
-     * @type {string}
-     * @memberof ObservationsApiSearchObservations
-     */
-    readonly filter?: string
-}
-
-/**
- * Request parameters for updateObservation operation in ObservationsApi.
- * @export
- * @interface ObservationsApiUpdateObservationRequest
- */
-export interface ObservationsApiUpdateObservationRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ObservationsApiUpdateObservation
+     * @memberof ObservationsApiGetSubmittedObservationsCount
      */
     readonly tenantId: string
 
     /**
      * 
      * @type {string}
-     * @memberof ObservationsApiUpdateObservation
+     * @memberof ObservationsApiGetSubmittedObservationsCount
      */
-    readonly observationId: string
+    readonly evalueeId?: string
 
     /**
      * 
-     * @type {EvaluationApiEvaluationsV1UpdateEvaluationRequest}
-     * @memberof ObservationsApiUpdateObservation
+     * @type {string}
+     * @memberof ObservationsApiGetSubmittedObservationsCount
      */
-    readonly evaluationApiEvaluationsV1UpdateEvaluationRequest?: EvaluationApiEvaluationsV1UpdateEvaluationRequest
+    readonly campus?: string
 }
 
 /**
@@ -1161,7 +1036,7 @@ export class ObservationsApi extends BaseAPI {
      * @memberof ObservationsApi
      */
     public createObservation(requestParameters: ObservationsApiCreateObservationRequest, options?: RawAxiosRequestConfig) {
-        return ObservationsApiFp(this.configuration).createObservation(requestParameters.tenantId, requestParameters.evaluationApiEvaluationsV1CreateEvaluationRequest, options).then((request) => request(this.axios, this.basePath));
+        return ObservationsApiFp(this.configuration).createObservation(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1179,96 +1054,73 @@ export class ObservationsApi extends BaseAPI {
     /**
      * 
      * @summary Get an Observation for a given tenant
-     * @param {ObservationsApiGetObservationRequest} requestParameters Request parameters.
+     * @param {ObservationsApiGetObservationByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ObservationsApi
      */
-    public getObservation(requestParameters: ObservationsApiGetObservationRequest, options?: RawAxiosRequestConfig) {
-        return ObservationsApiFp(this.configuration).getObservation(requestParameters.tenantId, requestParameters.observationId, options).then((request) => request(this.axios, this.basePath));
+    public getObservationById(requestParameters: ObservationsApiGetObservationByIdRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).getObservationById(requestParameters.tenantId, requestParameters.observationId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {ObservationsApiGetObservationCountRequest} requestParameters Request parameters.
+     * @summary Get Available Campuses
+     * @param {ObservationsApiGetPaginatedAvailableCampusesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ObservationsApi
      */
-    public getObservationCount(requestParameters: ObservationsApiGetObservationCountRequest, options?: RawAxiosRequestConfig) {
-        return ObservationsApiFp(this.configuration).getObservationCount(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
+    public getPaginatedAvailableCampuses(requestParameters: ObservationsApiGetPaginatedAvailableCampusesRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).getPaginatedAvailableCampuses(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @summary Searches the Campuses associated with an Observation for a given Tenant.
-     * @param {ObservationsApiSearchObservationCampusesRequest} requestParameters Request parameters.
+     * @summary Get Paginated Available Forms
+     * @param {ObservationsApiGetPaginatedAvailableFormsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ObservationsApi
      */
-    public searchObservationCampuses(requestParameters: ObservationsApiSearchObservationCampusesRequest, options?: RawAxiosRequestConfig) {
-        return ObservationsApiFp(this.configuration).searchObservationCampuses(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
+    public getPaginatedAvailableForms(requestParameters: ObservationsApiGetPaginatedAvailableFormsRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).getPaginatedAvailableForms(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @summary Searches the Staff associated with an Observation for a given Tenant.
-     * @param {ObservationsApiSearchObservationEvalueesRequest} requestParameters Request parameters.
+     * @summary Get paginated evaluees
+     * @param {ObservationsApiGetPaginatedEvalueesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ObservationsApi
      */
-    public searchObservationEvaluees(requestParameters: ObservationsApiSearchObservationEvalueesRequest, options?: RawAxiosRequestConfig) {
-        return ObservationsApiFp(this.configuration).searchObservationEvaluees(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
+    public getPaginatedEvaluees(requestParameters: ObservationsApiGetPaginatedEvalueesRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).getPaginatedEvaluees(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.campus, requestParameters.evalueeId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @summary Searches the Forms associated with an Observation for a given Tenant.
-     * @param {ObservationsApiSearchObservationFormsRequest} requestParameters Request parameters.
+     * @summary Get Paginated Observations for a given tenant
+     * @param {ObservationsApiGetPaginatedObservationsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ObservationsApi
      */
-    public searchObservationForms(requestParameters: ObservationsApiSearchObservationFormsRequest, options?: RawAxiosRequestConfig) {
-        return ObservationsApiFp(this.configuration).searchObservationForms(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
+    public getPaginatedObservations(requestParameters: ObservationsApiGetPaginatedObservationsRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).getPaginatedObservations(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.campus, requestParameters.evalueeName, requestParameters.evalueeId, requestParameters.formId, requestParameters.status, requestParameters.from, requestParameters.to, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @summary Searches the Appraisers associated with an Observation for a given Tenant.
-     * @param {ObservationsApiSearchObservationObserversRequest} requestParameters Request parameters.
+     * @summary Get submitted Observations count
+     * @param {ObservationsApiGetSubmittedObservationsCountRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ObservationsApi
      */
-    public searchObservationObservers(requestParameters: ObservationsApiSearchObservationObserversRequest, options?: RawAxiosRequestConfig) {
-        return ObservationsApiFp(this.configuration).searchObservationObservers(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Searches the Observations for a given tenant
-     * @param {ObservationsApiSearchObservationsRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ObservationsApi
-     */
-    public searchObservations(requestParameters: ObservationsApiSearchObservationsRequest, options?: RawAxiosRequestConfig) {
-        return ObservationsApiFp(this.configuration).searchObservations(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Updates an Observation for a given tenant
-     * @param {ObservationsApiUpdateObservationRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ObservationsApi
-     */
-    public updateObservation(requestParameters: ObservationsApiUpdateObservationRequest, options?: RawAxiosRequestConfig) {
-        return ObservationsApiFp(this.configuration).updateObservation(requestParameters.tenantId, requestParameters.observationId, requestParameters.evaluationApiEvaluationsV1UpdateEvaluationRequest, options).then((request) => request(this.axios, this.basePath));
+    public getSubmittedObservationsCount(requestParameters: ObservationsApiGetSubmittedObservationsCountRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).getSubmittedObservationsCount(requestParameters.tenantId, requestParameters.evalueeId, requestParameters.campus, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

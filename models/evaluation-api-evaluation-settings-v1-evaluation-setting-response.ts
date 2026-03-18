@@ -15,6 +15,15 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { EvaluationApiEvaluationSettingsV1FormConfigurationResponse } from './evaluation-api-evaluation-settings-v1-form-configuration-response';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { EvaluationApiEvaluationSettingsV1PersonaResponse } from './evaluation-api-evaluation-settings-v1-persona-response';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { EvaluationApiEvaluationSettingsV1RoleConfigurationResponse } from './evaluation-api-evaluation-settings-v1-role-configuration-response';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { EvaluationApiEvaluationSettingsV1ScheduleType } from './evaluation-api-evaluation-settings-v1-schedule-type';
 
 /**
@@ -37,10 +46,10 @@ export interface EvaluationApiEvaluationSettingsV1EvaluationSettingResponse {
     'tenantId'?: string | null;
     /**
      * 
-     * @type {Array<string>}
+     * @type {Array<EvaluationApiEvaluationSettingsV1FormConfigurationResponse>}
      * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
      */
-    'forms'?: Array<string> | null;
+    'forms'?: Array<EvaluationApiEvaluationSettingsV1FormConfigurationResponse> | null;
     /**
      * 
      * @type {number}
@@ -107,6 +116,18 @@ export interface EvaluationApiEvaluationSettingsV1EvaluationSettingResponse {
      * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
      */
     'staffClassifications'?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<EvaluationApiEvaluationSettingsV1PersonaResponse>}
+     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
+     */
+    'availablePersonas'?: Array<EvaluationApiEvaluationSettingsV1PersonaResponse> | null;
+    /**
+     * 
+     * @type {Array<EvaluationApiEvaluationSettingsV1RoleConfigurationResponse>}
+     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
+     */
+    'roleConfigurations'?: Array<EvaluationApiEvaluationSettingsV1RoleConfigurationResponse> | null;
 }
 
 

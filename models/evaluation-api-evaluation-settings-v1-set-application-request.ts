@@ -16,6 +16,9 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { EvaluationApiEvaluationSettingsV1ScheduleType } from './evaluation-api-evaluation-settings-v1-schedule-type';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest } from './evaluation-api-evaluation-settings-v1-set-form-configuration-request';
 
 /**
  * 
@@ -31,10 +34,10 @@ export interface EvaluationApiEvaluationSettingsV1SetApplicationRequest {
     'tenantId'?: string | null;
     /**
      * 
-     * @type {Array<string>}
+     * @type {Array<EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest>}
      * @memberof EvaluationApiEvaluationSettingsV1SetApplicationRequest
      */
-    'forms'?: Array<string> | null;
+    'forms'?: Array<EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest> | null;
     /**
      * 
      * @type {number}

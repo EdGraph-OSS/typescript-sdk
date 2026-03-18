@@ -75,7 +75,7 @@ export * from './api/my-extensions-api';
 export * from './api/my-preferences-api';
 export * from './api/my-profile-api';
 export * from './api/my-tenants-api';
-export * from './api/observation-configuration-api';
+export * from './api/observation-settings-api';
 export * from './api/observations-api';
 export * from './api/onboarding-steps-api';
 export * from './api/onboarding-steps-connections-api';
