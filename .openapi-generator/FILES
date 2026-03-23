@@ -85,8 +85,8 @@ api/submissions-api.ts
 api/subscriptions-api.ts
 api/tags-api.ts
 api/tenant-branding-api.ts
-api/tenant-dsl-api.ts
 api/tenant-instances-api.ts
+api/tenant-jobs-dslapi.ts
 api/tenant-security-score-sync-api.ts
 api/tenant-setting-types-api.ts
 api/tenants-api.ts

@@ -30,7 +30,8 @@ export const TenantApiTenantV1TenantType = {
     LocalEducationAgency: 'LocalEducationAgency',
     ManagedServiceProvider: 'ManagedServiceProvider',
     StateEducationAgency: 'StateEducationAgency',
-    AssessmentProvider: 'AssessmentProvider'
+    AssessmentProvider: 'AssessmentProvider',
+    ServiceProvider: 'ServiceProvider'
 } as const;
 
 export type TenantApiTenantV1TenantType = typeof TenantApiTenantV1TenantType[keyof typeof TenantApiTenantV1TenantType];

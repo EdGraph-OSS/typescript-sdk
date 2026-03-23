@@ -30,7 +30,8 @@ export const RegistrationApiRegistrationV2TenantType = {
     LocalEducationAgency: 'LocalEducationAgency',
     ManagedServiceProvider: 'ManagedServiceProvider',
     StateEducationAgency: 'StateEducationAgency',
-    AssessmentProvider: 'AssessmentProvider'
+    AssessmentProvider: 'AssessmentProvider',
+    ServiceProvider: 'ServiceProvider'
 } as const;
 
 export type RegistrationApiRegistrationV2TenantType = typeof RegistrationApiRegistrationV2TenantType[keyof typeof RegistrationApiRegistrationV2TenantType];
