@@ -44,6 +44,8 @@ import type { EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigur
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationResponse } from '../models';
 // @ts-ignore
+import type { IdentityApiStaffClassificationV1GetStaffClassificationsResponse } from '../models';
+// @ts-ignore
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * ObservationSettingsApi - axios parameter creator
@@ -215,6 +217,64 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get Paginated Available Forms
+         * @param {string} tenantId 
+         * @param {number} [pageIndex] 
+         * @param {number} [pageSize] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPaginatedStaffClassifications: async (tenantId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getPaginatedStaffClassifications', 'tenantId', tenantId)
+            const localVarPath = `/tenants/{tenantId}/observations/settings/available-staffclassifications`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            if (pageIndex !== undefined) {
+                localVarQueryParameter['pageIndex'] = pageIndex;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['orderBy'] = orderBy;
+            }
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
 
 
     
@@ -418,6 +478,23 @@ export const ObservationSettingsApiFp = function(configuration?: Configuration) 
         },
         /**
          * 
+         * @summary Get Paginated Available Forms
+         * @param {string} tenantId 
+         * @param {number} [pageIndex] 
+         * @param {number} [pageSize] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPaginatedStaffClassifications(tenantId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityApiStaffClassificationV1GetStaffClassificationsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPaginatedStaffClassifications(tenantId, pageIndex, pageSize, orderBy, filter, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationSettingsApi.getPaginatedStaffClassifications']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Gets the staffClassification settings for the tenant
          * @param {string} tenantId 
          * @param {*} [options] Override http request option.
@@ -506,6 +583,16 @@ export const ObservationSettingsApiFactory = function (configuration?: Configura
          */
         getPaginatedPersonas(requestParameters: ObservationSettingsApiGetPaginatedPersonasRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsPersonaResponseGetPaginatedItemsResponse> {
             return localVarFp.getPaginatedPersonas(requestParameters.tenantId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get Paginated Available Forms
+         * @param {ObservationSettingsApiGetPaginatedStaffClassificationsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPaginatedStaffClassifications(requestParameters: ObservationSettingsApiGetPaginatedStaffClassificationsRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdentityApiStaffClassificationV1GetStaffClassificationsResponse> {
+            return localVarFp.getPaginatedStaffClassifications(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -632,6 +719,48 @@ export interface ObservationSettingsApiGetPaginatedPersonasRequest {
 }
 
 /**
+ * Request parameters for getPaginatedStaffClassifications operation in ObservationSettingsApi.
+ * @export
+ * @interface ObservationSettingsApiGetPaginatedStaffClassificationsRequest
+ */
+export interface ObservationSettingsApiGetPaginatedStaffClassificationsRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationSettingsApiGetPaginatedStaffClassifications
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ObservationSettingsApiGetPaginatedStaffClassifications
+     */
+    readonly pageIndex?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ObservationSettingsApiGetPaginatedStaffClassifications
+     */
+    readonly pageSize?: number
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationSettingsApiGetPaginatedStaffClassifications
+     */
+    readonly orderBy?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationSettingsApiGetPaginatedStaffClassifications
+     */
+    readonly filter?: string
+}
+
+/**
  * Request parameters for getStaffClassificationsSettings operation in ObservationSettingsApi.
  * @export
  * @interface ObservationSettingsApiGetStaffClassificationsSettingsRequest
@@ -740,6 +869,18 @@ export class ObservationSettingsApi extends BaseAPI {
      */
     public getPaginatedPersonas(requestParameters: ObservationSettingsApiGetPaginatedPersonasRequest, options?: RawAxiosRequestConfig) {
         return ObservationSettingsApiFp(this.configuration).getPaginatedPersonas(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Paginated Available Forms
+     * @param {ObservationSettingsApiGetPaginatedStaffClassificationsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ObservationSettingsApi
+     */
+    public getPaginatedStaffClassifications(requestParameters: ObservationSettingsApiGetPaginatedStaffClassificationsRequest, options?: RawAxiosRequestConfig) {
+        return ObservationSettingsApiFp(this.configuration).getPaginatedStaffClassifications(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

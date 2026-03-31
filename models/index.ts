@@ -152,6 +152,8 @@ export * from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models
 export * from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-forms-question-response-dto';
 export * from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-forms-question-response-dto-paginated-items-view-model';
 export * from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-forms-question-validation-response-dto';
+export * from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-forms-question-visibility-condition-dto';
+export * from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-forms-question-visibility-rule-dto';
 export * from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-role';
 export * from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-subscription-list-response-dto';
 export * from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-subscription-list-response-dto-paginated-items-view-model';
@@ -533,6 +535,8 @@ export * from './form-api-questions-v1-question-created-response';
 export * from './form-api-questions-v1-question-deleted-response';
 export * from './form-api-questions-v1-question-type';
 export * from './form-api-questions-v1-question-updated-response';
+export * from './form-api-questions-v1-question-visibility-condition';
+export * from './form-api-questions-v1-question-visibility-rule';
 export * from './form-api-sections-v1-create-section-request';
 export * from './form-api-sections-v1-section-created-response';
 export * from './form-api-sections-v1-section-deleted-response';

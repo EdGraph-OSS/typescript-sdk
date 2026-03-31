@@ -182,6 +182,12 @@ export interface AnalyticsApiReportsV1AnalyticsReport {
      * @memberof AnalyticsApiReportsV1AnalyticsReport
      */
     'identityRequired'?: boolean | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof AnalyticsApiReportsV1AnalyticsReport
+     */
+    'state'?: string | null;
 }
 
 

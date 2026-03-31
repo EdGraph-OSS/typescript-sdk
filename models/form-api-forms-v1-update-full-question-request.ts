@@ -19,6 +19,9 @@ import type { FormApiFormsV1UpdateFullQuestionValidationRequest } from './form-a
 // May contain unused imports in some cases
 // @ts-ignore
 import type { FormApiQuestionsV1QuestionType } from './form-api-questions-v1-question-type';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { FormApiQuestionsV1QuestionVisibilityCondition } from './form-api-questions-v1-question-visibility-condition';
 
 /**
  * 
@@ -86,6 +89,12 @@ export interface FormApiFormsV1UpdateFullQuestionRequest {
      * @memberof FormApiFormsV1UpdateFullQuestionRequest
      */
     'component'?: string | null;
+    /**
+     * 
+     * @type {FormApiQuestionsV1QuestionVisibilityCondition}
+     * @memberof FormApiFormsV1UpdateFullQuestionRequest
+     */
+    'visibilityCondition'?: FormApiQuestionsV1QuestionVisibilityCondition;
 }
 
 

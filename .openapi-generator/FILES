@@ -257,6 +257,8 @@ models/ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses
 models/ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-forms-question-response-dto-paginated-items-view-model.ts
 models/ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-forms-question-response-dto.ts
 models/ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-forms-question-validation-response-dto.ts
+models/ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-forms-question-visibility-condition-dto.ts
+models/ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-forms-question-visibility-rule-dto.ts
 models/ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-role.ts
 models/ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-subscription-list-response-dto-paginated-items-view-model.ts
 models/ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-subscription-list-response-dto.ts
@@ -638,6 +640,8 @@ models/form-api-questions-v1-question-created-response.ts
 models/form-api-questions-v1-question-deleted-response.ts
 models/form-api-questions-v1-question-type.ts
 models/form-api-questions-v1-question-updated-response.ts
+models/form-api-questions-v1-question-visibility-condition.ts
+models/form-api-questions-v1-question-visibility-rule.ts
 models/form-api-sections-v1-create-section-request.ts
 models/form-api-sections-v1-section-created-response.ts
 models/form-api-sections-v1-section-deleted-response.ts

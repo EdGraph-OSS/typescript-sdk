@@ -18,6 +18,9 @@
 import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQuestionValidationRequestDto } from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-requests-forms-update-question-validation-request-dto';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto } from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-forms-question-visibility-condition-dto';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { FormApiQuestionsV1QuestionType } from './form-api-questions-v1-question-type';
 
 /**
@@ -104,6 +107,12 @@ export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsF
      * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQuestionRequestDto
      */
     'component'?: any | null;
+    /**
+     * 
+     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto}
+     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQuestionRequestDto
+     */
+    'visibilityCondition'?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto;
 }
 
 

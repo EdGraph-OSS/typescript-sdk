@@ -28,12 +28,6 @@ export interface EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassif
     'role'?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole
-     */
-    'description'?: string | null;
-    /**
-     * 
      * @type {Array<string>}
      * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole
      */

@@ -22,9 +22,14 @@
 
 export const EvaluationApiEvaluationsV1OrganizationDiscriminator = {
     Unknown: 'Unknown',
-    StateEducationAgency: 'StateEducationAgency',
+    EducationOrganizationNetwork: 'EducationOrganizationNetwork',
+    EducationServiceCenter: 'EducationServiceCenter',
     LocalEducationAgency: 'LocalEducationAgency',
-    School: 'School'
+    OrganizationDepartment: 'OrganizationDepartment',
+    Other: 'Other',
+    PostSecondaryInstitution: 'PostSecondaryInstitution',
+    School: 'School',
+    StateEducationAgency: 'StateEducationAgency'
 } as const;
 
 export type EvaluationApiEvaluationsV1OrganizationDiscriminator = typeof EvaluationApiEvaluationsV1OrganizationDiscriminator[keyof typeof EvaluationApiEvaluationsV1OrganizationDiscriminator];
