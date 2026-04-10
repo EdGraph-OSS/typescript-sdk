@@ -30,6 +30,10 @@ import type { EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservati
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse } from '../models';
 // @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest } from '../models';
+// @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionResponse } from '../models';
+// @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse } from '../models';
@@ -38,9 +42,21 @@ import type { EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGet
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse } from '../models';
 // @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse } from '../models';
+// @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel } from '../models';
+// @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponseGetPaginatedItemsResponse } from '../models';
+// @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest } from '../models';
+// @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationResponse } from '../models';
+// @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest } from '../models';
+// @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftResponse } from '../models';
 // @ts-ignore
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
@@ -85,6 +101,56 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Creates a submission for an available form referencing an existing observation
+         * @param {string} tenantId 
+         * @param {string} formId 
+         * @param {string} observationId 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createObservationSubmission: async (tenantId: string, formId: string, observationId: string, edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('createObservationSubmission', 'tenantId', tenantId)
+            // verify required parameter 'formId' is not null or undefined
+            assertParamExists('createObservationSubmission', 'formId', formId)
+            // verify required parameter 'observationId' is not null or undefined
+            assertParamExists('createObservationSubmission', 'observationId', observationId)
+            const localVarPath = `/tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/submit`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
+                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
+                .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -149,6 +215,98 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             const localVarPath = `/tenants/{tenantId}/observations/{observationId}`
                 .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
                 .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get an observation form\'s draft
+         * @param {string} tenantId 
+         * @param {string} observationId 
+         * @param {string} formId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getObservationDraft: async (tenantId: string, observationId: string, formId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getObservationDraft', 'tenantId', tenantId)
+            // verify required parameter 'observationId' is not null or undefined
+            assertParamExists('getObservationDraft', 'observationId', observationId)
+            // verify required parameter 'formId' is not null or undefined
+            assertParamExists('getObservationDraft', 'formId', formId)
+            const localVarPath = `/tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/draft`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
+                .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)))
+                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Gets a submission for a specific observation
+         * @param {string} tenantId 
+         * @param {string} observationId 
+         * @param {string} formId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getObservationSubmission: async (tenantId: string, observationId: string, formId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getObservationSubmission', 'tenantId', tenantId)
+            // verify required parameter 'observationId' is not null or undefined
+            assertParamExists('getObservationSubmission', 'observationId', observationId)
+            // verify required parameter 'formId' is not null or undefined
+            assertParamExists('getObservationSubmission', 'formId', formId)
+            const localVarPath = `/tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/submission`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
+                .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)))
+                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -242,7 +400,7 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
         getPaginatedAvailableForms: async (tenantId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getPaginatedAvailableForms', 'tenantId', tenantId)
-            const localVarPath = `/tenants/{tenantId}/observations/forms/available`
+            const localVarPath = `/tenants/{tenantId}/observations/available-forms`
                 .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -485,6 +643,102 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Update an Observation for a given tenant
+         * @param {string} tenantId 
+         * @param {string} observationId 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateObservation: async (tenantId: string, observationId: string, edGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('updateObservation', 'tenantId', tenantId)
+            // verify required parameter 'observationId' is not null or undefined
+            assertParamExists('updateObservation', 'observationId', observationId)
+            const localVarPath = `/tenants/{tenantId}/observations/{observationId}`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
+                .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(edGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Creates a draft for an observation forms
+         * @param {string} tenantId 
+         * @param {string} observationId 
+         * @param {string} formId 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        upsertObservationDraft: async (tenantId: string, observationId: string, formId: string, edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('upsertObservationDraft', 'tenantId', tenantId)
+            // verify required parameter 'observationId' is not null or undefined
+            assertParamExists('upsertObservationDraft', 'observationId', observationId)
+            // verify required parameter 'formId' is not null or undefined
+            assertParamExists('upsertObservationDraft', 'formId', formId)
+            const localVarPath = `/tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/draft`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
+                .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)))
+                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -507,6 +761,22 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createObservation(tenantId, edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.createObservation']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Creates a submission for an available form referencing an existing observation
+         * @param {string} tenantId 
+         * @param {string} formId 
+         * @param {string} observationId 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createObservationSubmission(tenantId: string, formId: string, observationId: string, edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createObservationSubmission(tenantId, formId, observationId, edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.createObservationSubmission']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -535,6 +805,36 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getObservationById(tenantId, observationId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getObservationById']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Get an observation form\'s draft
+         * @param {string} tenantId 
+         * @param {string} observationId 
+         * @param {string} formId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getObservationDraft(tenantId: string, observationId: string, formId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getObservationDraft(tenantId, observationId, formId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getObservationDraft']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Gets a submission for a specific observation
+         * @param {string} tenantId 
+         * @param {string} observationId 
+         * @param {string} formId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getObservationSubmission(tenantId: string, observationId: string, formId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponseGetPaginatedItemsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getObservationSubmission(tenantId, observationId, formId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getObservationSubmission']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -626,6 +926,37 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getSubmittedObservationsCount']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * 
+         * @summary Update an Observation for a given tenant
+         * @param {string} tenantId 
+         * @param {string} observationId 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateObservation(tenantId: string, observationId: string, edGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateObservation(tenantId, observationId, edGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.updateObservation']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Creates a draft for an observation forms
+         * @param {string} tenantId 
+         * @param {string} observationId 
+         * @param {string} formId 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async upsertObservationDraft(tenantId: string, observationId: string, formId: string, edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.upsertObservationDraft(tenantId, observationId, formId, edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.upsertObservationDraft']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -648,6 +979,16 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
         },
         /**
          * 
+         * @summary Creates a submission for an available form referencing an existing observation
+         * @param {ObservationsApiCreateObservationSubmissionRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createObservationSubmission(requestParameters: ObservationsApiCreateObservationSubmissionRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionResponse> {
+            return localVarFp.createObservationSubmission(requestParameters.tenantId, requestParameters.formId, requestParameters.observationId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Deletes an Observation for a given tenant
          * @param {ObservationsApiDeleteObservationRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -665,6 +1006,26 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
          */
         getObservationById(requestParameters: ObservationsApiGetObservationByIdRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse> {
             return localVarFp.getObservationById(requestParameters.tenantId, requestParameters.observationId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get an observation form\'s draft
+         * @param {ObservationsApiGetObservationDraftRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getObservationDraft(requestParameters: ObservationsApiGetObservationDraftRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse> {
+            return localVarFp.getObservationDraft(requestParameters.tenantId, requestParameters.observationId, requestParameters.formId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Gets a submission for a specific observation
+         * @param {ObservationsApiGetObservationSubmissionRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getObservationSubmission(requestParameters: ObservationsApiGetObservationSubmissionRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponseGetPaginatedItemsResponse> {
+            return localVarFp.getObservationSubmission(requestParameters.tenantId, requestParameters.observationId, requestParameters.formId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -716,6 +1077,26 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
         getSubmittedObservationsCount(requestParameters: ObservationsApiGetSubmittedObservationsCountRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse> {
             return localVarFp.getSubmittedObservationsCount(requestParameters.tenantId, requestParameters.evalueeId, requestParameters.campus, options).then((request) => request(axios, basePath));
         },
+        /**
+         * 
+         * @summary Update an Observation for a given tenant
+         * @param {ObservationsApiUpdateObservationRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateObservation(requestParameters: ObservationsApiUpdateObservationRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationResponse> {
+            return localVarFp.updateObservation(requestParameters.tenantId, requestParameters.observationId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Creates a draft for an observation forms
+         * @param {ObservationsApiUpsertObservationDraftRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        upsertObservationDraft(requestParameters: ObservationsApiUpsertObservationDraftRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftResponse> {
+            return localVarFp.upsertObservationDraft(requestParameters.tenantId, requestParameters.observationId, requestParameters.formId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -738,6 +1119,41 @@ export interface ObservationsApiCreateObservationRequest {
      * @memberof ObservationsApiCreateObservation
      */
     readonly edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest
+}
+
+/**
+ * Request parameters for createObservationSubmission operation in ObservationsApi.
+ * @export
+ * @interface ObservationsApiCreateObservationSubmissionRequest
+ */
+export interface ObservationsApiCreateObservationSubmissionRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiCreateObservationSubmission
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiCreateObservationSubmission
+     */
+    readonly formId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiCreateObservationSubmission
+     */
+    readonly observationId: string
+
+    /**
+     * 
+     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest}
+     * @memberof ObservationsApiCreateObservationSubmission
+     */
+    readonly edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest
 }
 
 /**
@@ -780,6 +1196,62 @@ export interface ObservationsApiGetObservationByIdRequest {
      * @memberof ObservationsApiGetObservationById
      */
     readonly observationId: string
+}
+
+/**
+ * Request parameters for getObservationDraft operation in ObservationsApi.
+ * @export
+ * @interface ObservationsApiGetObservationDraftRequest
+ */
+export interface ObservationsApiGetObservationDraftRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetObservationDraft
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetObservationDraft
+     */
+    readonly observationId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetObservationDraft
+     */
+    readonly formId: string
+}
+
+/**
+ * Request parameters for getObservationSubmission operation in ObservationsApi.
+ * @export
+ * @interface ObservationsApiGetObservationSubmissionRequest
+ */
+export interface ObservationsApiGetObservationSubmissionRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetObservationSubmission
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetObservationSubmission
+     */
+    readonly observationId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetObservationSubmission
+     */
+    readonly formId: string
 }
 
 /**
@@ -1021,6 +1493,69 @@ export interface ObservationsApiGetSubmittedObservationsCountRequest {
 }
 
 /**
+ * Request parameters for updateObservation operation in ObservationsApi.
+ * @export
+ * @interface ObservationsApiUpdateObservationRequest
+ */
+export interface ObservationsApiUpdateObservationRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiUpdateObservation
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiUpdateObservation
+     */
+    readonly observationId: string
+
+    /**
+     * 
+     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest}
+     * @memberof ObservationsApiUpdateObservation
+     */
+    readonly edGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest
+}
+
+/**
+ * Request parameters for upsertObservationDraft operation in ObservationsApi.
+ * @export
+ * @interface ObservationsApiUpsertObservationDraftRequest
+ */
+export interface ObservationsApiUpsertObservationDraftRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiUpsertObservationDraft
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiUpsertObservationDraft
+     */
+    readonly observationId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiUpsertObservationDraft
+     */
+    readonly formId: string
+
+    /**
+     * 
+     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest}
+     * @memberof ObservationsApiUpsertObservationDraft
+     */
+    readonly edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest
+}
+
+/**
  * ObservationsApi - object-oriented interface
  * @export
  * @class ObservationsApi
@@ -1037,6 +1572,18 @@ export class ObservationsApi extends BaseAPI {
      */
     public createObservation(requestParameters: ObservationsApiCreateObservationRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).createObservation(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Creates a submission for an available form referencing an existing observation
+     * @param {ObservationsApiCreateObservationSubmissionRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ObservationsApi
+     */
+    public createObservationSubmission(requestParameters: ObservationsApiCreateObservationSubmissionRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).createObservationSubmission(requestParameters.tenantId, requestParameters.formId, requestParameters.observationId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1061,6 +1608,30 @@ export class ObservationsApi extends BaseAPI {
      */
     public getObservationById(requestParameters: ObservationsApiGetObservationByIdRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getObservationById(requestParameters.tenantId, requestParameters.observationId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get an observation form\'s draft
+     * @param {ObservationsApiGetObservationDraftRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ObservationsApi
+     */
+    public getObservationDraft(requestParameters: ObservationsApiGetObservationDraftRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).getObservationDraft(requestParameters.tenantId, requestParameters.observationId, requestParameters.formId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Gets a submission for a specific observation
+     * @param {ObservationsApiGetObservationSubmissionRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ObservationsApi
+     */
+    public getObservationSubmission(requestParameters: ObservationsApiGetObservationSubmissionRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).getObservationSubmission(requestParameters.tenantId, requestParameters.observationId, requestParameters.formId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1121,6 +1692,30 @@ export class ObservationsApi extends BaseAPI {
      */
     public getSubmittedObservationsCount(requestParameters: ObservationsApiGetSubmittedObservationsCountRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getSubmittedObservationsCount(requestParameters.tenantId, requestParameters.evalueeId, requestParameters.campus, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Update an Observation for a given tenant
+     * @param {ObservationsApiUpdateObservationRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ObservationsApi
+     */
+    public updateObservation(requestParameters: ObservationsApiUpdateObservationRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).updateObservation(requestParameters.tenantId, requestParameters.observationId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Creates a draft for an observation forms
+     * @param {ObservationsApiUpsertObservationDraftRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ObservationsApi
+     */
+    public upsertObservationDraft(requestParameters: ObservationsApiUpsertObservationDraftRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).upsertObservationDraft(requestParameters.tenantId, requestParameters.observationId, requestParameters.formId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

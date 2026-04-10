@@ -104,5 +104,11 @@ export interface FormApiSubmissionsV1SubmissionResponse {
      * @memberof FormApiSubmissionsV1SubmissionResponse
      */
     'email'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof FormApiSubmissionsV1SubmissionResponse
+     */
+    'evaluationId'?: string | null;
 }
 

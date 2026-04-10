@@ -97,12 +97,6 @@ export interface EdGraphHttpAggregatorsTenantApiServicesObservationsObservationP
      * @type {string}
      * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse
      */
-    'class'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse
-     */
     'observationDate'?: string | null;
     /**
      * 
@@ -140,5 +134,11 @@ export interface EdGraphHttpAggregatorsTenantApiServicesObservationsObservationP
      * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse
      */
     'deletedDateTime'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse
+     */
+    'campusClassId'?: string | null;
 }
 

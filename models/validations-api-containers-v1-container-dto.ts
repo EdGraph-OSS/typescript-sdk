@@ -101,5 +101,11 @@ export interface ValidationsApiContainersV1ContainerDto {
      * @memberof ValidationsApiContainersV1ContainerDto
      */
     'certificationStatus'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ValidationsApiContainersV1ContainerDto
+     */
+    'state'?: string | null;
 }
 

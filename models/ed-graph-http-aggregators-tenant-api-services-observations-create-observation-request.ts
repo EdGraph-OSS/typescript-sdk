@@ -62,5 +62,11 @@ export interface EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObserv
      * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest
      */
     'formVersion'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest
+     */
+    'campusClassId'?: string | null;
 }
 

@@ -44,5 +44,11 @@ export interface FormApiSubmissionsV1CreateSubmissionRequest {
      * @memberof FormApiSubmissionsV1CreateSubmissionRequest
      */
     'data'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof FormApiSubmissionsV1CreateSubmissionRequest
+     */
+    'evaluationId'?: string | null;
 }
 

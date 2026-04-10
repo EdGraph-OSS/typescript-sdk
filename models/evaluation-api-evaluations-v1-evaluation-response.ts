@@ -137,6 +137,12 @@ export interface EvaluationApiEvaluationsV1EvaluationResponse {
      * @memberof EvaluationApiEvaluationsV1EvaluationResponse
      */
     'staffFullName'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
+     */
+    'campusClassId'?: string | null;
 }
 
 

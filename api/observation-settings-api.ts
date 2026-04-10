@@ -231,7 +231,7 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
         },
         /**
          * 
-         * @summary Get Paginated Available Forms
+         * @summary Get Paginated Available StaffClassifications
          * @param {string} tenantId 
          * @param {number} [pageIndex] 
          * @param {number} [pageSize] 
@@ -409,6 +409,44 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Gets the staffClassification settings for the tenant
+         * @param {string} tenantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        verifySysAdminCredentials: async (tenantId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('verifySysAdminCredentials', 'tenantId', tenantId)
+            const localVarPath = `/tenants/{tenantId}/observations/settings/verify-credentials`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -478,7 +516,7 @@ export const ObservationSettingsApiFp = function(configuration?: Configuration) 
         },
         /**
          * 
-         * @summary Get Paginated Available Forms
+         * @summary Get Paginated Available StaffClassifications
          * @param {string} tenantId 
          * @param {number} [pageIndex] 
          * @param {number} [pageSize] 
@@ -534,6 +572,19 @@ export const ObservationSettingsApiFp = function(configuration?: Configuration) 
             const localVarOperationServerBasePath = operationServerMap['ObservationSettingsApi.setRolePersonasSettings']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * 
+         * @summary Gets the staffClassification settings for the tenant
+         * @param {string} tenantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async verifySysAdminCredentials(tenantId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.verifySysAdminCredentials(tenantId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationSettingsApi.verifySysAdminCredentials']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -586,7 +637,7 @@ export const ObservationSettingsApiFactory = function (configuration?: Configura
         },
         /**
          * 
-         * @summary Get Paginated Available Forms
+         * @summary Get Paginated Available StaffClassifications
          * @param {ObservationSettingsApiGetPaginatedStaffClassificationsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -623,6 +674,16 @@ export const ObservationSettingsApiFactory = function (configuration?: Configura
          */
         setRolePersonasSettings(requestParameters: ObservationSettingsApiSetRolePersonasSettingsRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationResponse> {
             return localVarFp.setRolePersonasSettings(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Gets the staffClassification settings for the tenant
+         * @param {ObservationSettingsApiVerifySysAdminCredentialsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        verifySysAdminCredentials(requestParameters: ObservationSettingsApiVerifySysAdminCredentialsRequest, options?: RawAxiosRequestConfig): AxiosPromise<object> {
+            return localVarFp.verifySysAdminCredentials(requestParameters.tenantId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -817,6 +878,20 @@ export interface ObservationSettingsApiSetRolePersonasSettingsRequest {
 }
 
 /**
+ * Request parameters for verifySysAdminCredentials operation in ObservationSettingsApi.
+ * @export
+ * @interface ObservationSettingsApiVerifySysAdminCredentialsRequest
+ */
+export interface ObservationSettingsApiVerifySysAdminCredentialsRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationSettingsApiVerifySysAdminCredentials
+     */
+    readonly tenantId: string
+}
+
+/**
  * ObservationSettingsApi - object-oriented interface
  * @export
  * @class ObservationSettingsApi
@@ -873,7 +948,7 @@ export class ObservationSettingsApi extends BaseAPI {
 
     /**
      * 
-     * @summary Get Paginated Available Forms
+     * @summary Get Paginated Available StaffClassifications
      * @param {ObservationSettingsApiGetPaginatedStaffClassificationsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -917,6 +992,18 @@ export class ObservationSettingsApi extends BaseAPI {
      */
     public setRolePersonasSettings(requestParameters: ObservationSettingsApiSetRolePersonasSettingsRequest, options?: RawAxiosRequestConfig) {
         return ObservationSettingsApiFp(this.configuration).setRolePersonasSettings(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Gets the staffClassification settings for the tenant
+     * @param {ObservationSettingsApiVerifySysAdminCredentialsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ObservationSettingsApi
+     */
+    public verifySysAdminCredentials(requestParameters: ObservationSettingsApiVerifySysAdminCredentialsRequest, options?: RawAxiosRequestConfig) {
+        return ObservationSettingsApiFp(this.configuration).verifySysAdminCredentials(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -56,5 +56,11 @@ export interface ValidationsApiContainersV1UpdateCollectionRequest {
      * @memberof ValidationsApiContainersV1UpdateCollectionRequest
      */
     'tags'?: Array<string> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ValidationsApiContainersV1UpdateCollectionRequest
+     */
+    'state'?: string | null;
 }
 

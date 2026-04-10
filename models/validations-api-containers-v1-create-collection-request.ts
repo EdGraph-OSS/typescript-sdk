@@ -65,5 +65,11 @@ export interface ValidationsApiContainersV1CreateCollectionRequest {
      * @memberof ValidationsApiContainersV1CreateCollectionRequest
      */
     'urls'?: Array<ValidationsApiContainersV1Url> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ValidationsApiContainersV1CreateCollectionRequest
+     */
+    'state'?: string | null;
 }
 
