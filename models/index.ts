@@ -210,7 +210,6 @@ export * from './ed-graph-http-aggregators-tenant-api-services-observations-obse
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-observation-profile-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-observation-profile-response-paginated-items-view-model';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-observation-submission-response';
-export * from './ed-graph-http-aggregators-tenant-api-services-observations-observation-submission-response-get-paginated-items-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-persona-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-persona-response-get-paginated-items-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-set-application-settings-request';

@@ -48,7 +48,7 @@ import type { EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProf
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel } from '../models';
 // @ts-ignore
-import type { EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponseGetPaginatedItemsResponse } from '../models';
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponse } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest } from '../models';
 // @ts-ignore
@@ -831,7 +831,7 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getObservationSubmission(tenantId: string, observationId: string, formId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponseGetPaginatedItemsResponse>> {
+        async getObservationSubmission(tenantId: string, observationId: string, formId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getObservationSubmission(tenantId, observationId, formId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getObservationSubmission']?.[localVarOperationServerIndex]?.url;
@@ -1024,7 +1024,7 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getObservationSubmission(requestParameters: ObservationsApiGetObservationSubmissionRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponseGetPaginatedItemsResponse> {
+        getObservationSubmission(requestParameters: ObservationsApiGetObservationSubmissionRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponse> {
             return localVarFp.getObservationSubmission(requestParameters.tenantId, requestParameters.observationId, requestParameters.formId, options).then((request) => request(axios, basePath));
         },
         /**

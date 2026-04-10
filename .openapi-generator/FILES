@@ -314,7 +314,6 @@ models/ed-graph-http-aggregators-tenant-api-services-observations-get-submitted-
 models/ed-graph-http-aggregators-tenant-api-services-observations-observation-draft-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-observation-profile-response-paginated-items-view-model.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-observation-profile-response.ts
-models/ed-graph-http-aggregators-tenant-api-services-observations-observation-submission-response-get-paginated-items-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-observation-submission-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-persona-response-get-paginated-items-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-persona-response.ts
