@@ -38,5 +38,35 @@ export interface EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse
      * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse
      */
     'version'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse
+     */
+    'tenantId'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse
+     */
+    'description'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse
+     */
+    'source'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse
+     */
+    'image'?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse
+     */
+    'isDeleted'?: boolean;
 }
 

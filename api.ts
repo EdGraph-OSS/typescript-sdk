@@ -99,6 +99,7 @@ export * from './api/tags-api';
 export * from './api/tenant-branding-api';
 export * from './api/tenant-instances-api';
 export * from './api/tenant-jobs-dslapi';
+export * from './api/tenant-jobs-instructional-insights-api';
 export * from './api/tenant-security-score-sync-api';
 export * from './api/tenant-setting-types-api';
 export * from './api/tenants-api';
