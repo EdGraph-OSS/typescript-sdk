@@ -113,6 +113,12 @@ export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsF
      * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQuestionRequestDto
      */
     'visibilityCondition'?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQuestionRequestDto
+     */
+    'customId'?: string | null;
 }
 
 

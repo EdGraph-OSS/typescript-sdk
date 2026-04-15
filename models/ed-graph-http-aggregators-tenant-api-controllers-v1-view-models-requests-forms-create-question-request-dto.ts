@@ -107,6 +107,12 @@ export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsF
      * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQuestionRequestDto
      */
     'visibilityCondition'?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQuestionRequestDto
+     */
+    'customId'?: string | null;
 }
 
 

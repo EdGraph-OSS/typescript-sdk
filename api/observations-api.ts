@@ -452,10 +452,11 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
          * @param {number} [pageSize] 
          * @param {number} [pageIndex] 
          * @param {string} [orderBy] 
+         * @param {string} [nameOfInstitution] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPaginatedAvailableCampuses: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getPaginatedAvailableCampuses: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, nameOfInstitution?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getPaginatedAvailableCampuses', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/campuses`
@@ -485,6 +486,10 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
 
             if (orderBy !== undefined) {
                 localVarQueryParameter['orderBy'] = orderBy;
+            }
+
+            if (nameOfInstitution !== undefined) {
+                localVarQueryParameter['nameOfInstitution'] = nameOfInstitution;
             }
 
 
@@ -989,11 +994,12 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
          * @param {number} [pageSize] 
          * @param {number} [pageIndex] 
          * @param {string} [orderBy] 
+         * @param {string} [nameOfInstitution] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPaginatedAvailableCampuses(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPaginatedAvailableCampuses(tenantId, pageSize, pageIndex, orderBy, options);
+        async getPaginatedAvailableCampuses(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, nameOfInstitution?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPaginatedAvailableCampuses(tenantId, pageSize, pageIndex, orderBy, nameOfInstitution, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getPaginatedAvailableCampuses']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1200,7 +1206,7 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
          * @throws {RequiredError}
          */
         getPaginatedAvailableCampuses(requestParameters: ObservationsApiGetPaginatedAvailableCampusesRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse> {
-            return localVarFp.getPaginatedAvailableCampuses(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, options).then((request) => request(axios, basePath));
+            return localVarFp.getPaginatedAvailableCampuses(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.nameOfInstitution, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1529,6 +1535,13 @@ export interface ObservationsApiGetPaginatedAvailableCampusesRequest {
      * @memberof ObservationsApiGetPaginatedAvailableCampuses
      */
     readonly orderBy?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetPaginatedAvailableCampuses
+     */
+    readonly nameOfInstitution?: string
 }
 
 /**
@@ -1909,7 +1922,7 @@ export class ObservationsApi extends BaseAPI {
      * @memberof ObservationsApi
      */
     public getPaginatedAvailableCampuses(requestParameters: ObservationsApiGetPaginatedAvailableCampusesRequest, options?: RawAxiosRequestConfig) {
-        return ObservationsApiFp(this.configuration).getPaginatedAvailableCampuses(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
+        return ObservationsApiFp(this.configuration).getPaginatedAvailableCampuses(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.nameOfInstitution, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

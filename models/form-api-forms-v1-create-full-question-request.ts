@@ -85,6 +85,12 @@ export interface FormApiFormsV1CreateFullQuestionRequest {
     'component'?: string | null;
     /**
      * 
+     * @type {string}
+     * @memberof FormApiFormsV1CreateFullQuestionRequest
+     */
+    'customId'?: string | null;
+    /**
+     * 
      * @type {FormApiQuestionsV1QuestionVisibilityCondition}
      * @memberof FormApiFormsV1CreateFullQuestionRequest
      */

@@ -91,6 +91,12 @@ export interface FormApiFormsV1UpdateFullQuestionRequest {
     'component'?: string | null;
     /**
      * 
+     * @type {string}
+     * @memberof FormApiFormsV1UpdateFullQuestionRequest
+     */
+    'customId'?: string | null;
+    /**
+     * 
      * @type {FormApiQuestionsV1QuestionVisibilityCondition}
      * @memberof FormApiFormsV1UpdateFullQuestionRequest
      */

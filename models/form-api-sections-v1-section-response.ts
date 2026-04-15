@@ -104,5 +104,11 @@ export interface FormApiSectionsV1SectionResponse {
      * @memberof FormApiSectionsV1SectionResponse
      */
     'subHeading'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof FormApiSectionsV1SectionResponse
+     */
+    'customId'?: string | null;
 }
 

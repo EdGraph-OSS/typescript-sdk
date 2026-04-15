@@ -155,6 +155,12 @@ export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponses
      * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDto
      */
     'visibilityCondition'?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDto
+     */
+    'customId'?: string | null;
 }
 
 
