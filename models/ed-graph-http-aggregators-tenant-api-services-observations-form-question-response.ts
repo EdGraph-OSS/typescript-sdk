@@ -15,7 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionValidationResponse } from './ed-graph-http-aggregators-tenant-api-services-observations-form-question-validation-response';
+import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionValidationResponseDto } from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-forms-question-validation-response-dto';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto } from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-forms-question-visibility-condition-dto';
 
 /**
  * 
@@ -79,10 +82,10 @@ export interface EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestion
     'defaultValue'?: string | null;
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionValidationResponse}
+     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionValidationResponseDto}
      * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse
      */
-    'validation'?: EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionValidationResponse;
+    'validation'?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionValidationResponseDto;
     /**
      * 
      * @type {Array<string>}
@@ -143,5 +146,11 @@ export interface EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestion
      * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse
      */
     'component'?: any | null;
+    /**
+     * 
+     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse
+     */
+    'visibilityCondition'?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto;
 }
 
