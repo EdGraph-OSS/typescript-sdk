@@ -24,6 +24,8 @@ import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError
 // @ts-ignore
 import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 // @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel } from '../models';
+// @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest } from '../models';
@@ -37,8 +39,6 @@ import type { EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservati
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse } from '../models';
-// @ts-ignore
-import type { EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse } from '../models';
 // @ts-ignore
@@ -921,7 +921,7 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFormQuestions(tenantId: string, formId: string, sectionId: string, pageIndex?: number, pageSize?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel>> {
+        async getFormQuestions(tenantId: string, formId: string, sectionId: string, pageIndex?: number, pageSize?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFormQuestions(tenantId, formId, sectionId, pageIndex, pageSize, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getFormQuestions']?.[localVarOperationServerIndex]?.url;
@@ -1155,7 +1155,7 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFormQuestions(requestParameters: ObservationsApiGetFormQuestionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel> {
+        getFormQuestions(requestParameters: ObservationsApiGetFormQuestionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel> {
             return localVarFp.getFormQuestions(requestParameters.tenantId, requestParameters.formId, requestParameters.sectionId, requestParameters.pageIndex, requestParameters.pageSize, options).then((request) => request(axios, basePath));
         },
         /**

@@ -199,8 +199,6 @@ export * from './ed-graph-http-aggregators-tenant-api-services-observations-eval
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-evaluee-response-get-paginated-items-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-configuration-request';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-configuration-response';
-export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-question-response';
-export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-question-response-paginated-items-view-model';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-response-get-paginated-items-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-section-response';

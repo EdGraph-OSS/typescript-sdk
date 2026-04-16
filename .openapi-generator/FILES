@@ -305,8 +305,6 @@ models/ed-graph-http-aggregators-tenant-api-services-observations-evaluee-respon
 models/ed-graph-http-aggregators-tenant-api-services-observations-evaluee-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-form-configuration-request.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-form-configuration-response.ts
-models/ed-graph-http-aggregators-tenant-api-services-observations-form-question-response-paginated-items-view-model.ts
-models/ed-graph-http-aggregators-tenant-api-services-observations-form-question-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-form-response-get-paginated-items-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-form-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-form-section-response-paginated-items-view-model.ts
