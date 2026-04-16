@@ -98,5 +98,11 @@ export interface EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionR
      * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse
      */
     'order'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse
+     */
+    'customId'?: string | null;
 }
 
