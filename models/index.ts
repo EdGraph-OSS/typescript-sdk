@@ -749,6 +749,7 @@ export * from './tenant-api-sections-v1-paginated-sessions-response';
 export * from './tenant-api-sections-v1-paginated-terms-response';
 export * from './tenant-api-sections-v1-school-list-response';
 export * from './tenant-api-sections-v1-section-list-response';
+export * from './tenant-api-sections-v1-section-list-response-get-paginated-items-response';
 export * from './tenant-api-sections-v1-section-profile-response';
 export * from './tenant-api-sections-v1-section-source';
 export * from './tenant-api-sections-v1-session-list-response';

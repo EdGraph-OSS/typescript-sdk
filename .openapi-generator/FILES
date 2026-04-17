@@ -855,6 +855,7 @@ models/tenant-api-sections-v1-paginated-schools-response.ts
 models/tenant-api-sections-v1-paginated-sessions-response.ts
 models/tenant-api-sections-v1-paginated-terms-response.ts
 models/tenant-api-sections-v1-school-list-response.ts
+models/tenant-api-sections-v1-section-list-response-get-paginated-items-response.ts
 models/tenant-api-sections-v1-section-list-response.ts
 models/tenant-api-sections-v1-section-profile-response.ts
 models/tenant-api-sections-v1-section-source.ts

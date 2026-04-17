@@ -38,5 +38,11 @@ export interface EdGraphHttpAggregatorsTenantApiServicesObservationsCampusRespon
      * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse
      */
     'discriminator'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse
+     */
+    'campusId'?: string | null;
 }
 
