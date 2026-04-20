@@ -68,5 +68,11 @@ export interface EvaluationApiEvaluationsV1UpdateEvaluationRequest {
      * @memberof EvaluationApiEvaluationsV1UpdateEvaluationRequest
      */
     'formVersion'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvaluationApiEvaluationsV1UpdateEvaluationRequest
+     */
+    'campusClassId'?: string | null;
 }
 

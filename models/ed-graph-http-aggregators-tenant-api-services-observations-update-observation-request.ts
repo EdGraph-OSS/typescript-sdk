@@ -43,6 +43,36 @@ export interface EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObserv
      * @type {string}
      * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest
      */
+    'campus'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest
+     */
+    'observerId'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest
+     */
+    'evalueeId'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest
+     */
     'formId'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest
+     */
+    'formVersion'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest
+     */
+    'campusClassId'?: string | null;
 }
 

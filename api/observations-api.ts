@@ -634,10 +634,12 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
          * @param {string} [orderBy] 
          * @param {string} [campus] 
          * @param {string} [evalueeId] 
+         * @param {string} [firstName] 
+         * @param {string} [lastName] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPaginatedEvaluees: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, campus?: string, evalueeId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getPaginatedEvaluees: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, campus?: string, evalueeId?: string, firstName?: string, lastName?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getPaginatedEvaluees', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/evaluees`
@@ -675,6 +677,14 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
 
             if (evalueeId !== undefined) {
                 localVarQueryParameter['evalueeId'] = evalueeId;
+            }
+
+            if (firstName !== undefined) {
+                localVarQueryParameter['firstName'] = firstName;
+            }
+
+            if (lastName !== undefined) {
+                localVarQueryParameter['lastName'] = lastName;
             }
 
 
@@ -1112,11 +1122,13 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
          * @param {string} [orderBy] 
          * @param {string} [campus] 
          * @param {string} [evalueeId] 
+         * @param {string} [firstName] 
+         * @param {string} [lastName] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPaginatedEvaluees(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, campus?: string, evalueeId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPaginatedEvaluees(tenantId, pageSize, pageIndex, orderBy, campus, evalueeId, options);
+        async getPaginatedEvaluees(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, campus?: string, evalueeId?: string, firstName?: string, lastName?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPaginatedEvaluees(tenantId, pageSize, pageIndex, orderBy, campus, evalueeId, firstName, lastName, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getPaginatedEvaluees']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1318,7 +1330,7 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
          * @throws {RequiredError}
          */
         getPaginatedEvaluees(requestParameters: ObservationsApiGetPaginatedEvalueesRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse> {
-            return localVarFp.getPaginatedEvaluees(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.campus, requestParameters.evalueeId, options).then((request) => request(axios, basePath));
+            return localVarFp.getPaginatedEvaluees(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.campus, requestParameters.evalueeId, requestParameters.firstName, requestParameters.lastName, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1774,6 +1786,20 @@ export interface ObservationsApiGetPaginatedEvalueesRequest {
      * @memberof ObservationsApiGetPaginatedEvaluees
      */
     readonly evalueeId?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetPaginatedEvaluees
+     */
+    readonly firstName?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetPaginatedEvaluees
+     */
+    readonly lastName?: string
 }
 
 /**
@@ -2099,7 +2125,7 @@ export class ObservationsApi extends BaseAPI {
      * @memberof ObservationsApi
      */
     public getPaginatedEvaluees(requestParameters: ObservationsApiGetPaginatedEvalueesRequest, options?: RawAxiosRequestConfig) {
-        return ObservationsApiFp(this.configuration).getPaginatedEvaluees(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.campus, requestParameters.evalueeId, options).then((request) => request(this.axios, this.basePath));
+        return ObservationsApiFp(this.configuration).getPaginatedEvaluees(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.campus, requestParameters.evalueeId, requestParameters.firstName, requestParameters.lastName, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
