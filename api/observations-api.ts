@@ -635,11 +635,11 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
          * @param {number} [pageIndex] 
          * @param {number} [pageSize] 
          * @param {string} [orderBy] 
-         * @param {string} [courseTitle] 
+         * @param {string} [filter] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPaginatedCampusSections: async (tenantId: string, campusId: string, pageIndex?: number, pageSize?: number, orderBy?: string, courseTitle?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getPaginatedCampusSections: async (tenantId: string, campusId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getPaginatedCampusSections', 'tenantId', tenantId)
             // verify required parameter 'campusId' is not null or undefined
@@ -674,8 +674,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
-            if (courseTitle !== undefined) {
-                localVarQueryParameter['courseTitle'] = courseTitle;
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
             }
 
 
@@ -1185,12 +1185,12 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
          * @param {number} [pageIndex] 
          * @param {number} [pageSize] 
          * @param {string} [orderBy] 
-         * @param {string} [courseTitle] 
+         * @param {string} [filter] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPaginatedCampusSections(tenantId: string, campusId: string, pageIndex?: number, pageSize?: number, orderBy?: string, courseTitle?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPaginatedCampusSections(tenantId, campusId, pageIndex, pageSize, orderBy, courseTitle, options);
+        async getPaginatedCampusSections(tenantId: string, campusId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPaginatedCampusSections(tenantId, campusId, pageIndex, pageSize, orderBy, filter, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getPaginatedCampusSections']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1412,7 +1412,7 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
          * @throws {RequiredError}
          */
         getPaginatedCampusSections(requestParameters: ObservationsApiGetPaginatedCampusSectionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse> {
-            return localVarFp.getPaginatedCampusSections(requestParameters.tenantId, requestParameters.campusId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.courseTitle, options).then((request) => request(axios, basePath));
+            return localVarFp.getPaginatedCampusSections(requestParameters.tenantId, requestParameters.campusId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1877,7 +1877,7 @@ export interface ObservationsApiGetPaginatedCampusSectionsRequest {
      * @type {string}
      * @memberof ObservationsApiGetPaginatedCampusSections
      */
-    readonly courseTitle?: string
+    readonly filter?: string
 }
 
 /**
@@ -2266,7 +2266,7 @@ export class ObservationsApi extends BaseAPI {
      * @memberof ObservationsApi
      */
     public getPaginatedCampusSections(requestParameters: ObservationsApiGetPaginatedCampusSectionsRequest, options?: RawAxiosRequestConfig) {
-        return ObservationsApiFp(this.configuration).getPaginatedCampusSections(requestParameters.tenantId, requestParameters.campusId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.courseTitle, options).then((request) => request(this.axios, this.basePath));
+        return ObservationsApiFp(this.configuration).getPaginatedCampusSections(requestParameters.tenantId, requestParameters.campusId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

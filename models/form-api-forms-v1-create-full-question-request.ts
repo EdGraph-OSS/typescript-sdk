@@ -95,6 +95,12 @@ export interface FormApiFormsV1CreateFullQuestionRequest {
      * @memberof FormApiFormsV1CreateFullQuestionRequest
      */
     'visibilityCondition'?: FormApiQuestionsV1QuestionVisibilityCondition;
+    /**
+     * 
+     * @type {string}
+     * @memberof FormApiFormsV1CreateFullQuestionRequest
+     */
+    'originalQuestionId'?: string | null;
 }
 
 
