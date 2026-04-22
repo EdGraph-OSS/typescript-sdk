@@ -690,6 +690,7 @@ export * from './identity-api-user-v1-section-added-response';
 export * from './identity-api-user-v1-section-removed-bulk-response';
 export * from './identity-api-user-v1-section-removed-response';
 export * from './identity-api-user-v1-section-response';
+export * from './identity-api-user-v1-section-response-get-paginated-items-response';
 export * from './identity-api-user-v1-section-updated-bulk-response';
 export * from './identity-api-user-v1-section-updated-response';
 export * from './identity-api-user-v1-set-user-extension-request';

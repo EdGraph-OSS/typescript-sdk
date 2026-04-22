@@ -754,6 +754,7 @@ models/identity-api-user-v1-section-added-bulk-response.ts
 models/identity-api-user-v1-section-added-response.ts
 models/identity-api-user-v1-section-removed-bulk-response.ts
 models/identity-api-user-v1-section-removed-response.ts
+models/identity-api-user-v1-section-response-get-paginated-items-response.ts
 models/identity-api-user-v1-section-response.ts
 models/identity-api-user-v1-section-updated-bulk-response.ts
 models/identity-api-user-v1-section-updated-response.ts

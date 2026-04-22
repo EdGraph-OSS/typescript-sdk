@@ -62,6 +62,8 @@ import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservati
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftResponse } from '../models';
 // @ts-ignore
+import type { IdentityApiUserV1SectionResponseGetPaginatedItemsResponse } from '../models';
+// @ts-ignore
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 // @ts-ignore
 import type { TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse } from '../models';
@@ -193,6 +195,68 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Gets the Sections of an evaluee.
+         * @param {string} tenantId 
+         * @param {string} evalueeId 
+         * @param {number} [pageIndex] 
+         * @param {number} [pageSize] 
+         * @param {string} [orderBy] 
+         * @param {string} [filterBy] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEvalueeSections: async (tenantId: string, evalueeId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filterBy?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getEvalueeSections', 'tenantId', tenantId)
+            // verify required parameter 'evalueeId' is not null or undefined
+            assertParamExists('getEvalueeSections', 'evalueeId', evalueeId)
+            const localVarPath = `/tenants/{tenantId}/observations/evaluees/{evalueeId}/sections`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
+                .replace(`{${"evalueeId"}}`, encodeURIComponent(String(evalueeId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            if (pageIndex !== undefined) {
+                localVarQueryParameter['pageIndex'] = pageIndex;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['orderBy'] = orderBy;
+            }
+
+            if (filterBy !== undefined) {
+                localVarQueryParameter['filterBy'] = filterBy;
+            }
 
 
     
@@ -986,6 +1050,24 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Gets the Sections of an evaluee.
+         * @param {string} tenantId 
+         * @param {string} evalueeId 
+         * @param {number} [pageIndex] 
+         * @param {number} [pageSize] 
+         * @param {string} [orderBy] 
+         * @param {string} [filterBy] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getEvalueeSections(tenantId: string, evalueeId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filterBy?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityApiUserV1SectionResponseGetPaginatedItemsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getEvalueeSections(tenantId, evalueeId, pageIndex, pageSize, orderBy, filterBy, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getEvalueeSections']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Search Questions
          * @param {string} tenantId 
          * @param {string} formId 
@@ -1244,6 +1326,16 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
         },
         /**
          * 
+         * @summary Gets the Sections of an evaluee.
+         * @param {ObservationsApiGetEvalueeSectionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEvalueeSections(requestParameters: ObservationsApiGetEvalueeSectionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdentityApiUserV1SectionResponseGetPaginatedItemsResponse> {
+            return localVarFp.getEvalueeSections(requestParameters.tenantId, requestParameters.evalueeId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filterBy, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Search Questions
          * @param {ObservationsApiGetFormQuestionsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -1450,6 +1542,55 @@ export interface ObservationsApiDeleteObservationRequest {
      * @memberof ObservationsApiDeleteObservation
      */
     readonly observationId: string
+}
+
+/**
+ * Request parameters for getEvalueeSections operation in ObservationsApi.
+ * @export
+ * @interface ObservationsApiGetEvalueeSectionsRequest
+ */
+export interface ObservationsApiGetEvalueeSectionsRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetEvalueeSections
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetEvalueeSections
+     */
+    readonly evalueeId: string
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ObservationsApiGetEvalueeSections
+     */
+    readonly pageIndex?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ObservationsApiGetEvalueeSections
+     */
+    readonly pageSize?: number
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetEvalueeSections
+     */
+    readonly orderBy?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetEvalueeSections
+     */
+    readonly filterBy?: string
 }
 
 /**
@@ -2018,6 +2159,18 @@ export class ObservationsApi extends BaseAPI {
      */
     public deleteObservation(requestParameters: ObservationsApiDeleteObservationRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).deleteObservation(requestParameters.tenantId, requestParameters.observationId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Gets the Sections of an evaluee.
+     * @param {ObservationsApiGetEvalueeSectionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ObservationsApi
+     */
+    public getEvalueeSections(requestParameters: ObservationsApiGetEvalueeSectionsRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).getEvalueeSections(requestParameters.tenantId, requestParameters.evalueeId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filterBy, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

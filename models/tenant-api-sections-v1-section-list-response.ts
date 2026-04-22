@@ -167,6 +167,12 @@ export interface TenantApiSectionsV1SectionListResponse {
      * @memberof TenantApiSectionsV1SectionListResponse
      */
     'schoolYear'?: number;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof TenantApiSectionsV1SectionListResponse
+     */
+    'classPeriods'?: Array<string> | null;
 }
 
 
