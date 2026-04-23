@@ -161,6 +161,12 @@ export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponses
      * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDto
      */
     'customId'?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDto
+     */
+    'multiline'?: boolean | null;
 }
 
 

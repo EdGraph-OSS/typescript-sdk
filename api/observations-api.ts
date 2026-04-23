@@ -22,6 +22,10 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
+import type { AnalyticsApiReportsV1ReportPreferencesResponse } from '../models';
+// @ts-ignore
+import type { AnalyticsApiReportsV1ReportResponse } from '../models';
+// @ts-ignore
 import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel } from '../models';
@@ -58,9 +62,15 @@ import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservati
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationResponse } from '../models';
 // @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest } from '../models';
+// @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftResponse } from '../models';
+// @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest } from '../models';
+// @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse } from '../models';
 // @ts-ignore
 import type { IdentityApiUserV1SectionResponseGetPaginatedItemsResponse } from '../models';
 // @ts-ignore
@@ -189,6 +199,95 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             }
 
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get Observation Dashboard
+         * @param {string} tenantId 
+         * @param {string} dashboardId 
+         * @param {string} [personaIdentifier] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDashboard: async (tenantId: string, dashboardId: string, personaIdentifier?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getDashboard', 'tenantId', tenantId)
+            // verify required parameter 'dashboardId' is not null or undefined
+            assertParamExists('getDashboard', 'dashboardId', dashboardId)
+            const localVarPath = `/tenants/{tenantId}/observations/dashboards/{dashboardId}`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
+                .replace(`{${"dashboardId"}}`, encodeURIComponent(String(dashboardId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            if (personaIdentifier !== undefined) {
+                localVarQueryParameter['personaIdentifier'] = personaIdentifier;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Save user preferences for a given Dashboard
+         * @param {string} tenantId 
+         * @param {string} dashboardId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDashboardPreferences: async (tenantId: string, dashboardId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getDashboardPreferences', 'tenantId', tenantId)
+            // verify required parameter 'dashboardId' is not null or undefined
+            assertParamExists('getDashboardPreferences', 'dashboardId', dashboardId)
+            const localVarPath = `/tenants/{tenantId}/observations/dashboards/{dashboardId}/preferences`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
+                .replace(`{${"dashboardId"}}`, encodeURIComponent(String(dashboardId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -900,6 +999,52 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
         },
         /**
          * 
+         * @summary Save user preferences for a given Dashboard
+         * @param {string} tenantId 
+         * @param {string} dashboardId 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        saveDashboardPreferences: async (tenantId: string, dashboardId: string, edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('saveDashboardPreferences', 'tenantId', tenantId)
+            // verify required parameter 'dashboardId' is not null or undefined
+            assertParamExists('saveDashboardPreferences', 'dashboardId', dashboardId)
+            const localVarPath = `/tenants/{tenantId}/observations/dashboards/{dashboardId}/preferences`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
+                .replace(`{${"dashboardId"}}`, encodeURIComponent(String(dashboardId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Update an Observation for a given tenant
          * @param {string} tenantId 
          * @param {string} observationId 
@@ -994,6 +1139,52 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Verify user access to dashboards
+         * @param {string} tenantId 
+         * @param {string} reportId 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        verifyDashboardAccess: async (tenantId: string, reportId: string, edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('verifyDashboardAccess', 'tenantId', tenantId)
+            // verify required parameter 'reportId' is not null or undefined
+            assertParamExists('verifyDashboardAccess', 'reportId', reportId)
+            const localVarPath = `/tenants/{tenantId}/observations/dashboards/access`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
+                .replace(`{${"reportId"}}`, encodeURIComponent(String(reportId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -1046,6 +1237,35 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteObservation(tenantId, observationId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.deleteObservation']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Get Observation Dashboard
+         * @param {string} tenantId 
+         * @param {string} dashboardId 
+         * @param {string} [personaIdentifier] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getDashboard(tenantId: string, dashboardId: string, personaIdentifier?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnalyticsApiReportsV1ReportResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDashboard(tenantId, dashboardId, personaIdentifier, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getDashboard']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Save user preferences for a given Dashboard
+         * @param {string} tenantId 
+         * @param {string} dashboardId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getDashboardPreferences(tenantId: string, dashboardId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnalyticsApiReportsV1ReportPreferencesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDashboardPreferences(tenantId, dashboardId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getDashboardPreferences']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1255,6 +1475,21 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Save user preferences for a given Dashboard
+         * @param {string} tenantId 
+         * @param {string} dashboardId 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async saveDashboardPreferences(tenantId: string, dashboardId: string, edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnalyticsApiReportsV1ReportResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.saveDashboardPreferences(tenantId, dashboardId, edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.saveDashboardPreferences']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Update an Observation for a given tenant
          * @param {string} tenantId 
          * @param {string} observationId 
@@ -1282,6 +1517,21 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.upsertObservationDraft(tenantId, observationId, formId, edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.upsertObservationDraft']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Verify user access to dashboards
+         * @param {string} tenantId 
+         * @param {string} reportId 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async verifyDashboardAccess(tenantId: string, reportId: string, edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.verifyDashboardAccess(tenantId, reportId, edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.verifyDashboardAccess']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -1323,6 +1573,26 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
          */
         deleteObservation(requestParameters: ObservationsApiDeleteObservationRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse> {
             return localVarFp.deleteObservation(requestParameters.tenantId, requestParameters.observationId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get Observation Dashboard
+         * @param {ObservationsApiGetDashboardRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDashboard(requestParameters: ObservationsApiGetDashboardRequest, options?: RawAxiosRequestConfig): AxiosPromise<AnalyticsApiReportsV1ReportResponse> {
+            return localVarFp.getDashboard(requestParameters.tenantId, requestParameters.dashboardId, requestParameters.personaIdentifier, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Save user preferences for a given Dashboard
+         * @param {ObservationsApiGetDashboardPreferencesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDashboardPreferences(requestParameters: ObservationsApiGetDashboardPreferencesRequest, options?: RawAxiosRequestConfig): AxiosPromise<AnalyticsApiReportsV1ReportPreferencesResponse> {
+            return localVarFp.getDashboardPreferences(requestParameters.tenantId, requestParameters.dashboardId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1446,6 +1716,16 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
         },
         /**
          * 
+         * @summary Save user preferences for a given Dashboard
+         * @param {ObservationsApiSaveDashboardPreferencesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        saveDashboardPreferences(requestParameters: ObservationsApiSaveDashboardPreferencesRequest, options?: RawAxiosRequestConfig): AxiosPromise<AnalyticsApiReportsV1ReportResponse> {
+            return localVarFp.saveDashboardPreferences(requestParameters.tenantId, requestParameters.dashboardId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Update an Observation for a given tenant
          * @param {ObservationsApiUpdateObservationRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -1463,6 +1743,16 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
          */
         upsertObservationDraft(requestParameters: ObservationsApiUpsertObservationDraftRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftResponse> {
             return localVarFp.upsertObservationDraft(requestParameters.tenantId, requestParameters.observationId, requestParameters.formId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Verify user access to dashboards
+         * @param {ObservationsApiVerifyDashboardAccessRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        verifyDashboardAccess(requestParameters: ObservationsApiVerifyDashboardAccessRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse> {
+            return localVarFp.verifyDashboardAccess(requestParameters.tenantId, requestParameters.reportId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1542,6 +1832,55 @@ export interface ObservationsApiDeleteObservationRequest {
      * @memberof ObservationsApiDeleteObservation
      */
     readonly observationId: string
+}
+
+/**
+ * Request parameters for getDashboard operation in ObservationsApi.
+ * @export
+ * @interface ObservationsApiGetDashboardRequest
+ */
+export interface ObservationsApiGetDashboardRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetDashboard
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetDashboard
+     */
+    readonly dashboardId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetDashboard
+     */
+    readonly personaIdentifier?: string
+}
+
+/**
+ * Request parameters for getDashboardPreferences operation in ObservationsApi.
+ * @export
+ * @interface ObservationsApiGetDashboardPreferencesRequest
+ */
+export interface ObservationsApiGetDashboardPreferencesRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetDashboardPreferences
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiGetDashboardPreferences
+     */
+    readonly dashboardId: string
 }
 
 /**
@@ -2056,6 +2395,34 @@ export interface ObservationsApiGetSubmittedObservationsCountRequest {
 }
 
 /**
+ * Request parameters for saveDashboardPreferences operation in ObservationsApi.
+ * @export
+ * @interface ObservationsApiSaveDashboardPreferencesRequest
+ */
+export interface ObservationsApiSaveDashboardPreferencesRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiSaveDashboardPreferences
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiSaveDashboardPreferences
+     */
+    readonly dashboardId: string
+
+    /**
+     * 
+     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest}
+     * @memberof ObservationsApiSaveDashboardPreferences
+     */
+    readonly edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest
+}
+
+/**
  * Request parameters for updateObservation operation in ObservationsApi.
  * @export
  * @interface ObservationsApiUpdateObservationRequest
@@ -2119,6 +2486,34 @@ export interface ObservationsApiUpsertObservationDraftRequest {
 }
 
 /**
+ * Request parameters for verifyDashboardAccess operation in ObservationsApi.
+ * @export
+ * @interface ObservationsApiVerifyDashboardAccessRequest
+ */
+export interface ObservationsApiVerifyDashboardAccessRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiVerifyDashboardAccess
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationsApiVerifyDashboardAccess
+     */
+    readonly reportId: string
+
+    /**
+     * 
+     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest}
+     * @memberof ObservationsApiVerifyDashboardAccess
+     */
+    readonly edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest
+}
+
+/**
  * ObservationsApi - object-oriented interface
  * @export
  * @class ObservationsApi
@@ -2159,6 +2554,30 @@ export class ObservationsApi extends BaseAPI {
      */
     public deleteObservation(requestParameters: ObservationsApiDeleteObservationRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).deleteObservation(requestParameters.tenantId, requestParameters.observationId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Observation Dashboard
+     * @param {ObservationsApiGetDashboardRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ObservationsApi
+     */
+    public getDashboard(requestParameters: ObservationsApiGetDashboardRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).getDashboard(requestParameters.tenantId, requestParameters.dashboardId, requestParameters.personaIdentifier, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Save user preferences for a given Dashboard
+     * @param {ObservationsApiGetDashboardPreferencesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ObservationsApi
+     */
+    public getDashboardPreferences(requestParameters: ObservationsApiGetDashboardPreferencesRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).getDashboardPreferences(requestParameters.tenantId, requestParameters.dashboardId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2307,6 +2726,18 @@ export class ObservationsApi extends BaseAPI {
 
     /**
      * 
+     * @summary Save user preferences for a given Dashboard
+     * @param {ObservationsApiSaveDashboardPreferencesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ObservationsApi
+     */
+    public saveDashboardPreferences(requestParameters: ObservationsApiSaveDashboardPreferencesRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).saveDashboardPreferences(requestParameters.tenantId, requestParameters.dashboardId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
      * @summary Update an Observation for a given tenant
      * @param {ObservationsApiUpdateObservationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -2327,6 +2758,18 @@ export class ObservationsApi extends BaseAPI {
      */
     public upsertObservationDraft(requestParameters: ObservationsApiUpsertObservationDraftRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).upsertObservationDraft(requestParameters.tenantId, requestParameters.observationId, requestParameters.formId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Verify user access to dashboards
+     * @param {ObservationsApiVerifyDashboardAccessRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ObservationsApi
+     */
+    public verifyDashboardAccess(requestParameters: ObservationsApiVerifyDashboardAccessRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).verifyDashboardAccess(requestParameters.tenantId, requestParameters.reportId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

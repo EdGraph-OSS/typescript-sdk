@@ -113,6 +113,12 @@ export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsF
      * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQuestionRequestDto
      */
     'customId'?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQuestionRequestDto
+     */
+    'multiline'?: boolean | null;
 }
 
 

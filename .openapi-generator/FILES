@@ -136,6 +136,8 @@ models/analytics-api-reports-v1-analytics-report.ts
 models/analytics-api-reports-v1-download-report-response.ts
 models/analytics-api-reports-v1-report-id-response.ts
 models/analytics-api-reports-v1-report-paginated-items-response.ts
+models/analytics-api-reports-v1-report-preference-details-response.ts
+models/analytics-api-reports-v1-report-preferences-response.ts
 models/analytics-api-reports-v1-report-response.ts
 models/analytics-api-reports-v1-report-source.ts
 models/analytics-api-reports-v1-sync-latest-version-request.ts
@@ -328,8 +330,12 @@ models/ed-graph-http-aggregators-tenant-api-services-observations-staff-classifi
 models/ed-graph-http-aggregators-tenant-api-services-observations-staff-classification-namespace-role.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-update-observation-request.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-update-observation-response.ts
+models/ed-graph-http-aggregators-tenant-api-services-observations-upsert-dashboard-preferences-request.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-upsert-observation-draft-request.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-upsert-observation-draft-response.ts
+models/ed-graph-http-aggregators-tenant-api-services-observations-upsert-report-preference-details.ts
+models/ed-graph-http-aggregators-tenant-api-services-observations-use-cases-commands-dashboard-access-request.ts
+models/ed-graph-http-aggregators-tenant-api-services-observations-use-cases-commands-dashboard-access-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-onboarding-steps-connection-created-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-onboarding-steps-connection-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-onboarding-steps-connection-updated-response.ts
