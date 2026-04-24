@@ -138,6 +138,7 @@ models/analytics-api-reports-v1-report-id-response.ts
 models/analytics-api-reports-v1-report-paginated-items-response.ts
 models/analytics-api-reports-v1-report-preference-details-response.ts
 models/analytics-api-reports-v1-report-preferences-response.ts
+models/analytics-api-reports-v1-report-preferences-saved-response.ts
 models/analytics-api-reports-v1-report-response.ts
 models/analytics-api-reports-v1-report-source.ts
 models/analytics-api-reports-v1-sync-latest-version-request.ts

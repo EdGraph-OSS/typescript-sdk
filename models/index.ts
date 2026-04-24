@@ -32,6 +32,7 @@ export * from './analytics-api-reports-v1-report-id-response';
 export * from './analytics-api-reports-v1-report-paginated-items-response';
 export * from './analytics-api-reports-v1-report-preference-details-response';
 export * from './analytics-api-reports-v1-report-preferences-response';
+export * from './analytics-api-reports-v1-report-preferences-saved-response';
 export * from './analytics-api-reports-v1-report-response';
 export * from './analytics-api-reports-v1-report-source';
 export * from './analytics-api-reports-v1-sync-latest-version-request';
