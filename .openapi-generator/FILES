@@ -305,6 +305,7 @@ models/ed-graph-http-aggregators-tenant-api-services-observations-create-observa
 models/ed-graph-http-aggregators-tenant-api-services-observations-create-observation-submission-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-delete-observation-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-evaluee-response-get-paginated-items-response.ts
+models/ed-graph-http-aggregators-tenant-api-services-observations-evaluee-response-paginated-items-view-model.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-evaluee-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-form-configuration-request.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-form-configuration-response.ts

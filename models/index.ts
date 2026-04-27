@@ -200,6 +200,7 @@ export * from './ed-graph-http-aggregators-tenant-api-services-observations-crea
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-delete-observation-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-evaluee-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-evaluee-response-get-paginated-items-response';
+export * from './ed-graph-http-aggregators-tenant-api-services-observations-evaluee-response-paginated-items-view-model';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-configuration-request';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-configuration-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-response';

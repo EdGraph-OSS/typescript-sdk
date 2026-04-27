@@ -44,5 +44,11 @@ export interface EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeRespo
      * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse
      */
     'email'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse
+     */
+    'campus'?: string | null;
 }
 
