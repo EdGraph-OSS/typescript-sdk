@@ -331,6 +331,7 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
          * 
          * @summary Get TEA tenant organizations
          * @param {string} tenantId 
+         * @param {string} [teaTenantId] 
          * @param {number} [pageSize] 
          * @param {number} [pageIndex] 
          * @param {string} [orderBy] 
@@ -338,7 +339,7 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTEATenantOrganizations: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTEATenantOrganizations: async (tenantId: string, teaTenantId?: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getTEATenantOrganizations', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/tenantorganizations`
@@ -357,6 +358,10 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            if (teaTenantId !== undefined) {
+                localVarQueryParameter['teaTenantId'] = teaTenantId;
+            }
 
             if (pageSize !== undefined) {
                 localVarQueryParameter['pageSize'] = pageSize;
@@ -608,6 +613,7 @@ export const ObservationSettingsApiFp = function(configuration?: Configuration) 
          * 
          * @summary Get TEA tenant organizations
          * @param {string} tenantId 
+         * @param {string} [teaTenantId] 
          * @param {number} [pageSize] 
          * @param {number} [pageIndex] 
          * @param {string} [orderBy] 
@@ -615,8 +621,8 @@ export const ObservationSettingsApiFp = function(configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTEATenantOrganizations(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiTenantV1OrganizationGetPaginatedItemsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTEATenantOrganizations(tenantId, pageSize, pageIndex, orderBy, filter, options);
+        async getTEATenantOrganizations(tenantId: string, teaTenantId?: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiTenantV1OrganizationGetPaginatedItemsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTEATenantOrganizations(tenantId, teaTenantId, pageSize, pageIndex, orderBy, filter, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationSettingsApi.getTEATenantOrganizations']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -740,7 +746,7 @@ export const ObservationSettingsApiFactory = function (configuration?: Configura
          * @throws {RequiredError}
          */
         getTEATenantOrganizations(requestParameters: ObservationSettingsApiGetTEATenantOrganizationsRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiTenantV1OrganizationGetPaginatedItemsResponse> {
-            return localVarFp.getTEATenantOrganizations(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
+            return localVarFp.getTEATenantOrganizations(requestParameters.tenantId, requestParameters.teaTenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -937,6 +943,13 @@ export interface ObservationSettingsApiGetTEATenantOrganizationsRequest {
 
     /**
      * 
+     * @type {string}
+     * @memberof ObservationSettingsApiGetTEATenantOrganizations
+     */
+    readonly teaTenantId?: string
+
+    /**
+     * 
      * @type {number}
      * @memberof ObservationSettingsApiGetTEATenantOrganizations
      */
@@ -1108,7 +1121,7 @@ export class ObservationSettingsApi extends BaseAPI {
      * @memberof ObservationSettingsApi
      */
     public getTEATenantOrganizations(requestParameters: ObservationSettingsApiGetTEATenantOrganizationsRequest, options?: RawAxiosRequestConfig) {
-        return ObservationSettingsApiFp(this.configuration).getTEATenantOrganizations(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
+        return ObservationSettingsApiFp(this.configuration).getTEATenantOrganizations(requestParameters.tenantId, requestParameters.teaTenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
