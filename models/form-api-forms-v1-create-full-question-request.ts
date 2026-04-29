@@ -101,6 +101,12 @@ export interface FormApiFormsV1CreateFullQuestionRequest {
      * @memberof FormApiFormsV1CreateFullQuestionRequest
      */
     'originalQuestionId'?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof FormApiFormsV1CreateFullQuestionRequest
+     */
+    'multiline'?: boolean | null;
 }
 
 

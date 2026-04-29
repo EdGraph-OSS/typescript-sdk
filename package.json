@@ -1,6 +1,6 @@
 {
   "name": "@edgraph-oss/platform-client",
-  "version": "0.0.37",
+  "version": "0.0.38",
   "description": "OpenAPI client for @edgraph-oss/platform-client",
   "author": "OpenAPI-Generator Contributors",
   "repository": {

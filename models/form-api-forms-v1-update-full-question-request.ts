@@ -101,6 +101,12 @@ export interface FormApiFormsV1UpdateFullQuestionRequest {
      * @memberof FormApiFormsV1UpdateFullQuestionRequest
      */
     'visibilityCondition'?: FormApiQuestionsV1QuestionVisibilityCondition;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof FormApiFormsV1UpdateFullQuestionRequest
+     */
+    'multiline'?: boolean | null;
 }
 
 

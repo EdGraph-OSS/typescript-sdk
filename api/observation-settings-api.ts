@@ -47,6 +47,8 @@ import type { EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigur
 import type { IdentityApiStaffClassificationV1GetStaffClassificationsResponse } from '../models';
 // @ts-ignore
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
+// @ts-ignore
+import type { TenantApiTenantV1OrganizationGetPaginatedItemsResponse } from '../models';
 /**
  * ObservationSettingsApi - axios parameter creator
  * @export
@@ -327,6 +329,64 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
         },
         /**
          * 
+         * @summary Get TEA tenant organizations
+         * @param {string} tenantId 
+         * @param {number} [pageSize] 
+         * @param {number} [pageIndex] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTEATenantOrganizations: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getTEATenantOrganizations', 'tenantId', tenantId)
+            const localVarPath = `/tenants/{tenantId}/observations/tenantorganizations`
+                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (pageIndex !== undefined) {
+                localVarQueryParameter['pageIndex'] = pageIndex;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['orderBy'] = orderBy;
+            }
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Sets the Application Settings of an Observation for a given Tenant
          * @param {string} tenantId 
          * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest] 
@@ -546,6 +606,23 @@ export const ObservationSettingsApiFp = function(configuration?: Configuration) 
         },
         /**
          * 
+         * @summary Get TEA tenant organizations
+         * @param {string} tenantId 
+         * @param {number} [pageSize] 
+         * @param {number} [pageIndex] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTEATenantOrganizations(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiTenantV1OrganizationGetPaginatedItemsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTEATenantOrganizations(tenantId, pageSize, pageIndex, orderBy, filter, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationSettingsApi.getTEATenantOrganizations']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Sets the Application Settings of an Observation for a given Tenant
          * @param {string} tenantId 
          * @param {EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest} [edGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest] 
@@ -654,6 +731,16 @@ export const ObservationSettingsApiFactory = function (configuration?: Configura
          */
         getStaffClassificationsSettings(requestParameters: ObservationSettingsApiGetStaffClassificationsSettingsRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse> {
             return localVarFp.getStaffClassificationsSettings(requestParameters.tenantId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get TEA tenant organizations
+         * @param {ObservationSettingsApiGetTEATenantOrganizationsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTEATenantOrganizations(requestParameters: ObservationSettingsApiGetTEATenantOrganizationsRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiTenantV1OrganizationGetPaginatedItemsResponse> {
+            return localVarFp.getTEATenantOrganizations(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -836,6 +923,48 @@ export interface ObservationSettingsApiGetStaffClassificationsSettingsRequest {
 }
 
 /**
+ * Request parameters for getTEATenantOrganizations operation in ObservationSettingsApi.
+ * @export
+ * @interface ObservationSettingsApiGetTEATenantOrganizationsRequest
+ */
+export interface ObservationSettingsApiGetTEATenantOrganizationsRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationSettingsApiGetTEATenantOrganizations
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ObservationSettingsApiGetTEATenantOrganizations
+     */
+    readonly pageSize?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ObservationSettingsApiGetTEATenantOrganizations
+     */
+    readonly pageIndex?: number
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationSettingsApiGetTEATenantOrganizations
+     */
+    readonly orderBy?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ObservationSettingsApiGetTEATenantOrganizations
+     */
+    readonly filter?: string
+}
+
+/**
  * Request parameters for setApplicationSettings operation in ObservationSettingsApi.
  * @export
  * @interface ObservationSettingsApiSetApplicationSettingsRequest
@@ -968,6 +1097,18 @@ export class ObservationSettingsApi extends BaseAPI {
      */
     public getStaffClassificationsSettings(requestParameters: ObservationSettingsApiGetStaffClassificationsSettingsRequest, options?: RawAxiosRequestConfig) {
         return ObservationSettingsApiFp(this.configuration).getStaffClassificationsSettings(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get TEA tenant organizations
+     * @param {ObservationSettingsApiGetTEATenantOrganizationsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ObservationSettingsApi
+     */
+    public getTEATenantOrganizations(requestParameters: ObservationSettingsApiGetTEATenantOrganizationsRequest, options?: RawAxiosRequestConfig) {
+        return ObservationSettingsApiFp(this.configuration).getTEATenantOrganizations(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

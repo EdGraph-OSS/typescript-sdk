@@ -889,6 +889,7 @@ models/tenant-api-tenant-v1-onboarding-steps-reponse.ts
 models/tenant-api-tenant-v1-onboarding.ts
 models/tenant-api-tenant-v1-organization-created-response.ts
 models/tenant-api-tenant-v1-organization-deleted-response.ts
+models/tenant-api-tenant-v1-organization-get-paginated-items-response.ts
 models/tenant-api-tenant-v1-organization-updated-response.ts
 models/tenant-api-tenant-v1-organization.ts
 models/tenant-api-tenant-v1-set-app-settings-request.ts

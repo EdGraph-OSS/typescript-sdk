@@ -783,6 +783,7 @@ export * from './tenant-api-tenant-v1-onboarding-steps-reponse';
 export * from './tenant-api-tenant-v1-organization';
 export * from './tenant-api-tenant-v1-organization-created-response';
 export * from './tenant-api-tenant-v1-organization-deleted-response';
+export * from './tenant-api-tenant-v1-organization-get-paginated-items-response';
 export * from './tenant-api-tenant-v1-organization-updated-response';
 export * from './tenant-api-tenant-v1-set-app-settings-request';
 export * from './tenant-api-tenant-v1-set-app-settings-response';
