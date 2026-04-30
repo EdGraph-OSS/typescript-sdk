@@ -185,6 +185,7 @@ export * from './ed-graph-http-aggregators-tenant-api-services-ed-fi-admin-use-c
 export * from './ed-graph-http-aggregators-tenant-api-services-ed-fi-roster-sync-create-ed-fi-roster-sync-job-request-dto';
 export * from './ed-graph-http-aggregators-tenant-api-services-ed-fi-roster-sync-job-created-result';
 export * from './ed-graph-http-aggregators-tenant-api-services-forms-v1-form';
+export * from './ed-graph-http-aggregators-tenant-api-services-forms-v1-form-get-paginated-items-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-forms-v1-form-paginated-items-view-model';
 export * from './ed-graph-http-aggregators-tenant-api-services-instance-applications-use-cases-create-tenant-instance-application-request';
 export * from './ed-graph-http-aggregators-tenant-api-services-instances-instance-response';
@@ -203,10 +204,6 @@ export * from './ed-graph-http-aggregators-tenant-api-services-observations-eval
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-evaluee-response-paginated-items-view-model';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-configuration-request';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-configuration-response';
-export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-response';
-export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-response-get-paginated-items-response';
-export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-section-response';
-export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-section-response-paginated-items-view-model';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-version-configuration-request';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-version-configuration-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-get-application-settings-response';

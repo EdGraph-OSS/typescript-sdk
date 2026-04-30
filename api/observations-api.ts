@@ -32,6 +32,8 @@ import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel } from '../models';
 // @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse } from '../models';
+// @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest } from '../models';
@@ -47,10 +49,6 @@ import type { EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservati
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponsePaginatedItemsViewModel } from '../models';
-// @ts-ignore
-import type { EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse } from '../models';
-// @ts-ignore
-import type { EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponsePaginatedItemsViewModel } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse } from '../models';
 // @ts-ignore
@@ -75,6 +73,8 @@ import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservati
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse } from '../models';
+// @ts-ignore
+import type { FormApiSectionsV1SectionResponsePaginatedItemsViewModel } from '../models';
 // @ts-ignore
 import type { IdentityApiUserV1SectionResponseGetPaginatedItemsResponse } from '../models';
 // @ts-ignore
@@ -1376,7 +1376,7 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFormSections(tenantId: string, formId: string, pageIndex?: number, pageSize?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponsePaginatedItemsViewModel>> {
+        async getFormSections(tenantId: string, formId: string, pageIndex?: number, pageSize?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormApiSectionsV1SectionResponsePaginatedItemsViewModel>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFormSections(tenantId, formId, pageIndex, pageSize, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getFormSections']?.[localVarOperationServerIndex]?.url;
@@ -1454,7 +1454,7 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPaginatedAvailableForms(tenantId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse>> {
+        async getPaginatedAvailableForms(tenantId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPaginatedAvailableForms(tenantId, pageIndex, pageSize, orderBy, filter, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getPaginatedAvailableForms']?.[localVarOperationServerIndex]?.url;
@@ -1701,7 +1701,7 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFormSections(requestParameters: ObservationsApiGetFormSectionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponsePaginatedItemsViewModel> {
+        getFormSections(requestParameters: ObservationsApiGetFormSectionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<FormApiSectionsV1SectionResponsePaginatedItemsViewModel> {
             return localVarFp.getFormSections(requestParameters.tenantId, requestParameters.formId, requestParameters.pageIndex, requestParameters.pageSize, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1751,7 +1751,7 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPaginatedAvailableForms(requestParameters: ObservationsApiGetPaginatedAvailableFormsRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse> {
+        getPaginatedAvailableForms(requestParameters: ObservationsApiGetPaginatedAvailableFormsRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse> {
             return localVarFp.getPaginatedAvailableForms(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
         },
         /**
