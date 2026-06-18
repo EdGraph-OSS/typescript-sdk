@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EvaluationApiEvaluationsV1CampusResponse } from './evaluation-api-evaluations-v1-campus-response';
 
-/**
- * 
- * @export
- * @interface EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel
- */
 export interface EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EvaluationApiEvaluationsV1CampusResponse>}
-     * @memberof EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel
-     */
     'data'?: Array<EvaluationApiEvaluationsV1CampusResponse> | null;
 }
 

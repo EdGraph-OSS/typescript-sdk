@@ -20,35 +20,10 @@ import type { TenantApiTenantV1IdentityProviderId } from './tenant-api-tenant-v1
 // @ts-ignore
 import type { TenantApiTenantV1IdentityProviderStatus } from './tenant-api-tenant-v1-identity-provider-status';
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1TenantIdentityProviders
- */
 export interface TenantApiTenantV1TenantIdentityProviders {
-    /**
-     * 
-     * @type {TenantApiTenantV1IdentityProviderId}
-     * @memberof TenantApiTenantV1TenantIdentityProviders
-     */
     'identityProviderId'?: TenantApiTenantV1IdentityProviderId;
-    /**
-     * 
-     * @type {TenantApiTenantV1IdentityProviderStatus}
-     * @memberof TenantApiTenantV1TenantIdentityProviders
-     */
     'identityProviderStatus'?: TenantApiTenantV1IdentityProviderStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantIdentityProviders
-     */
     'enforceMfa'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiTenantV1TenantIdentityProviders
-     */
     'enableMfa'?: boolean;
 }
 

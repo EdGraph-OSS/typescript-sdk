@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { AnalyticsApiConfigurationsV1AnalyticsConfiguration } from './analytics-api-configurations-v1-analytics-configuration';
 
-/**
- * 
- * @export
- * @interface AnalyticsApiConfigurationsV1AnalyticsConfigurationPaginatedItemsViewModel
- */
 export interface AnalyticsApiConfigurationsV1AnalyticsConfigurationPaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsConfigurationPaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsConfigurationPaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsConfigurationPaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<AnalyticsApiConfigurationsV1AnalyticsConfiguration>}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsConfigurationPaginatedItemsViewModel
-     */
     'data'?: Array<AnalyticsApiConfigurationsV1AnalyticsConfiguration> | null;
 }
 

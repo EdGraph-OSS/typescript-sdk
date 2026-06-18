@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserBasicListResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserBasicListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserBasicListResponse
-     */
     'userId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserBasicListResponse
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserBasicListResponse
-     */
     'firstName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserBasicListResponse
-     */
     'lastName'?: string | null;
 }
 

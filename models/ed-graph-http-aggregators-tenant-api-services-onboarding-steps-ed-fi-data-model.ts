@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiDataModel
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiDataModel {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiDataModel
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiDataModel
-     */
     'version'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiDataModel
-     */
     'informationalVersion'?: string | null;
 }
 

@@ -17,59 +17,14 @@
 // @ts-ignore
 import type { IdentityApiUserV2UserLicenseRole } from './identity-api-user-v2-user-license-role';
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV2UserLicenseProfileResponse
- */
 export interface IdentityApiUserV2UserLicenseProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserLicenseProfileResponse
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserLicenseProfileResponse
-     */
     'applicationName'?: string | null;
-    /**
-     * 
-     * @type {IdentityApiUserV2UserLicenseRole}
-     * @memberof IdentityApiUserV2UserLicenseProfileResponse
-     */
     'role'?: IdentityApiUserV2UserLicenseRole;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserLicenseProfileResponse
-     */
     'licenseStatus'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserLicenseProfileResponse
-     */
     'licenseSource'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2UserLicenseProfileResponse
-     */
     'educationOrganizationId'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserLicenseProfileResponse
-     */
     'educationOrganizationSource'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserLicenseProfileResponse
-     */
     'staffClassification'?: string | null;
 }
 

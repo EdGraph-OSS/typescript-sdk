@@ -22,135 +22,28 @@ import type { IdentityApiUserV2UserLogin } from './identity-api-user-v2-user-log
 
 /**
  * Entities
- * @export
- * @interface IdentityApiUserV2UserProfileResponse
  */
 export interface IdentityApiUserV2UserProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'userName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'firstName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'lastName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'phoneNumber'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'lockoutEnabled'?: boolean | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'tenantCount'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV2UserExtension>}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'extensions'?: Array<IdentityApiUserV2UserExtension> | null;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV2UserLogin>}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'logins'?: Array<IdentityApiUserV2UserLogin> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'source'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'lastLoginDateTime'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'mfaCompleted'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'platformRole'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'tenantStatus'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'tenantAdmin'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'isDeleted'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'deletedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserProfileResponse
-     */
     'deletedBy'?: string | null;
 }
 

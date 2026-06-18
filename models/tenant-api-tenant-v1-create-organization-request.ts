@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1CreateOrganizationRequest
- */
 export interface TenantApiTenantV1CreateOrganizationRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1CreateOrganizationRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1CreateOrganizationRequest
-     */
     'identifierType'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1CreateOrganizationRequest
-     */
     'identifierValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1CreateOrganizationRequest
-     */
     'shortNameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1CreateOrganizationRequest
-     */
     'nameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1CreateOrganizationRequest
-     */
     'discriminator'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1CreateOrganizationRequest
-     */
     'source'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiTenantV1CreateOrganizationRequest
-     */
     'includeInJwt'?: boolean;
 }
 

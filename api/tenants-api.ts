@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,7 +33,6 @@ import type { TenantApiTenantV1TenantProfileResponse } from '../models';
 import type { TenantApiTenantV1TenantUpdatedResponse } from '../models';
 /**
  * TenantsApi - axios parameter creator
- * @export
  */
 export const TenantsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const TenantsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getTenantByIdAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -64,8 +63,8 @@ export const TenantsApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -87,7 +86,7 @@ export const TenantsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('updateTenantAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -103,9 +102,8 @@ export const TenantsApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -122,7 +120,6 @@ export const TenantsApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * TenantsApi - functional programming interface
- * @export
  */
 export const TenantsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TenantsApiAxiosParamCreator(configuration)
@@ -159,7 +156,6 @@ export const TenantsApiFp = function(configuration?: Configuration) {
 
 /**
  * TenantsApi - factory interface
- * @export
  */
 export const TenantsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TenantsApiFp(configuration)
@@ -189,44 +185,31 @@ export const TenantsApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * Request parameters for getTenantByIdAsync operation in TenantsApi.
- * @export
- * @interface TenantsApiGetTenantByIdAsyncRequest
  */
 export interface TenantsApiGetTenantByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantsApiGetTenantByIdAsync
      */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for updateTenantAsync operation in TenantsApi.
- * @export
- * @interface TenantsApiUpdateTenantAsyncRequest
  */
 export interface TenantsApiUpdateTenantAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantsApiUpdateTenantAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest}
-     * @memberof TenantsApiUpdateTenantAsync
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest
 }
 
 /**
  * TenantsApi - object-oriented interface
- * @export
- * @class TenantsApi
- * @extends {BaseAPI}
  */
 export class TenantsApi extends BaseAPI {
     /**
@@ -235,7 +218,6 @@ export class TenantsApi extends BaseAPI {
      * @param {TenantsApiGetTenantByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantsApi
      */
     public getTenantByIdAsync(requestParameters: TenantsApiGetTenantByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return TenantsApiFp(this.configuration).getTenantByIdAsync(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -247,7 +229,6 @@ export class TenantsApi extends BaseAPI {
      * @param {TenantsApiUpdateTenantAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantsApi
      */
     public updateTenantAsync(requestParameters: TenantsApiUpdateTenantAsyncRequest, options?: RawAxiosRequestConfig) {
         return TenantsApiFp(this.configuration).updateTenantAsync(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest, options).then((request) => request(this.axios, this.basePath));

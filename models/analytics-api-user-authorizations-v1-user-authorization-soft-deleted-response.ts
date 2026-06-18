@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiUserAuthorizationsV1UserAuthorizationSoftDeletedResponse
- */
 export interface AnalyticsApiUserAuthorizationsV1UserAuthorizationSoftDeletedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiUserAuthorizationsV1UserAuthorizationSoftDeletedResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiUserAuthorizationsV1UserAuthorizationSoftDeletedResponse
-     */
     'tenantId'?: string | null;
 }
 

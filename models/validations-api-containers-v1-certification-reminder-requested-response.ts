@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1CertificationReminderRequestedResponse
- */
 export interface ValidationsApiContainersV1CertificationReminderRequestedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CertificationReminderRequestedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CertificationReminderRequestedResponse
-     */
     'collectionId'?: string | null;
 }
 

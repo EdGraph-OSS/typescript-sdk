@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1UpdatedBulkResponse
- */
 export interface ValidationsApiReportingPeriodsV1UpdatedBulkResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1UpdatedBulkResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ValidationsApiReportingPeriodsV1UpdatedBulkResponse
-     */
     'reportingPeriodIds'?: Array<string> | null;
 }
 

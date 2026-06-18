@@ -17,77 +17,17 @@
 // @ts-ignore
 import type { RegistrationApiRegistrationV2TenantType } from './registration-api-registration-v2-tenant-type';
 
-/**
- * 
- * @export
- * @interface RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
- */
 export interface RegistrationApiRegistrationV2SubmitTenantRegistrationRequest {
-    /**
-     * 
-     * @type {Array<RegistrationApiRegistrationV2TenantType>}
-     * @memberof RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
-     */
     'tenantTypes'?: Array<RegistrationApiRegistrationV2TenantType> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
-     */
     'firstName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
-     */
     'lastName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
-     */
     'state'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
-     */
     'organizationIdentifier'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
-     */
     'organizationName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
-     */
     'password'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
-     */
     'applicationIds'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
-     */
     'azureSubscriptionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
-     */
     'azureSubscriptionStoragePath'?: string | null;
 }
 

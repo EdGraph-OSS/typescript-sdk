@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1LicenseAssignedBulkResponse
- */
 export interface IdentityApiUserV1LicenseAssignedBulkResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1LicenseAssignedBulkResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1LicenseAssignedBulkResponse
-     */
     'userId'?: string | null;
 }
 

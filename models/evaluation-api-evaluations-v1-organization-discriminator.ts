@@ -14,11 +14,6 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const EvaluationApiEvaluationsV1OrganizationDiscriminator = {
     Unknown: 'Unknown',
@@ -29,7 +24,7 @@ export const EvaluationApiEvaluationsV1OrganizationDiscriminator = {
     Other: 'Other',
     PostSecondaryInstitution: 'PostSecondaryInstitution',
     School: 'School',
-    StateEducationAgency: 'StateEducationAgency'
+    StateEducationAgency: 'StateEducationAgency',
 } as const;
 
 export type EvaluationApiEvaluationsV1OrganizationDiscriminator = typeof EvaluationApiEvaluationsV1OrganizationDiscriminator[keyof typeof EvaluationApiEvaluationsV1OrganizationDiscriminator];

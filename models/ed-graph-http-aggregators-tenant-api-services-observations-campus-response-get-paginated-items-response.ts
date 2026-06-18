@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse } from './ed-graph-http-aggregators-tenant-api-services-observations-campus-response';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse
-     */
     'data'?: Array<EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse
-     */
     'count'?: number;
 }
 

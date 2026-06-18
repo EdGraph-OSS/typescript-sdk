@@ -14,83 +14,18 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ClientsClientListResponse
- */
 export interface IMSAdminApiV1ClientsClientListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientListResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientListResponse
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientListResponse
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientListResponse
-     */
     'clientName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientListResponse
-     */
     'clientUri'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ClientsClientListResponse
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientListResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientListResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientListResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientListResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientListResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ClientsClientListResponse
-     */
     'selectedScope'?: boolean;
 }
 

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,7 +33,6 @@ import type { EdfiAdminApiEdfiAdminV1UpdateOnboardingStepRequest } from '../mode
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * InstanceOnboardingStepsApi - axios parameter creator
- * @export
  */
 export const InstanceOnboardingStepsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -52,8 +51,8 @@ export const InstanceOnboardingStepsApiAxiosParamCreator = function (configurati
             // verify required parameter 'instanceId' is not null or undefined
             assertParamExists('createInstanceOnboardingStepAsync', 'instanceId', instanceId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/onboardingsteps`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,9 +68,8 @@ export const InstanceOnboardingStepsApiAxiosParamCreator = function (configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -101,9 +99,9 @@ export const InstanceOnboardingStepsApiAxiosParamCreator = function (configurati
             // verify required parameter 'stepNumber' is not null or undefined
             assertParamExists('updateInstanceOnboardingStepAsync', 'stepNumber', stepNumber)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/onboardingsteps/{stepNumber}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"stepNumber"}}`, encodeURIComponent(String(stepNumber)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{stepNumber}', encodeURIComponent(String(stepNumber)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -119,9 +117,8 @@ export const InstanceOnboardingStepsApiAxiosParamCreator = function (configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -138,7 +135,6 @@ export const InstanceOnboardingStepsApiAxiosParamCreator = function (configurati
 
 /**
  * InstanceOnboardingStepsApi - functional programming interface
- * @export
  */
 export const InstanceOnboardingStepsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InstanceOnboardingStepsApiAxiosParamCreator(configuration)
@@ -179,7 +175,6 @@ export const InstanceOnboardingStepsApiFp = function(configuration?: Configurati
 
 /**
  * InstanceOnboardingStepsApi - factory interface
- * @export
  */
 export const InstanceOnboardingStepsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InstanceOnboardingStepsApiFp(configuration)
@@ -209,72 +204,51 @@ export const InstanceOnboardingStepsApiFactory = function (configuration?: Confi
 
 /**
  * Request parameters for createInstanceOnboardingStepAsync operation in InstanceOnboardingStepsApi.
- * @export
- * @interface InstanceOnboardingStepsApiCreateInstanceOnboardingStepAsyncRequest
  */
 export interface InstanceOnboardingStepsApiCreateInstanceOnboardingStepAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstanceOnboardingStepsApiCreateInstanceOnboardingStepAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstanceOnboardingStepsApiCreateInstanceOnboardingStepAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1CreateOnboardingStepRequest}
-     * @memberof InstanceOnboardingStepsApiCreateInstanceOnboardingStepAsync
      */
     readonly edfiAdminApiEdfiAdminV1CreateOnboardingStepRequest?: EdfiAdminApiEdfiAdminV1CreateOnboardingStepRequest
 }
 
 /**
  * Request parameters for updateInstanceOnboardingStepAsync operation in InstanceOnboardingStepsApi.
- * @export
- * @interface InstanceOnboardingStepsApiUpdateInstanceOnboardingStepAsyncRequest
  */
 export interface InstanceOnboardingStepsApiUpdateInstanceOnboardingStepAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstanceOnboardingStepsApiUpdateInstanceOnboardingStepAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstanceOnboardingStepsApiUpdateInstanceOnboardingStepAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstanceOnboardingStepsApiUpdateInstanceOnboardingStepAsync
      */
     readonly stepNumber: number
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1UpdateOnboardingStepRequest}
-     * @memberof InstanceOnboardingStepsApiUpdateInstanceOnboardingStepAsync
      */
     readonly edfiAdminApiEdfiAdminV1UpdateOnboardingStepRequest?: EdfiAdminApiEdfiAdminV1UpdateOnboardingStepRequest
 }
 
 /**
  * InstanceOnboardingStepsApi - object-oriented interface
- * @export
- * @class InstanceOnboardingStepsApi
- * @extends {BaseAPI}
  */
 export class InstanceOnboardingStepsApi extends BaseAPI {
     /**
@@ -283,7 +257,6 @@ export class InstanceOnboardingStepsApi extends BaseAPI {
      * @param {InstanceOnboardingStepsApiCreateInstanceOnboardingStepAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstanceOnboardingStepsApi
      */
     public createInstanceOnboardingStepAsync(requestParameters: InstanceOnboardingStepsApiCreateInstanceOnboardingStepAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstanceOnboardingStepsApiFp(this.configuration).createInstanceOnboardingStepAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.edfiAdminApiEdfiAdminV1CreateOnboardingStepRequest, options).then((request) => request(this.axios, this.basePath));
@@ -295,7 +268,6 @@ export class InstanceOnboardingStepsApi extends BaseAPI {
      * @param {InstanceOnboardingStepsApiUpdateInstanceOnboardingStepAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstanceOnboardingStepsApi
      */
     public updateInstanceOnboardingStepAsync(requestParameters: InstanceOnboardingStepsApiUpdateInstanceOnboardingStepAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstanceOnboardingStepsApiFp(this.configuration).updateInstanceOnboardingStepAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.stepNumber, requestParameters.edfiAdminApiEdfiAdminV1UpdateOnboardingStepRequest, options).then((request) => request(this.axios, this.basePath));

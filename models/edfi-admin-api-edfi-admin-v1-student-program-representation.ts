@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1StudentProgramRepresentation
- */
 export interface EdfiAdminApiEdfiAdminV1StudentProgramRepresentation {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentProgramRepresentation
-     */
     'programName'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentProgramRepresentation
-     */
     'percentOfTotalStudents'?: number;
 }
 

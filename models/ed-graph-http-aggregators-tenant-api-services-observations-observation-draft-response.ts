@@ -14,83 +14,18 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse
-     */
     'formId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse
-     */
     'data'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse
-     */
     'isDeleted'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse
-     */
     'observationId'?: string | null;
 }
 

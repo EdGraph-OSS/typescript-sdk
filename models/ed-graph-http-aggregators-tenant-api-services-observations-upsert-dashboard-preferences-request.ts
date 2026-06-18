@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertReportPreferenceDetails } from './ed-graph-http-aggregators-tenant-api-services-observations-upsert-report-preference-details';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest
-     */
     'dashboardId'?: string | null;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertReportPreferenceDetails>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest
-     */
     'preferences'?: Array<EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertReportPreferenceDetails> | null;
 }
 

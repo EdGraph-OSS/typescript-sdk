@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiSecurityScoreSyncV1SecurityScoreSyncExecutionProfile
- */
 export interface DataSyncApiSecurityScoreSyncV1SecurityScoreSyncExecutionProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiSecurityScoreSyncV1SecurityScoreSyncExecutionProfile
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiSecurityScoreSyncV1SecurityScoreSyncExecutionProfile
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiSecurityScoreSyncV1SecurityScoreSyncExecutionProfile
-     */
     'jobStatus'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiSecurityScoreSyncV1SecurityScoreSyncExecutionProfile
-     */
     'jobExecutionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiSecurityScoreSyncV1SecurityScoreSyncExecutionProfile
-     */
     'jobExecutionStatus'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiSecurityScoreSyncV1SecurityScoreSyncExecutionProfile
-     */
     'jobExecutionStartDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiSecurityScoreSyncV1SecurityScoreSyncExecutionProfile
-     */
     'jobExecutionEndDateTime'?: string | null;
 }
 

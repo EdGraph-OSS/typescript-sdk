@@ -14,83 +14,18 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1ValidationResultRecord
- */
 export interface ValidationsApiReportingPeriodsV1ValidationResultRecord {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationResultRecord
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationResultRecord
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationResultRecord
-     */
     'dbEnvironmentId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationResultRecord
-     */
     'collectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationResultRecord
-     */
     'containerId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationResultRecord
-     */
     'ruleId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationResultRecord
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationResultRecord
-     */
     'jobExecutionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationResultRecord
-     */
     'runId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationResultRecord
-     */
     'excludeFromPost'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationResultRecord
-     */
     'details'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationResultRecord
-     */
     'detailsSchema'?: string | null;
 }
 

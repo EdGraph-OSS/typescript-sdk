@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobV1JobExecutionRequestedResponse
- */
 export interface DataSyncApiJobV1JobExecutionRequestedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobExecutionRequestedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobExecutionRequestedResponse
-     */
     'jobId'?: string | null;
 }
 

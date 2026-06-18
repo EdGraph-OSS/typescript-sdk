@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1CreateInstanceRequestSchoolYear
- */
 export interface EdfiAdminApiEdfiAdminV1CreateInstanceRequestSchoolYear {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateInstanceRequestSchoolYear
-     */
     'year'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateInstanceRequestSchoolYear
-     */
     'selectedTierId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateInstanceRequestSchoolYear
-     */
     'odsBackupCode'?: string | null;
 }
 

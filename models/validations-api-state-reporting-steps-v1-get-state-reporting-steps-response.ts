@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiStateReportingStepsV1GetStateReportingStepsResponse
- */
 export interface ValidationsApiStateReportingStepsV1GetStateReportingStepsResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiStateReportingStepsV1GetStateReportingStepsResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiStateReportingStepsV1GetStateReportingStepsResponse
-     */
     'schoolYear'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiStateReportingStepsV1GetStateReportingStepsResponse
-     */
     'currentStep'?: number | null;
 }
 

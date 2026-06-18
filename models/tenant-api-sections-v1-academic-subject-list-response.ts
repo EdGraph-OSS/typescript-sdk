@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiSectionsV1AcademicSubjectListResponse
- */
 export interface TenantApiSectionsV1AcademicSubjectListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1AcademicSubjectListResponse
-     */
     'academicSubjectDescriptor'?: string | null;
 }
 

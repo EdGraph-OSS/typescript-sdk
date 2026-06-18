@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls
-     */
     'dependencies'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls
-     */
     'openApiMetadata'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls
-     */
     'oauth'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls
-     */
     'dataManagementApi'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls
-     */
     'xsdMetadata'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls
-     */
     'changeQueries'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls
-     */
     'composites'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls
-     */
     'identity'?: string | null;
 }
 

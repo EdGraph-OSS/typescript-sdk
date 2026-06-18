@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -41,7 +41,6 @@ import type { EdfiAdminApiEdfiAdminV1UpdateLocalEducationAgencyRequest } from '.
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * InstancesEducationOrganizationsLocalEducationAgenciesApi - axios parameter creator
- * @export
  */
 export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -63,9 +62,9 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamC
             // verify required parameter 'year' is not null or undefined
             assertParamExists('createLocalEducationAgencyAsync', 'year', year)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/localeducationagencies`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -81,9 +80,8 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamC
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -115,10 +113,10 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamC
             // verify required parameter 'localEducationAgencyId' is not null or undefined
             assertParamExists('deleteLocalEducationAgencyAsync', 'localEducationAgencyId', localEducationAgencyId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/localeducationagencies/{localEducationAgencyId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"localEducationAgencyId"}}`, encodeURIComponent(String(localEducationAgencyId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{localEducationAgencyId}', encodeURIComponent(String(localEducationAgencyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -134,8 +132,8 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamC
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -165,10 +163,10 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamC
             // verify required parameter 'localEducationAgencyId' is not null or undefined
             assertParamExists('getLocalEducationAgencyByIdAsync', 'localEducationAgencyId', localEducationAgencyId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/localeducationagencies/{localEducationAgencyId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"localEducationAgencyId"}}`, encodeURIComponent(String(localEducationAgencyId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{localEducationAgencyId}', encodeURIComponent(String(localEducationAgencyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -184,8 +182,8 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamC
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -216,9 +214,9 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamC
             // verify required parameter 'year' is not null or undefined
             assertParamExists('getlLocalEducationAgenciesAsync', 'year', year)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/localeducationagencies`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -250,8 +248,8 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamC
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -282,10 +280,10 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamC
             // verify required parameter 'localEducationAgencyId' is not null or undefined
             assertParamExists('syncLocalEducationAgencyAsync', 'localEducationAgencyId', localEducationAgencyId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/localeducationagencies/{localEducationAgencyId}/sync`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"localEducationAgencyId"}}`, encodeURIComponent(String(localEducationAgencyId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{localEducationAgencyId}', encodeURIComponent(String(localEducationAgencyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -301,9 +299,8 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamC
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -336,10 +333,10 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamC
             // verify required parameter 'localEducationAgencyId' is not null or undefined
             assertParamExists('updateLocalEducationAgencyAsync', 'localEducationAgencyId', localEducationAgencyId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/localeducationagencies/{localEducationAgencyId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"localEducationAgencyId"}}`, encodeURIComponent(String(localEducationAgencyId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{localEducationAgencyId}', encodeURIComponent(String(localEducationAgencyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -355,9 +352,8 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamC
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -374,7 +370,6 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamC
 
 /**
  * InstancesEducationOrganizationsLocalEducationAgenciesApi - functional programming interface
- * @export
  */
 export const InstancesEducationOrganizationsLocalEducationAgenciesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InstancesEducationOrganizationsLocalEducationAgenciesApiAxiosParamCreator(configuration)
@@ -485,7 +480,6 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiFp = functi
 
 /**
  * InstancesEducationOrganizationsLocalEducationAgenciesApi - factory interface
- * @export
  */
 export const InstancesEducationOrganizationsLocalEducationAgenciesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InstancesEducationOrganizationsLocalEducationAgenciesApiFp(configuration)
@@ -555,254 +549,181 @@ export const InstancesEducationOrganizationsLocalEducationAgenciesApiFactory = f
 
 /**
  * Request parameters for createLocalEducationAgencyAsync operation in InstancesEducationOrganizationsLocalEducationAgenciesApi.
- * @export
- * @interface InstancesEducationOrganizationsLocalEducationAgenciesApiCreateLocalEducationAgencyAsyncRequest
  */
 export interface InstancesEducationOrganizationsLocalEducationAgenciesApiCreateLocalEducationAgencyAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiCreateLocalEducationAgencyAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiCreateLocalEducationAgencyAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiCreateLocalEducationAgencyAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1CreateLocalEducationAgencyRequest}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiCreateLocalEducationAgencyAsync
      */
     readonly edfiAdminApiEdfiAdminV1CreateLocalEducationAgencyRequest?: EdfiAdminApiEdfiAdminV1CreateLocalEducationAgencyRequest
 }
 
 /**
  * Request parameters for deleteLocalEducationAgencyAsync operation in InstancesEducationOrganizationsLocalEducationAgenciesApi.
- * @export
- * @interface InstancesEducationOrganizationsLocalEducationAgenciesApiDeleteLocalEducationAgencyAsyncRequest
  */
 export interface InstancesEducationOrganizationsLocalEducationAgenciesApiDeleteLocalEducationAgencyAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiDeleteLocalEducationAgencyAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiDeleteLocalEducationAgencyAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiDeleteLocalEducationAgencyAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiDeleteLocalEducationAgencyAsync
      */
     readonly localEducationAgencyId: string
 }
 
 /**
  * Request parameters for getLocalEducationAgencyByIdAsync operation in InstancesEducationOrganizationsLocalEducationAgenciesApi.
- * @export
- * @interface InstancesEducationOrganizationsLocalEducationAgenciesApiGetLocalEducationAgencyByIdAsyncRequest
  */
 export interface InstancesEducationOrganizationsLocalEducationAgenciesApiGetLocalEducationAgencyByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiGetLocalEducationAgencyByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiGetLocalEducationAgencyByIdAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiGetLocalEducationAgencyByIdAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiGetLocalEducationAgencyByIdAsync
      */
     readonly localEducationAgencyId: string
 }
 
 /**
  * Request parameters for getlLocalEducationAgenciesAsync operation in InstancesEducationOrganizationsLocalEducationAgenciesApi.
- * @export
- * @interface InstancesEducationOrganizationsLocalEducationAgenciesApiGetlLocalEducationAgenciesAsyncRequest
  */
 export interface InstancesEducationOrganizationsLocalEducationAgenciesApiGetlLocalEducationAgenciesAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiGetlLocalEducationAgenciesAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiGetlLocalEducationAgenciesAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiGetlLocalEducationAgenciesAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiGetlLocalEducationAgenciesAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiGetlLocalEducationAgenciesAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiGetlLocalEducationAgenciesAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiGetlLocalEducationAgenciesAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for syncLocalEducationAgencyAsync operation in InstancesEducationOrganizationsLocalEducationAgenciesApi.
- * @export
- * @interface InstancesEducationOrganizationsLocalEducationAgenciesApiSyncLocalEducationAgencyAsyncRequest
  */
 export interface InstancesEducationOrganizationsLocalEducationAgenciesApiSyncLocalEducationAgencyAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiSyncLocalEducationAgencyAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiSyncLocalEducationAgencyAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiSyncLocalEducationAgencyAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiSyncLocalEducationAgencyAsync
      */
     readonly localEducationAgencyId: number
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1SyncLocalEducationAgencyRequest}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiSyncLocalEducationAgencyAsync
      */
     readonly edfiAdminApiEdfiAdminV1SyncLocalEducationAgencyRequest?: EdfiAdminApiEdfiAdminV1SyncLocalEducationAgencyRequest
 }
 
 /**
  * Request parameters for updateLocalEducationAgencyAsync operation in InstancesEducationOrganizationsLocalEducationAgenciesApi.
- * @export
- * @interface InstancesEducationOrganizationsLocalEducationAgenciesApiUpdateLocalEducationAgencyAsyncRequest
  */
 export interface InstancesEducationOrganizationsLocalEducationAgenciesApiUpdateLocalEducationAgencyAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiUpdateLocalEducationAgencyAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiUpdateLocalEducationAgencyAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiUpdateLocalEducationAgencyAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiUpdateLocalEducationAgencyAsync
      */
     readonly localEducationAgencyId: string
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1UpdateLocalEducationAgencyRequest}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApiUpdateLocalEducationAgencyAsync
      */
     readonly edfiAdminApiEdfiAdminV1UpdateLocalEducationAgencyRequest?: EdfiAdminApiEdfiAdminV1UpdateLocalEducationAgencyRequest
 }
 
 /**
  * InstancesEducationOrganizationsLocalEducationAgenciesApi - object-oriented interface
- * @export
- * @class InstancesEducationOrganizationsLocalEducationAgenciesApi
- * @extends {BaseAPI}
  */
 export class InstancesEducationOrganizationsLocalEducationAgenciesApi extends BaseAPI {
     /**
@@ -811,7 +732,6 @@ export class InstancesEducationOrganizationsLocalEducationAgenciesApi extends Ba
      * @param {InstancesEducationOrganizationsLocalEducationAgenciesApiCreateLocalEducationAgencyAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApi
      */
     public createLocalEducationAgencyAsync(requestParameters: InstancesEducationOrganizationsLocalEducationAgenciesApiCreateLocalEducationAgencyAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesEducationOrganizationsLocalEducationAgenciesApiFp(this.configuration).createLocalEducationAgencyAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.edfiAdminApiEdfiAdminV1CreateLocalEducationAgencyRequest, options).then((request) => request(this.axios, this.basePath));
@@ -823,7 +743,6 @@ export class InstancesEducationOrganizationsLocalEducationAgenciesApi extends Ba
      * @param {InstancesEducationOrganizationsLocalEducationAgenciesApiDeleteLocalEducationAgencyAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApi
      */
     public deleteLocalEducationAgencyAsync(requestParameters: InstancesEducationOrganizationsLocalEducationAgenciesApiDeleteLocalEducationAgencyAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesEducationOrganizationsLocalEducationAgenciesApiFp(this.configuration).deleteLocalEducationAgencyAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.localEducationAgencyId, options).then((request) => request(this.axios, this.basePath));
@@ -835,7 +754,6 @@ export class InstancesEducationOrganizationsLocalEducationAgenciesApi extends Ba
      * @param {InstancesEducationOrganizationsLocalEducationAgenciesApiGetLocalEducationAgencyByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApi
      */
     public getLocalEducationAgencyByIdAsync(requestParameters: InstancesEducationOrganizationsLocalEducationAgenciesApiGetLocalEducationAgencyByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesEducationOrganizationsLocalEducationAgenciesApiFp(this.configuration).getLocalEducationAgencyByIdAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.localEducationAgencyId, options).then((request) => request(this.axios, this.basePath));
@@ -847,7 +765,6 @@ export class InstancesEducationOrganizationsLocalEducationAgenciesApi extends Ba
      * @param {InstancesEducationOrganizationsLocalEducationAgenciesApiGetlLocalEducationAgenciesAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApi
      */
     public getlLocalEducationAgenciesAsync(requestParameters: InstancesEducationOrganizationsLocalEducationAgenciesApiGetlLocalEducationAgenciesAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesEducationOrganizationsLocalEducationAgenciesApiFp(this.configuration).getlLocalEducationAgenciesAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -859,7 +776,6 @@ export class InstancesEducationOrganizationsLocalEducationAgenciesApi extends Ba
      * @param {InstancesEducationOrganizationsLocalEducationAgenciesApiSyncLocalEducationAgencyAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApi
      */
     public syncLocalEducationAgencyAsync(requestParameters: InstancesEducationOrganizationsLocalEducationAgenciesApiSyncLocalEducationAgencyAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesEducationOrganizationsLocalEducationAgenciesApiFp(this.configuration).syncLocalEducationAgencyAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.localEducationAgencyId, requestParameters.edfiAdminApiEdfiAdminV1SyncLocalEducationAgencyRequest, options).then((request) => request(this.axios, this.basePath));
@@ -871,7 +787,6 @@ export class InstancesEducationOrganizationsLocalEducationAgenciesApi extends Ba
      * @param {InstancesEducationOrganizationsLocalEducationAgenciesApiUpdateLocalEducationAgencyAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesEducationOrganizationsLocalEducationAgenciesApi
      */
     public updateLocalEducationAgencyAsync(requestParameters: InstancesEducationOrganizationsLocalEducationAgenciesApiUpdateLocalEducationAgencyAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesEducationOrganizationsLocalEducationAgenciesApiFp(this.configuration).updateLocalEducationAgencyAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.localEducationAgencyId, requestParameters.edfiAdminApiEdfiAdminV1UpdateLocalEducationAgencyRequest, options).then((request) => request(this.axios, this.basePath));

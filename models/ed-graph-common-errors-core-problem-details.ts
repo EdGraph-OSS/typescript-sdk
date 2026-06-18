@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphCommonErrorsCoreProblemDetails
- */
 export interface EdGraphCommonErrorsCoreProblemDetails {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphCommonErrorsCoreProblemDetails
-     */
     'type'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphCommonErrorsCoreProblemDetails
-     */
     'status'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphCommonErrorsCoreProblemDetails
-     */
     'title'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphCommonErrorsCoreProblemDetails
-     */
     'details'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphCommonErrorsCoreProblemDetails
-     */
     'instance'?: string | null;
-    /**
-     * 
-     * @type {{ [key: string]: any | null; }}
-     * @memberof EdGraphCommonErrorsCoreProblemDetails
-     */
     'extensions'?: { [key: string]: any | null; } | null;
 }
 

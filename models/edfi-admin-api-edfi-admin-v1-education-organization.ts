@@ -14,89 +14,19 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1EducationOrganization
- */
 export interface EdfiAdminApiEdfiAdminV1EducationOrganization {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganization
-     */
     'educationOrganizationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganization
-     */
     'nameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganization
-     */
     'shortnameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganization
-     */
     'webSite'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganization
-     */
     'operationalStatusDescriptorId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganization
-     */
     'discriminator'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganization
-     */
     'createDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganization
-     */
     'lastModifiedDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganization
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganization
-     */
     'changeVersion'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganization
-     */
     'createdByOwnershipTokenId'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganization
-     */
     'localEducationAgencyId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganization
-     */
     'schoolId'?: string | null;
 }
 

@@ -23,71 +23,16 @@ import type { FormApiFormsV1FormStatus } from './form-api-forms-v1-form-status';
 // @ts-ignore
 import type { FormApiFormsV1UpdateFullSectionRequest } from './form-api-forms-v1-update-full-section-request';
 
-/**
- * 
- * @export
- * @interface FormApiFormsV1UpdateFullFormRequest
- */
 export interface FormApiFormsV1UpdateFullFormRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFullFormRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFullFormRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFullFormRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {FormApiFormsV1FormSource}
-     * @memberof FormApiFormsV1UpdateFullFormRequest
-     */
     'source'?: FormApiFormsV1FormSource;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFullFormRequest
-     */
     'version'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FormApiFormsV1UpdateFullFormRequest
-     */
     'anonymous'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFullFormRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {FormApiFormsV1FormStatus}
-     * @memberof FormApiFormsV1UpdateFullFormRequest
-     */
     'status'?: FormApiFormsV1FormStatus;
-    /**
-     * 
-     * @type {Array<FormApiFormsV1UpdateFullSectionRequest>}
-     * @memberof FormApiFormsV1UpdateFullFormRequest
-     */
     'sections'?: Array<FormApiFormsV1UpdateFullSectionRequest> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFullFormRequest
-     */
     'image'?: string | null;
 }
 

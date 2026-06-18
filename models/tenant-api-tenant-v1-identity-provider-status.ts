@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const TenantApiTenantV1IdentityProviderStatus = {
     Unknown: 'Unknown',
     Active: 'Active',
-    Inactive: 'Inactive'
+    Inactive: 'Inactive',
 } as const;
 
 export type TenantApiTenantV1IdentityProviderStatus = typeof TenantApiTenantV1IdentityProviderStatus[keyof typeof TenantApiTenantV1IdentityProviderStatus];

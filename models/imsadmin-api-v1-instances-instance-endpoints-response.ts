@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1InstancesInstanceEndpointsResponse
- */
 export interface IMSAdminApiV1InstancesInstanceEndpointsResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceEndpointsResponse
-     */
     'tokenUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceEndpointsResponse
-     */
     'resourcesUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceEndpointsResponse
-     */
     'clientId'?: string | null;
 }
 

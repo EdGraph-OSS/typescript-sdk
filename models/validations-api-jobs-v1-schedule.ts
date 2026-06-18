@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiJobsV1Schedule
- */
 export interface ValidationsApiJobsV1Schedule {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiJobsV1Schedule
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1Schedule
-     */
     'beginDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1Schedule
-     */
     'endDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1Schedule
-     */
     'cron'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1Schedule
-     */
     'timeZone'?: string | null;
 }
 

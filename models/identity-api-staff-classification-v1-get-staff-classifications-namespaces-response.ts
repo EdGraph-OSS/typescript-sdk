@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse
- */
 export interface IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse
-     */
     'data'?: Array<string> | null;
 }
 

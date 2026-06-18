@@ -14,71 +14,16 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1UpdateSectionRequest
- */
 export interface IdentityApiUserV1UpdateSectionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionRequest
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1UpdateSectionRequest
-     */
     'educationOrganizationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionRequest
-     */
     'userSectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionRequest
-     */
     'sectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionRequest
-     */
     'staffUniqueId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionRequest
-     */
     'classroomPositionDescriptor'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionRequest
-     */
     'beginDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionRequest
-     */
     'endDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionRequest
-     */
     'source'?: string | null;
 }
 

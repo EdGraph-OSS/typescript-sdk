@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1RemoveSectionBulkRequest
- */
 export interface IdentityApiUserV1RemoveSectionBulkRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1RemoveSectionBulkRequest
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1RemoveSectionBulkRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiUserV1RemoveSectionBulkRequest
-     */
     'userSectionIds'?: Array<string> | null;
 }
 

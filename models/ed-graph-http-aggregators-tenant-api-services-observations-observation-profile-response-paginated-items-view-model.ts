@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse } from './ed-graph-http-aggregators-tenant-api-services-observations-observation-profile-response';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel
-     */
     'data'?: Array<EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse> | null;
 }
 

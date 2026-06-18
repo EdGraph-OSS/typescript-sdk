@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const IdentityApiUserV1TenantStatus = {
     Unknown: 'Unknown',
     Active: 'Active',
-    Inactive: 'Inactive'
+    Inactive: 'Inactive',
 } as const;
 
 export type IdentityApiUserV1TenantStatus = typeof IdentityApiUserV1TenantStatus[keyof typeof IdentityApiUserV1TenantStatus];

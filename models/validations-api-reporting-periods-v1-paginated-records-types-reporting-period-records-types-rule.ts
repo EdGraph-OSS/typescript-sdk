@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1PaginatedRecordsTypesReportingPeriodRecordsTypesRule
- */
 export interface ValidationsApiReportingPeriodsV1PaginatedRecordsTypesReportingPeriodRecordsTypesRule {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1PaginatedRecordsTypesReportingPeriodRecordsTypesRule
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1PaginatedRecordsTypesReportingPeriodRecordsTypesRule
-     */
     'identification'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1PaginatedRecordsTypesReportingPeriodRecordsTypesRule
-     */
     'name'?: string | null;
 }
 

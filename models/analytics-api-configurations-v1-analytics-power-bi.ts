@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiConfigurationsV1AnalyticsPowerBi
- */
 export interface AnalyticsApiConfigurationsV1AnalyticsPowerBi {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsPowerBi
-     */
     'capacityId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsPowerBi
-     */
     'groupId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsPowerBi
-     */
     'tenantId'?: string | null;
 }
 

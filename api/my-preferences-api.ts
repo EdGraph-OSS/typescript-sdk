@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -35,7 +35,6 @@ import type { IdentityApiUserV1UserPreferenceUpdatedResponse } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * MyPreferencesApi - axios parameter creator
- * @export
  */
 export const MyPreferencesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -82,8 +81,8 @@ export const MyPreferencesApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -104,7 +103,7 @@ export const MyPreferencesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'code' is not null or undefined
             assertParamExists('preference', 'code', code)
             const localVarPath = `/me/preferences/{code}`
-                .replace(`{${"code"}}`, encodeURIComponent(String(code)));
+                .replace('{code}', encodeURIComponent(String(code)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -120,8 +119,8 @@ export const MyPreferencesApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -155,9 +154,8 @@ export const MyPreferencesApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -174,7 +172,6 @@ export const MyPreferencesApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * MyPreferencesApi - functional programming interface
- * @export
  */
 export const MyPreferencesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MyPreferencesApiAxiosParamCreator(configuration)
@@ -226,7 +223,6 @@ export const MyPreferencesApiFp = function(configuration?: Configuration) {
 
 /**
  * MyPreferencesApi - factory interface
- * @export
  */
 export const MyPreferencesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MyPreferencesApiFp(configuration)
@@ -266,72 +262,51 @@ export const MyPreferencesApiFactory = function (configuration?: Configuration, 
 
 /**
  * Request parameters for getUserPreferences operation in MyPreferencesApi.
- * @export
- * @interface MyPreferencesApiGetUserPreferencesRequest
  */
 export interface MyPreferencesApiGetUserPreferencesRequest {
     /**
      * 
-     * @type {number}
-     * @memberof MyPreferencesApiGetUserPreferences
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof MyPreferencesApiGetUserPreferences
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof MyPreferencesApiGetUserPreferences
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof MyPreferencesApiGetUserPreferences
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for preference operation in MyPreferencesApi.
- * @export
- * @interface MyPreferencesApiPreferenceRequest
  */
 export interface MyPreferencesApiPreferenceRequest {
     /**
      * 
-     * @type {string}
-     * @memberof MyPreferencesApiPreference
      */
     readonly code: string
 }
 
 /**
  * Request parameters for updateUserPreferenceAsync operation in MyPreferencesApi.
- * @export
- * @interface MyPreferencesApiUpdateUserPreferenceAsyncRequest
  */
 export interface MyPreferencesApiUpdateUserPreferenceAsyncRequest {
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest}
-     * @memberof MyPreferencesApiUpdateUserPreferenceAsync
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest
 }
 
 /**
  * MyPreferencesApi - object-oriented interface
- * @export
- * @class MyPreferencesApi
- * @extends {BaseAPI}
  */
 export class MyPreferencesApi extends BaseAPI {
     /**
@@ -340,7 +315,6 @@ export class MyPreferencesApi extends BaseAPI {
      * @param {MyPreferencesApiGetUserPreferencesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MyPreferencesApi
      */
     public getUserPreferences(requestParameters: MyPreferencesApiGetUserPreferencesRequest = {}, options?: RawAxiosRequestConfig) {
         return MyPreferencesApiFp(this.configuration).getUserPreferences(requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -352,7 +326,6 @@ export class MyPreferencesApi extends BaseAPI {
      * @param {MyPreferencesApiPreferenceRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MyPreferencesApi
      */
     public preference(requestParameters: MyPreferencesApiPreferenceRequest, options?: RawAxiosRequestConfig) {
         return MyPreferencesApiFp(this.configuration).preference(requestParameters.code, options).then((request) => request(this.axios, this.basePath));
@@ -364,7 +337,6 @@ export class MyPreferencesApi extends BaseAPI {
      * @param {MyPreferencesApiUpdateUserPreferenceAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MyPreferencesApi
      */
     public updateUserPreferenceAsync(requestParameters: MyPreferencesApiUpdateUserPreferenceAsyncRequest = {}, options?: RawAxiosRequestConfig) {
         return MyPreferencesApiFp(this.configuration).updateUserPreferenceAsync(requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest, options).then((request) => request(this.axios, this.basePath));

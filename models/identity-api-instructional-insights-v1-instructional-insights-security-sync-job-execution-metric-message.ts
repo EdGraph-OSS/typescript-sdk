@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMetricMessage
- */
 export interface IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMetricMessage {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMetricMessage
-     */
     'entity'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMetricMessage
-     */
     'processed'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMetricMessage
-     */
     'success'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMetricMessage
-     */
     'errors'?: number;
 }
 

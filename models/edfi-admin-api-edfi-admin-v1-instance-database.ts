@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs } from './edfi-admin-api-edfi-admin-v1-instance-database-jobs';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1InstanceDatabase
- */
 export interface EdfiAdminApiEdfiAdminV1InstanceDatabase {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceDatabase
-     */
     'selectedTierId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceDatabase
-     */
     'selectedTierName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceDatabase
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceDatabase
-     */
     'jobs'?: EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs;
 }
 

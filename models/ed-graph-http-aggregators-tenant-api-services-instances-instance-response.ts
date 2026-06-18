@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse
-     */
     'instanceName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse
-     */
     'instanceType'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse
-     */
     'connectionType'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse
-     */
     'provider'?: string | null;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse
-     */
     'schoolYears'?: Array<number> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse
-     */
     'isDefault'?: boolean;
 }
 

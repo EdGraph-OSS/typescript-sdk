@@ -17,77 +17,17 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1PipelineRun } from './ed-graph-services-state-reporting-v1-pipeline-run';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1SubmissionProfile
- */
 export interface EdGraphServicesStateReportingV1SubmissionProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionProfile
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionProfile
-     */
     'createdAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionProfile
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionProfile
-     */
     'updatedAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionProfile
-     */
     'updatedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionProfile
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionProfile
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {EdGraphServicesStateReportingV1PipelineRun}
-     * @memberof EdGraphServicesStateReportingV1SubmissionProfile
-     */
     'pipelineRun'?: EdGraphServicesStateReportingV1PipelineRun;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionProfile
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionProfile
-     */
     'pipelineRunId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionProfile
-     */
     'pipelineRunDetails'?: string | null;
 }
 

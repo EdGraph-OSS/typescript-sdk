@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -43,7 +43,6 @@ import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * QuestionsApi - axios parameter creator
- * @export
  */
 export const QuestionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -65,9 +64,9 @@ export const QuestionsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'sectionId' is not null or undefined
             assertParamExists('createQuestion', 'sectionId', sectionId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/sections/{sectionId}/questions`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
-                .replace(`{${"sectionId"}}`, encodeURIComponent(String(sectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)))
+                .replace('{sectionId}', encodeURIComponent(String(sectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -83,9 +82,8 @@ export const QuestionsApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -117,10 +115,10 @@ export const QuestionsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'questionId' is not null or undefined
             assertParamExists('deleteQuestion', 'questionId', questionId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/sections/{sectionId}/questions/{questionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
-                .replace(`{${"sectionId"}}`, encodeURIComponent(String(sectionId)))
-                .replace(`{${"questionId"}}`, encodeURIComponent(String(questionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)))
+                .replace('{sectionId}', encodeURIComponent(String(sectionId)))
+                .replace('{questionId}', encodeURIComponent(String(questionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -136,8 +134,8 @@ export const QuestionsApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -167,10 +165,10 @@ export const QuestionsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'questionId' is not null or undefined
             assertParamExists('getQuestion', 'questionId', questionId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/sections/{sectionId}/questions/{questionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
-                .replace(`{${"sectionId"}}`, encodeURIComponent(String(sectionId)))
-                .replace(`{${"questionId"}}`, encodeURIComponent(String(questionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)))
+                .replace('{sectionId}', encodeURIComponent(String(sectionId)))
+                .replace('{questionId}', encodeURIComponent(String(questionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -186,8 +184,8 @@ export const QuestionsApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -218,9 +216,9 @@ export const QuestionsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'sectionId' is not null or undefined
             assertParamExists('searchQuestions', 'sectionId', sectionId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/sections/{sectionId}/questions`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
-                .replace(`{${"sectionId"}}`, encodeURIComponent(String(sectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)))
+                .replace('{sectionId}', encodeURIComponent(String(sectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -252,8 +250,8 @@ export const QuestionsApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -284,10 +282,10 @@ export const QuestionsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'questionId' is not null or undefined
             assertParamExists('updateQuestion', 'questionId', questionId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/sections/{sectionId}/questions/{questionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
-                .replace(`{${"sectionId"}}`, encodeURIComponent(String(sectionId)))
-                .replace(`{${"questionId"}}`, encodeURIComponent(String(questionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)))
+                .replace('{sectionId}', encodeURIComponent(String(sectionId)))
+                .replace('{questionId}', encodeURIComponent(String(questionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -303,9 +301,8 @@ export const QuestionsApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -322,7 +319,6 @@ export const QuestionsApiAxiosParamCreator = function (configuration?: Configura
 
 /**
  * QuestionsApi - functional programming interface
- * @export
  */
 export const QuestionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = QuestionsApiAxiosParamCreator(configuration)
@@ -416,7 +412,6 @@ export const QuestionsApiFp = function(configuration?: Configuration) {
 
 /**
  * QuestionsApi - factory interface
- * @export
  */
 export const QuestionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = QuestionsApiFp(configuration)
@@ -476,212 +471,151 @@ export const QuestionsApiFactory = function (configuration?: Configuration, base
 
 /**
  * Request parameters for createQuestion operation in QuestionsApi.
- * @export
- * @interface QuestionsApiCreateQuestionRequest
  */
 export interface QuestionsApiCreateQuestionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiCreateQuestion
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiCreateQuestion
      */
     readonly formId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiCreateQuestion
      */
     readonly sectionId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQuestionRequestDto}
-     * @memberof QuestionsApiCreateQuestion
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQuestionRequestDto?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQuestionRequestDto
 }
 
 /**
  * Request parameters for deleteQuestion operation in QuestionsApi.
- * @export
- * @interface QuestionsApiDeleteQuestionRequest
  */
 export interface QuestionsApiDeleteQuestionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiDeleteQuestion
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiDeleteQuestion
      */
     readonly formId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiDeleteQuestion
      */
     readonly sectionId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiDeleteQuestion
      */
     readonly questionId: string
 }
 
 /**
  * Request parameters for getQuestion operation in QuestionsApi.
- * @export
- * @interface QuestionsApiGetQuestionRequest
  */
 export interface QuestionsApiGetQuestionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiGetQuestion
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiGetQuestion
      */
     readonly formId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiGetQuestion
      */
     readonly sectionId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiGetQuestion
      */
     readonly questionId: string
 }
 
 /**
  * Request parameters for searchQuestions operation in QuestionsApi.
- * @export
- * @interface QuestionsApiSearchQuestionsRequest
  */
 export interface QuestionsApiSearchQuestionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiSearchQuestions
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiSearchQuestions
      */
     readonly formId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiSearchQuestions
      */
     readonly sectionId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof QuestionsApiSearchQuestions
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof QuestionsApiSearchQuestions
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiSearchQuestions
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiSearchQuestions
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for updateQuestion operation in QuestionsApi.
- * @export
- * @interface QuestionsApiUpdateQuestionRequest
  */
 export interface QuestionsApiUpdateQuestionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiUpdateQuestion
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiUpdateQuestion
      */
     readonly formId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiUpdateQuestion
      */
     readonly sectionId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof QuestionsApiUpdateQuestion
      */
     readonly questionId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQuestionRequestDto}
-     * @memberof QuestionsApiUpdateQuestion
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQuestionRequestDto?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQuestionRequestDto
 }
 
 /**
  * QuestionsApi - object-oriented interface
- * @export
- * @class QuestionsApi
- * @extends {BaseAPI}
  */
 export class QuestionsApi extends BaseAPI {
     /**
@@ -690,7 +624,6 @@ export class QuestionsApi extends BaseAPI {
      * @param {QuestionsApiCreateQuestionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof QuestionsApi
      */
     public createQuestion(requestParameters: QuestionsApiCreateQuestionRequest, options?: RawAxiosRequestConfig) {
         return QuestionsApiFp(this.configuration).createQuestion(requestParameters.tenantId, requestParameters.formId, requestParameters.sectionId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQuestionRequestDto, options).then((request) => request(this.axios, this.basePath));
@@ -702,7 +635,6 @@ export class QuestionsApi extends BaseAPI {
      * @param {QuestionsApiDeleteQuestionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof QuestionsApi
      */
     public deleteQuestion(requestParameters: QuestionsApiDeleteQuestionRequest, options?: RawAxiosRequestConfig) {
         return QuestionsApiFp(this.configuration).deleteQuestion(requestParameters.tenantId, requestParameters.formId, requestParameters.sectionId, requestParameters.questionId, options).then((request) => request(this.axios, this.basePath));
@@ -714,7 +646,6 @@ export class QuestionsApi extends BaseAPI {
      * @param {QuestionsApiGetQuestionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof QuestionsApi
      */
     public getQuestion(requestParameters: QuestionsApiGetQuestionRequest, options?: RawAxiosRequestConfig) {
         return QuestionsApiFp(this.configuration).getQuestion(requestParameters.tenantId, requestParameters.formId, requestParameters.sectionId, requestParameters.questionId, options).then((request) => request(this.axios, this.basePath));
@@ -726,7 +657,6 @@ export class QuestionsApi extends BaseAPI {
      * @param {QuestionsApiSearchQuestionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof QuestionsApi
      */
     public searchQuestions(requestParameters: QuestionsApiSearchQuestionsRequest, options?: RawAxiosRequestConfig) {
         return QuestionsApiFp(this.configuration).searchQuestions(requestParameters.tenantId, requestParameters.formId, requestParameters.sectionId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -738,7 +668,6 @@ export class QuestionsApi extends BaseAPI {
      * @param {QuestionsApiUpdateQuestionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof QuestionsApi
      */
     public updateQuestion(requestParameters: QuestionsApiUpdateQuestionRequest, options?: RawAxiosRequestConfig) {
         return QuestionsApiFp(this.configuration).updateQuestion(requestParameters.tenantId, requestParameters.formId, requestParameters.sectionId, requestParameters.questionId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQuestionRequestDto, options).then((request) => request(this.axios, this.basePath));

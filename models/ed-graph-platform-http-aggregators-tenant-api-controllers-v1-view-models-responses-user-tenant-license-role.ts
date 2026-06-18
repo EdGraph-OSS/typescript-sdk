@@ -14,47 +14,18 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole
- */
 export interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole
-     */
     'role'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole
-     */
     'isImplicitlyAssigned'?: boolean;
     /**
      * Maps to EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenantLicenseRoleStatus.<br></br>    For more info on deprecation see: Task 9962: Modify implicit license response to prioritize explicit licenses over implicit (part 2) (https://dev.azure.com/edwire/EW.Educate/_workitems/edit/9962)<br></br>    Use EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.LicenseSource instead.<br></br>
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole
      * @deprecated
      */
     'status'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole
-     */
     'educationOrganizationId'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole
-     */
     'staffClassification'?: string | null;
     /**
      * Maps to EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.LicenseSource.<br></br>    For more info see: Task 9962: Modify implicit license response to prioritize explicit licenses over implicit (part 2) (https://dev.azure.com/edwire/EW.Educate/_workitems/edit/9962)
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole
      */
     'source'?: string | null;
 }

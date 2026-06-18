@@ -14,11 +14,6 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ValidationsApiReportingPeriodsV1SubmissionStatus = {
     Unknown: 'Unknown',
@@ -27,7 +22,7 @@ export const ValidationsApiReportingPeriodsV1SubmissionStatus = {
     Cancelled: 'Cancelled',
     Error: 'Error',
     CompletedWithErrors: 'CompletedWithErrors',
-    Completed: 'Completed'
+    Completed: 'Completed',
 } as const;
 
 export type ValidationsApiReportingPeriodsV1SubmissionStatus = typeof ValidationsApiReportingPeriodsV1SubmissionStatus[keyof typeof ValidationsApiReportingPeriodsV1SubmissionStatus];

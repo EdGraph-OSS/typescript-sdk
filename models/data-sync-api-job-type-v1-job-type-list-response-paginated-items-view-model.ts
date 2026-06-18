@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { DataSyncApiJobTypeV1JobTypeListResponse } from './data-sync-api-job-type-v1-job-type-list-response';
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobTypeV1JobTypeListResponsePaginatedItemsViewModel
- */
 export interface DataSyncApiJobTypeV1JobTypeListResponsePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponsePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponsePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponsePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<DataSyncApiJobTypeV1JobTypeListResponse>}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponsePaginatedItemsViewModel
-     */
     'data'?: Array<DataSyncApiJobTypeV1JobTypeListResponse> | null;
 }
 

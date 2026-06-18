@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1OnboardingStep
- */
 export interface EdfiAdminApiEdfiAdminV1OnboardingStep {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1OnboardingStep
-     */
     'number'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1OnboardingStep
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1OnboardingStep
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1OnboardingStep
-     */
     'startedAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1OnboardingStep
-     */
     'completedAt'?: string | null;
 }
 

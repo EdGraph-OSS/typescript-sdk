@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const FormApiSubmissionsV1ExportType = {
     Unknown: 'Unknown',
     Json: 'Json',
-    Csv: 'Csv'
+    Csv: 'Csv',
 } as const;
 
 export type FormApiSubmissionsV1ExportType = typeof FormApiSubmissionsV1ExportType[keyof typeof FormApiSubmissionsV1ExportType];

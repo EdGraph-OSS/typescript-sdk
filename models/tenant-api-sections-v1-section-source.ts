@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const TenantApiSectionsV1SectionSource = {
     Unknown: 'Unknown',
     Manual: 'Manual',
-    EdFiSync: 'EdFiSync'
+    EdFiSync: 'EdFiSync',
 } as const;
 
 export type TenantApiSectionsV1SectionSource = typeof TenantApiSectionsV1SectionSource[keyof typeof TenantApiSectionsV1SectionSource];

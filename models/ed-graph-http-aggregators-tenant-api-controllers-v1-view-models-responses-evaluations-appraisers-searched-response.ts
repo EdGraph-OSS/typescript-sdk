@@ -20,41 +20,11 @@ import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEva
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserSearchStatus } from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-responses-evaluations-appraiser-search-status';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponse>}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse
-     */
     'data'?: Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponse> | null;
-    /**
-     * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserSearchStatus}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse
-     */
     'status'?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserSearchStatus;
 }
 

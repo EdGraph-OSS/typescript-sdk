@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1EdFiApplication
- */
 export interface EdfiAdminApiEdfiAdminV1EdFiApplication {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplication
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplication
-     */
     'applicationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplication
-     */
     'applicationName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplication
-     */
     'claimSetName'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplication
-     */
     'vendorId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplication
-     */
     'operationalContextUri'?: string | null;
 }
 

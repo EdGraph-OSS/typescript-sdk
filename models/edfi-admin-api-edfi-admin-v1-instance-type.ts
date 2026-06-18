@@ -14,17 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const EdfiAdminApiEdfiAdminV1InstanceType = {
     Unknown: 'Unknown',
     Edfi: 'Edfi',
     OpenEducationAnalytics: 'OpenEducationAnalytics',
-    Stadium: 'Stadium'
+    Stadium: 'Stadium',
 } as const;
 
 export type EdfiAdminApiEdfiAdminV1InstanceType = typeof EdfiAdminApiEdfiAdminV1InstanceType[keyof typeof EdfiAdminApiEdfiAdminV1InstanceType];

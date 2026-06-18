@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiSectionsV1GradeLevelListResponse
- */
 export interface TenantApiSectionsV1GradeLevelListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1GradeLevelListResponse
-     */
     'gradeLevelDescriptor'?: string | null;
 }
 

@@ -14,77 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
-     */
     'environmentId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
-     */
     'server'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
-     */
     'username'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
-     */
     'database'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
-     */
     'password'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
-     */
     'authUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
-     */
     'resourcesUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
-     */
     'apiKey'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
-     */
     'apiSecret'?: string | null;
 }
 

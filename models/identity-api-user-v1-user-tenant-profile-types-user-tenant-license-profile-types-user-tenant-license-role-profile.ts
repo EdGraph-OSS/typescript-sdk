@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfileTypesUserTenantLicenseRoleProfile
- */
 export interface IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfileTypesUserTenantLicenseRoleProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfileTypesUserTenantLicenseRoleProfile
-     */
     'role'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfileTypesUserTenantLicenseRoleProfile
-     */
     'isImplicitlyAssigned'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfileTypesUserTenantLicenseRoleProfile
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfileTypesUserTenantLicenseRoleProfile
-     */
     'educationOrganizationId'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfileTypesUserTenantLicenseRoleProfile
-     */
     'staffClassification'?: string | null;
 }
 

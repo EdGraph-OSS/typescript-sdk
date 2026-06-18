@@ -26,125 +26,25 @@ import type { ApplicationApiApplicationV1ApplicationType } from './application-a
 // @ts-ignore
 import type { ApplicationApiApplicationV1Role } from './application-api-application-v1-role';
 
-/**
- * 
- * @export
- * @interface ApplicationApiApplicationV1ApplicationProfileResponse
- */
 export interface ApplicationApiApplicationV1ApplicationProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {ApplicationApiApplicationV1ApplicationType}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'applicationType'?: ApplicationApiApplicationV1ApplicationType;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'applicationName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'applicationUri'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'version'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'tooltipText'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'applicationDescription'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'tags'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'groups'?: string | null;
-    /**
-     * 
-     * @type {ApplicationApiApplicationV1ApplicationStatus}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'applicationStatus'?: ApplicationApiApplicationV1ApplicationStatus;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'openInNewWindow'?: boolean;
-    /**
-     * 
-     * @type {Array<ApplicationApiApplicationV1Role>}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'roles'?: Array<ApplicationApiApplicationV1Role> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {ApplicationApiApplicationV1ApplicationSubscriptionType}
-     * @memberof ApplicationApiApplicationV1ApplicationProfileResponse
-     */
     'subscriptionType'?: ApplicationApiApplicationV1ApplicationSubscriptionType;
 }
 

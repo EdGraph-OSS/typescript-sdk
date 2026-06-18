@@ -17,59 +17,14 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest } from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-requests-licenses-assign-license-request';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
-     */
     'firstName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
-     */
     'lastName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
-     */
     'role'?: string | null;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest>}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
-     */
     'assignLicenseRequests'?: Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
-     */
     'invitingUserDisplayName'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
-     */
     'dontSendEmail'?: boolean | null;
 }
 

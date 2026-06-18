@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1OdsApiConnectionEndpoint } from './edfi-admin-api-edfi-admin-v1-ods-api-connection-endpoint';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1TierOdsApiConnectionListModel
- */
 export interface EdfiAdminApiEdfiAdminV1TierOdsApiConnectionListModel {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TierOdsApiConnectionListModel
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TierOdsApiConnectionListModel
-     */
     'tokenUrl'?: string | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1OdsApiConnectionEndpoint>}
-     * @memberof EdfiAdminApiEdfiAdminV1TierOdsApiConnectionListModel
-     */
     'endpoints'?: Array<EdfiAdminApiEdfiAdminV1OdsApiConnectionEndpoint> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TierOdsApiConnectionListModel
-     */
     'metadataUrl'?: string | null;
 }
 

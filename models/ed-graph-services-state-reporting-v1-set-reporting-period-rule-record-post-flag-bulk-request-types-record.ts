@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequestTypesRecord
- */
 export interface EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequestTypesRecord {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequestTypesRecord
-     */
     'recordId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequestTypesRecord
-     */
     'excludeFromPost'?: boolean;
 }
 

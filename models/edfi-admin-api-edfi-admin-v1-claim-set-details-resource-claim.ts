@@ -14,119 +14,24 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
- */
 export interface EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'resourceClaimId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'create'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'createAuthStrategy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'createAuthStrategyOverride'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'read'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'readAuthStrategy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'readAuthStrategyOverride'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'update'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'updateAuthStrategy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'updateAuthStrategyOverride'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'delete'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'deleteAuthStrategy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'deleteAuthStrategyOverride'?: string | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim>}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'children'?: Array<EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim> | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'readChanges'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'readChangesAuthStrategy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
-     */
     'readChangesAuthStrategyOverride'?: string | null;
 }
 

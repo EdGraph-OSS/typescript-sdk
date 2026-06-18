@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1RuleRecordPostFlagSetBulkResponse
- */
 export interface ValidationsApiReportingPeriodsV1RuleRecordPostFlagSetBulkResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1RuleRecordPostFlagSetBulkResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1RuleRecordPostFlagSetBulkResponse
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1RuleRecordPostFlagSetBulkResponse
-     */
     'ruleId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ValidationsApiReportingPeriodsV1RuleRecordPostFlagSetBulkResponse
-     */
     'recordIds'?: Array<string> | null;
 }
 

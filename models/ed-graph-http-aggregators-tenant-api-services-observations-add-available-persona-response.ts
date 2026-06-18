@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaResponse
-     */
     'tenantId'?: string | null;
 }
 

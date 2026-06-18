@@ -20,65 +20,18 @@ import type { EdfiAdminApiEdfiAdminV1EducationOrganization } from './edfi-admin-
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1Vendor } from './edfi-admin-api-edfi-admin-v1-vendor';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse
- */
 export interface EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse
-     */
     'applicationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse
-     */
     'applicationName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse
-     */
     'claimSetName'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse
-     */
     'vendorId'?: number;
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1Vendor}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse
-     */
     'vendor'?: EdfiAdminApiEdfiAdminV1Vendor;
     /**
      * TODO Is adding Vendor object which also has application object correct ?
-     * @type {Array<EdfiAdminApiEdfiAdminV1EducationOrganization>}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse
      */
     'educationOrganizations'?: Array<EdfiAdminApiEdfiAdminV1EducationOrganization> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse
-     */
     'operationalContextUri'?: string | null;
 }
 

@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiConfigurationsV1TestConnectionResponse
- */
 export interface AnalyticsApiConfigurationsV1TestConnectionResponse {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AnalyticsApiConfigurationsV1TestConnectionResponse
-     */
     'isConnectionSuccessful'?: boolean;
 }
 

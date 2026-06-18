@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1EnvironmentCreatedResponse
- */
 export interface EdGraphServicesStateReportingV1EnvironmentCreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentCreatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentCreatedResponse
-     */
     'environmentId'?: string | null;
 }
 

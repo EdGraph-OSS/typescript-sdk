@@ -20,35 +20,10 @@ import type { EvaluationApiEvaluationSettingsV1ScheduleType } from './evaluation
 // @ts-ignore
 import type { EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest } from './evaluation-api-evaluation-settings-v1-set-form-configuration-request';
 
-/**
- * 
- * @export
- * @interface EvaluationApiEvaluationSettingsV1SetApplicationRequest
- */
 export interface EvaluationApiEvaluationSettingsV1SetApplicationRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1SetApplicationRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest>}
-     * @memberof EvaluationApiEvaluationSettingsV1SetApplicationRequest
-     */
     'forms'?: Array<EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EvaluationApiEvaluationSettingsV1SetApplicationRequest
-     */
     'recommendedNumberOfEvaluations'?: number | null;
-    /**
-     * 
-     * @type {EvaluationApiEvaluationSettingsV1ScheduleType}
-     * @memberof EvaluationApiEvaluationSettingsV1SetApplicationRequest
-     */
     'reminderEmailSchedule'?: EvaluationApiEvaluationSettingsV1ScheduleType;
 }
 

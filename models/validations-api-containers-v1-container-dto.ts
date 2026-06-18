@@ -17,95 +17,20 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1ContainerDto Types TagDto } from './validations-api-containers-v1-container-dto types tag-dto';
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1ContainerDto
- */
 export interface ValidationsApiContainersV1ContainerDto {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'containerType'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'parentContainerId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'isDefault'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'environmentType'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiContainersV1ContainerDto>}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'childContainers'?: Array<ValidationsApiContainersV1ContainerDto> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'childContainersCount'?: number | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiContainersV1ContainerDto Types TagDto>}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'tags'?: Array<ValidationsApiContainersV1ContainerDto Types TagDto> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'rulesCount'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'certificationStatus'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1ContainerDto
-     */
     'state'?: string | null;
 }
 

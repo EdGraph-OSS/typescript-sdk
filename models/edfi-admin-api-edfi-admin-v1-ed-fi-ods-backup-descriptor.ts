@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1EdFiOdsBackupDescriptor
- */
 export interface EdfiAdminApiEdfiAdminV1EdFiOdsBackupDescriptor {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiOdsBackupDescriptor
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiOdsBackupDescriptor
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiOdsBackupDescriptor
-     */
     'description'?: string | null;
 }
 

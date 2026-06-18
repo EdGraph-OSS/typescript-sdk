@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ClientsClientSecretRegeneratedResponse
- */
 export interface IMSAdminApiV1ClientsClientSecretRegeneratedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientSecretRegeneratedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientSecretRegeneratedResponse
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientSecretRegeneratedResponse
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientSecretRegeneratedResponse
-     */
     'secretValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientSecretRegeneratedResponse
-     */
     'instanceId'?: string | null;
 }
 

@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const FormApiFormComponentsV1FormComponentType = {
     Unknown: 'Unknown',
     CurrentUserName: 'CurrentUserName',
-    SectionPicker: 'SectionPicker'
+    SectionPicker: 'SectionPicker',
 } as const;
 
 export type FormApiFormComponentsV1FormComponentType = typeof FormApiFormComponentsV1FormComponentType[keyof typeof FormApiFormComponentsV1FormComponentType];

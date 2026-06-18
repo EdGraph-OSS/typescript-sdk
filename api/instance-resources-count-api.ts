@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { EdfiAdminApiEdfiAdminV1InstanceResourcesCountListResponsePaginated
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * InstanceResourcesCountApi - axios parameter creator
- * @export
  */
 export const InstanceResourcesCountApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -62,11 +61,11 @@ export const InstanceResourcesCountApiAxiosParamCreator = function (configuratio
             // verify required parameter 'apiClientId' is not null or undefined
             assertParamExists('getAllInstanceResourcesCountAsync', 'apiClientId', apiClientId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/applications/{applicationId}/apiclients/{apiClientId}/resourcescount`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"applicationId"}}`, encodeURIComponent(String(applicationId)))
-                .replace(`{${"apiClientId"}}`, encodeURIComponent(String(apiClientId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{applicationId}', encodeURIComponent(String(applicationId)))
+                .replace('{apiClientId}', encodeURIComponent(String(apiClientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -98,8 +97,8 @@ export const InstanceResourcesCountApiAxiosParamCreator = function (configuratio
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -133,11 +132,11 @@ export const InstanceResourcesCountApiAxiosParamCreator = function (configuratio
             // verify required parameter 'apiClientId' is not null or undefined
             assertParamExists('getAllInstanceResourcesCountJson', 'apiClientId', apiClientId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/applications/{applicationId}/apiclients/{apiClientId}/resourcescount/export`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"applicationId"}}`, encodeURIComponent(String(applicationId)))
-                .replace(`{${"apiClientId"}}`, encodeURIComponent(String(apiClientId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{applicationId}', encodeURIComponent(String(applicationId)))
+                .replace('{apiClientId}', encodeURIComponent(String(apiClientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -157,8 +156,8 @@ export const InstanceResourcesCountApiAxiosParamCreator = function (configuratio
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -173,7 +172,6 @@ export const InstanceResourcesCountApiAxiosParamCreator = function (configuratio
 
 /**
  * InstanceResourcesCountApi - functional programming interface
- * @export
  */
 export const InstanceResourcesCountApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InstanceResourcesCountApiAxiosParamCreator(configuration)
@@ -222,7 +220,6 @@ export const InstanceResourcesCountApiFp = function(configuration?: Configuratio
 
 /**
  * InstanceResourcesCountApi - factory interface
- * @export
  */
 export const InstanceResourcesCountApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InstanceResourcesCountApiFp(configuration)
@@ -252,128 +249,91 @@ export const InstanceResourcesCountApiFactory = function (configuration?: Config
 
 /**
  * Request parameters for getAllInstanceResourcesCountAsync operation in InstanceResourcesCountApi.
- * @export
- * @interface InstanceResourcesCountApiGetAllInstanceResourcesCountAsyncRequest
  */
 export interface InstanceResourcesCountApiGetAllInstanceResourcesCountAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountAsync
      */
     readonly applicationId: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountAsync
      */
     readonly apiClientId: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getAllInstanceResourcesCountJson operation in InstanceResourcesCountApi.
- * @export
- * @interface InstanceResourcesCountApiGetAllInstanceResourcesCountJsonRequest
  */
 export interface InstanceResourcesCountApiGetAllInstanceResourcesCountJsonRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountJson
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountJson
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountJson
      */
     readonly year: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountJson
      */
     readonly applicationId: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountJson
      */
     readonly apiClientId: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstanceResourcesCountApiGetAllInstanceResourcesCountJson
      */
     readonly filter?: string
 }
 
 /**
  * InstanceResourcesCountApi - object-oriented interface
- * @export
- * @class InstanceResourcesCountApi
- * @extends {BaseAPI}
  */
 export class InstanceResourcesCountApi extends BaseAPI {
     /**
@@ -382,7 +342,6 @@ export class InstanceResourcesCountApi extends BaseAPI {
      * @param {InstanceResourcesCountApiGetAllInstanceResourcesCountAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstanceResourcesCountApi
      */
     public getAllInstanceResourcesCountAsync(requestParameters: InstanceResourcesCountApiGetAllInstanceResourcesCountAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstanceResourcesCountApiFp(this.configuration).getAllInstanceResourcesCountAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.applicationId, requestParameters.apiClientId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -394,7 +353,6 @@ export class InstanceResourcesCountApi extends BaseAPI {
      * @param {InstanceResourcesCountApiGetAllInstanceResourcesCountJsonRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstanceResourcesCountApi
      */
     public getAllInstanceResourcesCountJson(requestParameters: InstanceResourcesCountApiGetAllInstanceResourcesCountJsonRequest, options?: RawAxiosRequestConfig) {
         return InstanceResourcesCountApiFp(this.configuration).getAllInstanceResourcesCountJson(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.applicationId, requestParameters.apiClientId, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));

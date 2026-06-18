@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { FormApiFormsV1SchemaStatus } from './form-api-forms-v1-schema-status';
 
-/**
- * 
- * @export
- * @interface FormApiFormsV1FullFormSchemaResponse
- */
 export interface FormApiFormsV1FullFormSchemaResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1FullFormSchemaResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1FullFormSchemaResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1FullFormSchemaResponse
-     */
     'jsonSchema'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1FullFormSchemaResponse
-     */
     'uiSchema'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1FullFormSchemaResponse
-     */
     'details'?: string | null;
-    /**
-     * 
-     * @type {FormApiFormsV1SchemaStatus}
-     * @memberof FormApiFormsV1FullFormSchemaResponse
-     */
     'status'?: FormApiFormsV1SchemaStatus;
 }
 

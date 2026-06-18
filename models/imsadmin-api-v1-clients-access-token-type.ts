@@ -14,15 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const IMSAdminApiV1ClientsAccessTokenType = {
     Jwt: 'Jwt',
-    Reference: 'Reference'
+    Reference: 'Reference',
 } as const;
 
 export type IMSAdminApiV1ClientsAccessTokenType = typeof IMSAdminApiV1ClientsAccessTokenType[keyof typeof IMSAdminApiV1ClientsAccessTokenType];

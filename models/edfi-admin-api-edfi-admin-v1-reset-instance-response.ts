@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1ResetInstanceResponse
- */
 export interface EdfiAdminApiEdfiAdminV1ResetInstanceResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ResetInstanceResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ResetInstanceResponse
-     */
     'instanceId'?: string | null;
 }
 

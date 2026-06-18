@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -35,7 +35,6 @@ import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 /**
  * CapacitiesApi - axios parameter creator
- * @export
  */
 export const CapacitiesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -51,7 +50,7 @@ export const CapacitiesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('assignMyGroupToCapacity', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/capacities`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -67,9 +66,8 @@ export const CapacitiesApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -92,7 +90,7 @@ export const CapacitiesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllAnalyticsPowerBiCapacities', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/capacities`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -108,8 +106,8 @@ export const CapacitiesApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -131,7 +129,7 @@ export const CapacitiesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('resumeCapacityAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/capacities/resume`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -147,9 +145,8 @@ export const CapacitiesApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -173,7 +170,7 @@ export const CapacitiesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('suspendCapacityAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/capacities/suspend`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -189,9 +186,8 @@ export const CapacitiesApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -208,7 +204,6 @@ export const CapacitiesApiAxiosParamCreator = function (configuration?: Configur
 
 /**
  * CapacitiesApi - functional programming interface
- * @export
  */
 export const CapacitiesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CapacitiesApiAxiosParamCreator(configuration)
@@ -273,7 +268,6 @@ export const CapacitiesApiFp = function(configuration?: Configuration) {
 
 /**
  * CapacitiesApi - factory interface
- * @export
  */
 export const CapacitiesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CapacitiesApiFp(configuration)
@@ -323,86 +317,61 @@ export const CapacitiesApiFactory = function (configuration?: Configuration, bas
 
 /**
  * Request parameters for assignMyGroupToCapacity operation in CapacitiesApi.
- * @export
- * @interface CapacitiesApiAssignMyGroupToCapacityRequest
  */
 export interface CapacitiesApiAssignMyGroupToCapacityRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CapacitiesApiAssignMyGroupToCapacity
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {AnalyticsApiCapacitiesV1AssignCapacityRequest}
-     * @memberof CapacitiesApiAssignMyGroupToCapacity
      */
     readonly analyticsApiCapacitiesV1AssignCapacityRequest?: AnalyticsApiCapacitiesV1AssignCapacityRequest
 }
 
 /**
  * Request parameters for getAllAnalyticsPowerBiCapacities operation in CapacitiesApi.
- * @export
- * @interface CapacitiesApiGetAllAnalyticsPowerBiCapacitiesRequest
  */
 export interface CapacitiesApiGetAllAnalyticsPowerBiCapacitiesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CapacitiesApiGetAllAnalyticsPowerBiCapacities
      */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for resumeCapacityAsync operation in CapacitiesApi.
- * @export
- * @interface CapacitiesApiResumeCapacityAsyncRequest
  */
 export interface CapacitiesApiResumeCapacityAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CapacitiesApiResumeCapacityAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {AnalyticsApiCapacitiesV1ResumeCapacityRequest}
-     * @memberof CapacitiesApiResumeCapacityAsync
      */
     readonly analyticsApiCapacitiesV1ResumeCapacityRequest?: AnalyticsApiCapacitiesV1ResumeCapacityRequest
 }
 
 /**
  * Request parameters for suspendCapacityAsync operation in CapacitiesApi.
- * @export
- * @interface CapacitiesApiSuspendCapacityAsyncRequest
  */
 export interface CapacitiesApiSuspendCapacityAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CapacitiesApiSuspendCapacityAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {AnalyticsApiCapacitiesV1SuspendCapacityRequest}
-     * @memberof CapacitiesApiSuspendCapacityAsync
      */
     readonly analyticsApiCapacitiesV1SuspendCapacityRequest?: AnalyticsApiCapacitiesV1SuspendCapacityRequest
 }
 
 /**
  * CapacitiesApi - object-oriented interface
- * @export
- * @class CapacitiesApi
- * @extends {BaseAPI}
  */
 export class CapacitiesApi extends BaseAPI {
     /**
@@ -411,7 +380,6 @@ export class CapacitiesApi extends BaseAPI {
      * @param {CapacitiesApiAssignMyGroupToCapacityRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacitiesApi
      */
     public assignMyGroupToCapacity(requestParameters: CapacitiesApiAssignMyGroupToCapacityRequest, options?: RawAxiosRequestConfig) {
         return CapacitiesApiFp(this.configuration).assignMyGroupToCapacity(requestParameters.tenantId, requestParameters.analyticsApiCapacitiesV1AssignCapacityRequest, options).then((request) => request(this.axios, this.basePath));
@@ -423,7 +391,6 @@ export class CapacitiesApi extends BaseAPI {
      * @param {CapacitiesApiGetAllAnalyticsPowerBiCapacitiesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacitiesApi
      */
     public getAllAnalyticsPowerBiCapacities(requestParameters: CapacitiesApiGetAllAnalyticsPowerBiCapacitiesRequest, options?: RawAxiosRequestConfig) {
         return CapacitiesApiFp(this.configuration).getAllAnalyticsPowerBiCapacities(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -435,7 +402,6 @@ export class CapacitiesApi extends BaseAPI {
      * @param {CapacitiesApiResumeCapacityAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacitiesApi
      */
     public resumeCapacityAsync(requestParameters: CapacitiesApiResumeCapacityAsyncRequest, options?: RawAxiosRequestConfig) {
         return CapacitiesApiFp(this.configuration).resumeCapacityAsync(requestParameters.tenantId, requestParameters.analyticsApiCapacitiesV1ResumeCapacityRequest, options).then((request) => request(this.axios, this.basePath));
@@ -447,7 +413,6 @@ export class CapacitiesApi extends BaseAPI {
      * @param {CapacitiesApiSuspendCapacityAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacitiesApi
      */
     public suspendCapacityAsync(requestParameters: CapacitiesApiSuspendCapacityAsyncRequest, options?: RawAxiosRequestConfig) {
         return CapacitiesApiFp(this.configuration).suspendCapacityAsync(requestParameters.tenantId, requestParameters.analyticsApiCapacitiesV1SuspendCapacityRequest, options).then((request) => request(this.axios, this.basePath));

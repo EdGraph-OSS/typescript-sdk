@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionResponse
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionResponse
-     */
     'details'?: string | null;
 }
 

@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const EdfiAdminApiEdfiAdminV1SecretValueType = {
     Unknown: 'Unknown',
     Obfuscated: 'Obfuscated',
-    Encrypted: 'Encrypted'
+    Encrypted: 'Encrypted',
 } as const;
 
 export type EdfiAdminApiEdfiAdminV1SecretValueType = typeof EdfiAdminApiEdfiAdminV1SecretValueType[keyof typeof EdfiAdminApiEdfiAdminV1SecretValueType];

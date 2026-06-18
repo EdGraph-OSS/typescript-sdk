@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const TenantApiPartnershipV1PartnershipSyncType = {
     Unknown: 'Unknown',
     Users: 'Users',
-    Reports: 'Reports'
+    Reports: 'Reports',
 } as const;
 
 export type TenantApiPartnershipV1PartnershipSyncType = typeof TenantApiPartnershipV1PartnershipSyncType[keyof typeof TenantApiPartnershipV1PartnershipSyncType];

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 import type { RegistrationApiRegistrationV2SubmitTenantRegistrationRequest } from '../models';
 /**
  * RegistrationsAzureMarketplaceApi - axios parameter creator
- * @export
  */
 export const RegistrationsAzureMarketplaceApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -57,9 +56,8 @@ export const RegistrationsAzureMarketplaceApiAxiosParamCreator = function (confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -76,7 +74,6 @@ export const RegistrationsAzureMarketplaceApiAxiosParamCreator = function (confi
 
 /**
  * RegistrationsAzureMarketplaceApi - functional programming interface
- * @export
  */
 export const RegistrationsAzureMarketplaceApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RegistrationsAzureMarketplaceApiAxiosParamCreator(configuration)
@@ -99,7 +96,6 @@ export const RegistrationsAzureMarketplaceApiFp = function(configuration?: Confi
 
 /**
  * RegistrationsAzureMarketplaceApi - factory interface
- * @export
  */
 export const RegistrationsAzureMarketplaceApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = RegistrationsAzureMarketplaceApiFp(configuration)
@@ -119,23 +115,16 @@ export const RegistrationsAzureMarketplaceApiFactory = function (configuration?:
 
 /**
  * Request parameters for submitTenantRegistrationAzureMonaAsync operation in RegistrationsAzureMarketplaceApi.
- * @export
- * @interface RegistrationsAzureMarketplaceApiSubmitTenantRegistrationAzureMonaAsyncRequest
  */
 export interface RegistrationsAzureMarketplaceApiSubmitTenantRegistrationAzureMonaAsyncRequest {
     /**
      * 
-     * @type {RegistrationApiRegistrationV2SubmitTenantRegistrationRequest}
-     * @memberof RegistrationsAzureMarketplaceApiSubmitTenantRegistrationAzureMonaAsync
      */
     readonly registrationApiRegistrationV2SubmitTenantRegistrationRequest?: RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
 }
 
 /**
  * RegistrationsAzureMarketplaceApi - object-oriented interface
- * @export
- * @class RegistrationsAzureMarketplaceApi
- * @extends {BaseAPI}
  */
 export class RegistrationsAzureMarketplaceApi extends BaseAPI {
     /**
@@ -144,7 +133,6 @@ export class RegistrationsAzureMarketplaceApi extends BaseAPI {
      * @param {RegistrationsAzureMarketplaceApiSubmitTenantRegistrationAzureMonaAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RegistrationsAzureMarketplaceApi
      */
     public submitTenantRegistrationAzureMonaAsync(requestParameters: RegistrationsAzureMarketplaceApiSubmitTenantRegistrationAzureMonaAsyncRequest = {}, options?: RawAxiosRequestConfig) {
         return RegistrationsAzureMarketplaceApiFp(this.configuration).submitTenantRegistrationAzureMonaAsync(requestParameters.registrationApiRegistrationV2SubmitTenantRegistrationRequest, options).then((request) => request(this.axios, this.basePath));

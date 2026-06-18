@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1Preference
- */
 export interface IdentityApiUserV1Preference {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1Preference
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1Preference
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1Preference
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1Preference
-     */
     'value'?: string | null;
 }
 

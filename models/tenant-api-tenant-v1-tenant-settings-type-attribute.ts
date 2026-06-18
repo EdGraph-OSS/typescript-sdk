@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1TenantSettingsTypeAttribute
- */
 export interface TenantApiTenantV1TenantSettingsTypeAttribute {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantSettingsTypeAttribute
-     */
     'key'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantSettingsTypeAttribute
-     */
     'value'?: string | null;
 }
 

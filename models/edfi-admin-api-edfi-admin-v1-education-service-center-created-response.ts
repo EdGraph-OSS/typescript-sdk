@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1EducationServiceCenterCreatedResponse
- */
 export interface EdfiAdminApiEdfiAdminV1EducationServiceCenterCreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationServiceCenterCreatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationServiceCenterCreatedResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationServiceCenterCreatedResponse
-     */
     'id'?: string | null;
 }
 

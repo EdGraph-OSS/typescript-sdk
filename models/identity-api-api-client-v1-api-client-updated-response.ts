@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiApiClientV1ApiClientUpdatedResponse
- */
 export interface IdentityApiApiClientV1ApiClientUpdatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientUpdatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientUpdatedResponse
-     */
     'clientId'?: string | null;
 }
 

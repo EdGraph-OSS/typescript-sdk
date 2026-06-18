@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiConnectionV1ConnectionTestedResponse
- */
 export interface DataSyncApiConnectionV1ConnectionTestedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionTestedResponse
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionTestedResponse
-     */
     'details'?: string | null;
 }
 

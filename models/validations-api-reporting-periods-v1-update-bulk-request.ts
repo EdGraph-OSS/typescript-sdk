@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { ValidationsApiReportingPeriodsV1UpdateBulkRequest Types ReportingPeriod } from './validations-api-reporting-periods-v1-update-bulk-request types reporting-period';
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1UpdateBulkRequest
- */
 export interface ValidationsApiReportingPeriodsV1UpdateBulkRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1UpdateBulkRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiReportingPeriodsV1UpdateBulkRequest Types ReportingPeriod>}
-     * @memberof ValidationsApiReportingPeriodsV1UpdateBulkRequest
-     */
     'reportingPeriods'?: Array<ValidationsApiReportingPeriodsV1UpdateBulkRequest Types ReportingPeriod> | null;
 }
 

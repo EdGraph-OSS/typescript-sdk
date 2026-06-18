@@ -14,18 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const TenantApiTenantV1DomainStatus = {
     Unknown: 'Unknown',
     Unverified: 'Unverified',
     Verified: 'Verified',
     Rejected: 'Rejected',
-    Error: 'Error'
+    Error: 'Error',
 } as const;
 
 export type TenantApiTenantV1DomainStatus = typeof TenantApiTenantV1DomainStatus[keyof typeof TenantApiTenantV1DomainStatus];

@@ -23,65 +23,15 @@ import type { FormApiFormsV1FormSource } from './form-api-forms-v1-form-source';
 // @ts-ignore
 import type { FormApiFormsV1FormStatus } from './form-api-forms-v1-form-status';
 
-/**
- * 
- * @export
- * @interface FormApiFormsV1CreateFullFormRequest
- */
 export interface FormApiFormsV1CreateFullFormRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullFormRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullFormRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {FormApiFormsV1FormSource}
-     * @memberof FormApiFormsV1CreateFullFormRequest
-     */
     'source'?: FormApiFormsV1FormSource;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullFormRequest
-     */
     'version'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FormApiFormsV1CreateFullFormRequest
-     */
     'anonymous'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullFormRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {FormApiFormsV1FormStatus}
-     * @memberof FormApiFormsV1CreateFullFormRequest
-     */
     'status'?: FormApiFormsV1FormStatus;
-    /**
-     * 
-     * @type {Array<FormApiFormsV1CreateFullSectionRequest>}
-     * @memberof FormApiFormsV1CreateFullFormRequest
-     */
     'sections'?: Array<FormApiFormsV1CreateFullSectionRequest> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullFormRequest
-     */
     'image'?: string | null;
 }
 

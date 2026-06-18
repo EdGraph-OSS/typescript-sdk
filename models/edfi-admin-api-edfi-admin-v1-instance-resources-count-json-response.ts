@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1InstanceResourcesCountJsonResponse
- */
 export interface EdfiAdminApiEdfiAdminV1InstanceResourcesCountJsonResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceResourcesCountJsonResponse
-     */
     'instanceResourcesJson'?: string | null;
 }
 

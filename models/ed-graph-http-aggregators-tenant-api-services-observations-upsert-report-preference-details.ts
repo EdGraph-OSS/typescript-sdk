@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertReportPreferenceDetails
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertReportPreferenceDetails {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertReportPreferenceDetails
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertReportPreferenceDetails
-     */
     'value'?: string | null;
 }
 

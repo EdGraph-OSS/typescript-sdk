@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1ValidationResultRecord } from './ed-graph-services-state-reporting-v1-validation-result-record';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1PaginatedRuleRecords
- */
 export interface EdGraphServicesStateReportingV1PaginatedRuleRecords {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedRuleRecords
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedRuleRecords
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedRuleRecords
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1ValidationResultRecord>}
-     * @memberof EdGraphServicesStateReportingV1PaginatedRuleRecords
-     */
     'data'?: Array<EdGraphServicesStateReportingV1ValidationResultRecord> | null;
 }
 

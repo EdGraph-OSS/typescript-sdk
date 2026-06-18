@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1DescriptorMappingCreatedResponse
- */
 export interface EdfiAdminApiEdfiAdminV1DescriptorMappingCreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1DescriptorMappingCreatedResponse
-     */
     'descriptorMappingId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1DescriptorMappingCreatedResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1DescriptorMappingCreatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1DescriptorMappingCreatedResponse
-     */
     'year'?: number;
 }
 

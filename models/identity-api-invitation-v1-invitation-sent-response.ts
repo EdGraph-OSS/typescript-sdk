@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiInvitationV1InvitationSentResponse
- */
 export interface IdentityApiInvitationV1InvitationSentResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1InvitationSentResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1InvitationSentResponse
-     */
     'invitationId'?: string | null;
 }
 

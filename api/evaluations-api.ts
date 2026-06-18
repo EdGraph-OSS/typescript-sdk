@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -51,7 +51,6 @@ import type { EvaluationApiEvaluationsV1UpdateEvaluationRequest } from '../model
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * EvaluationsApi - axios parameter creator
- * @export
  */
 export const EvaluationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -67,7 +66,7 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createEvaluation', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/evaluations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -83,9 +82,8 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -111,8 +109,8 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'evaluationId' is not null or undefined
             assertParamExists('deleteEvaluation', 'evaluationId', evaluationId)
             const localVarPath = `/tenants/{tenantId}/evaluations/{evaluationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"evaluationId"}}`, encodeURIComponent(String(evaluationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{evaluationId}', encodeURIComponent(String(evaluationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -128,8 +126,8 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -153,8 +151,8 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'evaluationId' is not null or undefined
             assertParamExists('getEvaluation', 'evaluationId', evaluationId)
             const localVarPath = `/tenants/{tenantId}/evaluations/{evaluationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"evaluationId"}}`, encodeURIComponent(String(evaluationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{evaluationId}', encodeURIComponent(String(evaluationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -170,8 +168,8 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -191,7 +189,7 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getEvaluationCount', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/evaluations/count`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -207,8 +205,8 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -233,7 +231,7 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('searchEvaluationAppraisers', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/evaluations/appraisers`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -265,8 +263,8 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -291,7 +289,7 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('searchEvaluationCampuses', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/evaluations/campuses`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -323,8 +321,8 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -349,7 +347,7 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('searchEvaluationForms', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/evaluations/forms`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -381,8 +379,8 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -407,7 +405,7 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('searchEvaluationStaff', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/evaluations/staff`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -439,8 +437,8 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -465,7 +463,7 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('searchEvaluations', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/evaluations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -497,8 +495,8 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -523,8 +521,8 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'evaluationId' is not null or undefined
             assertParamExists('updateEvaluation', 'evaluationId', evaluationId)
             const localVarPath = `/tenants/{tenantId}/evaluations/{evaluationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"evaluationId"}}`, encodeURIComponent(String(evaluationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{evaluationId}', encodeURIComponent(String(evaluationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -540,9 +538,8 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -559,7 +556,6 @@ export const EvaluationsApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * EvaluationsApi - functional programming interface
- * @export
  */
 export const EvaluationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EvaluationsApiAxiosParamCreator(configuration)
@@ -723,7 +719,6 @@ export const EvaluationsApiFp = function(configuration?: Configuration) {
 
 /**
  * EvaluationsApi - factory interface
- * @export
  */
 export const EvaluationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EvaluationsApiFp(configuration)
@@ -832,324 +827,228 @@ export const EvaluationsApiFactory = function (configuration?: Configuration, ba
 
 /**
  * Request parameters for createEvaluation operation in EvaluationsApi.
- * @export
- * @interface EvaluationsApiCreateEvaluationRequest
  */
 export interface EvaluationsApiCreateEvaluationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiCreateEvaluation
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EvaluationApiEvaluationsV1CreateEvaluationRequest}
-     * @memberof EvaluationsApiCreateEvaluation
      */
     readonly evaluationApiEvaluationsV1CreateEvaluationRequest?: EvaluationApiEvaluationsV1CreateEvaluationRequest
 }
 
 /**
  * Request parameters for deleteEvaluation operation in EvaluationsApi.
- * @export
- * @interface EvaluationsApiDeleteEvaluationRequest
  */
 export interface EvaluationsApiDeleteEvaluationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiDeleteEvaluation
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiDeleteEvaluation
      */
     readonly evaluationId: string
 }
 
 /**
  * Request parameters for getEvaluation operation in EvaluationsApi.
- * @export
- * @interface EvaluationsApiGetEvaluationRequest
  */
 export interface EvaluationsApiGetEvaluationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiGetEvaluation
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiGetEvaluation
      */
     readonly evaluationId: string
 }
 
 /**
  * Request parameters for getEvaluationCount operation in EvaluationsApi.
- * @export
- * @interface EvaluationsApiGetEvaluationCountRequest
  */
 export interface EvaluationsApiGetEvaluationCountRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationsApiGetEvaluationCount
-     */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for searchEvaluationAppraisers operation in EvaluationsApi.
- * @export
- * @interface EvaluationsApiSearchEvaluationAppraisersRequest
  */
 export interface EvaluationsApiSearchEvaluationAppraisersRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluationAppraisers
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof EvaluationsApiSearchEvaluationAppraisers
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof EvaluationsApiSearchEvaluationAppraisers
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluationAppraisers
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluationAppraisers
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for searchEvaluationCampuses operation in EvaluationsApi.
- * @export
- * @interface EvaluationsApiSearchEvaluationCampusesRequest
  */
 export interface EvaluationsApiSearchEvaluationCampusesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluationCampuses
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof EvaluationsApiSearchEvaluationCampuses
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof EvaluationsApiSearchEvaluationCampuses
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluationCampuses
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluationCampuses
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for searchEvaluationForms operation in EvaluationsApi.
- * @export
- * @interface EvaluationsApiSearchEvaluationFormsRequest
  */
 export interface EvaluationsApiSearchEvaluationFormsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluationForms
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof EvaluationsApiSearchEvaluationForms
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof EvaluationsApiSearchEvaluationForms
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluationForms
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluationForms
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for searchEvaluationStaff operation in EvaluationsApi.
- * @export
- * @interface EvaluationsApiSearchEvaluationStaffRequest
  */
 export interface EvaluationsApiSearchEvaluationStaffRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluationStaff
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof EvaluationsApiSearchEvaluationStaff
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof EvaluationsApiSearchEvaluationStaff
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluationStaff
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluationStaff
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for searchEvaluations operation in EvaluationsApi.
- * @export
- * @interface EvaluationsApiSearchEvaluationsRequest
  */
 export interface EvaluationsApiSearchEvaluationsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluations
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof EvaluationsApiSearchEvaluations
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof EvaluationsApiSearchEvaluations
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluations
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiSearchEvaluations
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for updateEvaluation operation in EvaluationsApi.
- * @export
- * @interface EvaluationsApiUpdateEvaluationRequest
  */
 export interface EvaluationsApiUpdateEvaluationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiUpdateEvaluation
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationsApiUpdateEvaluation
      */
     readonly evaluationId: string
 
     /**
      * 
-     * @type {EvaluationApiEvaluationsV1UpdateEvaluationRequest}
-     * @memberof EvaluationsApiUpdateEvaluation
      */
     readonly evaluationApiEvaluationsV1UpdateEvaluationRequest?: EvaluationApiEvaluationsV1UpdateEvaluationRequest
 }
 
 /**
  * EvaluationsApi - object-oriented interface
- * @export
- * @class EvaluationsApi
- * @extends {BaseAPI}
  */
 export class EvaluationsApi extends BaseAPI {
     /**
@@ -1158,7 +1057,6 @@ export class EvaluationsApi extends BaseAPI {
      * @param {EvaluationsApiCreateEvaluationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvaluationsApi
      */
     public createEvaluation(requestParameters: EvaluationsApiCreateEvaluationRequest, options?: RawAxiosRequestConfig) {
         return EvaluationsApiFp(this.configuration).createEvaluation(requestParameters.tenantId, requestParameters.evaluationApiEvaluationsV1CreateEvaluationRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1170,7 +1068,6 @@ export class EvaluationsApi extends BaseAPI {
      * @param {EvaluationsApiDeleteEvaluationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvaluationsApi
      */
     public deleteEvaluation(requestParameters: EvaluationsApiDeleteEvaluationRequest, options?: RawAxiosRequestConfig) {
         return EvaluationsApiFp(this.configuration).deleteEvaluation(requestParameters.tenantId, requestParameters.evaluationId, options).then((request) => request(this.axios, this.basePath));
@@ -1182,7 +1079,6 @@ export class EvaluationsApi extends BaseAPI {
      * @param {EvaluationsApiGetEvaluationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvaluationsApi
      */
     public getEvaluation(requestParameters: EvaluationsApiGetEvaluationRequest, options?: RawAxiosRequestConfig) {
         return EvaluationsApiFp(this.configuration).getEvaluation(requestParameters.tenantId, requestParameters.evaluationId, options).then((request) => request(this.axios, this.basePath));
@@ -1193,7 +1089,6 @@ export class EvaluationsApi extends BaseAPI {
      * @param {EvaluationsApiGetEvaluationCountRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvaluationsApi
      */
     public getEvaluationCount(requestParameters: EvaluationsApiGetEvaluationCountRequest, options?: RawAxiosRequestConfig) {
         return EvaluationsApiFp(this.configuration).getEvaluationCount(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -1205,7 +1100,6 @@ export class EvaluationsApi extends BaseAPI {
      * @param {EvaluationsApiSearchEvaluationAppraisersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvaluationsApi
      */
     public searchEvaluationAppraisers(requestParameters: EvaluationsApiSearchEvaluationAppraisersRequest, options?: RawAxiosRequestConfig) {
         return EvaluationsApiFp(this.configuration).searchEvaluationAppraisers(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1217,7 +1111,6 @@ export class EvaluationsApi extends BaseAPI {
      * @param {EvaluationsApiSearchEvaluationCampusesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvaluationsApi
      */
     public searchEvaluationCampuses(requestParameters: EvaluationsApiSearchEvaluationCampusesRequest, options?: RawAxiosRequestConfig) {
         return EvaluationsApiFp(this.configuration).searchEvaluationCampuses(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1229,7 +1122,6 @@ export class EvaluationsApi extends BaseAPI {
      * @param {EvaluationsApiSearchEvaluationFormsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvaluationsApi
      */
     public searchEvaluationForms(requestParameters: EvaluationsApiSearchEvaluationFormsRequest, options?: RawAxiosRequestConfig) {
         return EvaluationsApiFp(this.configuration).searchEvaluationForms(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1241,7 +1133,6 @@ export class EvaluationsApi extends BaseAPI {
      * @param {EvaluationsApiSearchEvaluationStaffRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvaluationsApi
      */
     public searchEvaluationStaff(requestParameters: EvaluationsApiSearchEvaluationStaffRequest, options?: RawAxiosRequestConfig) {
         return EvaluationsApiFp(this.configuration).searchEvaluationStaff(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1253,7 +1144,6 @@ export class EvaluationsApi extends BaseAPI {
      * @param {EvaluationsApiSearchEvaluationsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvaluationsApi
      */
     public searchEvaluations(requestParameters: EvaluationsApiSearchEvaluationsRequest, options?: RawAxiosRequestConfig) {
         return EvaluationsApiFp(this.configuration).searchEvaluations(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1265,7 +1155,6 @@ export class EvaluationsApi extends BaseAPI {
      * @param {EvaluationsApiUpdateEvaluationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvaluationsApi
      */
     public updateEvaluation(requestParameters: EvaluationsApiUpdateEvaluationRequest, options?: RawAxiosRequestConfig) {
         return EvaluationsApiFp(this.configuration).updateEvaluation(requestParameters.tenantId, requestParameters.evaluationId, requestParameters.evaluationApiEvaluationsV1UpdateEvaluationRequest, options).then((request) => request(this.axios, this.basePath));

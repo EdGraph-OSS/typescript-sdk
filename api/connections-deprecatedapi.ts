@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -45,7 +45,6 @@ import type { EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConne
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * ConnectionsDEPRECATEDApi - axios parameter creator
- * @export
  */
 export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -61,7 +60,7 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createStateReportingConnectionV1', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/statereporting/connections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -77,9 +76,8 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -105,8 +103,8 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('deleteStateReportingConnectionV1', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/connections/{connectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -122,8 +120,8 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -146,7 +144,7 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('findStateReportingConnectionsV1', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/statereporting/connections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -170,8 +168,8 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
                 localVarQueryParameter['connectionType'] = connectionType;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -195,8 +193,8 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('getStateReportingConnectionV1', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/connections/{connectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -212,8 +210,8 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -237,8 +235,8 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('testStateReportingConnectionByIdV1', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/connections/{connectionId}/testconnection`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -254,8 +252,8 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -277,7 +275,7 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('testStateReportingConnectionByTypeV1', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/statereporting/connections/testconnection`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -293,9 +291,8 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -322,8 +319,8 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('updateStateReportingConnectionV1', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/connections/{connectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -339,9 +336,8 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -358,7 +354,6 @@ export const ConnectionsDEPRECATEDApiAxiosParamCreator = function (configuration
 
 /**
  * ConnectionsDEPRECATEDApi - functional programming interface
- * @export
  */
 export const ConnectionsDEPRECATEDApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ConnectionsDEPRECATEDApiAxiosParamCreator(configuration)
@@ -468,7 +463,6 @@ export const ConnectionsDEPRECATEDApiFp = function(configuration?: Configuration
 
 /**
  * ConnectionsDEPRECATEDApi - factory interface
- * @export
  */
 export const ConnectionsDEPRECATEDApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ConnectionsDEPRECATEDApiFp(configuration)
@@ -548,170 +542,121 @@ export const ConnectionsDEPRECATEDApiFactory = function (configuration?: Configu
 
 /**
  * Request parameters for createStateReportingConnectionV1 operation in ConnectionsDEPRECATEDApi.
- * @export
- * @interface ConnectionsDEPRECATEDApiCreateStateReportingConnectionV1Request
  */
 export interface ConnectionsDEPRECATEDApiCreateStateReportingConnectionV1Request {
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsDEPRECATEDApiCreateStateReportingConnectionV1
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesStateReportingV1CreateConnectionRequest}
-     * @memberof ConnectionsDEPRECATEDApiCreateStateReportingConnectionV1
      */
     readonly edGraphHttpAggregatorsTenantApiServicesStateReportingV1CreateConnectionRequest?: EdGraphHttpAggregatorsTenantApiServicesStateReportingV1CreateConnectionRequest
 }
 
 /**
  * Request parameters for deleteStateReportingConnectionV1 operation in ConnectionsDEPRECATEDApi.
- * @export
- * @interface ConnectionsDEPRECATEDApiDeleteStateReportingConnectionV1Request
  */
 export interface ConnectionsDEPRECATEDApiDeleteStateReportingConnectionV1Request {
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsDEPRECATEDApiDeleteStateReportingConnectionV1
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsDEPRECATEDApiDeleteStateReportingConnectionV1
      */
     readonly connectionId: string
 }
 
 /**
  * Request parameters for findStateReportingConnectionsV1 operation in ConnectionsDEPRECATEDApi.
- * @export
- * @interface ConnectionsDEPRECATEDApiFindStateReportingConnectionsV1Request
  */
 export interface ConnectionsDEPRECATEDApiFindStateReportingConnectionsV1Request {
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsDEPRECATEDApiFindStateReportingConnectionsV1
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsDEPRECATEDApiFindStateReportingConnectionsV1
      */
     readonly instanceType?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsDEPRECATEDApiFindStateReportingConnectionsV1
      */
     readonly connectionType?: string
 }
 
 /**
  * Request parameters for getStateReportingConnectionV1 operation in ConnectionsDEPRECATEDApi.
- * @export
- * @interface ConnectionsDEPRECATEDApiGetStateReportingConnectionV1Request
  */
 export interface ConnectionsDEPRECATEDApiGetStateReportingConnectionV1Request {
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsDEPRECATEDApiGetStateReportingConnectionV1
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsDEPRECATEDApiGetStateReportingConnectionV1
      */
     readonly connectionId: string
 }
 
 /**
  * Request parameters for testStateReportingConnectionByIdV1 operation in ConnectionsDEPRECATEDApi.
- * @export
- * @interface ConnectionsDEPRECATEDApiTestStateReportingConnectionByIdV1Request
  */
 export interface ConnectionsDEPRECATEDApiTestStateReportingConnectionByIdV1Request {
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsDEPRECATEDApiTestStateReportingConnectionByIdV1
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsDEPRECATEDApiTestStateReportingConnectionByIdV1
      */
     readonly connectionId: string
 }
 
 /**
  * Request parameters for testStateReportingConnectionByTypeV1 operation in ConnectionsDEPRECATEDApi.
- * @export
- * @interface ConnectionsDEPRECATEDApiTestStateReportingConnectionByTypeV1Request
  */
 export interface ConnectionsDEPRECATEDApiTestStateReportingConnectionByTypeV1Request {
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsDEPRECATEDApiTestStateReportingConnectionByTypeV1
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionByTypeRequest}
-     * @memberof ConnectionsDEPRECATEDApiTestStateReportingConnectionByTypeV1
      */
     readonly edGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionByTypeRequest?: EdGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionByTypeRequest
 }
 
 /**
  * Request parameters for updateStateReportingConnectionV1 operation in ConnectionsDEPRECATEDApi.
- * @export
- * @interface ConnectionsDEPRECATEDApiUpdateStateReportingConnectionV1Request
  */
 export interface ConnectionsDEPRECATEDApiUpdateStateReportingConnectionV1Request {
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsDEPRECATEDApiUpdateStateReportingConnectionV1
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsDEPRECATEDApiUpdateStateReportingConnectionV1
      */
     readonly connectionId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest}
-     * @memberof ConnectionsDEPRECATEDApiUpdateStateReportingConnectionV1
      */
     readonly edGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest?: EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
 }
 
 /**
  * ConnectionsDEPRECATEDApi - object-oriented interface
- * @export
- * @class ConnectionsDEPRECATEDApi
- * @extends {BaseAPI}
  */
 export class ConnectionsDEPRECATEDApi extends BaseAPI {
     /**
@@ -720,7 +665,6 @@ export class ConnectionsDEPRECATEDApi extends BaseAPI {
      * @param {ConnectionsDEPRECATEDApiCreateStateReportingConnectionV1Request} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectionsDEPRECATEDApi
      */
     public createStateReportingConnectionV1(requestParameters: ConnectionsDEPRECATEDApiCreateStateReportingConnectionV1Request, options?: RawAxiosRequestConfig) {
         return ConnectionsDEPRECATEDApiFp(this.configuration).createStateReportingConnectionV1(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesStateReportingV1CreateConnectionRequest, options).then((request) => request(this.axios, this.basePath));
@@ -732,7 +676,6 @@ export class ConnectionsDEPRECATEDApi extends BaseAPI {
      * @param {ConnectionsDEPRECATEDApiDeleteStateReportingConnectionV1Request} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectionsDEPRECATEDApi
      */
     public deleteStateReportingConnectionV1(requestParameters: ConnectionsDEPRECATEDApiDeleteStateReportingConnectionV1Request, options?: RawAxiosRequestConfig) {
         return ConnectionsDEPRECATEDApiFp(this.configuration).deleteStateReportingConnectionV1(requestParameters.tenantId, requestParameters.connectionId, options).then((request) => request(this.axios, this.basePath));
@@ -744,7 +687,6 @@ export class ConnectionsDEPRECATEDApi extends BaseAPI {
      * @param {ConnectionsDEPRECATEDApiFindStateReportingConnectionsV1Request} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectionsDEPRECATEDApi
      */
     public findStateReportingConnectionsV1(requestParameters: ConnectionsDEPRECATEDApiFindStateReportingConnectionsV1Request, options?: RawAxiosRequestConfig) {
         return ConnectionsDEPRECATEDApiFp(this.configuration).findStateReportingConnectionsV1(requestParameters.tenantId, requestParameters.instanceType, requestParameters.connectionType, options).then((request) => request(this.axios, this.basePath));
@@ -756,7 +698,6 @@ export class ConnectionsDEPRECATEDApi extends BaseAPI {
      * @param {ConnectionsDEPRECATEDApiGetStateReportingConnectionV1Request} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectionsDEPRECATEDApi
      */
     public getStateReportingConnectionV1(requestParameters: ConnectionsDEPRECATEDApiGetStateReportingConnectionV1Request, options?: RawAxiosRequestConfig) {
         return ConnectionsDEPRECATEDApiFp(this.configuration).getStateReportingConnectionV1(requestParameters.tenantId, requestParameters.connectionId, options).then((request) => request(this.axios, this.basePath));
@@ -768,7 +709,6 @@ export class ConnectionsDEPRECATEDApi extends BaseAPI {
      * @param {ConnectionsDEPRECATEDApiTestStateReportingConnectionByIdV1Request} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectionsDEPRECATEDApi
      */
     public testStateReportingConnectionByIdV1(requestParameters: ConnectionsDEPRECATEDApiTestStateReportingConnectionByIdV1Request, options?: RawAxiosRequestConfig) {
         return ConnectionsDEPRECATEDApiFp(this.configuration).testStateReportingConnectionByIdV1(requestParameters.tenantId, requestParameters.connectionId, options).then((request) => request(this.axios, this.basePath));
@@ -780,7 +720,6 @@ export class ConnectionsDEPRECATEDApi extends BaseAPI {
      * @param {ConnectionsDEPRECATEDApiTestStateReportingConnectionByTypeV1Request} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectionsDEPRECATEDApi
      */
     public testStateReportingConnectionByTypeV1(requestParameters: ConnectionsDEPRECATEDApiTestStateReportingConnectionByTypeV1Request, options?: RawAxiosRequestConfig) {
         return ConnectionsDEPRECATEDApiFp(this.configuration).testStateReportingConnectionByTypeV1(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionByTypeRequest, options).then((request) => request(this.axios, this.basePath));
@@ -792,7 +731,6 @@ export class ConnectionsDEPRECATEDApi extends BaseAPI {
      * @param {ConnectionsDEPRECATEDApiUpdateStateReportingConnectionV1Request} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectionsDEPRECATEDApi
      */
     public updateStateReportingConnectionV1(requestParameters: ConnectionsDEPRECATEDApiUpdateStateReportingConnectionV1Request, options?: RawAxiosRequestConfig) {
         return ConnectionsDEPRECATEDApiFp(this.configuration).updateStateReportingConnectionV1(requestParameters.tenantId, requestParameters.connectionId, requestParameters.edGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest, options).then((request) => request(this.axios, this.basePath));

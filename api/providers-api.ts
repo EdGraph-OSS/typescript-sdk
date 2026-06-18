@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 /**
  * ProvidersApi - axios parameter creator
- * @export
  */
 export const ProvidersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -50,7 +49,7 @@ export const ProvidersApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllTenantDataSyncProviders', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/datasync/providers`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -82,8 +81,8 @@ export const ProvidersApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -107,8 +106,8 @@ export const ProvidersApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'providerId' is not null or undefined
             assertParamExists('getTenantDataSyncProviderProfileById', 'providerId', providerId)
             const localVarPath = `/tenants/{tenantId}/datasync/providers/{providerId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"providerId"}}`, encodeURIComponent(String(providerId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{providerId}', encodeURIComponent(String(providerId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -124,8 +123,8 @@ export const ProvidersApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -140,7 +139,6 @@ export const ProvidersApiAxiosParamCreator = function (configuration?: Configura
 
 /**
  * ProvidersApi - functional programming interface
- * @export
  */
 export const ProvidersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ProvidersApiAxiosParamCreator(configuration)
@@ -181,7 +179,6 @@ export const ProvidersApiFp = function(configuration?: Configuration) {
 
 /**
  * ProvidersApi - factory interface
- * @export
  */
 export const ProvidersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ProvidersApiFp(configuration)
@@ -211,72 +208,51 @@ export const ProvidersApiFactory = function (configuration?: Configuration, base
 
 /**
  * Request parameters for getAllTenantDataSyncProviders operation in ProvidersApi.
- * @export
- * @interface ProvidersApiGetAllTenantDataSyncProvidersRequest
  */
 export interface ProvidersApiGetAllTenantDataSyncProvidersRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ProvidersApiGetAllTenantDataSyncProviders
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ProvidersApiGetAllTenantDataSyncProviders
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ProvidersApiGetAllTenantDataSyncProviders
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ProvidersApiGetAllTenantDataSyncProviders
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ProvidersApiGetAllTenantDataSyncProviders
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getTenantDataSyncProviderProfileById operation in ProvidersApi.
- * @export
- * @interface ProvidersApiGetTenantDataSyncProviderProfileByIdRequest
  */
 export interface ProvidersApiGetTenantDataSyncProviderProfileByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ProvidersApiGetTenantDataSyncProviderProfileById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ProvidersApiGetTenantDataSyncProviderProfileById
      */
     readonly providerId: string
 }
 
 /**
  * ProvidersApi - object-oriented interface
- * @export
- * @class ProvidersApi
- * @extends {BaseAPI}
  */
 export class ProvidersApi extends BaseAPI {
     /**
@@ -285,7 +261,6 @@ export class ProvidersApi extends BaseAPI {
      * @param {ProvidersApiGetAllTenantDataSyncProvidersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProvidersApi
      */
     public getAllTenantDataSyncProviders(requestParameters: ProvidersApiGetAllTenantDataSyncProvidersRequest, options?: RawAxiosRequestConfig) {
         return ProvidersApiFp(this.configuration).getAllTenantDataSyncProviders(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -297,7 +272,6 @@ export class ProvidersApi extends BaseAPI {
      * @param {ProvidersApiGetTenantDataSyncProviderProfileByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProvidersApi
      */
     public getTenantDataSyncProviderProfileById(requestParameters: ProvidersApiGetTenantDataSyncProviderProfileByIdRequest, options?: RawAxiosRequestConfig) {
         return ProvidersApiFp(this.configuration).getTenantDataSyncProviderProfileById(requestParameters.tenantId, requestParameters.providerId, options).then((request) => request(this.axios, this.basePath));

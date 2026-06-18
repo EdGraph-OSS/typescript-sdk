@@ -17,41 +17,11 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1ReportingPeriodStepStatus } from './ed-graph-services-state-reporting-v1-reporting-period-step-status';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1SetReportingPeriodStepStatusRequest
- */
 export interface EdGraphServicesStateReportingV1SetReportingPeriodStepStatusRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodStepStatusRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodStepStatusRequest
-     */
     'environmentId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodStepStatusRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodStepStatusRequest
-     */
     'number'?: number | null;
-    /**
-     * 
-     * @type {EdGraphServicesStateReportingV1ReportingPeriodStepStatus}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodStepStatusRequest
-     */
     'status'?: EdGraphServicesStateReportingV1ReportingPeriodStepStatus;
 }
 

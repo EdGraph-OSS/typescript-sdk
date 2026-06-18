@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsOneRosterClaimDto
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsOneRosterClaimDto {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsOneRosterClaimDto
-     */
     'type'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsOneRosterClaimDto
-     */
     'value'?: string | null;
 }
 

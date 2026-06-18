@@ -20,29 +20,9 @@ import type { EvaluationApiEvaluationsV1OrganizationDiscriminator } from './eval
 // @ts-ignore
 import type { EvaluationApiEvaluationsV1OrganizationIdentifierType } from './evaluation-api-evaluations-v1-organization-identifier-type';
 
-/**
- * 
- * @export
- * @interface EvaluationApiEvaluationsV1CampusResponse
- */
 export interface EvaluationApiEvaluationsV1CampusResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1CampusResponse
-     */
     'campus'?: string | null;
-    /**
-     * 
-     * @type {EvaluationApiEvaluationsV1OrganizationIdentifierType}
-     * @memberof EvaluationApiEvaluationsV1CampusResponse
-     */
     'identifierType'?: EvaluationApiEvaluationsV1OrganizationIdentifierType;
-    /**
-     * 
-     * @type {EvaluationApiEvaluationsV1OrganizationDiscriminator}
-     * @memberof EvaluationApiEvaluationsV1CampusResponse
-     */
     'discriminator'?: EvaluationApiEvaluationsV1OrganizationDiscriminator;
 }
 

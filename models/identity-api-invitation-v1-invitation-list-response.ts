@@ -20,83 +20,18 @@ import type { IdentityApiInvitationV1AssignLicenseRequest } from './identity-api
 // @ts-ignore
 import type { IdentityApiInvitationV1InvitationStatus } from './identity-api-invitation-v1-invitation-status';
 
-/**
- * 
- * @export
- * @interface IdentityApiInvitationV1InvitationListResponse
- */
 export interface IdentityApiInvitationV1InvitationListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1InvitationListResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1InvitationListResponse
-     */
     'invitationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1InvitationListResponse
-     */
     'firstName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1InvitationListResponse
-     */
     'lastName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1InvitationListResponse
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1InvitationListResponse
-     */
     'role'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1InvitationListResponse
-     */
     'invitationToken'?: string | null;
-    /**
-     * 
-     * @type {IdentityApiInvitationV1InvitationStatus}
-     * @memberof IdentityApiInvitationV1InvitationListResponse
-     */
     'invitationStatus'?: IdentityApiInvitationV1InvitationStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1InvitationListResponse
-     */
     'invitationSentDateTime'?: string | null;
-    /**
-     * 
-     * @type {Array<IdentityApiInvitationV1AssignLicenseRequest>}
-     * @memberof IdentityApiInvitationV1InvitationListResponse
-     */
     'assignLicenseRequests'?: Array<IdentityApiInvitationV1AssignLicenseRequest> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1InvitationListResponse
-     */
     'invitationUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1InvitationListResponse
-     */
     'organizationName'?: string | null;
 }
 

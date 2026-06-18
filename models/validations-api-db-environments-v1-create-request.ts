@@ -26,95 +26,29 @@ import type { ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection 
 // @ts-ignore
 import type { ValidationsApiDbEnvironmentsV1SqlServerConnection } from './validations-api-db-environments-v1-sql-server-connection';
 
-/**
- * 
- * @export
- * @interface ValidationsApiDbEnvironmentsV1CreateRequest
- */
 export interface ValidationsApiDbEnvironmentsV1CreateRequest {
     /**
      * Details
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
      */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
-     */
     'name'?: string | null;
     /**
      * Connection
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
      */
     'connectionType'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiDbEnvironmentsV1SqlServerConnection}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
-     */
     'sqlServerConnection'?: ValidationsApiDbEnvironmentsV1SqlServerConnection;
-    /**
-     * 
-     * @type {ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
-     */
     'azureSynapseSqlServerlessConnection'?: ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection;
     /**
      * Metadata
-     * @type {number}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
      */
     'maxNumberResults'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
-     */
     'timeoutInMinutes'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
-     */
     'version'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
-     */
     'mapTables'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiCoreV1InstanceType}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
-     */
     'instanceType'?: ValidationsApiCoreV1InstanceType;
-    /**
-     * 
-     * @type {ValidationsApiCoreV1Provider}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
-     */
     'provider'?: ValidationsApiCoreV1Provider;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
-     */
     'isDefault'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1CreateRequest
-     */
     'metadataJson'?: string | null;
 }
 

@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1CloneInstanceRequest
- */
 export interface EdfiAdminApiEdfiAdminV1CloneInstanceRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CloneInstanceRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CloneInstanceRequest
-     */
     'sourceInstanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CloneInstanceRequest
-     */
     'cloneInstanceName'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1CloneInstanceRequest
-     */
     'cloneInstanceUseCustomId'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CloneInstanceRequest
-     */
     'cloneInstanceCustomId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CloneInstanceRequest
-     */
     'cloneInstanceDescription'?: string | null;
 }
 

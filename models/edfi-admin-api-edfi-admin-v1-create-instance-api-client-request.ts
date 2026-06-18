@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1CreateInstanceApiClientRequest
- */
 export interface EdfiAdminApiEdfiAdminV1CreateInstanceApiClientRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateInstanceApiClientRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateInstanceApiClientRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateInstanceApiClientRequest
-     */
     'instanceApplicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateInstanceApiClientRequest
-     */
     'key'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateInstanceApiClientRequest
-     */
     'secret'?: string | null;
 }
 

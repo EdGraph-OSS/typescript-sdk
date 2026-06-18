@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IdentityApiUserV1UserTenantProfile } from './identity-api-user-v1-user-tenant-profile';
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1UserTenantProfilePaginatedItemsViewModel
- */
 export interface IdentityApiUserV1UserTenantProfilePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1UserTenantProfilePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1UserTenantProfilePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1UserTenantProfilePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV1UserTenantProfile>}
-     * @memberof IdentityApiUserV1UserTenantProfilePaginatedItemsViewModel
-     */
     'data'?: Array<IdentityApiUserV1UserTenantProfile> | null;
 }
 

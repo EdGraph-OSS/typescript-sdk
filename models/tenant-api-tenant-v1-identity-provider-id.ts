@@ -14,11 +14,6 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const TenantApiTenantV1IdentityProviderId = {
     Local: 'Local',
@@ -27,7 +22,7 @@ export const TenantApiTenantV1IdentityProviderId = {
     Adfs: 'Adfs',
     Txedexchange: 'Txedexchange',
     Mspersonalv2: 'Mspersonalv2',
-    Classlink: 'Classlink'
+    Classlink: 'Classlink',
 } as const;
 
 export type TenantApiTenantV1IdentityProviderId = typeof TenantApiTenantV1IdentityProviderId[keyof typeof TenantApiTenantV1IdentityProviderId];

@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1SubmissionMetricsDetails
- */
 export interface ValidationsApiReportingPeriodsV1SubmissionMetricsDetails {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionMetricsDetails
-     */
     'edFiResource'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionMetricsDetails
-     */
     'succeededCount'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionMetricsDetails
-     */
     'failedCount'?: number;
 }
 

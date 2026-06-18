@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1ContainerDto } from './validations-api-containers-v1-container-dto';
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1CertificationStatusCategory
- */
 export interface ValidationsApiReportingPeriodsV1CertificationStatusCategory {
-    /**
-     * 
-     * @type {ValidationsApiContainersV1ContainerDto}
-     * @memberof ValidationsApiReportingPeriodsV1CertificationStatusCategory
-     */
     'category'?: ValidationsApiContainersV1ContainerDto;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1CertificationStatusCategory
-     */
     'recordCount'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1CertificationStatusCategory
-     */
     'fatalCount'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1CertificationStatusCategory
-     */
     'warningCount'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1CertificationStatusCategory
-     */
     'excludedCount'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1CertificationStatusCategory
-     */
     'status'?: string | null;
 }
 

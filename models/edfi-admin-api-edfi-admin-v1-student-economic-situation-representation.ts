@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1StudentEconomicSituationRepresentation
- */
 export interface EdfiAdminApiEdfiAdminV1StudentEconomicSituationRepresentation {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEconomicSituationRepresentation
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEconomicSituationRepresentation
-     */
     'percentOfTotal'?: number;
 }
 

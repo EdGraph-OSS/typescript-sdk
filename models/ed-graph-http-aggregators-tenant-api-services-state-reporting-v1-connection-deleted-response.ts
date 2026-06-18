@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionDeletedResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionDeletedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionDeletedResponse
-     */
     'connectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionDeletedResponse
-     */
     'tenantId'?: string | null;
 }
 

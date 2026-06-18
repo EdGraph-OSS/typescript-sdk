@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1ReportingPeriodListResponse } from './ed-graph-services-state-reporting-v1-reporting-period-list-response';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1PaginatedReportingPeriods
- */
 export interface EdGraphServicesStateReportingV1PaginatedReportingPeriods {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedReportingPeriods
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedReportingPeriods
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedReportingPeriods
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1ReportingPeriodListResponse>}
-     * @memberof EdGraphServicesStateReportingV1PaginatedReportingPeriods
-     */
     'data'?: Array<EdGraphServicesStateReportingV1ReportingPeriodListResponse> | null;
 }
 

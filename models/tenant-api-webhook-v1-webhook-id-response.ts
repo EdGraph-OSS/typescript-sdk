@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiWebhookV1WebhookIdResponse
- */
 export interface TenantApiWebhookV1WebhookIdResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookIdResponse
-     */
     'id'?: string | null;
 }
 

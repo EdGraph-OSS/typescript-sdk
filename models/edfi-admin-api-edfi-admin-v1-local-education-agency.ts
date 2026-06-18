@@ -20,101 +20,21 @@ import type { EdfiAdminApiEdfiAdminV1EducationOrganizationAddress } from './edfi
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor } from './edfi-admin-api-edfi-admin-v1-education-organization-category-descriptor';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1LocalEducationAgency
- */
 export interface EdfiAdminApiEdfiAdminV1LocalEducationAgency {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'educationOrganizationId'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'localEducationAgencyId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'nameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'shortnameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'webSite'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'operationalStatusDescriptorId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'discriminator'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'createDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'lastModifiedDate'?: string | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1EducationOrganizationAddress>}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'addresses'?: Array<EdfiAdminApiEdfiAdminV1EducationOrganizationAddress> | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor>}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'categories'?: Array<EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'localEducationAgencyCategoryDescriptorCodeValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgency
-     */
     'id'?: string | null;
 }
 

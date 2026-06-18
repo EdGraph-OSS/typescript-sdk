@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1SetDataOwnerRequest
- */
 export interface ValidationsApiContainersV1SetDataOwnerRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerRequest
-     */
     'collectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerRequest
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerRequest
-     */
     'firstName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerRequest
-     */
     'lastName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerRequest
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerRequest
-     */
     'environmentId'?: string | null;
 }
 

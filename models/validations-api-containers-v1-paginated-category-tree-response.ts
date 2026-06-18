@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1PaginatedCategoryTreeResponse Types CategoryTree } from './validations-api-containers-v1-paginated-category-tree-response types category-tree';
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1PaginatedCategoryTreeResponse
- */
 export interface ValidationsApiContainersV1PaginatedCategoryTreeResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiContainersV1PaginatedCategoryTreeResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiContainersV1PaginatedCategoryTreeResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiContainersV1PaginatedCategoryTreeResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<ValidationsApiContainersV1PaginatedCategoryTreeResponse Types CategoryTree>}
-     * @memberof ValidationsApiContainersV1PaginatedCategoryTreeResponse
-     */
     'data'?: Array<ValidationsApiContainersV1PaginatedCategoryTreeResponse Types CategoryTree> | null;
 }
 

@@ -17,53 +17,13 @@
 // @ts-ignore
 import type { TenantApiTenantV1OnboardingStep } from './tenant-api-tenant-v1-onboarding-step';
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1Onboarding
- */
 export interface TenantApiTenantV1Onboarding {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1Onboarding
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1Onboarding
-     */
     'progressPercentage'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1Onboarding
-     */
     'totalSteps'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1Onboarding
-     */
     'lastCompletedStep'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1Onboarding
-     */
     'startedAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1Onboarding
-     */
     'completedAt'?: string | null;
-    /**
-     * 
-     * @type {Array<TenantApiTenantV1OnboardingStep>}
-     * @memberof TenantApiTenantV1Onboarding
-     */
     'steps'?: Array<TenantApiTenantV1OnboardingStep> | null;
 }
 

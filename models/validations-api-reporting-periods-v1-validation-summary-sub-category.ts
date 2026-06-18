@@ -20,23 +20,8 @@ import type { ValidationsApiContainersV1ContainerDto } from './validations-api-c
 // @ts-ignore
 import type { ValidationsApiRulesV1RuleDto } from './validations-api-rules-v1-rule-dto';
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1ValidationSummarySubCategory
- */
 export interface ValidationsApiReportingPeriodsV1ValidationSummarySubCategory {
-    /**
-     * 
-     * @type {ValidationsApiContainersV1ContainerDto}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationSummarySubCategory
-     */
     'subCategory'?: ValidationsApiContainersV1ContainerDto;
-    /**
-     * 
-     * @type {Array<ValidationsApiRulesV1RuleDto>}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationSummarySubCategory
-     */
     'rules'?: Array<ValidationsApiRulesV1RuleDto> | null;
 }
 

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLo
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * InstancesLogsApi - axios parameter creator
- * @export
  */
 export const InstancesLogsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -56,9 +55,9 @@ export const InstancesLogsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'year' is not null or undefined
             assertParamExists('getInstanceHttpLogs', 'year', year)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/logs/http`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -98,8 +97,8 @@ export const InstancesLogsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['order'] = order;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -114,7 +113,6 @@ export const InstancesLogsApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * InstancesLogsApi - functional programming interface
- * @export
  */
 export const InstancesLogsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InstancesLogsApiAxiosParamCreator(configuration)
@@ -145,7 +143,6 @@ export const InstancesLogsApiFp = function(configuration?: Configuration) {
 
 /**
  * InstancesLogsApi - factory interface
- * @export
  */
 export const InstancesLogsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InstancesLogsApiFp(configuration)
@@ -165,79 +162,56 @@ export const InstancesLogsApiFactory = function (configuration?: Configuration, 
 
 /**
  * Request parameters for getInstanceHttpLogs operation in InstancesLogsApi.
- * @export
- * @interface InstancesLogsApiGetInstanceHttpLogsRequest
  */
 export interface InstancesLogsApiGetInstanceHttpLogsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesLogsApiGetInstanceHttpLogs
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesLogsApiGetInstanceHttpLogs
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesLogsApiGetInstanceHttpLogs
      */
     readonly year: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesLogsApiGetInstanceHttpLogs
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesLogsApiGetInstanceHttpLogs
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesLogsApiGetInstanceHttpLogs
      */
     readonly from?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesLogsApiGetInstanceHttpLogs
      */
     readonly to?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesLogsApiGetInstanceHttpLogs
      */
     readonly field?: string
 
     /**
      * 
-     * @type {boolean}
-     * @memberof InstancesLogsApiGetInstanceHttpLogs
      */
     readonly order?: boolean
 }
 
 /**
  * InstancesLogsApi - object-oriented interface
- * @export
- * @class InstancesLogsApi
- * @extends {BaseAPI}
  */
 export class InstancesLogsApi extends BaseAPI {
     /**
@@ -246,7 +220,6 @@ export class InstancesLogsApi extends BaseAPI {
      * @param {InstancesLogsApiGetInstanceHttpLogsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesLogsApi
      */
     public getInstanceHttpLogs(requestParameters: InstancesLogsApiGetInstanceHttpLogsRequest, options?: RawAxiosRequestConfig) {
         return InstancesLogsApiFp(this.configuration).getInstanceHttpLogs(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.from, requestParameters.to, requestParameters.field, requestParameters.order, options).then((request) => request(this.axios, this.basePath));

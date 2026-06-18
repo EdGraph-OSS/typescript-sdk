@@ -14,71 +14,16 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiApiClientV1ApiClientListResponse
- */
 export interface IdentityApiApiClientV1ApiClientListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientListResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientListResponse
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientListResponse
-     */
     'clientName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientListResponse
-     */
     'clientUri'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiApiClientV1ApiClientListResponse
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientListResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientListResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientListResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientListResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientListResponse
-     */
     'expirationDate'?: string | null;
 }
 

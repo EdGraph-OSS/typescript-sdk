@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1ClaimSet
- */
 export interface EdfiAdminApiEdfiAdminV1ClaimSet {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSet
-     */
     'claimSetId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSet
-     */
     'claimSetName'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSet
-     */
     'isSystemReserved'?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSet
-     */
     'applicationsCount'?: number;
 }
 

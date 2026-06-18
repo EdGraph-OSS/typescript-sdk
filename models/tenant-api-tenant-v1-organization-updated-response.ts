@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1OrganizationUpdatedResponse
- */
 export interface TenantApiTenantV1OrganizationUpdatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1OrganizationUpdatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1OrganizationUpdatedResponse
-     */
     'identifierValue'?: string | null;
 }
 

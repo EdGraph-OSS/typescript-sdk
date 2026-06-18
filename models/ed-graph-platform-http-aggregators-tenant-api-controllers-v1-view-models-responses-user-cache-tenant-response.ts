@@ -20,71 +20,16 @@ import type { EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResp
 // @ts-ignore
 import type { EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicense } from './ed-graph-platform-http-aggregators-tenant-api-controllers-v1-view-models-responses-user-tenant-license';
 
-/**
- * 
- * @export
- * @interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse
- */
 export interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse
-     */
     'tenantId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse
-     */
     'tenantType'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse
-     */
     'tenantTypes'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse
-     */
     'organizationIdentifier'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse
-     */
     'organizationName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse
-     */
     'state'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse
-     */
     'tenantStatus'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse
-     */
     'isDemo'?: boolean;
-    /**
-     * 
-     * @type {Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantEducationOrganizationResponse>}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse
-     */
     'educationOrganizations'?: Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantEducationOrganizationResponse> | null;
-    /**
-     * 
-     * @type {Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicense>}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse
-     */
     'licenses'?: Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicense> | null;
 }
 

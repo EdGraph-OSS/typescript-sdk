@@ -17,41 +17,11 @@
 // @ts-ignore
 import type { IdentityApiUserV1RevokeStrategy } from './identity-api-user-v1-revoke-strategy';
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1RevokeLicenseRequest
- */
 export interface IdentityApiUserV1RevokeLicenseRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1RevokeLicenseRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1RevokeLicenseRequest
-     */
     'subscriptionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1RevokeLicenseRequest
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1RevokeLicenseRequest
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {IdentityApiUserV1RevokeStrategy}
-     * @memberof IdentityApiUserV1RevokeLicenseRequest
-     */
     'strategy'?: IdentityApiUserV1RevokeStrategy;
 }
 

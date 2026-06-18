@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdFiAdminApiApplicationAccessV1ApplicationUserAccessResponse
- */
 export interface EdFiAdminApiApplicationAccessV1ApplicationUserAccessResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdFiAdminApiApplicationAccessV1ApplicationUserAccessResponse
-     */
     'userId'?: string | null;
 }
 

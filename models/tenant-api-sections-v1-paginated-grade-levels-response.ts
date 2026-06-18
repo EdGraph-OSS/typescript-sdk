@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { TenantApiSectionsV1GradeLevelListResponse } from './tenant-api-sections-v1-grade-level-list-response';
 
-/**
- * 
- * @export
- * @interface TenantApiSectionsV1PaginatedGradeLevelsResponse
- */
 export interface TenantApiSectionsV1PaginatedGradeLevelsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedGradeLevelsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedGradeLevelsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedGradeLevelsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<TenantApiSectionsV1GradeLevelListResponse>}
-     * @memberof TenantApiSectionsV1PaginatedGradeLevelsResponse
-     */
     'data'?: Array<TenantApiSectionsV1GradeLevelListResponse> | null;
 }
 

@@ -14,17 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const EvaluationApiEvaluationSettingsV1ScheduleType = {
     Unknown: 'Unknown',
     Never: 'Never',
     Daily: 'Daily',
-    Weekly: 'Weekly'
+    Weekly: 'Weekly',
 } as const;
 
 export type EvaluationApiEvaluationSettingsV1ScheduleType = typeof EvaluationApiEvaluationSettingsV1ScheduleType[keyof typeof EvaluationApiEvaluationSettingsV1ScheduleType];

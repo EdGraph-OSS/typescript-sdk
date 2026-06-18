@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiTagsV1CreateRequest
- */
 export interface ValidationsApiTagsV1CreateRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiTagsV1CreateRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiTagsV1CreateRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiTagsV1CreateRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiTagsV1CreateRequest
-     */
     'isPublic'?: boolean;
 }
 

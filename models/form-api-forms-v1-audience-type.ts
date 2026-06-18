@@ -14,18 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const FormApiFormsV1AudienceType = {
     Unknown: 'Unknown',
     Anyone: 'Anyone',
     AnyoneInTenant: 'AnyoneInTenant',
     UsersWithRoleInTenant: 'UsersWithRoleInTenant',
-    SpecificUsersInTenant: 'SpecificUsersInTenant'
+    SpecificUsersInTenant: 'SpecificUsersInTenant',
 } as const;
 
 export type FormApiFormsV1AudienceType = typeof FormApiFormsV1AudienceType[keyof typeof FormApiFormsV1AudienceType];

@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { TenantApiTenantV1TenantAppSettings } from './tenant-api-tenant-v1-tenant-app-settings';
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1GetAppSettingsResponse
- */
 export interface TenantApiTenantV1GetAppSettingsResponse {
-    /**
-     * 
-     * @type {Array<TenantApiTenantV1TenantAppSettings>}
-     * @memberof TenantApiTenantV1GetAppSettingsResponse
-     */
     'data'?: Array<TenantApiTenantV1TenantAppSettings> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1GetAppSettingsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1GetAppSettingsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1GetAppSettingsResponse
-     */
     'count'?: number;
 }
 

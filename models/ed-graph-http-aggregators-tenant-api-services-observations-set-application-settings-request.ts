@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsFormConfigurationRequest } from './ed-graph-http-aggregators-tenant-api-services-observations-form-configuration-request';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiServicesObservationsFormConfigurationRequest>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest
-     */
     'forms'?: Array<EdGraphHttpAggregatorsTenantApiServicesObservationsFormConfigurationRequest> | null;
 }
 

@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1CreateEnvironmentRequest
- */
 export interface EdGraphServicesStateReportingV1CreateEnvironmentRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1CreateEnvironmentRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1CreateEnvironmentRequest
-     */
     'year'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1CreateEnvironmentRequest
-     */
     'dbEnvironmentId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1CreateEnvironmentRequest
-     */
     'edFiInstanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1CreateEnvironmentRequest
-     */
     'mode'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1CreateEnvironmentRequest
-     */
     'workspaceName'?: string | null;
 }
 

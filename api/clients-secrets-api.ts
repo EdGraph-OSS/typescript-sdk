@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -35,7 +35,6 @@ import type { IMSAdminApiV1ClientsRegenerateClientSecretRequest } from '../model
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * ClientsSecretsApi - axios parameter creator
- * @export
  */
 export const ClientsSecretsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -57,9 +56,9 @@ export const ClientsSecretsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'clientId' is not null or undefined
             assertParamExists('addClientSecret', 'clientId', clientId)
             const localVarPath = `/tenants/{tenantId}/oneroster/instances/{instanceId}/clients/{clientId}/secrets`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"clientId"}}`, encodeURIComponent(String(clientId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{clientId}', encodeURIComponent(String(clientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -75,9 +74,8 @@ export const ClientsSecretsApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -107,9 +105,9 @@ export const ClientsSecretsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'clientId' is not null or undefined
             assertParamExists('regenerateOneRosterApiClientSecretAsync', 'clientId', clientId)
             const localVarPath = `/tenants/{tenantId}/oneroster/instances/{instanceId}/clients/{clientId}/regeneratesecret`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"clientId"}}`, encodeURIComponent(String(clientId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{clientId}', encodeURIComponent(String(clientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -125,9 +123,8 @@ export const ClientsSecretsApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -144,7 +141,6 @@ export const ClientsSecretsApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * ClientsSecretsApi - functional programming interface
- * @export
  */
 export const ClientsSecretsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ClientsSecretsApiAxiosParamCreator(configuration)
@@ -186,7 +182,6 @@ export const ClientsSecretsApiFp = function(configuration?: Configuration) {
 
 /**
  * ClientsSecretsApi - factory interface
- * @export
  */
 export const ClientsSecretsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ClientsSecretsApiFp(configuration)
@@ -216,79 +211,47 @@ export const ClientsSecretsApiFactory = function (configuration?: Configuration,
 
 /**
  * Request parameters for addClientSecret operation in ClientsSecretsApi.
- * @export
- * @interface ClientsSecretsApiAddClientSecretRequest
  */
 export interface ClientsSecretsApiAddClientSecretRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ClientsSecretsApiAddClientSecret
-     */
     readonly tenantId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ClientsSecretsApiAddClientSecret
-     */
     readonly instanceId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ClientsSecretsApiAddClientSecret
      */
     readonly clientId: string
 
     /**
      * 
-     * @type {IMSAdminApiV1ClientsAddClientSecretRequest}
-     * @memberof ClientsSecretsApiAddClientSecret
      */
     readonly iMSAdminApiV1ClientsAddClientSecretRequest?: IMSAdminApiV1ClientsAddClientSecretRequest
 }
 
 /**
  * Request parameters for regenerateOneRosterApiClientSecretAsync operation in ClientsSecretsApi.
- * @export
- * @interface ClientsSecretsApiRegenerateOneRosterApiClientSecretAsyncRequest
  */
 export interface ClientsSecretsApiRegenerateOneRosterApiClientSecretAsyncRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ClientsSecretsApiRegenerateOneRosterApiClientSecretAsync
-     */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ClientsSecretsApiRegenerateOneRosterApiClientSecretAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ClientsSecretsApiRegenerateOneRosterApiClientSecretAsync
      */
     readonly clientId: string
 
     /**
      * 
-     * @type {IMSAdminApiV1ClientsRegenerateClientSecretRequest}
-     * @memberof ClientsSecretsApiRegenerateOneRosterApiClientSecretAsync
      */
     readonly iMSAdminApiV1ClientsRegenerateClientSecretRequest?: IMSAdminApiV1ClientsRegenerateClientSecretRequest
 }
 
 /**
  * ClientsSecretsApi - object-oriented interface
- * @export
- * @class ClientsSecretsApi
- * @extends {BaseAPI}
  */
 export class ClientsSecretsApi extends BaseAPI {
     /**
@@ -297,7 +260,6 @@ export class ClientsSecretsApi extends BaseAPI {
      * @param {ClientsSecretsApiAddClientSecretRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ClientsSecretsApi
      */
     public addClientSecret(requestParameters: ClientsSecretsApiAddClientSecretRequest, options?: RawAxiosRequestConfig) {
         return ClientsSecretsApiFp(this.configuration).addClientSecret(requestParameters.tenantId, requestParameters.instanceId, requestParameters.clientId, requestParameters.iMSAdminApiV1ClientsAddClientSecretRequest, options).then((request) => request(this.axios, this.basePath));
@@ -309,7 +271,6 @@ export class ClientsSecretsApi extends BaseAPI {
      * @param {ClientsSecretsApiRegenerateOneRosterApiClientSecretAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ClientsSecretsApi
      */
     public regenerateOneRosterApiClientSecretAsync(requestParameters: ClientsSecretsApiRegenerateOneRosterApiClientSecretAsyncRequest, options?: RawAxiosRequestConfig) {
         return ClientsSecretsApiFp(this.configuration).regenerateOneRosterApiClientSecretAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.clientId, requestParameters.iMSAdminApiV1ClientsRegenerateClientSecretRequest, options).then((request) => request(this.axios, this.basePath));

@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1InstanceApplicationCreatedResponse
- */
 export interface EdfiAdminApiEdfiAdminV1InstanceApplicationCreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationCreatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationCreatedResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationCreatedResponse
-     */
     'instanceApplicationId'?: string | null;
 }
 

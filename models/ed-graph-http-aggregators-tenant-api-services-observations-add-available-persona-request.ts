@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaRequest
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaRequest
-     */
     'identifier'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaRequest
-     */
     'isDefault'?: boolean;
 }
 

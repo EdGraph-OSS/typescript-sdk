@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1SetAppSettingsResponse
- */
 export interface TenantApiTenantV1SetAppSettingsResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SetAppSettingsResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SetAppSettingsResponse
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SetAppSettingsResponse
-     */
     'code'?: string | null;
 }
 

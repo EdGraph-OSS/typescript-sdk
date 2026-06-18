@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EvaluationApiEvaluationsV1EvaluationUpdatedResponse
- */
 export interface EvaluationApiEvaluationsV1EvaluationUpdatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationUpdatedResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationUpdatedResponse
-     */
     'tenantId'?: string | null;
 }
 

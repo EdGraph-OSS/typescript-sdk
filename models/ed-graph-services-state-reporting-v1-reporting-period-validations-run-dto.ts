@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1ReportingPeriodValidationsRunDto
- */
 export interface EdGraphServicesStateReportingV1ReportingPeriodValidationsRunDto {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodValidationsRunDto
-     */
     'requestedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodValidationsRunDto
-     */
     'jobExecutionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodValidationsRunDto
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodValidationsRunDto
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodValidationsRunDto
-     */
     'queuedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodValidationsRunDto
-     */
     'startDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodValidationsRunDto
-     */
     'endDateTime'?: string | null;
 }
 

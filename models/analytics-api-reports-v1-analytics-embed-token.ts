@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiReportsV1AnalyticsEmbedToken
- */
 export interface AnalyticsApiReportsV1AnalyticsEmbedToken {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsEmbedToken
-     */
     'token'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsEmbedToken
-     */
     'tokenId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsEmbedToken
-     */
     'expiration'?: string | null;
 }
 

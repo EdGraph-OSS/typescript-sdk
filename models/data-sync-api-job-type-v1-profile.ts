@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobTypeV1Profile
- */
 export interface DataSyncApiJobTypeV1Profile {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1Profile
-     */
     'jobTypeId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1Profile
-     */
     'profileId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1Profile
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1Profile
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1Profile
-     */
     'actorType'?: string | null;
 }
 

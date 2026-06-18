@@ -23,113 +23,23 @@ import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobs
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsSchedule } from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-requests-jobs-schedule';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'jobTypeId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'sourceConnectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'destinationConnectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'profileId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'jobPoints'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsDataRefreshType}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'dataRefreshType'?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsDataRefreshType;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'dataRefreshSpecificDate'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'maxApiFailure'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'maxApiRetry'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'jobCompleteCallbackUrl'?: string | null;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsJobMetadata>}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'jobMetadata'?: Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsJobMetadata> | null;
-    /**
-     * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsSchedule}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'schedule'?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsSchedule;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
-     */
     'notificationEmails'?: Array<string> | null;
 }
 

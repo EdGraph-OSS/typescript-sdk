@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,57 +33,16 @@ import type { TenantApiTenantV1GetAppSettingsResponse } from '../models';
 import type { TenantApiTenantV1SetAppSettingsRequest } from '../models';
 // @ts-ignore
 import type { TenantApiTenantV1SetAppSettingsResponse } from '../models';
+// @ts-ignore
+import type { TenantApiTenantV1TenantAppSettings } from '../models';
 /**
  * ApplicationsSettingsApi - axios parameter creator
- * @export
  */
 export const ApplicationsSettingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
          * @summary Retrieves a list of a Tenant\'s ClientSettings.
-         * @param {string} tenantId 
-         * @param {string} clientId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getClientSettingsAsync: async (tenantId: string, clientId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenantId' is not null or undefined
-            assertParamExists('getClientSettingsAsync', 'tenantId', tenantId)
-            // verify required parameter 'clientId' is not null or undefined
-            assertParamExists('getClientSettingsAsync', 'clientId', clientId)
-            const localVarPath = `/tenants/{tenantId}/clients/{clientId}/settings`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"clientId"}}`, encodeURIComponent(String(clientId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Retrieves a list of ClientSettingsTypes.
          * @param {string} tenantId 
          * @param {string} clientId 
          * @param {number} [pageIndex] 
@@ -93,14 +52,14 @@ export const ApplicationsSettingsApiAxiosParamCreator = function (configuration?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getClientSettingsTypesAsync: async (tenantId: string, clientId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getClientSettingsAsync: async (tenantId: string, clientId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
-            assertParamExists('getClientSettingsTypesAsync', 'tenantId', tenantId)
+            assertParamExists('getClientSettingsAsync', 'tenantId', tenantId)
             // verify required parameter 'clientId' is not null or undefined
-            assertParamExists('getClientSettingsTypesAsync', 'clientId', clientId)
-            const localVarPath = `/tenants/{tenantId}/clients/{clientId}/settingstypes`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"clientId"}}`, encodeURIComponent(String(clientId)));
+            assertParamExists('getClientSettingsAsync', 'clientId', clientId)
+            const localVarPath = `/tenants/{tenantId}/clients/{clientId}/settings`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{clientId}', encodeURIComponent(String(clientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -132,8 +91,116 @@ export const ApplicationsSettingsApiAxiosParamCreator = function (configuration?
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Retrieves a Tenant\'s ClientSetting by code.
+         * @param {string} tenantId 
+         * @param {string} clientId 
+         * @param {string} code 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getClientSettingsByCodeAsync: async (tenantId: string, clientId: string, code: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getClientSettingsByCodeAsync', 'tenantId', tenantId)
+            // verify required parameter 'clientId' is not null or undefined
+            assertParamExists('getClientSettingsByCodeAsync', 'clientId', clientId)
+            // verify required parameter 'code' is not null or undefined
+            assertParamExists('getClientSettingsByCodeAsync', 'code', code)
+            const localVarPath = `/tenants/{tenantId}/clients/{clientId}/settings/{code}`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{clientId}', encodeURIComponent(String(clientId)))
+                .replace('{code}', encodeURIComponent(String(code)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Retrieves a list of ClientSettingsTypes.
+         * @param {string} tenantId 
+         * @param {string} clientId 
+         * @param {number} [pageIndex] 
+         * @param {number} [pageSize] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getClientSettingsTypesAsync: async (tenantId: string, clientId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getClientSettingsTypesAsync', 'tenantId', tenantId)
+            // verify required parameter 'clientId' is not null or undefined
+            assertParamExists('getClientSettingsTypesAsync', 'clientId', clientId)
+            const localVarPath = `/tenants/{tenantId}/clients/{clientId}/settingstypes`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{clientId}', encodeURIComponent(String(clientId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            if (pageIndex !== undefined) {
+                localVarQueryParameter['pageIndex'] = pageIndex;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['orderBy'] = orderBy;
+            }
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -158,8 +225,8 @@ export const ApplicationsSettingsApiAxiosParamCreator = function (configuration?
             // verify required parameter 'clientId' is not null or undefined
             assertParamExists('setClientSettingsAsync', 'clientId', clientId)
             const localVarPath = `/tenants/{tenantId}/clients/{clientId}/settings`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"clientId"}}`, encodeURIComponent(String(clientId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{clientId}', encodeURIComponent(String(clientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -175,9 +242,57 @@ export const ApplicationsSettingsApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(tenantApiTenantV1SetAppSettingsRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Creates/updates a Tenant\'s ClientSetting by code.
+         * @param {string} tenantId 
+         * @param {string} clientId 
+         * @param {string} code 
+         * @param {TenantApiTenantV1SetAppSettingsRequest} [tenantApiTenantV1SetAppSettingsRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        setClientSettingsByCodeAsync: async (tenantId: string, clientId: string, code: string, tenantApiTenantV1SetAppSettingsRequest?: TenantApiTenantV1SetAppSettingsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('setClientSettingsByCodeAsync', 'tenantId', tenantId)
+            // verify required parameter 'clientId' is not null or undefined
+            assertParamExists('setClientSettingsByCodeAsync', 'clientId', clientId)
+            // verify required parameter 'code' is not null or undefined
+            assertParamExists('setClientSettingsByCodeAsync', 'code', code)
+            const localVarPath = `/tenants/{tenantId}/clients/{clientId}/settings/{code}`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{clientId}', encodeURIComponent(String(clientId)))
+                .replace('{code}', encodeURIComponent(String(code)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -194,7 +309,6 @@ export const ApplicationsSettingsApiAxiosParamCreator = function (configuration?
 
 /**
  * ApplicationsSettingsApi - functional programming interface
- * @export
  */
 export const ApplicationsSettingsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ApplicationsSettingsApiAxiosParamCreator(configuration)
@@ -204,13 +318,32 @@ export const ApplicationsSettingsApiFp = function(configuration?: Configuration)
          * @summary Retrieves a list of a Tenant\'s ClientSettings.
          * @param {string} tenantId 
          * @param {string} clientId 
+         * @param {number} [pageIndex] 
+         * @param {number} [pageSize] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getClientSettingsAsync(tenantId: string, clientId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiTenantV1GetAppSettingsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getClientSettingsAsync(tenantId, clientId, options);
+        async getClientSettingsAsync(tenantId: string, clientId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiTenantV1GetAppSettingsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getClientSettingsAsync(tenantId, clientId, pageIndex, pageSize, orderBy, filter, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ApplicationsSettingsApi.getClientSettingsAsync']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Retrieves a Tenant\'s ClientSetting by code.
+         * @param {string} tenantId 
+         * @param {string} clientId 
+         * @param {string} code 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getClientSettingsByCodeAsync(tenantId: string, clientId: string, code: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiTenantV1TenantAppSettings>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getClientSettingsByCodeAsync(tenantId, clientId, code, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ApplicationsSettingsApi.getClientSettingsByCodeAsync']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -246,12 +379,27 @@ export const ApplicationsSettingsApiFp = function(configuration?: Configuration)
             const localVarOperationServerBasePath = operationServerMap['ApplicationsSettingsApi.setClientSettingsAsync']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * 
+         * @summary Creates/updates a Tenant\'s ClientSetting by code.
+         * @param {string} tenantId 
+         * @param {string} clientId 
+         * @param {string} code 
+         * @param {TenantApiTenantV1SetAppSettingsRequest} [tenantApiTenantV1SetAppSettingsRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setClientSettingsByCodeAsync(tenantId: string, clientId: string, code: string, tenantApiTenantV1SetAppSettingsRequest?: TenantApiTenantV1SetAppSettingsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiTenantV1SetAppSettingsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setClientSettingsByCodeAsync(tenantId, clientId, code, tenantApiTenantV1SetAppSettingsRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ApplicationsSettingsApi.setClientSettingsByCodeAsync']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
 /**
  * ApplicationsSettingsApi - factory interface
- * @export
  */
 export const ApplicationsSettingsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ApplicationsSettingsApiFp(configuration)
@@ -264,7 +412,17 @@ export const ApplicationsSettingsApiFactory = function (configuration?: Configur
          * @throws {RequiredError}
          */
         getClientSettingsAsync(requestParameters: ApplicationsSettingsApiGetClientSettingsAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiTenantV1GetAppSettingsResponse> {
-            return localVarFp.getClientSettingsAsync(requestParameters.tenantId, requestParameters.clientId, options).then((request) => request(axios, basePath));
+            return localVarFp.getClientSettingsAsync(requestParameters.tenantId, requestParameters.clientId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Retrieves a Tenant\'s ClientSetting by code.
+         * @param {ApplicationsSettingsApiGetClientSettingsByCodeAsyncRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getClientSettingsByCodeAsync(requestParameters: ApplicationsSettingsApiGetClientSettingsByCodeAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiTenantV1TenantAppSettings> {
+            return localVarFp.getClientSettingsByCodeAsync(requestParameters.tenantId, requestParameters.clientId, requestParameters.code, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -286,112 +444,156 @@ export const ApplicationsSettingsApiFactory = function (configuration?: Configur
         setClientSettingsAsync(requestParameters: ApplicationsSettingsApiSetClientSettingsAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiTenantV1SetAppSettingsResponse> {
             return localVarFp.setClientSettingsAsync(requestParameters.tenantId, requestParameters.clientId, requestParameters.tenantApiTenantV1SetAppSettingsRequest, options).then((request) => request(axios, basePath));
         },
+        /**
+         * 
+         * @summary Creates/updates a Tenant\'s ClientSetting by code.
+         * @param {ApplicationsSettingsApiSetClientSettingsByCodeAsyncRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        setClientSettingsByCodeAsync(requestParameters: ApplicationsSettingsApiSetClientSettingsByCodeAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiTenantV1SetAppSettingsResponse> {
+            return localVarFp.setClientSettingsByCodeAsync(requestParameters.tenantId, requestParameters.clientId, requestParameters.code, requestParameters.tenantApiTenantV1SetAppSettingsRequest, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
 /**
  * Request parameters for getClientSettingsAsync operation in ApplicationsSettingsApi.
- * @export
- * @interface ApplicationsSettingsApiGetClientSettingsAsyncRequest
  */
 export interface ApplicationsSettingsApiGetClientSettingsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsSettingsApiGetClientSettingsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsSettingsApiGetClientSettingsAsync
-     */
-    readonly clientId: string
-}
-
-/**
- * Request parameters for getClientSettingsTypesAsync operation in ApplicationsSettingsApi.
- * @export
- * @interface ApplicationsSettingsApiGetClientSettingsTypesAsyncRequest
- */
-export interface ApplicationsSettingsApiGetClientSettingsTypesAsyncRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationsSettingsApiGetClientSettingsTypesAsync
-     */
-    readonly tenantId: string
-
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationsSettingsApiGetClientSettingsTypesAsync
      */
     readonly clientId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ApplicationsSettingsApiGetClientSettingsTypesAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ApplicationsSettingsApiGetClientSettingsTypesAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsSettingsApiGetClientSettingsTypesAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsSettingsApiGetClientSettingsTypesAsync
+     */
+    readonly filter?: string
+}
+
+/**
+ * Request parameters for getClientSettingsByCodeAsync operation in ApplicationsSettingsApi.
+ */
+export interface ApplicationsSettingsApiGetClientSettingsByCodeAsyncRequest {
+    /**
+     * 
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     */
+    readonly clientId: string
+
+    /**
+     * 
+     */
+    readonly code: string
+}
+
+/**
+ * Request parameters for getClientSettingsTypesAsync operation in ApplicationsSettingsApi.
+ */
+export interface ApplicationsSettingsApiGetClientSettingsTypesAsyncRequest {
+    /**
+     * 
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     */
+    readonly clientId: string
+
+    /**
+     * 
+     */
+    readonly pageIndex?: number
+
+    /**
+     * 
+     */
+    readonly pageSize?: number
+
+    /**
+     * 
+     */
+    readonly orderBy?: string
+
+    /**
+     * 
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for setClientSettingsAsync operation in ApplicationsSettingsApi.
- * @export
- * @interface ApplicationsSettingsApiSetClientSettingsAsyncRequest
  */
 export interface ApplicationsSettingsApiSetClientSettingsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsSettingsApiSetClientSettingsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsSettingsApiSetClientSettingsAsync
      */
     readonly clientId: string
 
     /**
      * 
-     * @type {TenantApiTenantV1SetAppSettingsRequest}
-     * @memberof ApplicationsSettingsApiSetClientSettingsAsync
+     */
+    readonly tenantApiTenantV1SetAppSettingsRequest?: TenantApiTenantV1SetAppSettingsRequest
+}
+
+/**
+ * Request parameters for setClientSettingsByCodeAsync operation in ApplicationsSettingsApi.
+ */
+export interface ApplicationsSettingsApiSetClientSettingsByCodeAsyncRequest {
+    /**
+     * 
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     */
+    readonly clientId: string
+
+    /**
+     * 
+     */
+    readonly code: string
+
+    /**
+     * 
      */
     readonly tenantApiTenantV1SetAppSettingsRequest?: TenantApiTenantV1SetAppSettingsRequest
 }
 
 /**
  * ApplicationsSettingsApi - object-oriented interface
- * @export
- * @class ApplicationsSettingsApi
- * @extends {BaseAPI}
  */
 export class ApplicationsSettingsApi extends BaseAPI {
     /**
@@ -400,10 +602,20 @@ export class ApplicationsSettingsApi extends BaseAPI {
      * @param {ApplicationsSettingsApiGetClientSettingsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApplicationsSettingsApi
      */
     public getClientSettingsAsync(requestParameters: ApplicationsSettingsApiGetClientSettingsAsyncRequest, options?: RawAxiosRequestConfig) {
-        return ApplicationsSettingsApiFp(this.configuration).getClientSettingsAsync(requestParameters.tenantId, requestParameters.clientId, options).then((request) => request(this.axios, this.basePath));
+        return ApplicationsSettingsApiFp(this.configuration).getClientSettingsAsync(requestParameters.tenantId, requestParameters.clientId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Retrieves a Tenant\'s ClientSetting by code.
+     * @param {ApplicationsSettingsApiGetClientSettingsByCodeAsyncRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getClientSettingsByCodeAsync(requestParameters: ApplicationsSettingsApiGetClientSettingsByCodeAsyncRequest, options?: RawAxiosRequestConfig) {
+        return ApplicationsSettingsApiFp(this.configuration).getClientSettingsByCodeAsync(requestParameters.tenantId, requestParameters.clientId, requestParameters.code, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -412,7 +624,6 @@ export class ApplicationsSettingsApi extends BaseAPI {
      * @param {ApplicationsSettingsApiGetClientSettingsTypesAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApplicationsSettingsApi
      */
     public getClientSettingsTypesAsync(requestParameters: ApplicationsSettingsApiGetClientSettingsTypesAsyncRequest, options?: RawAxiosRequestConfig) {
         return ApplicationsSettingsApiFp(this.configuration).getClientSettingsTypesAsync(requestParameters.tenantId, requestParameters.clientId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -424,10 +635,20 @@ export class ApplicationsSettingsApi extends BaseAPI {
      * @param {ApplicationsSettingsApiSetClientSettingsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApplicationsSettingsApi
      */
     public setClientSettingsAsync(requestParameters: ApplicationsSettingsApiSetClientSettingsAsyncRequest, options?: RawAxiosRequestConfig) {
         return ApplicationsSettingsApiFp(this.configuration).setClientSettingsAsync(requestParameters.tenantId, requestParameters.clientId, requestParameters.tenantApiTenantV1SetAppSettingsRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Creates/updates a Tenant\'s ClientSetting by code.
+     * @param {ApplicationsSettingsApiSetClientSettingsByCodeAsyncRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setClientSettingsByCodeAsync(requestParameters: ApplicationsSettingsApiSetClientSettingsByCodeAsyncRequest, options?: RawAxiosRequestConfig) {
+        return ApplicationsSettingsApiFp(this.configuration).setClientSettingsByCodeAsync(requestParameters.tenantId, requestParameters.clientId, requestParameters.code, requestParameters.tenantApiTenantV1SetAppSettingsRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

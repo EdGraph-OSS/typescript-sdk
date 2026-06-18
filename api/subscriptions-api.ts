@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -41,7 +41,6 @@ import type { TenantApiTenantV1SubscriptionUpdatedResponse } from '../models';
 import type { TenantApiTenantV1UpdateSubscriptionRequest } from '../models';
 /**
  * SubscriptionsApi - axios parameter creator
- * @export
  */
 export const SubscriptionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -57,7 +56,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createTenantSubscriptionAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/subscriptions`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -73,9 +72,8 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -101,7 +99,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllTenantSubscriptionApplications', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/subscriptions/applications`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -129,8 +127,8 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -155,7 +153,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllTenantSubscriptionsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/subscriptions`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -187,8 +185,8 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -212,8 +210,8 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'subscriptionId' is not null or undefined
             assertParamExists('getTenantSubscriptionProfileByIdAsync', 'subscriptionId', subscriptionId)
             const localVarPath = `/tenants/{tenantId}/subscriptions/{subscriptionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"subscriptionId"}}`, encodeURIComponent(String(subscriptionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{subscriptionId}', encodeURIComponent(String(subscriptionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -229,8 +227,8 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -255,8 +253,8 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'subscriptionId' is not null or undefined
             assertParamExists('updateTenantSubscriptionAsync', 'subscriptionId', subscriptionId)
             const localVarPath = `/tenants/{tenantId}/subscriptions/{subscriptionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"subscriptionId"}}`, encodeURIComponent(String(subscriptionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{subscriptionId}', encodeURIComponent(String(subscriptionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -272,9 +270,8 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -291,7 +288,6 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * SubscriptionsApi - functional programming interface
- * @export
  */
 export const SubscriptionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SubscriptionsApiAxiosParamCreator(configuration)
@@ -377,7 +373,6 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
 
 /**
  * SubscriptionsApi - factory interface
- * @export
  */
 export const SubscriptionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SubscriptionsApiFp(configuration)
@@ -437,156 +432,111 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
 
 /**
  * Request parameters for createTenantSubscriptionAsync operation in SubscriptionsApi.
- * @export
- * @interface SubscriptionsApiCreateTenantSubscriptionAsyncRequest
  */
 export interface SubscriptionsApiCreateTenantSubscriptionAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SubscriptionsApiCreateTenantSubscriptionAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {TenantApiTenantV1CreateSubscriptionRequest}
-     * @memberof SubscriptionsApiCreateTenantSubscriptionAsync
      */
     readonly tenantApiTenantV1CreateSubscriptionRequest?: TenantApiTenantV1CreateSubscriptionRequest
 }
 
 /**
  * Request parameters for getAllTenantSubscriptionApplications operation in SubscriptionsApi.
- * @export
- * @interface SubscriptionsApiGetAllTenantSubscriptionApplicationsRequest
  */
 export interface SubscriptionsApiGetAllTenantSubscriptionApplicationsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SubscriptionsApiGetAllTenantSubscriptionApplications
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof SubscriptionsApiGetAllTenantSubscriptionApplications
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof SubscriptionsApiGetAllTenantSubscriptionApplications
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof SubscriptionsApiGetAllTenantSubscriptionApplications
      */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for getAllTenantSubscriptionsAsync operation in SubscriptionsApi.
- * @export
- * @interface SubscriptionsApiGetAllTenantSubscriptionsAsyncRequest
  */
 export interface SubscriptionsApiGetAllTenantSubscriptionsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SubscriptionsApiGetAllTenantSubscriptionsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof SubscriptionsApiGetAllTenantSubscriptionsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof SubscriptionsApiGetAllTenantSubscriptionsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof SubscriptionsApiGetAllTenantSubscriptionsAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SubscriptionsApiGetAllTenantSubscriptionsAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getTenantSubscriptionProfileByIdAsync operation in SubscriptionsApi.
- * @export
- * @interface SubscriptionsApiGetTenantSubscriptionProfileByIdAsyncRequest
  */
 export interface SubscriptionsApiGetTenantSubscriptionProfileByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SubscriptionsApiGetTenantSubscriptionProfileByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SubscriptionsApiGetTenantSubscriptionProfileByIdAsync
      */
     readonly subscriptionId: string
 }
 
 /**
  * Request parameters for updateTenantSubscriptionAsync operation in SubscriptionsApi.
- * @export
- * @interface SubscriptionsApiUpdateTenantSubscriptionAsyncRequest
  */
 export interface SubscriptionsApiUpdateTenantSubscriptionAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SubscriptionsApiUpdateTenantSubscriptionAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SubscriptionsApiUpdateTenantSubscriptionAsync
      */
     readonly subscriptionId: string
 
     /**
      * 
-     * @type {TenantApiTenantV1UpdateSubscriptionRequest}
-     * @memberof SubscriptionsApiUpdateTenantSubscriptionAsync
      */
     readonly tenantApiTenantV1UpdateSubscriptionRequest?: TenantApiTenantV1UpdateSubscriptionRequest
 }
 
 /**
  * SubscriptionsApi - object-oriented interface
- * @export
- * @class SubscriptionsApi
- * @extends {BaseAPI}
  */
 export class SubscriptionsApi extends BaseAPI {
     /**
@@ -595,7 +545,6 @@ export class SubscriptionsApi extends BaseAPI {
      * @param {SubscriptionsApiCreateTenantSubscriptionAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubscriptionsApi
      */
     public createTenantSubscriptionAsync(requestParameters: SubscriptionsApiCreateTenantSubscriptionAsyncRequest, options?: RawAxiosRequestConfig) {
         return SubscriptionsApiFp(this.configuration).createTenantSubscriptionAsync(requestParameters.tenantId, requestParameters.tenantApiTenantV1CreateSubscriptionRequest, options).then((request) => request(this.axios, this.basePath));
@@ -607,7 +556,6 @@ export class SubscriptionsApi extends BaseAPI {
      * @param {SubscriptionsApiGetAllTenantSubscriptionApplicationsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubscriptionsApi
      */
     public getAllTenantSubscriptionApplications(requestParameters: SubscriptionsApiGetAllTenantSubscriptionApplicationsRequest, options?: RawAxiosRequestConfig) {
         return SubscriptionsApiFp(this.configuration).getAllTenantSubscriptionApplications(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -619,7 +567,6 @@ export class SubscriptionsApi extends BaseAPI {
      * @param {SubscriptionsApiGetAllTenantSubscriptionsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubscriptionsApi
      */
     public getAllTenantSubscriptionsAsync(requestParameters: SubscriptionsApiGetAllTenantSubscriptionsAsyncRequest, options?: RawAxiosRequestConfig) {
         return SubscriptionsApiFp(this.configuration).getAllTenantSubscriptionsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -631,7 +578,6 @@ export class SubscriptionsApi extends BaseAPI {
      * @param {SubscriptionsApiGetTenantSubscriptionProfileByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubscriptionsApi
      */
     public getTenantSubscriptionProfileByIdAsync(requestParameters: SubscriptionsApiGetTenantSubscriptionProfileByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return SubscriptionsApiFp(this.configuration).getTenantSubscriptionProfileByIdAsync(requestParameters.tenantId, requestParameters.subscriptionId, options).then((request) => request(this.axios, this.basePath));
@@ -643,7 +589,6 @@ export class SubscriptionsApi extends BaseAPI {
      * @param {SubscriptionsApiUpdateTenantSubscriptionAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubscriptionsApi
      */
     public updateTenantSubscriptionAsync(requestParameters: SubscriptionsApiUpdateTenantSubscriptionAsyncRequest, options?: RawAxiosRequestConfig) {
         return SubscriptionsApiFp(this.configuration).updateTenantSubscriptionAsync(requestParameters.tenantId, requestParameters.subscriptionId, requestParameters.tenantApiTenantV1UpdateSubscriptionRequest, options).then((request) => request(this.axios, this.basePath));

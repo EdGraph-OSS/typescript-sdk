@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1SetAppSettingsRequest
- */
 export interface TenantApiTenantV1SetAppSettingsRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SetAppSettingsRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SetAppSettingsRequest
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SetAppSettingsRequest
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SetAppSettingsRequest
-     */
     'data'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SetAppSettingsRequest
-     */
     'dataType'?: string | null;
 }
 

@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const TenantApiTenantV1LicenseType = {
     Unknown: 'Unknown',
     Full: 'Full',
-    Trial: 'Trial'
+    Trial: 'Trial',
 } as const;
 
 export type TenantApiTenantV1LicenseType = typeof TenantApiTenantV1LicenseType[keyof typeof TenantApiTenantV1LicenseType];

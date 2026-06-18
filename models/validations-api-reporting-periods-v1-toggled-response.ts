@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1ToggledResponse
- */
 export interface ValidationsApiReportingPeriodsV1ToggledResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ToggledResponse
-     */
     'reportingPeriodId'?: string | null;
 }
 

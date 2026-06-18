@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1AddDataStewardBulkRequest Types Collection } from './validations-api-containers-v1-add-data-steward-bulk-request types collection';
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1AddDataStewardBulkRequest
- */
 export interface ValidationsApiContainersV1AddDataStewardBulkRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1AddDataStewardBulkRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiContainersV1AddDataStewardBulkRequest Types Collection>}
-     * @memberof ValidationsApiContainersV1AddDataStewardBulkRequest
-     */
     'collections'?: Array<ValidationsApiContainersV1AddDataStewardBulkRequest Types Collection> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1AddDataStewardBulkRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1AddDataStewardBulkRequest
-     */
     'environmentId'?: string | null;
 }
 

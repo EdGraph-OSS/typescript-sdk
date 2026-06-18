@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IMSAdminApiV1ClientsClientListResponse } from './imsadmin-api-v1-clients-client-list-response';
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ClientsPaginatedItemsResponse
- */
 export interface IMSAdminApiV1ClientsPaginatedItemsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1ClientsPaginatedItemsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1ClientsPaginatedItemsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1ClientsPaginatedItemsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<IMSAdminApiV1ClientsClientListResponse>}
-     * @memberof IMSAdminApiV1ClientsPaginatedItemsResponse
-     */
     'data'?: Array<IMSAdminApiV1ClientsClientListResponse> | null;
 }
 

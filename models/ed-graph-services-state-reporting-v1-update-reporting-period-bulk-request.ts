@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequest Types ReportingPeriod } from './ed-graph-services-state-reporting-v1-update-reporting-period-bulk-request types reporting-period';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequest
- */
 export interface EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequest
-     */
     'environmentId'?: string | null;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequest Types ReportingPeriod>}
-     * @memberof EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequest
-     */
     'reportingPeriods'?: Array<EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequest Types ReportingPeriod> | null;
 }
 

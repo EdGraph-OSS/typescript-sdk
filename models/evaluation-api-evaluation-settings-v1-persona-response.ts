@@ -16,33 +16,11 @@
 
 /**
  * Available Personas
- * @export
- * @interface EvaluationApiEvaluationSettingsV1PersonaResponse
  */
 export interface EvaluationApiEvaluationSettingsV1PersonaResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1PersonaResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1PersonaResponse
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1PersonaResponse
-     */
     'identifier'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EvaluationApiEvaluationSettingsV1PersonaResponse
-     */
     'isDefault'?: boolean | null;
 }
 

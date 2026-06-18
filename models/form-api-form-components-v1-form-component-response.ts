@@ -17,71 +17,16 @@
 // @ts-ignore
 import type { FormApiFormComponentsV1FormComponentType } from './form-api-form-components-v1-form-component-type';
 
-/**
- * 
- * @export
- * @interface FormApiFormComponentsV1FormComponentResponse
- */
 export interface FormApiFormComponentsV1FormComponentResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormComponentsV1FormComponentResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormComponentsV1FormComponentResponse
-     */
     'displayName'?: string | null;
-    /**
-     * 
-     * @type {FormApiFormComponentsV1FormComponentType}
-     * @memberof FormApiFormComponentsV1FormComponentResponse
-     */
     'type'?: FormApiFormComponentsV1FormComponentType;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormComponentsV1FormComponentResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormComponentsV1FormComponentResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormComponentsV1FormComponentResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormComponentsV1FormComponentResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormComponentsV1FormComponentResponse
-     */
     'deletedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormComponentsV1FormComponentResponse
-     */
     'deletedDateTime'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FormApiFormComponentsV1FormComponentResponse
-     */
     'isDeleted'?: boolean | null;
 }
 

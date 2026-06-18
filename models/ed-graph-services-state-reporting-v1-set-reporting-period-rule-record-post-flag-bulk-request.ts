@@ -17,41 +17,11 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequest Types Record } from './ed-graph-services-state-reporting-v1-set-reporting-period-rule-record-post-flag-bulk-request types record';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequest
- */
 export interface EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequest
-     */
     'environmentId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequest
-     */
     'ruleId'?: string | null;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequest Types Record>}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequest
-     */
     'records'?: Array<EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequest Types Record> | null;
 }
 

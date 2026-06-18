@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IdentityApiUserV2TenantMeProfile } from './identity-api-user-v2-tenant-me-profile';
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV2UserMeTenantsResponse
- */
 export interface IdentityApiUserV2UserMeTenantsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2UserMeTenantsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2UserMeTenantsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2UserMeTenantsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV2TenantMeProfile>}
-     * @memberof IdentityApiUserV2UserMeTenantsResponse
-     */
     'data'?: Array<IdentityApiUserV2TenantMeProfile> | null;
 }
 

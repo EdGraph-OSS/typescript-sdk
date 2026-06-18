@@ -20,23 +20,8 @@ import type { EdGraphServicesStateReportingV1Rule } from './ed-graph-services-st
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1SubCategory } from './ed-graph-services-state-reporting-v1-sub-category';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1ValidationSummarySubCategory
- */
 export interface EdGraphServicesStateReportingV1ValidationSummarySubCategory {
-    /**
-     * 
-     * @type {EdGraphServicesStateReportingV1SubCategory}
-     * @memberof EdGraphServicesStateReportingV1ValidationSummarySubCategory
-     */
     'subCategory'?: EdGraphServicesStateReportingV1SubCategory;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1Rule>}
-     * @memberof EdGraphServicesStateReportingV1ValidationSummarySubCategory
-     */
     'rules'?: Array<EdGraphServicesStateReportingV1Rule> | null;
 }
 

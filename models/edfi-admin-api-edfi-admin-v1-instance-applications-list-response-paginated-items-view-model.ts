@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse } from './edfi-admin-api-edfi-admin-v1-instance-applications-list-response';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponsePaginatedItemsViewModel
- */
 export interface EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponsePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponsePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponsePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponsePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse>}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponsePaginatedItemsViewModel
-     */
     'data'?: Array<EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse> | null;
 }
 

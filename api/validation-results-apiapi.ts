@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -37,7 +37,6 @@ import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 import type { ValidationsApiResultsV1RuleSummary } from '../models';
 /**
  * ValidationResultsAPIApi - axios parameter creator
- * @export
  */
 export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -60,9 +59,9 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // verify required parameter 'runId' is not null or undefined
             assertParamExists('findResultsApiJobRunRecordsAsync', 'runId', runId)
             const localVarPath = `/tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/records`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)))
-                .replace(`{${"runId"}}`, encodeURIComponent(String(runId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)))
+                .replace('{runId}', encodeURIComponent(String(runId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -86,8 +85,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
                 localVarQueryParameter['limit'] = limit;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -119,10 +118,10 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // verify required parameter 'ruleId' is not null or undefined
             assertParamExists('findResultsApiJobRunRuleRecordsAsync', 'ruleId', ruleId)
             const localVarPath = `/tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/rules/{ruleId}/records`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)))
-                .replace(`{${"runId"}}`, encodeURIComponent(String(runId)))
-                .replace(`{${"ruleId"}}`, encodeURIComponent(String(ruleId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)))
+                .replace('{runId}', encodeURIComponent(String(runId)))
+                .replace('{ruleId}', encodeURIComponent(String(ruleId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -146,8 +145,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
                 localVarQueryParameter['limit'] = limit;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -176,9 +175,9 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // verify required parameter 'runId' is not null or undefined
             assertParamExists('findResultsApiJobRunRulesAsync', 'runId', runId)
             const localVarPath = `/tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/rules`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)))
-                .replace(`{${"runId"}}`, encodeURIComponent(String(runId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)))
+                .replace('{runId}', encodeURIComponent(String(runId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -202,8 +201,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
                 localVarQueryParameter['limit'] = limit;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -229,8 +228,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('findResultsApiJobRunsAsync', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -254,8 +253,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
                 localVarQueryParameter['limit'] = limit;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -278,7 +277,7 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('findResultsApiJobsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/validations/results-api/jobs`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -302,8 +301,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
                 localVarQueryParameter['limit'] = limit;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -332,9 +331,9 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // verify required parameter 'runId' is not null or undefined
             assertParamExists('findResultsApiRuleSummaries', 'runId', runId)
             const localVarPath = `/tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/rules/summary`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)))
-                .replace(`{${"runId"}}`, encodeURIComponent(String(runId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)))
+                .replace('{runId}', encodeURIComponent(String(runId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -358,8 +357,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
                 localVarQueryParameter['limit'] = limit;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -382,7 +381,7 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('findResultsApiRulesAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/validations/results-api/rules`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -406,8 +405,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
                 localVarQueryParameter['limit'] = limit;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -431,8 +430,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('getLatestJobRunAsync', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/latest`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -448,8 +447,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -473,8 +472,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('getResultsApiJobById', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/validations/results-api/jobs/{jobId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -490,8 +489,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -518,9 +517,9 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // verify required parameter 'runId' is not null or undefined
             assertParamExists('getResultsApiJobRunByIdAsync', 'runId', runId)
             const localVarPath = `/tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)))
-                .replace(`{${"runId"}}`, encodeURIComponent(String(runId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)))
+                .replace('{runId}', encodeURIComponent(String(runId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -536,8 +535,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -567,10 +566,10 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // verify required parameter 'ruleId' is not null or undefined
             assertParamExists('getResultsApiJobRunRuleByIdAsync', 'ruleId', ruleId)
             const localVarPath = `/tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/rules/{ruleId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)))
-                .replace(`{${"runId"}}`, encodeURIComponent(String(runId)))
-                .replace(`{${"ruleId"}}`, encodeURIComponent(String(ruleId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)))
+                .replace('{runId}', encodeURIComponent(String(runId)))
+                .replace('{ruleId}', encodeURIComponent(String(ruleId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -586,8 +585,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -611,8 +610,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // verify required parameter 'ruleId' is not null or undefined
             assertParamExists('getResultsApiRuleByIdAsync', 'ruleId', ruleId)
             const localVarPath = `/tenants/{tenantId}/validations/results-api/rules/{ruleId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"ruleId"}}`, encodeURIComponent(String(ruleId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{ruleId}', encodeURIComponent(String(ruleId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -628,8 +627,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -659,10 +658,10 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // verify required parameter 'ruleId' is not null or undefined
             assertParamExists('getResultsApiRuleSummary', 'ruleId', ruleId)
             const localVarPath = `/tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/rules/{ruleId}/summary`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)))
-                .replace(`{${"runId"}}`, encodeURIComponent(String(runId)))
-                .replace(`{${"ruleId"}}`, encodeURIComponent(String(ruleId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)))
+                .replace('{runId}', encodeURIComponent(String(runId)))
+                .replace('{ruleId}', encodeURIComponent(String(ruleId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -678,8 +677,8 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -694,7 +693,6 @@ export const ValidationResultsAPIApiAxiosParamCreator = function (configuration?
 
 /**
  * ValidationResultsAPIApi - functional programming interface
- * @export
  */
 export const ValidationResultsAPIApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ValidationResultsAPIApiAxiosParamCreator(configuration)
@@ -908,7 +906,6 @@ export const ValidationResultsAPIApiFp = function(configuration?: Configuration)
 
 /**
  * ValidationResultsAPIApi - factory interface
- * @export
  */
 export const ValidationResultsAPIApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ValidationResultsAPIApiFp(configuration)
@@ -1048,436 +1045,311 @@ export const ValidationResultsAPIApiFactory = function (configuration?: Configur
 
 /**
  * Request parameters for findResultsApiJobRunRecordsAsync operation in ValidationResultsAPIApi.
- * @export
- * @interface ValidationResultsAPIApiFindResultsApiJobRunRecordsAsyncRequest
  */
 export interface ValidationResultsAPIApiFindResultsApiJobRunRecordsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRecordsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRecordsAsync
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRecordsAsync
      */
     readonly runId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRecordsAsync
      */
     readonly offset?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRecordsAsync
      */
     readonly limit?: number
 }
 
 /**
  * Request parameters for findResultsApiJobRunRuleRecordsAsync operation in ValidationResultsAPIApi.
- * @export
- * @interface ValidationResultsAPIApiFindResultsApiJobRunRuleRecordsAsyncRequest
  */
 export interface ValidationResultsAPIApiFindResultsApiJobRunRuleRecordsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRuleRecordsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRuleRecordsAsync
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRuleRecordsAsync
      */
     readonly runId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRuleRecordsAsync
      */
     readonly ruleId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRuleRecordsAsync
      */
     readonly offset?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRuleRecordsAsync
      */
     readonly limit?: number
 }
 
 /**
  * Request parameters for findResultsApiJobRunRulesAsync operation in ValidationResultsAPIApi.
- * @export
- * @interface ValidationResultsAPIApiFindResultsApiJobRunRulesAsyncRequest
  */
 export interface ValidationResultsAPIApiFindResultsApiJobRunRulesAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRulesAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRulesAsync
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRulesAsync
      */
     readonly runId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRulesAsync
      */
     readonly offset?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunRulesAsync
      */
     readonly limit?: number
 }
 
 /**
  * Request parameters for findResultsApiJobRunsAsync operation in ValidationResultsAPIApi.
- * @export
- * @interface ValidationResultsAPIApiFindResultsApiJobRunsAsyncRequest
  */
 export interface ValidationResultsAPIApiFindResultsApiJobRunsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunsAsync
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunsAsync
      */
     readonly offset?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobRunsAsync
      */
     readonly limit?: number
 }
 
 /**
  * Request parameters for findResultsApiJobsAsync operation in ValidationResultsAPIApi.
- * @export
- * @interface ValidationResultsAPIApiFindResultsApiJobsAsyncRequest
  */
 export interface ValidationResultsAPIApiFindResultsApiJobsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobsAsync
      */
     readonly offset?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiJobsAsync
      */
     readonly limit?: number
 }
 
 /**
  * Request parameters for findResultsApiRuleSummaries operation in ValidationResultsAPIApi.
- * @export
- * @interface ValidationResultsAPIApiFindResultsApiRuleSummariesRequest
  */
 export interface ValidationResultsAPIApiFindResultsApiRuleSummariesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiRuleSummaries
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiRuleSummaries
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiRuleSummaries
      */
     readonly runId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiRuleSummaries
      */
     readonly offset?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiRuleSummaries
      */
     readonly limit?: number
 }
 
 /**
  * Request parameters for findResultsApiRulesAsync operation in ValidationResultsAPIApi.
- * @export
- * @interface ValidationResultsAPIApiFindResultsApiRulesAsyncRequest
  */
 export interface ValidationResultsAPIApiFindResultsApiRulesAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiFindResultsApiRulesAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiRulesAsync
      */
     readonly offset?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ValidationResultsAPIApiFindResultsApiRulesAsync
      */
     readonly limit?: number
 }
 
 /**
  * Request parameters for getLatestJobRunAsync operation in ValidationResultsAPIApi.
- * @export
- * @interface ValidationResultsAPIApiGetLatestJobRunAsyncRequest
  */
 export interface ValidationResultsAPIApiGetLatestJobRunAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetLatestJobRunAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetLatestJobRunAsync
      */
     readonly jobId: string
 }
 
 /**
  * Request parameters for getResultsApiJobById operation in ValidationResultsAPIApi.
- * @export
- * @interface ValidationResultsAPIApiGetResultsApiJobByIdRequest
  */
 export interface ValidationResultsAPIApiGetResultsApiJobByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiJobById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiJobById
      */
     readonly jobId: string
 }
 
 /**
  * Request parameters for getResultsApiJobRunByIdAsync operation in ValidationResultsAPIApi.
- * @export
- * @interface ValidationResultsAPIApiGetResultsApiJobRunByIdAsyncRequest
  */
 export interface ValidationResultsAPIApiGetResultsApiJobRunByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiJobRunByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiJobRunByIdAsync
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiJobRunByIdAsync
      */
     readonly runId: string
 }
 
 /**
  * Request parameters for getResultsApiJobRunRuleByIdAsync operation in ValidationResultsAPIApi.
- * @export
- * @interface ValidationResultsAPIApiGetResultsApiJobRunRuleByIdAsyncRequest
  */
 export interface ValidationResultsAPIApiGetResultsApiJobRunRuleByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiJobRunRuleByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiJobRunRuleByIdAsync
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiJobRunRuleByIdAsync
      */
     readonly runId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiJobRunRuleByIdAsync
      */
     readonly ruleId: string
 }
 
 /**
  * Request parameters for getResultsApiRuleByIdAsync operation in ValidationResultsAPIApi.
- * @export
- * @interface ValidationResultsAPIApiGetResultsApiRuleByIdAsyncRequest
  */
 export interface ValidationResultsAPIApiGetResultsApiRuleByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiRuleByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiRuleByIdAsync
      */
     readonly ruleId: string
 }
 
 /**
  * Request parameters for getResultsApiRuleSummary operation in ValidationResultsAPIApi.
- * @export
- * @interface ValidationResultsAPIApiGetResultsApiRuleSummaryRequest
  */
 export interface ValidationResultsAPIApiGetResultsApiRuleSummaryRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiRuleSummary
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiRuleSummary
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiRuleSummary
      */
     readonly runId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ValidationResultsAPIApiGetResultsApiRuleSummary
      */
     readonly ruleId: string
 }
 
 /**
  * ValidationResultsAPIApi - object-oriented interface
- * @export
- * @class ValidationResultsAPIApi
- * @extends {BaseAPI}
  */
 export class ValidationResultsAPIApi extends BaseAPI {
     /**
@@ -1486,7 +1358,6 @@ export class ValidationResultsAPIApi extends BaseAPI {
      * @param {ValidationResultsAPIApiFindResultsApiJobRunRecordsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ValidationResultsAPIApi
      */
     public findResultsApiJobRunRecordsAsync(requestParameters: ValidationResultsAPIApiFindResultsApiJobRunRecordsAsyncRequest, options?: RawAxiosRequestConfig) {
         return ValidationResultsAPIApiFp(this.configuration).findResultsApiJobRunRecordsAsync(requestParameters.tenantId, requestParameters.jobId, requestParameters.runId, requestParameters.offset, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
@@ -1498,7 +1369,6 @@ export class ValidationResultsAPIApi extends BaseAPI {
      * @param {ValidationResultsAPIApiFindResultsApiJobRunRuleRecordsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ValidationResultsAPIApi
      */
     public findResultsApiJobRunRuleRecordsAsync(requestParameters: ValidationResultsAPIApiFindResultsApiJobRunRuleRecordsAsyncRequest, options?: RawAxiosRequestConfig) {
         return ValidationResultsAPIApiFp(this.configuration).findResultsApiJobRunRuleRecordsAsync(requestParameters.tenantId, requestParameters.jobId, requestParameters.runId, requestParameters.ruleId, requestParameters.offset, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
@@ -1510,7 +1380,6 @@ export class ValidationResultsAPIApi extends BaseAPI {
      * @param {ValidationResultsAPIApiFindResultsApiJobRunRulesAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ValidationResultsAPIApi
      */
     public findResultsApiJobRunRulesAsync(requestParameters: ValidationResultsAPIApiFindResultsApiJobRunRulesAsyncRequest, options?: RawAxiosRequestConfig) {
         return ValidationResultsAPIApiFp(this.configuration).findResultsApiJobRunRulesAsync(requestParameters.tenantId, requestParameters.jobId, requestParameters.runId, requestParameters.offset, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
@@ -1522,7 +1391,6 @@ export class ValidationResultsAPIApi extends BaseAPI {
      * @param {ValidationResultsAPIApiFindResultsApiJobRunsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ValidationResultsAPIApi
      */
     public findResultsApiJobRunsAsync(requestParameters: ValidationResultsAPIApiFindResultsApiJobRunsAsyncRequest, options?: RawAxiosRequestConfig) {
         return ValidationResultsAPIApiFp(this.configuration).findResultsApiJobRunsAsync(requestParameters.tenantId, requestParameters.jobId, requestParameters.offset, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
@@ -1534,7 +1402,6 @@ export class ValidationResultsAPIApi extends BaseAPI {
      * @param {ValidationResultsAPIApiFindResultsApiJobsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ValidationResultsAPIApi
      */
     public findResultsApiJobsAsync(requestParameters: ValidationResultsAPIApiFindResultsApiJobsAsyncRequest, options?: RawAxiosRequestConfig) {
         return ValidationResultsAPIApiFp(this.configuration).findResultsApiJobsAsync(requestParameters.tenantId, requestParameters.offset, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
@@ -1546,7 +1413,6 @@ export class ValidationResultsAPIApi extends BaseAPI {
      * @param {ValidationResultsAPIApiFindResultsApiRuleSummariesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ValidationResultsAPIApi
      */
     public findResultsApiRuleSummaries(requestParameters: ValidationResultsAPIApiFindResultsApiRuleSummariesRequest, options?: RawAxiosRequestConfig) {
         return ValidationResultsAPIApiFp(this.configuration).findResultsApiRuleSummaries(requestParameters.tenantId, requestParameters.jobId, requestParameters.runId, requestParameters.offset, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
@@ -1558,7 +1424,6 @@ export class ValidationResultsAPIApi extends BaseAPI {
      * @param {ValidationResultsAPIApiFindResultsApiRulesAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ValidationResultsAPIApi
      */
     public findResultsApiRulesAsync(requestParameters: ValidationResultsAPIApiFindResultsApiRulesAsyncRequest, options?: RawAxiosRequestConfig) {
         return ValidationResultsAPIApiFp(this.configuration).findResultsApiRulesAsync(requestParameters.tenantId, requestParameters.offset, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
@@ -1570,7 +1435,6 @@ export class ValidationResultsAPIApi extends BaseAPI {
      * @param {ValidationResultsAPIApiGetLatestJobRunAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ValidationResultsAPIApi
      */
     public getLatestJobRunAsync(requestParameters: ValidationResultsAPIApiGetLatestJobRunAsyncRequest, options?: RawAxiosRequestConfig) {
         return ValidationResultsAPIApiFp(this.configuration).getLatestJobRunAsync(requestParameters.tenantId, requestParameters.jobId, options).then((request) => request(this.axios, this.basePath));
@@ -1582,7 +1446,6 @@ export class ValidationResultsAPIApi extends BaseAPI {
      * @param {ValidationResultsAPIApiGetResultsApiJobByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ValidationResultsAPIApi
      */
     public getResultsApiJobById(requestParameters: ValidationResultsAPIApiGetResultsApiJobByIdRequest, options?: RawAxiosRequestConfig) {
         return ValidationResultsAPIApiFp(this.configuration).getResultsApiJobById(requestParameters.tenantId, requestParameters.jobId, options).then((request) => request(this.axios, this.basePath));
@@ -1594,7 +1457,6 @@ export class ValidationResultsAPIApi extends BaseAPI {
      * @param {ValidationResultsAPIApiGetResultsApiJobRunByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ValidationResultsAPIApi
      */
     public getResultsApiJobRunByIdAsync(requestParameters: ValidationResultsAPIApiGetResultsApiJobRunByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return ValidationResultsAPIApiFp(this.configuration).getResultsApiJobRunByIdAsync(requestParameters.tenantId, requestParameters.jobId, requestParameters.runId, options).then((request) => request(this.axios, this.basePath));
@@ -1606,7 +1468,6 @@ export class ValidationResultsAPIApi extends BaseAPI {
      * @param {ValidationResultsAPIApiGetResultsApiJobRunRuleByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ValidationResultsAPIApi
      */
     public getResultsApiJobRunRuleByIdAsync(requestParameters: ValidationResultsAPIApiGetResultsApiJobRunRuleByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return ValidationResultsAPIApiFp(this.configuration).getResultsApiJobRunRuleByIdAsync(requestParameters.tenantId, requestParameters.jobId, requestParameters.runId, requestParameters.ruleId, options).then((request) => request(this.axios, this.basePath));
@@ -1618,7 +1479,6 @@ export class ValidationResultsAPIApi extends BaseAPI {
      * @param {ValidationResultsAPIApiGetResultsApiRuleByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ValidationResultsAPIApi
      */
     public getResultsApiRuleByIdAsync(requestParameters: ValidationResultsAPIApiGetResultsApiRuleByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return ValidationResultsAPIApiFp(this.configuration).getResultsApiRuleByIdAsync(requestParameters.tenantId, requestParameters.ruleId, options).then((request) => request(this.axios, this.basePath));
@@ -1630,7 +1490,6 @@ export class ValidationResultsAPIApi extends BaseAPI {
      * @param {ValidationResultsAPIApiGetResultsApiRuleSummaryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ValidationResultsAPIApi
      */
     public getResultsApiRuleSummary(requestParameters: ValidationResultsAPIApiGetResultsApiRuleSummaryRequest, options?: RawAxiosRequestConfig) {
         return ValidationResultsAPIApiFp(this.configuration).getResultsApiRuleSummary(requestParameters.tenantId, requestParameters.jobId, requestParameters.runId, requestParameters.ruleId, options).then((request) => request(this.axios, this.basePath));

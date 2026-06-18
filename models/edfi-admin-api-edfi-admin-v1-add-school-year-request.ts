@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1AddSchoolYearRequest
- */
 export interface EdfiAdminApiEdfiAdminV1AddSchoolYearRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1AddSchoolYearRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1AddSchoolYearRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1AddSchoolYearRequest
-     */
     'year'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1AddSchoolYearRequest
-     */
     'selectedTierId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1AddSchoolYearRequest
-     */
     'odsBackupCode'?: string | null;
 }
 

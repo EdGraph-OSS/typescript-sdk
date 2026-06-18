@@ -17,131 +17,26 @@
 // @ts-ignore
 import type { EvaluationApiEvaluationsV1EvaluationStatus } from './evaluation-api-evaluations-v1-evaluation-status';
 
-/**
- * 
- * @export
- * @interface EvaluationApiEvaluationsV1EvaluationResponse
- */
 export interface EvaluationApiEvaluationsV1EvaluationResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'evaluationDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'submissionDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'campus'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'appraiserUserId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'staffUserId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'formId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'formVersion'?: string | null;
-    /**
-     * 
-     * @type {EvaluationApiEvaluationsV1EvaluationStatus}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'status'?: EvaluationApiEvaluationsV1EvaluationStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'deletedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'deletedDateTime'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'isDeleted'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'appraiserFullName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'staffFullName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1EvaluationResponse
-     */
     'campusClassId'?: string | null;
 }
 

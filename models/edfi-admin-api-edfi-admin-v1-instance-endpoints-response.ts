@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1ApplicationEndpoint } from './edfi-admin-api-edfi-admin-v1-application-endpoint';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1InstanceEndpointsResponse
- */
 export interface EdfiAdminApiEdfiAdminV1InstanceEndpointsResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceEndpointsResponse
-     */
     'authUrl'?: string | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1ApplicationEndpoint>}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceEndpointsResponse
-     */
     'resourcesUrls'?: Array<EdfiAdminApiEdfiAdminV1ApplicationEndpoint> | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1ApplicationEndpoint>}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceEndpointsResponse
-     */
     'compositesUrls'?: Array<EdfiAdminApiEdfiAdminV1ApplicationEndpoint> | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1ApplicationEndpoint>}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceEndpointsResponse
-     */
     'discoveryUrls'?: Array<EdfiAdminApiEdfiAdminV1ApplicationEndpoint> | null;
 }
 

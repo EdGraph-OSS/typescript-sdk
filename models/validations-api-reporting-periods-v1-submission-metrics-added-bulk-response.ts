@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1SubmissionMetricsAddedBulkResponse
- */
 export interface ValidationsApiReportingPeriodsV1SubmissionMetricsAddedBulkResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionMetricsAddedBulkResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionMetricsAddedBulkResponse
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionMetricsAddedBulkResponse
-     */
     'submissionId'?: string | null;
 }
 

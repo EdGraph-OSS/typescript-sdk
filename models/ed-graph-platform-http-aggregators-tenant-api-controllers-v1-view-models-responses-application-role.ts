@@ -14,22 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationRole
- */
 export interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationRole {
     /**
      * The role associated with the application
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationRole
      */
     'role'?: string | null;
     /**
      * Indicates if the user is assigned license for this application
-     * @type {boolean}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationRole
      */
     'isAssigned'?: boolean;
 }

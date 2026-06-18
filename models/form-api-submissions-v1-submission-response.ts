@@ -14,101 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface FormApiSubmissionsV1SubmissionResponse
- */
 export interface FormApiSubmissionsV1SubmissionResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'formId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'currentStep'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'data'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'deletedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'deletedDateTime'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'isDeleted'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionResponse
-     */
     'evaluationId'?: string | null;
 }
 

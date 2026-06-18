@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { ApplicationApiApplicationV1UrlType } from './application-api-application-v1-url-type';
 
-/**
- * 
- * @export
- * @interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl
- */
 export interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl
-     */
     'label'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl
-     */
     'value'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl
-     */
     'openInNewTab'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl
-     */
     'readonly'?: boolean;
-    /**
-     * 
-     * @type {ApplicationApiApplicationV1UrlType}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl
-     */
     'type'?: ApplicationApiApplicationV1UrlType;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiDbEnvironmentsV1TestConnectionResponse
- */
 export interface ValidationsApiDbEnvironmentsV1TestConnectionResponse {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiDbEnvironmentsV1TestConnectionResponse
-     */
     'canConnect'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1TestConnectionResponse
-     */
     'reasonFailed'?: string | null;
 }
 

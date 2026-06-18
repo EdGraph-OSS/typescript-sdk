@@ -20,59 +20,14 @@ import type { DataSyncApiJobV1JobExecutionStatus } from './data-sync-api-job-v1-
 // @ts-ignore
 import type { DataSyncApiJobV1Metric } from './data-sync-api-job-v1-metric';
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobV1ChildJob
- */
 export interface DataSyncApiJobV1ChildJob {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1ChildJob
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1ChildJob
-     */
     'jobExecutionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1ChildJob
-     */
     'childJobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1ChildJob
-     */
     'childJobName'?: string | null;
-    /**
-     * 
-     * @type {DataSyncApiJobV1JobExecutionStatus}
-     * @memberof DataSyncApiJobV1ChildJob
-     */
     'jobExecutionStatus'?: DataSyncApiJobV1JobExecutionStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1ChildJob
-     */
     'jobExecutionStartDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1ChildJob
-     */
     'jobExecutionEndDateTime'?: string | null;
-    /**
-     * 
-     * @type {Array<DataSyncApiJobV1Metric>}
-     * @memberof DataSyncApiJobV1ChildJob
-     */
     'metrics'?: Array<DataSyncApiJobV1Metric> | null;
 }
 

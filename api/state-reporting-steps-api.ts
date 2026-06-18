@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { ValidationsApiStateReportingStepsV1GetStateReportingStepsResponse 
 import type { ValidationsApiStateReportingStepsV1UpdateStateReportingStepRequest } from '../models';
 /**
  * StateReportingStepsApi - axios parameter creator
- * @export
  */
 export const StateReportingStepsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -49,8 +48,8 @@ export const StateReportingStepsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'schoolYear' is not null or undefined
             assertParamExists('getSteps', 'schoolYear', schoolYear)
             const localVarPath = `/tenants/{tenantId}/statereporting/schoolYear/{schoolYear}/steps`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"schoolYear"}}`, encodeURIComponent(String(schoolYear)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{schoolYear}', encodeURIComponent(String(schoolYear)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -66,8 +65,8 @@ export const StateReportingStepsApiAxiosParamCreator = function (configuration?:
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -92,8 +91,8 @@ export const StateReportingStepsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'schoolYear' is not null or undefined
             assertParamExists('updateStep', 'schoolYear', schoolYear)
             const localVarPath = `/tenants/{tenantId}/statereporting/schoolYear/{schoolYear}/steps`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"schoolYear"}}`, encodeURIComponent(String(schoolYear)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{schoolYear}', encodeURIComponent(String(schoolYear)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -109,9 +108,8 @@ export const StateReportingStepsApiAxiosParamCreator = function (configuration?:
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -128,7 +126,6 @@ export const StateReportingStepsApiAxiosParamCreator = function (configuration?:
 
 /**
  * StateReportingStepsApi - functional programming interface
- * @export
  */
 export const StateReportingStepsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = StateReportingStepsApiAxiosParamCreator(configuration)
@@ -167,7 +164,6 @@ export const StateReportingStepsApiFp = function(configuration?: Configuration) 
 
 /**
  * StateReportingStepsApi - factory interface
- * @export
  */
 export const StateReportingStepsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = StateReportingStepsApiFp(configuration)
@@ -197,58 +193,41 @@ export const StateReportingStepsApiFactory = function (configuration?: Configura
 
 /**
  * Request parameters for getSteps operation in StateReportingStepsApi.
- * @export
- * @interface StateReportingStepsApiGetStepsRequest
  */
 export interface StateReportingStepsApiGetStepsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof StateReportingStepsApiGetSteps
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof StateReportingStepsApiGetSteps
      */
     readonly schoolYear: number
 }
 
 /**
  * Request parameters for updateStep operation in StateReportingStepsApi.
- * @export
- * @interface StateReportingStepsApiUpdateStepRequest
  */
 export interface StateReportingStepsApiUpdateStepRequest {
     /**
      * 
-     * @type {string}
-     * @memberof StateReportingStepsApiUpdateStep
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof StateReportingStepsApiUpdateStep
      */
     readonly schoolYear: number
 
     /**
      * 
-     * @type {ValidationsApiStateReportingStepsV1UpdateStateReportingStepRequest}
-     * @memberof StateReportingStepsApiUpdateStep
      */
     readonly validationsApiStateReportingStepsV1UpdateStateReportingStepRequest?: ValidationsApiStateReportingStepsV1UpdateStateReportingStepRequest
 }
 
 /**
  * StateReportingStepsApi - object-oriented interface
- * @export
- * @class StateReportingStepsApi
- * @extends {BaseAPI}
  */
 export class StateReportingStepsApi extends BaseAPI {
     /**
@@ -257,7 +236,6 @@ export class StateReportingStepsApi extends BaseAPI {
      * @param {StateReportingStepsApiGetStepsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StateReportingStepsApi
      */
     public getSteps(requestParameters: StateReportingStepsApiGetStepsRequest, options?: RawAxiosRequestConfig) {
         return StateReportingStepsApiFp(this.configuration).getSteps(requestParameters.tenantId, requestParameters.schoolYear, options).then((request) => request(this.axios, this.basePath));
@@ -269,7 +247,6 @@ export class StateReportingStepsApi extends BaseAPI {
      * @param {StateReportingStepsApiUpdateStepRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StateReportingStepsApi
      */
     public updateStep(requestParameters: StateReportingStepsApiUpdateStepRequest, options?: RawAxiosRequestConfig) {
         return StateReportingStepsApiFp(this.configuration).updateStep(requestParameters.tenantId, requestParameters.schoolYear, requestParameters.validationsApiStateReportingStepsV1UpdateStateReportingStepRequest, options).then((request) => request(this.axios, this.basePath));

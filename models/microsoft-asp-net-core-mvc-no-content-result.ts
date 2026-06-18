@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface MicrosoftAspNetCoreMvcNoContentResult
- */
 export interface MicrosoftAspNetCoreMvcNoContentResult {
-    /**
-     * 
-     * @type {number}
-     * @memberof MicrosoftAspNetCoreMvcNoContentResult
-     */
     'statusCode'?: number;
 }
 

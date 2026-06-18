@@ -17,41 +17,11 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1SubmissionStatus } from './ed-graph-services-state-reporting-v1-submission-status';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1SubmissionStatusSetResponse
- */
 export interface EdGraphServicesStateReportingV1SubmissionStatusSetResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionStatusSetResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionStatusSetResponse
-     */
     'environmentId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionStatusSetResponse
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionStatusSetResponse
-     */
     'submissionId'?: string | null;
-    /**
-     * 
-     * @type {EdGraphServicesStateReportingV1SubmissionStatus}
-     * @memberof EdGraphServicesStateReportingV1SubmissionStatusSetResponse
-     */
     'status'?: EdGraphServicesStateReportingV1SubmissionStatus;
 }
 

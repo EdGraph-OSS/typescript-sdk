@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface FormApiSubmissionsV1SubmissionCreatedResponse
- */
 export interface FormApiSubmissionsV1SubmissionCreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionCreatedResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionCreatedResponse
-     */
     'formId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionCreatedResponse
-     */
     'tenantId'?: string | null;
 }
 

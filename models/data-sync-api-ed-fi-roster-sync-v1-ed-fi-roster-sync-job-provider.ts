@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProvider = {
     Unknown: 'Unknown',
     EdGraph: 'EdGraph',
-    TexasEducationExchange: 'TexasEducationExchange'
+    TexasEducationExchange: 'TexasEducationExchange',
 } as const;
 
 export type DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProvider = typeof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProvider[keyof typeof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProvider];

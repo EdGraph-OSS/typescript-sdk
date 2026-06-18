@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1SecretEncryptionMetadata
- */
 export interface EdfiAdminApiEdfiAdminV1SecretEncryptionMetadata {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SecretEncryptionMetadata
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SecretEncryptionMetadata
-     */
     'value'?: string | null;
 }
 

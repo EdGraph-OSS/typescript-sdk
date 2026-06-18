@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiResultsV1RuleSummary
- */
 export interface ValidationsApiResultsV1RuleSummary {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiResultsV1RuleSummary
-     */
     'ruleId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiResultsV1RuleSummary
-     */
     'ruleIdentification'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiResultsV1RuleSummary
-     */
     'severityLevel'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiResultsV1RuleSummary
-     */
     'totalCount'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiResultsV1RuleSummary
-     */
     'exceptionCount'?: number;
 }
 

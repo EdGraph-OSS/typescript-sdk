@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1DomainCreatedResponse
- */
 export interface TenantApiTenantV1DomainCreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1DomainCreatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1DomainCreatedResponse
-     */
     'domainName'?: string | null;
 }
 

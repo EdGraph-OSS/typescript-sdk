@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -39,7 +39,6 @@ import type { EdfiAdminApiEdfiAdminV1UpdateInstanceApiClientRequest } from '../m
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * InstancesInstanceApplicationsAPIClientsApi - axios parameter creator
- * @export
  */
 export const InstancesInstanceApplicationsAPIClientsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -61,9 +60,9 @@ export const InstancesInstanceApplicationsAPIClientsApiAxiosParamCreator = funct
             // verify required parameter 'applicationId' is not null or undefined
             assertParamExists('createInstanceApiClient', 'applicationId', applicationId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/instanceapplications/{applicationId}/apiclients`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"applicationId"}}`, encodeURIComponent(String(applicationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{applicationId}', encodeURIComponent(String(applicationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -79,9 +78,8 @@ export const InstancesInstanceApplicationsAPIClientsApiAxiosParamCreator = funct
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -113,10 +111,10 @@ export const InstancesInstanceApplicationsAPIClientsApiAxiosParamCreator = funct
             // verify required parameter 'apiClientId' is not null or undefined
             assertParamExists('deleteInstanceApiClient', 'apiClientId', apiClientId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/instanceapplications/{applicationId}/apiclients/{apiClientId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"applicationId"}}`, encodeURIComponent(String(applicationId)))
-                .replace(`{${"apiClientId"}}`, encodeURIComponent(String(apiClientId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{applicationId}', encodeURIComponent(String(applicationId)))
+                .replace('{apiClientId}', encodeURIComponent(String(apiClientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -132,8 +130,8 @@ export const InstancesInstanceApplicationsAPIClientsApiAxiosParamCreator = funct
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -163,10 +161,10 @@ export const InstancesInstanceApplicationsAPIClientsApiAxiosParamCreator = funct
             // verify required parameter 'apiClientId' is not null or undefined
             assertParamExists('getInstanceApiClientById', 'apiClientId', apiClientId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/instanceapplications/{applicationId}/apiclients/{apiClientId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"applicationId"}}`, encodeURIComponent(String(applicationId)))
-                .replace(`{${"apiClientId"}}`, encodeURIComponent(String(apiClientId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{applicationId}', encodeURIComponent(String(applicationId)))
+                .replace('{apiClientId}', encodeURIComponent(String(apiClientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -182,8 +180,8 @@ export const InstancesInstanceApplicationsAPIClientsApiAxiosParamCreator = funct
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -214,9 +212,9 @@ export const InstancesInstanceApplicationsAPIClientsApiAxiosParamCreator = funct
             // verify required parameter 'applicationId' is not null or undefined
             assertParamExists('getInstanceApiClients', 'applicationId', applicationId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/instanceapplications/{applicationId}/apiclients`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"applicationId"}}`, encodeURIComponent(String(applicationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{applicationId}', encodeURIComponent(String(applicationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -248,8 +246,8 @@ export const InstancesInstanceApplicationsAPIClientsApiAxiosParamCreator = funct
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -280,10 +278,10 @@ export const InstancesInstanceApplicationsAPIClientsApiAxiosParamCreator = funct
             // verify required parameter 'apiClientId' is not null or undefined
             assertParamExists('updateInstanceApiClient', 'apiClientId', apiClientId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/instanceapplications/{applicationId}/apiclients/{apiClientId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"applicationId"}}`, encodeURIComponent(String(applicationId)))
-                .replace(`{${"apiClientId"}}`, encodeURIComponent(String(apiClientId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{applicationId}', encodeURIComponent(String(applicationId)))
+                .replace('{apiClientId}', encodeURIComponent(String(apiClientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -299,9 +297,8 @@ export const InstancesInstanceApplicationsAPIClientsApiAxiosParamCreator = funct
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -318,7 +315,6 @@ export const InstancesInstanceApplicationsAPIClientsApiAxiosParamCreator = funct
 
 /**
  * InstancesInstanceApplicationsAPIClientsApi - functional programming interface
- * @export
  */
 export const InstancesInstanceApplicationsAPIClientsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InstancesInstanceApplicationsAPIClientsApiAxiosParamCreator(configuration)
@@ -412,7 +408,6 @@ export const InstancesInstanceApplicationsAPIClientsApiFp = function(configurati
 
 /**
  * InstancesInstanceApplicationsAPIClientsApi - factory interface
- * @export
  */
 export const InstancesInstanceApplicationsAPIClientsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InstancesInstanceApplicationsAPIClientsApiFp(configuration)
@@ -472,212 +467,151 @@ export const InstancesInstanceApplicationsAPIClientsApiFactory = function (confi
 
 /**
  * Request parameters for createInstanceApiClient operation in InstancesInstanceApplicationsAPIClientsApi.
- * @export
- * @interface InstancesInstanceApplicationsAPIClientsApiCreateInstanceApiClientRequest
  */
 export interface InstancesInstanceApplicationsAPIClientsApiCreateInstanceApiClientRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiCreateInstanceApiClient
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiCreateInstanceApiClient
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiCreateInstanceApiClient
      */
     readonly applicationId: string
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1CreateInstanceApiClientRequest}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiCreateInstanceApiClient
      */
     readonly edfiAdminApiEdfiAdminV1CreateInstanceApiClientRequest?: EdfiAdminApiEdfiAdminV1CreateInstanceApiClientRequest
 }
 
 /**
  * Request parameters for deleteInstanceApiClient operation in InstancesInstanceApplicationsAPIClientsApi.
- * @export
- * @interface InstancesInstanceApplicationsAPIClientsApiDeleteInstanceApiClientRequest
  */
 export interface InstancesInstanceApplicationsAPIClientsApiDeleteInstanceApiClientRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiDeleteInstanceApiClient
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiDeleteInstanceApiClient
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiDeleteInstanceApiClient
      */
     readonly applicationId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiDeleteInstanceApiClient
      */
     readonly apiClientId: string
 }
 
 /**
  * Request parameters for getInstanceApiClientById operation in InstancesInstanceApplicationsAPIClientsApi.
- * @export
- * @interface InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClientByIdRequest
  */
 export interface InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClientByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClientById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClientById
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClientById
      */
     readonly applicationId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClientById
      */
     readonly apiClientId: string
 }
 
 /**
  * Request parameters for getInstanceApiClients operation in InstancesInstanceApplicationsAPIClientsApi.
- * @export
- * @interface InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClientsRequest
  */
 export interface InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClientsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClients
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClients
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClients
      */
     readonly applicationId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClients
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClients
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClients
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClients
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for updateInstanceApiClient operation in InstancesInstanceApplicationsAPIClientsApi.
- * @export
- * @interface InstancesInstanceApplicationsAPIClientsApiUpdateInstanceApiClientRequest
  */
 export interface InstancesInstanceApplicationsAPIClientsApiUpdateInstanceApiClientRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiUpdateInstanceApiClient
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiUpdateInstanceApiClient
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiUpdateInstanceApiClient
      */
     readonly applicationId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiUpdateInstanceApiClient
      */
     readonly apiClientId: string
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1UpdateInstanceApiClientRequest}
-     * @memberof InstancesInstanceApplicationsAPIClientsApiUpdateInstanceApiClient
      */
     readonly edfiAdminApiEdfiAdminV1UpdateInstanceApiClientRequest?: EdfiAdminApiEdfiAdminV1UpdateInstanceApiClientRequest
 }
 
 /**
  * InstancesInstanceApplicationsAPIClientsApi - object-oriented interface
- * @export
- * @class InstancesInstanceApplicationsAPIClientsApi
- * @extends {BaseAPI}
  */
 export class InstancesInstanceApplicationsAPIClientsApi extends BaseAPI {
     /**
@@ -686,7 +620,6 @@ export class InstancesInstanceApplicationsAPIClientsApi extends BaseAPI {
      * @param {InstancesInstanceApplicationsAPIClientsApiCreateInstanceApiClientRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesInstanceApplicationsAPIClientsApi
      */
     public createInstanceApiClient(requestParameters: InstancesInstanceApplicationsAPIClientsApiCreateInstanceApiClientRequest, options?: RawAxiosRequestConfig) {
         return InstancesInstanceApplicationsAPIClientsApiFp(this.configuration).createInstanceApiClient(requestParameters.tenantId, requestParameters.instanceId, requestParameters.applicationId, requestParameters.edfiAdminApiEdfiAdminV1CreateInstanceApiClientRequest, options).then((request) => request(this.axios, this.basePath));
@@ -698,7 +631,6 @@ export class InstancesInstanceApplicationsAPIClientsApi extends BaseAPI {
      * @param {InstancesInstanceApplicationsAPIClientsApiDeleteInstanceApiClientRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesInstanceApplicationsAPIClientsApi
      */
     public deleteInstanceApiClient(requestParameters: InstancesInstanceApplicationsAPIClientsApiDeleteInstanceApiClientRequest, options?: RawAxiosRequestConfig) {
         return InstancesInstanceApplicationsAPIClientsApiFp(this.configuration).deleteInstanceApiClient(requestParameters.tenantId, requestParameters.instanceId, requestParameters.applicationId, requestParameters.apiClientId, options).then((request) => request(this.axios, this.basePath));
@@ -710,7 +642,6 @@ export class InstancesInstanceApplicationsAPIClientsApi extends BaseAPI {
      * @param {InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClientByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesInstanceApplicationsAPIClientsApi
      */
     public getInstanceApiClientById(requestParameters: InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClientByIdRequest, options?: RawAxiosRequestConfig) {
         return InstancesInstanceApplicationsAPIClientsApiFp(this.configuration).getInstanceApiClientById(requestParameters.tenantId, requestParameters.instanceId, requestParameters.applicationId, requestParameters.apiClientId, options).then((request) => request(this.axios, this.basePath));
@@ -722,7 +653,6 @@ export class InstancesInstanceApplicationsAPIClientsApi extends BaseAPI {
      * @param {InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClientsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesInstanceApplicationsAPIClientsApi
      */
     public getInstanceApiClients(requestParameters: InstancesInstanceApplicationsAPIClientsApiGetInstanceApiClientsRequest, options?: RawAxiosRequestConfig) {
         return InstancesInstanceApplicationsAPIClientsApiFp(this.configuration).getInstanceApiClients(requestParameters.tenantId, requestParameters.instanceId, requestParameters.applicationId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -734,7 +664,6 @@ export class InstancesInstanceApplicationsAPIClientsApi extends BaseAPI {
      * @param {InstancesInstanceApplicationsAPIClientsApiUpdateInstanceApiClientRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesInstanceApplicationsAPIClientsApi
      */
     public updateInstanceApiClient(requestParameters: InstancesInstanceApplicationsAPIClientsApiUpdateInstanceApiClientRequest, options?: RawAxiosRequestConfig) {
         return InstancesInstanceApplicationsAPIClientsApiFp(this.configuration).updateInstanceApiClient(requestParameters.tenantId, requestParameters.instanceId, requestParameters.applicationId, requestParameters.apiClientId, requestParameters.edfiAdminApiEdfiAdminV1UpdateInstanceApiClientRequest, options).then((request) => request(this.axios, this.basePath));

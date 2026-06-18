@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiValidationResultsV1ValidationResultDto } from './validations-api-validation-results-v1-validation-result-dto';
 
-/**
- * 
- * @export
- * @interface ValidationsApiValidationResultsV1FindResponse
- */
 export interface ValidationsApiValidationResultsV1FindResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiValidationResultsV1FindResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiValidationResultsV1FindResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiValidationResultsV1FindResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<ValidationsApiValidationResultsV1ValidationResultDto>}
-     * @memberof ValidationsApiValidationResultsV1FindResponse
-     */
     'data'?: Array<ValidationsApiValidationResultsV1ValidationResultDto> | null;
 }
 

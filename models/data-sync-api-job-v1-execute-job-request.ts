@@ -20,47 +20,12 @@ import type { DataSyncApiJobV1DataRefreshType } from './data-sync-api-job-v1-dat
 // @ts-ignore
 import type { DataSyncApiJobV1JobExecutionMetadata } from './data-sync-api-job-v1-job-execution-metadata';
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobV1ExecuteJobRequest
- */
 export interface DataSyncApiJobV1ExecuteJobRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1ExecuteJobRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1ExecuteJobRequest
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1ExecuteJobRequest
-     */
     'childJobId'?: string | null;
-    /**
-     * 
-     * @type {DataSyncApiJobV1DataRefreshType}
-     * @memberof DataSyncApiJobV1ExecuteJobRequest
-     */
     'dataRefreshType'?: DataSyncApiJobV1DataRefreshType;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1ExecuteJobRequest
-     */
     'dataRefreshSpecificDate'?: string | null;
-    /**
-     * 
-     * @type {Array<DataSyncApiJobV1JobExecutionMetadata>}
-     * @memberof DataSyncApiJobV1ExecuteJobRequest
-     */
     'jobExecutionMetadata'?: Array<DataSyncApiJobV1JobExecutionMetadata> | null;
 }
 

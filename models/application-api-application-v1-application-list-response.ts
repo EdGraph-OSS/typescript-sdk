@@ -23,101 +23,21 @@ import type { ApplicationApiApplicationV1ApplicationSubscriptionType } from './a
 // @ts-ignore
 import type { ApplicationApiApplicationV1Role } from './application-api-application-v1-role';
 
-/**
- * 
- * @export
- * @interface ApplicationApiApplicationV1ApplicationListResponse
- */
 export interface ApplicationApiApplicationV1ApplicationListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'applicationName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'version'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'tags'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'groups'?: string | null;
-    /**
-     * 
-     * @type {ApplicationApiApplicationV1ApplicationStatus}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'applicationStatus'?: ApplicationApiApplicationV1ApplicationStatus;
-    /**
-     * 
-     * @type {Array<ApplicationApiApplicationV1Role>}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'roles'?: Array<ApplicationApiApplicationV1Role> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'deletedAt'?: string | null;
-    /**
-     * 
-     * @type {ApplicationApiApplicationV1ApplicationSubscriptionType}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'subscriptionType'?: ApplicationApiApplicationV1ApplicationSubscriptionType;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1ApplicationListResponse
-     */
     'documentationUrl'?: string | null;
 }
 

@@ -17,161 +17,31 @@
 // @ts-ignore
 import type { TenantApiSectionsV1SectionSource } from './tenant-api-sections-v1-section-source';
 
-/**
- * 
- * @export
- * @interface TenantApiSectionsV1SectionProfileResponse
- */
 export interface TenantApiSectionsV1SectionProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'sectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'schoolId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'schoolName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'sessionName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'term'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'localCourseCode'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'localCourseTitle'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'courseCode'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'courseTitle'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'academicSubjects'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'offeredGradeLevels'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'sectionIdentifier'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'sectionName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'sectionType'?: string | null;
-    /**
-     * 
-     * @type {TenantApiSectionsV1SectionSource}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'source'?: TenantApiSectionsV1SectionSource;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'edFiInstanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'jobExecutionId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'schoolYear'?: number;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof TenantApiSectionsV1SectionProfileResponse
-     */
     'classPeriods'?: Array<string> | null;
 }
 

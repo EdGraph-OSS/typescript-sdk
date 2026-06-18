@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1VendorListResponse } from './edfi-admin-api-edfi-admin-v1-vendor-list-response';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1VendorListResponsePaginatedItemsViewModel
- */
 export interface EdfiAdminApiEdfiAdminV1VendorListResponsePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1VendorListResponsePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1VendorListResponsePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1VendorListResponsePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1VendorListResponse>}
-     * @memberof EdfiAdminApiEdfiAdminV1VendorListResponsePaginatedItemsViewModel
-     */
     'data'?: Array<EdfiAdminApiEdfiAdminV1VendorListResponse> | null;
 }
 

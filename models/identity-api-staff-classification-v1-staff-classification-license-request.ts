@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiStaffClassificationV1StaffClassificationLicenseRequest
- */
 export interface IdentityApiStaffClassificationV1StaffClassificationLicenseRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationLicenseRequest
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationLicenseRequest
-     */
     'licenseStatus'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationLicenseRequest
-     */
     'roles'?: Array<string> | null;
 }
 

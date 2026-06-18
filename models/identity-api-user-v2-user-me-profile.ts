@@ -20,65 +20,15 @@ import type { IdentityApiUserV2TenantMeProfile } from './identity-api-user-v2-te
 // @ts-ignore
 import type { IdentityApiUserV2UserExtension } from './identity-api-user-v2-user-extension';
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV2UserMeProfile
- */
 export interface IdentityApiUserV2UserMeProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserMeProfile
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserMeProfile
-     */
     'userName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserMeProfile
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserMeProfile
-     */
     'firstName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserMeProfile
-     */
     'lastName'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2UserMeProfile
-     */
     'tenantCount'?: number | null;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV2UserExtension>}
-     * @memberof IdentityApiUserV2UserMeProfile
-     */
     'extensions'?: Array<IdentityApiUserV2UserExtension> | null;
-    /**
-     * 
-     * @type {IdentityApiUserV2TenantMeProfile}
-     * @memberof IdentityApiUserV2UserMeProfile
-     */
     'selectedTenant'?: IdentityApiUserV2TenantMeProfile;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserMeProfile
-     */
     'platformRole'?: string | null;
 }
 

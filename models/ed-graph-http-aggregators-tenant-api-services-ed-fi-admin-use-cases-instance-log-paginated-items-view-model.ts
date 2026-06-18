@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLog } from './ed-graph-http-aggregators-tenant-api-services-ed-fi-admin-use-cases-instance-log';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLogPaginatedItemsViewModel
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLogPaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLogPaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLogPaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLogPaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLog>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLogPaginatedItemsViewModel
-     */
     'data'?: Array<EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLog> | null;
 }
 

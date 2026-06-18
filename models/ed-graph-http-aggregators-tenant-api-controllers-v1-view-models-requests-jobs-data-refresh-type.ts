@@ -14,17 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsDataRefreshType = {
     Unknown: 'Unknown',
     Full: 'Full',
     Deltasincelastjobexecution: 'Deltasincelastjobexecution',
-    Deltasincespecificdatetime: 'Deltasincespecificdatetime'
+    Deltasincespecificdatetime: 'Deltasincespecificdatetime',
 } as const;
 
 export type EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsDataRefreshType = typeof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsDataRefreshType[keyof typeof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsDataRefreshType];

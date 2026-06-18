@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1CreateReportingPeriodRequest
- */
 export interface EdGraphServicesStateReportingV1CreateReportingPeriodRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1CreateReportingPeriodRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1CreateReportingPeriodRequest
-     */
     'environmentId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1CreateReportingPeriodRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1CreateReportingPeriodRequest
-     */
     'tagId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdGraphServicesStateReportingV1CreateReportingPeriodRequest
-     */
     'ruleIds'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1CreateReportingPeriodRequest
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1CreateReportingPeriodRequest
-     */
     'displayName'?: string | null;
 }
 

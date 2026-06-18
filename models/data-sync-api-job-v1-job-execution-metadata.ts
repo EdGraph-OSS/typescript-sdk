@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobV1JobExecutionMetadata
- */
 export interface DataSyncApiJobV1JobExecutionMetadata {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobExecutionMetadata
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobExecutionMetadata
-     */
     'value'?: string | null;
 }
 

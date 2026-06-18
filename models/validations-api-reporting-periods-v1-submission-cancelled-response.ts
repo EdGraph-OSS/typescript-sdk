@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1SubmissionCancelledResponse
- */
 export interface ValidationsApiReportingPeriodsV1SubmissionCancelledResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionCancelledResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionCancelledResponse
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionCancelledResponse
-     */
     'submissionId'?: string | null;
 }
 

@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1SEOAAUpdatedResponse
- */
 export interface IdentityApiUserV1SEOAAUpdatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SEOAAUpdatedResponse
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SEOAAUpdatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SEOAAUpdatedResponse
-     */
     'seoaaId'?: string | null;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1TenantAdditionalSetting
- */
 export interface TenantApiTenantV1TenantAdditionalSetting {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiTenantV1TenantAdditionalSetting
-     */
     'showLocalLoginOptionToTenantAdmins'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantAdditionalSetting
-     */
     'gracePeriodMfaExpiryDate'?: string | null;
 }
 

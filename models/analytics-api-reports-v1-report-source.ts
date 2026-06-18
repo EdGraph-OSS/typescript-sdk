@@ -16,13 +16,11 @@
 
 /**
  * Enums
- * @export
- * @enum {string}
  */
 
 export const AnalyticsApiReportsV1ReportSource = {
     Edgraph: 'Edgraph',
-    External: 'External'
+    External: 'External',
 } as const;
 
 export type AnalyticsApiReportsV1ReportSource = typeof AnalyticsApiReportsV1ReportSource[keyof typeof AnalyticsApiReportsV1ReportSource];

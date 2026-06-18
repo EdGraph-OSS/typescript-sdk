@@ -17,59 +17,14 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1EducationOrganization } from './edfi-admin-api-edfi-admin-v1-education-organization';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1CreateEdFiApplicationRequest
- */
 export interface EdfiAdminApiEdfiAdminV1CreateEdFiApplicationRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateEdFiApplicationRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateEdFiApplicationRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateEdFiApplicationRequest
-     */
     'applicationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateEdFiApplicationRequest
-     */
     'applicationName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateEdFiApplicationRequest
-     */
     'claimSetName'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateEdFiApplicationRequest
-     */
     'vendorId'?: number;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1EducationOrganization>}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateEdFiApplicationRequest
-     */
     'educationOrganizations'?: Array<EdfiAdminApiEdfiAdminV1EducationOrganization> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateEdFiApplicationRequest
-     */
     'operationalContextUri'?: string | null;
 }
 

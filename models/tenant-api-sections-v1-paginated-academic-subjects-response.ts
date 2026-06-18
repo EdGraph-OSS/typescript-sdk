@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { TenantApiSectionsV1AcademicSubjectListResponse } from './tenant-api-sections-v1-academic-subject-list-response';
 
-/**
- * 
- * @export
- * @interface TenantApiSectionsV1PaginatedAcademicSubjectsResponse
- */
 export interface TenantApiSectionsV1PaginatedAcademicSubjectsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedAcademicSubjectsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedAcademicSubjectsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedAcademicSubjectsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<TenantApiSectionsV1AcademicSubjectListResponse>}
-     * @memberof TenantApiSectionsV1PaginatedAcademicSubjectsResponse
-     */
     'data'?: Array<TenantApiSectionsV1AcademicSubjectListResponse> | null;
 }
 

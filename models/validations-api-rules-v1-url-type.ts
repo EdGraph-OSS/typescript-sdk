@@ -14,15 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ValidationsApiRulesV1UrlType = {
     Link: 'Link',
-    Asset: 'Asset'
+    Asset: 'Asset',
 } as const;
 
 export type ValidationsApiRulesV1UrlType = typeof ValidationsApiRulesV1UrlType[keyof typeof ValidationsApiRulesV1UrlType];

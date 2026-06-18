@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiJobsV1JobListResponse } from './validations-api-jobs-v1-job-list-response';
 
-/**
- * 
- * @export
- * @interface ValidationsApiJobsV1PaginatedItemsResponse
- */
 export interface ValidationsApiJobsV1PaginatedItemsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiJobsV1PaginatedItemsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiJobsV1PaginatedItemsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiJobsV1PaginatedItemsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<ValidationsApiJobsV1JobListResponse>}
-     * @memberof ValidationsApiJobsV1PaginatedItemsResponse
-     */
     'data'?: Array<ValidationsApiJobsV1JobListResponse> | null;
 }
 

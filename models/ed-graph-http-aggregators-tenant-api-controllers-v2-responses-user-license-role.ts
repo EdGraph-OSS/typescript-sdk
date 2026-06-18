@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseRole
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseRole {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseRole
-     */
     'roleName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseRole
-     */
     'displayName'?: string | null;
 }
 

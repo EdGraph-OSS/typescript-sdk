@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { IdentityApiUserV1UserTenantProfilePaginatedItemsViewModel } from '
 import type { IdentityApiUserV2UserMeTenantsResponsePaginatedItemsViewModel } from '../models';
 /**
  * MyTenantsApi - axios parameter creator
- * @export
  */
 export const MyTenantsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -76,8 +75,8 @@ export const MyTenantsApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -102,7 +101,7 @@ export const MyTenantsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('searchMyLicenses', 'tenantId', tenantId)
             const localVarPath = `/v2/me/tenants/{tenantId}/licenses`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -134,8 +133,8 @@ export const MyTenantsApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -188,8 +187,8 @@ export const MyTenantsApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -204,7 +203,6 @@ export const MyTenantsApiAxiosParamCreator = function (configuration?: Configura
 
 /**
  * MyTenantsApi - functional programming interface
- * @export
  */
 export const MyTenantsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MyTenantsApiAxiosParamCreator(configuration)
@@ -263,7 +261,6 @@ export const MyTenantsApiFp = function(configuration?: Configuration) {
 
 /**
  * MyTenantsApi - factory interface
- * @export
  */
 export const MyTenantsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MyTenantsApiFp(configuration)
@@ -303,121 +300,47 @@ export const MyTenantsApiFactory = function (configuration?: Configuration, base
 
 /**
  * Request parameters for getUserTenants operation in MyTenantsApi.
- * @export
- * @interface MyTenantsApiGetUserTenantsRequest
  */
 export interface MyTenantsApiGetUserTenantsRequest {
-    /**
-     * 
-     * @type {number}
-     * @memberof MyTenantsApiGetUserTenants
-     */
     readonly pageIndex?: number
 
-    /**
-     * 
-     * @type {number}
-     * @memberof MyTenantsApiGetUserTenants
-     */
     readonly pageSize?: number
 
-    /**
-     * 
-     * @type {string}
-     * @memberof MyTenantsApiGetUserTenants
-     */
     readonly filter?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof MyTenantsApiGetUserTenants
-     */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for searchMyLicenses operation in MyTenantsApi.
- * @export
- * @interface MyTenantsApiSearchMyLicensesRequest
  */
 export interface MyTenantsApiSearchMyLicensesRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof MyTenantsApiSearchMyLicenses
-     */
     readonly tenantId: string
 
-    /**
-     * 
-     * @type {number}
-     * @memberof MyTenantsApiSearchMyLicenses
-     */
     readonly pageIndex?: number
 
-    /**
-     * 
-     * @type {number}
-     * @memberof MyTenantsApiSearchMyLicenses
-     */
     readonly pageSize?: number
 
-    /**
-     * 
-     * @type {string}
-     * @memberof MyTenantsApiSearchMyLicenses
-     */
     readonly filter?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof MyTenantsApiSearchMyLicenses
-     */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for searchMyTenants operation in MyTenantsApi.
- * @export
- * @interface MyTenantsApiSearchMyTenantsRequest
  */
 export interface MyTenantsApiSearchMyTenantsRequest {
-    /**
-     * 
-     * @type {number}
-     * @memberof MyTenantsApiSearchMyTenants
-     */
     readonly pageIndex?: number
 
-    /**
-     * 
-     * @type {number}
-     * @memberof MyTenantsApiSearchMyTenants
-     */
     readonly pageSize?: number
 
-    /**
-     * 
-     * @type {string}
-     * @memberof MyTenantsApiSearchMyTenants
-     */
     readonly filter?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof MyTenantsApiSearchMyTenants
-     */
     readonly orderBy?: string
 }
 
 /**
  * MyTenantsApi - object-oriented interface
- * @export
- * @class MyTenantsApi
- * @extends {BaseAPI}
  */
 export class MyTenantsApi extends BaseAPI {
     /**
@@ -426,7 +349,6 @@ export class MyTenantsApi extends BaseAPI {
      * @param {MyTenantsApiGetUserTenantsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MyTenantsApi
      */
     public getUserTenants(requestParameters: MyTenantsApiGetUserTenantsRequest = {}, options?: RawAxiosRequestConfig) {
         return MyTenantsApiFp(this.configuration).getUserTenants(requestParameters.pageIndex, requestParameters.pageSize, requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -438,7 +360,6 @@ export class MyTenantsApi extends BaseAPI {
      * @param {MyTenantsApiSearchMyLicensesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MyTenantsApi
      */
     public searchMyLicenses(requestParameters: MyTenantsApiSearchMyLicensesRequest, options?: RawAxiosRequestConfig) {
         return MyTenantsApiFp(this.configuration).searchMyLicenses(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -450,7 +371,6 @@ export class MyTenantsApi extends BaseAPI {
      * @param {MyTenantsApiSearchMyTenantsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MyTenantsApi
      */
     public searchMyTenants(requestParameters: MyTenantsApiSearchMyTenantsRequest = {}, options?: RawAxiosRequestConfig) {
         return MyTenantsApiFp(this.configuration).searchMyTenants(requestParameters.pageIndex, requestParameters.pageSize, requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));

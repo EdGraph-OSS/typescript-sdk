@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1UpdateBulkRequestTypesReportingPeriod
- */
 export interface ValidationsApiReportingPeriodsV1UpdateBulkRequestTypesReportingPeriod {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1UpdateBulkRequestTypesReportingPeriod
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1UpdateBulkRequestTypesReportingPeriod
-     */
     'startDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1UpdateBulkRequestTypesReportingPeriod
-     */
     'endDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1UpdateBulkRequestTypesReportingPeriod
-     */
     'reSubmissionDate'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiReportingPeriodsV1UpdateBulkRequestTypesReportingPeriod
-     */
     'autoRunNightly'?: boolean;
 }
 

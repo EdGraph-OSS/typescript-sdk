@@ -20,77 +20,17 @@ import type { TenantApiTenantV1LicenseType } from './tenant-api-tenant-v1-licens
 // @ts-ignore
 import type { TenantApiTenantV1SubscriptionStatus } from './tenant-api-tenant-v1-subscription-status';
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1CreateSubscriptionRequest
- */
 export interface TenantApiTenantV1CreateSubscriptionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1CreateSubscriptionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1CreateSubscriptionRequest
-     */
     'subscriptionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1CreateSubscriptionRequest
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1CreateSubscriptionRequest
-     */
     'startDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1CreateSubscriptionRequest
-     */
     'endDateTime'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1CreateSubscriptionRequest
-     */
     'gracePeriod'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1CreateSubscriptionRequest
-     */
     'numberOfLicenses'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1CreateSubscriptionRequest
-     */
     'assignedLicenses'?: number;
-    /**
-     * 
-     * @type {TenantApiTenantV1LicenseType}
-     * @memberof TenantApiTenantV1CreateSubscriptionRequest
-     */
     'licenseType'?: TenantApiTenantV1LicenseType;
-    /**
-     * 
-     * @type {TenantApiTenantV1SubscriptionStatus}
-     * @memberof TenantApiTenantV1CreateSubscriptionRequest
-     */
     'subscriptionStatus'?: TenantApiTenantV1SubscriptionStatus;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiTenantV1CreateSubscriptionRequest
-     */
     'autoAssign'?: boolean;
 }
 

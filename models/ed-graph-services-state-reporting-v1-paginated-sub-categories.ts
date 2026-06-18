@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1SubCategory } from './ed-graph-services-state-reporting-v1-sub-category';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1PaginatedSubCategories
- */
 export interface EdGraphServicesStateReportingV1PaginatedSubCategories {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedSubCategories
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedSubCategories
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedSubCategories
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1SubCategory>}
-     * @memberof EdGraphServicesStateReportingV1PaginatedSubCategories
-     */
     'data'?: Array<EdGraphServicesStateReportingV1SubCategory> | null;
 }
 

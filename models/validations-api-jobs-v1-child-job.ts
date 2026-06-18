@@ -20,59 +20,14 @@ import type { ValidationsApiJobsV1JobExecutionStatus } from './validations-api-j
 // @ts-ignore
 import type { ValidationsApiJobsV1Metric } from './validations-api-jobs-v1-metric';
 
-/**
- * 
- * @export
- * @interface ValidationsApiJobsV1ChildJob
- */
 export interface ValidationsApiJobsV1ChildJob {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1ChildJob
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1ChildJob
-     */
     'jobExecutionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1ChildJob
-     */
     'childJobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1ChildJob
-     */
     'childJobName'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiJobsV1JobExecutionStatus}
-     * @memberof ValidationsApiJobsV1ChildJob
-     */
     'jobExecutionStatus'?: ValidationsApiJobsV1JobExecutionStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1ChildJob
-     */
     'jobExecutionStartDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1ChildJob
-     */
     'jobExecutionEndDateTime'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiJobsV1Metric>}
-     * @memberof ValidationsApiJobsV1ChildJob
-     */
     'metrics'?: Array<ValidationsApiJobsV1Metric> | null;
 }
 

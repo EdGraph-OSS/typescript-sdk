@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -37,7 +37,6 @@ import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * TenantJobsDSLApi - axios parameter creator
- * @export
  */
 export const TenantJobsDSLApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -53,7 +52,7 @@ export const TenantJobsDSLApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createDslJob', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/jobs/dsl`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,9 +68,8 @@ export const TenantJobsDSLApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -97,8 +95,8 @@ export const TenantJobsDSLApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('executeDslJob', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/jobs/dsl/{jobId}/execute`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -114,8 +112,8 @@ export const TenantJobsDSLApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -139,8 +137,8 @@ export const TenantJobsDSLApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('getDslJob', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/jobs/dsl/{jobId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -156,8 +154,8 @@ export const TenantJobsDSLApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -182,8 +180,8 @@ export const TenantJobsDSLApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('updateDslJob', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/jobs/dsl/{jobId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -199,9 +197,8 @@ export const TenantJobsDSLApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -218,7 +215,6 @@ export const TenantJobsDSLApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * TenantJobsDSLApi - functional programming interface
- * @export
  */
 export const TenantJobsDSLApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TenantJobsDSLApiAxiosParamCreator(configuration)
@@ -285,7 +281,6 @@ export const TenantJobsDSLApiFp = function(configuration?: Configuration) {
 
 /**
  * TenantJobsDSLApi - factory interface
- * @export
  */
 export const TenantJobsDSLApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TenantJobsDSLApiFp(configuration)
@@ -335,100 +330,71 @@ export const TenantJobsDSLApiFactory = function (configuration?: Configuration, 
 
 /**
  * Request parameters for createDslJob operation in TenantJobsDSLApi.
- * @export
- * @interface TenantJobsDSLApiCreateDslJobRequest
  */
 export interface TenantJobsDSLApiCreateDslJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsDSLApiCreateDslJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {DataSyncApiDslV1CreateJobRequest}
-     * @memberof TenantJobsDSLApiCreateDslJob
      */
     readonly dataSyncApiDslV1CreateJobRequest?: DataSyncApiDslV1CreateJobRequest
 }
 
 /**
  * Request parameters for executeDslJob operation in TenantJobsDSLApi.
- * @export
- * @interface TenantJobsDSLApiExecuteDslJobRequest
  */
 export interface TenantJobsDSLApiExecuteDslJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsDSLApiExecuteDslJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsDSLApiExecuteDslJob
      */
     readonly jobId: string
 }
 
 /**
  * Request parameters for getDslJob operation in TenantJobsDSLApi.
- * @export
- * @interface TenantJobsDSLApiGetDslJobRequest
  */
 export interface TenantJobsDSLApiGetDslJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsDSLApiGetDslJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsDSLApiGetDslJob
      */
     readonly jobId: string
 }
 
 /**
  * Request parameters for updateDslJob operation in TenantJobsDSLApi.
- * @export
- * @interface TenantJobsDSLApiUpdateDslJobRequest
  */
 export interface TenantJobsDSLApiUpdateDslJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsDSLApiUpdateDslJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsDSLApiUpdateDslJob
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {DataSyncApiDslV1UpdateJobRequest}
-     * @memberof TenantJobsDSLApiUpdateDslJob
      */
     readonly dataSyncApiDslV1UpdateJobRequest?: DataSyncApiDslV1UpdateJobRequest
 }
 
 /**
  * TenantJobsDSLApi - object-oriented interface
- * @export
- * @class TenantJobsDSLApi
- * @extends {BaseAPI}
  */
 export class TenantJobsDSLApi extends BaseAPI {
     /**
@@ -437,7 +403,6 @@ export class TenantJobsDSLApi extends BaseAPI {
      * @param {TenantJobsDSLApiCreateDslJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantJobsDSLApi
      */
     public createDslJob(requestParameters: TenantJobsDSLApiCreateDslJobRequest, options?: RawAxiosRequestConfig) {
         return TenantJobsDSLApiFp(this.configuration).createDslJob(requestParameters.tenantId, requestParameters.dataSyncApiDslV1CreateJobRequest, options).then((request) => request(this.axios, this.basePath));
@@ -449,7 +414,6 @@ export class TenantJobsDSLApi extends BaseAPI {
      * @param {TenantJobsDSLApiExecuteDslJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantJobsDSLApi
      */
     public executeDslJob(requestParameters: TenantJobsDSLApiExecuteDslJobRequest, options?: RawAxiosRequestConfig) {
         return TenantJobsDSLApiFp(this.configuration).executeDslJob(requestParameters.tenantId, requestParameters.jobId, options).then((request) => request(this.axios, this.basePath));
@@ -461,7 +425,6 @@ export class TenantJobsDSLApi extends BaseAPI {
      * @param {TenantJobsDSLApiGetDslJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantJobsDSLApi
      */
     public getDslJob(requestParameters: TenantJobsDSLApiGetDslJobRequest, options?: RawAxiosRequestConfig) {
         return TenantJobsDSLApiFp(this.configuration).getDslJob(requestParameters.tenantId, requestParameters.jobId, options).then((request) => request(this.axios, this.basePath));
@@ -473,7 +436,6 @@ export class TenantJobsDSLApi extends BaseAPI {
      * @param {TenantJobsDSLApiUpdateDslJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantJobsDSLApi
      */
     public updateDslJob(requestParameters: TenantJobsDSLApiUpdateDslJobRequest, options?: RawAxiosRequestConfig) {
         return TenantJobsDSLApiFp(this.configuration).updateDslJob(requestParameters.tenantId, requestParameters.jobId, requestParameters.dataSyncApiDslV1UpdateJobRequest, options).then((request) => request(this.axios, this.basePath));

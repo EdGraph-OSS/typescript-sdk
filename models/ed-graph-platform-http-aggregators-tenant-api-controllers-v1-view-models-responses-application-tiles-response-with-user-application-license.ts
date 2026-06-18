@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTileResponseWithUserApplicationLicense } from './ed-graph-platform-http-aggregators-tenant-api-controllers-v1-view-models-responses-application-tile-response-with-user-application-license';
 
-/**
- * 
- * @export
- * @interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTilesResponseWithUserApplicationLicense
- */
 export interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTilesResponseWithUserApplicationLicense {
-    /**
-     * 
-     * @type {Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTileResponseWithUserApplicationLicense>}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTilesResponseWithUserApplicationLicense
-     */
     'data'?: Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTileResponseWithUserApplicationLicense> | null;
 }
 

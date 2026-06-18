@@ -23,29 +23,9 @@ import type { ValidationsApiReportingPeriodsV1ReportingPeriodDto } from './valid
 // @ts-ignore
 import type { ValidationsApiReportingPeriodsV1ValidationSummarySubCategory } from './validations-api-reporting-periods-v1-validation-summary-sub-category';
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1ValidationSummaryByCategoryId
- */
 export interface ValidationsApiReportingPeriodsV1ValidationSummaryByCategoryId {
-    /**
-     * 
-     * @type {ValidationsApiReportingPeriodsV1ReportingPeriodDto}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationSummaryByCategoryId
-     */
     'reportingPeriod'?: ValidationsApiReportingPeriodsV1ReportingPeriodDto;
-    /**
-     * 
-     * @type {ValidationsApiContainersV1ContainerDto}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationSummaryByCategoryId
-     */
     'category'?: ValidationsApiContainersV1ContainerDto;
-    /**
-     * 
-     * @type {Array<ValidationsApiReportingPeriodsV1ValidationSummarySubCategory>}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationSummaryByCategoryId
-     */
     'subCategories'?: Array<ValidationsApiReportingPeriodsV1ValidationSummarySubCategory> | null;
 }
 

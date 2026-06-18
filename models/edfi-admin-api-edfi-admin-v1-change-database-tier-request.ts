@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1DatabaseTier } from './edfi-admin-api-edfi-admin-v1-database-tier';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1ChangeDatabaseTierRequest
- */
 export interface EdfiAdminApiEdfiAdminV1ChangeDatabaseTierRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ChangeDatabaseTierRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ChangeDatabaseTierRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1ChangeDatabaseTierRequest
-     */
     'year'?: number | null;
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1DatabaseTier}
-     * @memberof EdfiAdminApiEdfiAdminV1ChangeDatabaseTierRequest
-     */
     'selectedTier'?: EdfiAdminApiEdfiAdminV1DatabaseTier;
 }
 

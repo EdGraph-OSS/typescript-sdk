@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesFormsV1Form } from './ed-graph-http-aggregators-tenant-api-services-forms-v1-form';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesFormsV1FormPaginatedItemsViewModel
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesFormsV1FormPaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesFormsV1FormPaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesFormsV1FormPaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesFormsV1FormPaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiServicesFormsV1Form>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesFormsV1FormPaginatedItemsViewModel
-     */
     'data'?: Array<EdGraphHttpAggregatorsTenantApiServicesFormsV1Form> | null;
 }
 

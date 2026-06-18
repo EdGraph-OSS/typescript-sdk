@@ -26,77 +26,17 @@ import type { GoogleProtobufWellKnownTypesStruct } from './google-protobuf-well-
 // @ts-ignore
 import type { GoogleProtobufWellKnownTypesValue KindOneofCase } from './google-protobuf-well-known-types-value kind-oneof-case';
 
-/**
- * 
- * @export
- * @interface GoogleProtobufWellKnownTypesValue
- */
 export interface GoogleProtobufWellKnownTypesValue {
-    /**
-     * 
-     * @type {GoogleProtobufWellKnownTypesNullValue}
-     * @memberof GoogleProtobufWellKnownTypesValue
-     */
     'nullValue'?: GoogleProtobufWellKnownTypesNullValue;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof GoogleProtobufWellKnownTypesValue
-     */
     'hasNullValue'?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof GoogleProtobufWellKnownTypesValue
-     */
     'numberValue'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof GoogleProtobufWellKnownTypesValue
-     */
     'hasNumberValue'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoogleProtobufWellKnownTypesValue
-     */
     'stringValue'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof GoogleProtobufWellKnownTypesValue
-     */
     'hasStringValue'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof GoogleProtobufWellKnownTypesValue
-     */
     'boolValue'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof GoogleProtobufWellKnownTypesValue
-     */
     'hasBoolValue'?: boolean;
-    /**
-     * 
-     * @type {GoogleProtobufWellKnownTypesStruct}
-     * @memberof GoogleProtobufWellKnownTypesValue
-     */
     'structValue'?: GoogleProtobufWellKnownTypesStruct;
-    /**
-     * 
-     * @type {GoogleProtobufWellKnownTypesListValue}
-     * @memberof GoogleProtobufWellKnownTypesValue
-     */
     'listValue'?: GoogleProtobufWellKnownTypesListValue;
-    /**
-     * 
-     * @type {GoogleProtobufWellKnownTypesValue KindOneofCase}
-     * @memberof GoogleProtobufWellKnownTypesValue
-     */
     'kindCase'?: GoogleProtobufWellKnownTypesValue KindOneofCase;
 }
 

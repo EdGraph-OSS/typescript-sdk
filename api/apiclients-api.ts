@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -43,7 +43,6 @@ import type { IdentityApiApiClientV1UpdateApiClientRequest } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * APIClientsApi - axios parameter creator
- * @export
  */
 export const APIClientsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -59,7 +58,7 @@ export const APIClientsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createTenantApiClientAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/apiclients`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -75,9 +74,8 @@ export const APIClientsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -103,8 +101,8 @@ export const APIClientsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'clientId' is not null or undefined
             assertParamExists('deleteTenantApiClientAsync', 'clientId', clientId)
             const localVarPath = `/tenants/{tenantId}/apiclients/{clientId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"clientId"}}`, encodeURIComponent(String(clientId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{clientId}', encodeURIComponent(String(clientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -120,8 +118,8 @@ export const APIClientsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -146,7 +144,7 @@ export const APIClientsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllTenantApiClientsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/apiclients`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -178,8 +176,8 @@ export const APIClientsApiAxiosParamCreator = function (configuration?: Configur
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -203,8 +201,8 @@ export const APIClientsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'clientId' is not null or undefined
             assertParamExists('getTenantApiClientByIdAsync', 'clientId', clientId)
             const localVarPath = `/tenants/{tenantId}/apiclients/{clientId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"clientId"}}`, encodeURIComponent(String(clientId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{clientId}', encodeURIComponent(String(clientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -220,8 +218,8 @@ export const APIClientsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -246,8 +244,8 @@ export const APIClientsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'clientId' is not null or undefined
             assertParamExists('regenerateTenantApiClientSecretAsync', 'clientId', clientId)
             const localVarPath = `/tenants/{tenantId}/apiclients/{clientId}/regeneratesecret`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"clientId"}}`, encodeURIComponent(String(clientId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{clientId}', encodeURIComponent(String(clientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -263,9 +261,8 @@ export const APIClientsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -292,8 +289,8 @@ export const APIClientsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'clientId' is not null or undefined
             assertParamExists('updateTenantApiClientAsync', 'clientId', clientId)
             const localVarPath = `/tenants/{tenantId}/apiclients/{clientId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"clientId"}}`, encodeURIComponent(String(clientId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{clientId}', encodeURIComponent(String(clientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -309,9 +306,8 @@ export const APIClientsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -328,7 +324,6 @@ export const APIClientsApiAxiosParamCreator = function (configuration?: Configur
 
 /**
  * APIClientsApi - functional programming interface
- * @export
  */
 export const APIClientsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = APIClientsApiAxiosParamCreator(configuration)
@@ -427,7 +422,6 @@ export const APIClientsApiFp = function(configuration?: Configuration) {
 
 /**
  * APIClientsApi - factory interface
- * @export
  */
 export const APIClientsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = APIClientsApiFp(configuration)
@@ -497,170 +491,121 @@ export const APIClientsApiFactory = function (configuration?: Configuration, bas
 
 /**
  * Request parameters for createTenantApiClientAsync operation in APIClientsApi.
- * @export
- * @interface APIClientsApiCreateTenantApiClientAsyncRequest
  */
 export interface APIClientsApiCreateTenantApiClientAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof APIClientsApiCreateTenantApiClientAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {IdentityApiApiClientV1CreateApiClientRequest}
-     * @memberof APIClientsApiCreateTenantApiClientAsync
      */
     readonly identityApiApiClientV1CreateApiClientRequest?: IdentityApiApiClientV1CreateApiClientRequest
 }
 
 /**
  * Request parameters for deleteTenantApiClientAsync operation in APIClientsApi.
- * @export
- * @interface APIClientsApiDeleteTenantApiClientAsyncRequest
  */
 export interface APIClientsApiDeleteTenantApiClientAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof APIClientsApiDeleteTenantApiClientAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof APIClientsApiDeleteTenantApiClientAsync
      */
     readonly clientId: string
 }
 
 /**
  * Request parameters for getAllTenantApiClientsAsync operation in APIClientsApi.
- * @export
- * @interface APIClientsApiGetAllTenantApiClientsAsyncRequest
  */
 export interface APIClientsApiGetAllTenantApiClientsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof APIClientsApiGetAllTenantApiClientsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof APIClientsApiGetAllTenantApiClientsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof APIClientsApiGetAllTenantApiClientsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof APIClientsApiGetAllTenantApiClientsAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof APIClientsApiGetAllTenantApiClientsAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getTenantApiClientByIdAsync operation in APIClientsApi.
- * @export
- * @interface APIClientsApiGetTenantApiClientByIdAsyncRequest
  */
 export interface APIClientsApiGetTenantApiClientByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof APIClientsApiGetTenantApiClientByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof APIClientsApiGetTenantApiClientByIdAsync
      */
     readonly clientId: string
 }
 
 /**
  * Request parameters for regenerateTenantApiClientSecretAsync operation in APIClientsApi.
- * @export
- * @interface APIClientsApiRegenerateTenantApiClientSecretAsyncRequest
  */
 export interface APIClientsApiRegenerateTenantApiClientSecretAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof APIClientsApiRegenerateTenantApiClientSecretAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof APIClientsApiRegenerateTenantApiClientSecretAsync
      */
     readonly clientId: string
 
     /**
      * 
-     * @type {IdentityApiApiClientV1RegenerateApiClientSecretRequest}
-     * @memberof APIClientsApiRegenerateTenantApiClientSecretAsync
      */
     readonly identityApiApiClientV1RegenerateApiClientSecretRequest?: IdentityApiApiClientV1RegenerateApiClientSecretRequest
 }
 
 /**
  * Request parameters for updateTenantApiClientAsync operation in APIClientsApi.
- * @export
- * @interface APIClientsApiUpdateTenantApiClientAsyncRequest
  */
 export interface APIClientsApiUpdateTenantApiClientAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof APIClientsApiUpdateTenantApiClientAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof APIClientsApiUpdateTenantApiClientAsync
      */
     readonly clientId: string
 
     /**
      * 
-     * @type {IdentityApiApiClientV1UpdateApiClientRequest}
-     * @memberof APIClientsApiUpdateTenantApiClientAsync
      */
     readonly identityApiApiClientV1UpdateApiClientRequest?: IdentityApiApiClientV1UpdateApiClientRequest
 }
 
 /**
  * APIClientsApi - object-oriented interface
- * @export
- * @class APIClientsApi
- * @extends {BaseAPI}
  */
 export class APIClientsApi extends BaseAPI {
     /**
@@ -669,7 +614,6 @@ export class APIClientsApi extends BaseAPI {
      * @param {APIClientsApiCreateTenantApiClientAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof APIClientsApi
      */
     public createTenantApiClientAsync(requestParameters: APIClientsApiCreateTenantApiClientAsyncRequest, options?: RawAxiosRequestConfig) {
         return APIClientsApiFp(this.configuration).createTenantApiClientAsync(requestParameters.tenantId, requestParameters.identityApiApiClientV1CreateApiClientRequest, options).then((request) => request(this.axios, this.basePath));
@@ -681,7 +625,6 @@ export class APIClientsApi extends BaseAPI {
      * @param {APIClientsApiDeleteTenantApiClientAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof APIClientsApi
      */
     public deleteTenantApiClientAsync(requestParameters: APIClientsApiDeleteTenantApiClientAsyncRequest, options?: RawAxiosRequestConfig) {
         return APIClientsApiFp(this.configuration).deleteTenantApiClientAsync(requestParameters.tenantId, requestParameters.clientId, options).then((request) => request(this.axios, this.basePath));
@@ -693,7 +636,6 @@ export class APIClientsApi extends BaseAPI {
      * @param {APIClientsApiGetAllTenantApiClientsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof APIClientsApi
      */
     public getAllTenantApiClientsAsync(requestParameters: APIClientsApiGetAllTenantApiClientsAsyncRequest, options?: RawAxiosRequestConfig) {
         return APIClientsApiFp(this.configuration).getAllTenantApiClientsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -705,7 +647,6 @@ export class APIClientsApi extends BaseAPI {
      * @param {APIClientsApiGetTenantApiClientByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof APIClientsApi
      */
     public getTenantApiClientByIdAsync(requestParameters: APIClientsApiGetTenantApiClientByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return APIClientsApiFp(this.configuration).getTenantApiClientByIdAsync(requestParameters.tenantId, requestParameters.clientId, options).then((request) => request(this.axios, this.basePath));
@@ -717,7 +658,6 @@ export class APIClientsApi extends BaseAPI {
      * @param {APIClientsApiRegenerateTenantApiClientSecretAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof APIClientsApi
      */
     public regenerateTenantApiClientSecretAsync(requestParameters: APIClientsApiRegenerateTenantApiClientSecretAsyncRequest, options?: RawAxiosRequestConfig) {
         return APIClientsApiFp(this.configuration).regenerateTenantApiClientSecretAsync(requestParameters.tenantId, requestParameters.clientId, requestParameters.identityApiApiClientV1RegenerateApiClientSecretRequest, options).then((request) => request(this.axios, this.basePath));
@@ -729,7 +669,6 @@ export class APIClientsApi extends BaseAPI {
      * @param {APIClientsApiUpdateTenantApiClientAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof APIClientsApi
      */
     public updateTenantApiClientAsync(requestParameters: APIClientsApiUpdateTenantApiClientAsyncRequest, options?: RawAxiosRequestConfig) {
         return APIClientsApiFp(this.configuration).updateTenantApiClientAsync(requestParameters.tenantId, requestParameters.clientId, requestParameters.identityApiApiClientV1UpdateApiClientRequest, options).then((request) => request(this.axios, this.basePath));

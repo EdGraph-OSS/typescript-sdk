@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobV1CancelJobRequest
- */
 export interface DataSyncApiJobV1CancelJobRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1CancelJobRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1CancelJobRequest
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1CancelJobRequest
-     */
     'childJobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1CancelJobRequest
-     */
     'jobExecutionId'?: string | null;
 }
 

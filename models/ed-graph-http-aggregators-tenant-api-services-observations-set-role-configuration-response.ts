@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationResponse
-     */
     'tenantId'?: string | null;
 }
 

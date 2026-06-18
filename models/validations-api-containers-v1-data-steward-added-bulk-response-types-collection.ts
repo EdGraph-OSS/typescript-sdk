@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1DataStewardAddedBulkResponseTypesCollection
- */
 export interface ValidationsApiContainersV1DataStewardAddedBulkResponseTypesCollection {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1DataStewardAddedBulkResponseTypesCollection
-     */
     'collectionId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ValidationsApiContainersV1DataStewardAddedBulkResponseTypesCollection
-     */
     'email'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ValidationsApiContainersV1DataStewardAddedBulkResponseTypesCollection
-     */
     'userId'?: Array<string> | null;
 }
 

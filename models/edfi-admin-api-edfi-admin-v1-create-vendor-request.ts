@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1EdFiApplication } from './edfi-admin-api-edfi-admin-v1-ed-fi-application';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1CreateVendorRequest
- */
 export interface EdfiAdminApiEdfiAdminV1CreateVendorRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateVendorRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateVendorRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateVendorRequest
-     */
     'vendorId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateVendorRequest
-     */
     'vendorName'?: string | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1EdFiApplication>}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateVendorRequest
-     */
     'applications'?: Array<EdfiAdminApiEdfiAdminV1EdFiApplication> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateVendorRequest
-     */
     'namespacePrefixes'?: Array<string> | null;
 }
 

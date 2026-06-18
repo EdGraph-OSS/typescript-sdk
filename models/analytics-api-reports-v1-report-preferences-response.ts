@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { AnalyticsApiReportsV1ReportPreferenceDetailsResponse } from './analytics-api-reports-v1-report-preference-details-response';
 
-/**
- * 
- * @export
- * @interface AnalyticsApiReportsV1ReportPreferencesResponse
- */
 export interface AnalyticsApiReportsV1ReportPreferencesResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1ReportPreferencesResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1ReportPreferencesResponse
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1ReportPreferencesResponse
-     */
     'reportId'?: string | null;
-    /**
-     * 
-     * @type {Array<AnalyticsApiReportsV1ReportPreferenceDetailsResponse>}
-     * @memberof AnalyticsApiReportsV1ReportPreferencesResponse
-     */
     'preferences'?: Array<AnalyticsApiReportsV1ReportPreferenceDetailsResponse> | null;
 }
 

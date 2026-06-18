@@ -26,77 +26,17 @@ import type { IdentityApiUserV1UserTenantProfile Types UserTenantEducationOrgani
 // @ts-ignore
 import type { IdentityApiUserV1UserTenantProfile Types UserTenantLicenseProfile } from './identity-api-user-v1-user-tenant-profile types user-tenant-license-profile';
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1UserTenantProfile
- */
 export interface IdentityApiUserV1UserTenantProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantProfile
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV1TenantType>}
-     * @memberof IdentityApiUserV1UserTenantProfile
-     */
     'tenantTypes'?: Array<IdentityApiUserV1TenantType> | null;
-    /**
-     * 
-     * @type {IdentityApiUserV1TenantStatus}
-     * @memberof IdentityApiUserV1UserTenantProfile
-     */
     'tenantStatus'?: IdentityApiUserV1TenantStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantProfile
-     */
     'organizationIdentifier'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantProfile
-     */
     'organizationName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantProfile
-     */
     'state'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiUserV1UserTenantProfile
-     */
     'isDemo'?: boolean | null;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV1UserTenantProfile Types UserTenantEducationOrganizationProfile>}
-     * @memberof IdentityApiUserV1UserTenantProfile
-     */
     'educationOrganizations'?: Array<IdentityApiUserV1UserTenantProfile Types UserTenantEducationOrganizationProfile> | null;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV1UserTenantProfile Types UserTenantLicenseProfile>}
-     * @memberof IdentityApiUserV1UserTenantProfile
-     */
     'licenses'?: Array<IdentityApiUserV1UserTenantProfile Types UserTenantLicenseProfile> | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiUserV1UserTenantProfile
-     */
     'mfaCompleted'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantProfile
-     */
     'tenantType'?: string | null;
 }
 

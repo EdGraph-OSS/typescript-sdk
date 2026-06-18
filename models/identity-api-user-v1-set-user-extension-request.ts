@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1SetUserExtensionRequest
- */
 export interface IdentityApiUserV1SetUserExtensionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SetUserExtensionRequest
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SetUserExtensionRequest
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SetUserExtensionRequest
-     */
     'data'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SetUserExtensionRequest
-     */
     'dataType'?: string | null;
 }
 

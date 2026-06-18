@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1RaceRepresentation
- */
 export interface EdfiAdminApiEdfiAdminV1RaceRepresentation {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1RaceRepresentation
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1RaceRepresentation
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1RaceRepresentation
-     */
     'value'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1RaceRepresentation
-     */
     'percentOfTotal'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1RaceRepresentation
-     */
     'displayName'?: string | null;
 }
 

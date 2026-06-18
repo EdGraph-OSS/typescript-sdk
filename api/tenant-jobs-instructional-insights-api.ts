@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -43,7 +43,6 @@ import type { MicrosoftAspNetCoreMvcNoContentResult } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * TenantJobsInstructionalInsightsApi - axios parameter creator
- * @export
  */
 export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -59,7 +58,7 @@ export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (con
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createInstructionalInsightsSecuritySyncJob', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/jobs/instructionalinsights`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -75,9 +74,8 @@ export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -100,7 +98,7 @@ export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (con
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('executeInstructionalInsightsSecuritySyncJob', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/jobs/instructionalinsights/execute`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -116,8 +114,8 @@ export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -138,7 +136,7 @@ export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (con
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getInstructionalInsightsSecuritySyncJob', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/jobs/instructionalinsights`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -154,8 +152,8 @@ export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -185,8 +183,8 @@ export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (con
             // verify required parameter 'executionId' is not null or undefined
             assertParamExists('searchInstructionalInsightsSecuritySyncJobExecutionLogs', 'executionId', executionId)
             const localVarPath = `/tenants/{tenantId}/jobs/instructionalinsights/executions/{executionId}/logs`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"executionId"}}`, encodeURIComponent(String(executionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{executionId}', encodeURIComponent(String(executionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -226,8 +224,8 @@ export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (con
                 localVarQueryParameter['message'] = message;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -253,7 +251,7 @@ export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (con
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('searchInstructionalInsightsSecuritySyncJobExecutions', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/jobs/instructionalinsights/executions`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -289,8 +287,8 @@ export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (con
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -312,7 +310,7 @@ export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (con
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('updateInstructionalInsightsSecuritySyncJob', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/jobs/instructionalinsights`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -328,9 +326,8 @@ export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -347,7 +344,6 @@ export const TenantJobsInstructionalInsightsApiAxiosParamCreator = function (con
 
 /**
  * TenantJobsInstructionalInsightsApi - functional programming interface
- * @export
  */
 export const TenantJobsInstructionalInsightsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TenantJobsInstructionalInsightsApiAxiosParamCreator(configuration)
@@ -449,7 +445,6 @@ export const TenantJobsInstructionalInsightsApiFp = function(configuration?: Con
 
 /**
  * TenantJobsInstructionalInsightsApi - factory interface
- * @export
  */
 export const TenantJobsInstructionalInsightsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TenantJobsInstructionalInsightsApiFp(configuration)
@@ -519,191 +514,136 @@ export const TenantJobsInstructionalInsightsApiFactory = function (configuration
 
 /**
  * Request parameters for createInstructionalInsightsSecuritySyncJob operation in TenantJobsInstructionalInsightsApi.
- * @export
- * @interface TenantJobsInstructionalInsightsApiCreateInstructionalInsightsSecuritySyncJobRequest
  */
 export interface TenantJobsInstructionalInsightsApiCreateInstructionalInsightsSecuritySyncJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiCreateInstructionalInsightsSecuritySyncJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {IdentityApiInstructionalInsightsV1CreateInstructionalInsightsSecuritySyncJobRequest}
-     * @memberof TenantJobsInstructionalInsightsApiCreateInstructionalInsightsSecuritySyncJob
      */
     readonly identityApiInstructionalInsightsV1CreateInstructionalInsightsSecuritySyncJobRequest?: IdentityApiInstructionalInsightsV1CreateInstructionalInsightsSecuritySyncJobRequest
 }
 
 /**
  * Request parameters for executeInstructionalInsightsSecuritySyncJob operation in TenantJobsInstructionalInsightsApi.
- * @export
- * @interface TenantJobsInstructionalInsightsApiExecuteInstructionalInsightsSecuritySyncJobRequest
  */
 export interface TenantJobsInstructionalInsightsApiExecuteInstructionalInsightsSecuritySyncJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiExecuteInstructionalInsightsSecuritySyncJob
      */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for getInstructionalInsightsSecuritySyncJob operation in TenantJobsInstructionalInsightsApi.
- * @export
- * @interface TenantJobsInstructionalInsightsApiGetInstructionalInsightsSecuritySyncJobRequest
  */
 export interface TenantJobsInstructionalInsightsApiGetInstructionalInsightsSecuritySyncJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiGetInstructionalInsightsSecuritySyncJob
      */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for searchInstructionalInsightsSecuritySyncJobExecutionLogs operation in TenantJobsInstructionalInsightsApi.
- * @export
- * @interface TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionLogsRequest
  */
 export interface TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionLogsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionLogs
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionLogs
      */
     readonly executionId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionLogs
      */
     readonly jobId?: string
 
     /**
      * 
-     * @type {number}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionLogs
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionLogs
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionLogs
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionLogs
      */
     readonly level?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionLogs
      */
     readonly message?: string
 }
 
 /**
  * Request parameters for searchInstructionalInsightsSecuritySyncJobExecutions operation in TenantJobsInstructionalInsightsApi.
- * @export
- * @interface TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionsRequest
  */
 export interface TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutions
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutions
      */
     readonly jobId?: string
 
     /**
      * 
-     * @type {number}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutions
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutions
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutions
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutions
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for updateInstructionalInsightsSecuritySyncJob operation in TenantJobsInstructionalInsightsApi.
- * @export
- * @interface TenantJobsInstructionalInsightsApiUpdateInstructionalInsightsSecuritySyncJobRequest
  */
 export interface TenantJobsInstructionalInsightsApiUpdateInstructionalInsightsSecuritySyncJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantJobsInstructionalInsightsApiUpdateInstructionalInsightsSecuritySyncJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {IdentityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest}
-     * @memberof TenantJobsInstructionalInsightsApiUpdateInstructionalInsightsSecuritySyncJob
      */
     readonly identityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest?: IdentityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest
 }
 
 /**
  * TenantJobsInstructionalInsightsApi - object-oriented interface
- * @export
- * @class TenantJobsInstructionalInsightsApi
- * @extends {BaseAPI}
  */
 export class TenantJobsInstructionalInsightsApi extends BaseAPI {
     /**
@@ -712,7 +652,6 @@ export class TenantJobsInstructionalInsightsApi extends BaseAPI {
      * @param {TenantJobsInstructionalInsightsApiCreateInstructionalInsightsSecuritySyncJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantJobsInstructionalInsightsApi
      */
     public createInstructionalInsightsSecuritySyncJob(requestParameters: TenantJobsInstructionalInsightsApiCreateInstructionalInsightsSecuritySyncJobRequest, options?: RawAxiosRequestConfig) {
         return TenantJobsInstructionalInsightsApiFp(this.configuration).createInstructionalInsightsSecuritySyncJob(requestParameters.tenantId, requestParameters.identityApiInstructionalInsightsV1CreateInstructionalInsightsSecuritySyncJobRequest, options).then((request) => request(this.axios, this.basePath));
@@ -724,7 +663,6 @@ export class TenantJobsInstructionalInsightsApi extends BaseAPI {
      * @param {TenantJobsInstructionalInsightsApiExecuteInstructionalInsightsSecuritySyncJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantJobsInstructionalInsightsApi
      */
     public executeInstructionalInsightsSecuritySyncJob(requestParameters: TenantJobsInstructionalInsightsApiExecuteInstructionalInsightsSecuritySyncJobRequest, options?: RawAxiosRequestConfig) {
         return TenantJobsInstructionalInsightsApiFp(this.configuration).executeInstructionalInsightsSecuritySyncJob(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -736,7 +674,6 @@ export class TenantJobsInstructionalInsightsApi extends BaseAPI {
      * @param {TenantJobsInstructionalInsightsApiGetInstructionalInsightsSecuritySyncJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantJobsInstructionalInsightsApi
      */
     public getInstructionalInsightsSecuritySyncJob(requestParameters: TenantJobsInstructionalInsightsApiGetInstructionalInsightsSecuritySyncJobRequest, options?: RawAxiosRequestConfig) {
         return TenantJobsInstructionalInsightsApiFp(this.configuration).getInstructionalInsightsSecuritySyncJob(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -748,7 +685,6 @@ export class TenantJobsInstructionalInsightsApi extends BaseAPI {
      * @param {TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionLogsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantJobsInstructionalInsightsApi
      */
     public searchInstructionalInsightsSecuritySyncJobExecutionLogs(requestParameters: TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionLogsRequest, options?: RawAxiosRequestConfig) {
         return TenantJobsInstructionalInsightsApiFp(this.configuration).searchInstructionalInsightsSecuritySyncJobExecutionLogs(requestParameters.tenantId, requestParameters.executionId, requestParameters.jobId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.level, requestParameters.message, options).then((request) => request(this.axios, this.basePath));
@@ -760,7 +696,6 @@ export class TenantJobsInstructionalInsightsApi extends BaseAPI {
      * @param {TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantJobsInstructionalInsightsApi
      */
     public searchInstructionalInsightsSecuritySyncJobExecutions(requestParameters: TenantJobsInstructionalInsightsApiSearchInstructionalInsightsSecuritySyncJobExecutionsRequest, options?: RawAxiosRequestConfig) {
         return TenantJobsInstructionalInsightsApiFp(this.configuration).searchInstructionalInsightsSecuritySyncJobExecutions(requestParameters.tenantId, requestParameters.jobId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -772,7 +707,6 @@ export class TenantJobsInstructionalInsightsApi extends BaseAPI {
      * @param {TenantJobsInstructionalInsightsApiUpdateInstructionalInsightsSecuritySyncJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantJobsInstructionalInsightsApi
      */
     public updateInstructionalInsightsSecuritySyncJob(requestParameters: TenantJobsInstructionalInsightsApiUpdateInstructionalInsightsSecuritySyncJobRequest, options?: RawAxiosRequestConfig) {
         return TenantJobsInstructionalInsightsApiFp(this.configuration).updateInstructionalInsightsSecuritySyncJob(requestParameters.tenantId, requestParameters.identityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest, options).then((request) => request(this.axios, this.basePath));

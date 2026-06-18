@@ -14,11 +14,6 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const RegistrationApiRegistrationV2TenantType = {
     Unknown: 'Unknown',
@@ -31,7 +26,7 @@ export const RegistrationApiRegistrationV2TenantType = {
     ManagedServiceProvider: 'ManagedServiceProvider',
     StateEducationAgency: 'StateEducationAgency',
     AssessmentProvider: 'AssessmentProvider',
-    ServiceProvider: 'ServiceProvider'
+    ServiceProvider: 'ServiceProvider',
 } as const;
 
 export type RegistrationApiRegistrationV2TenantType = typeof RegistrationApiRegistrationV2TenantType[keyof typeof RegistrationApiRegistrationV2TenantType];

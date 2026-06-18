@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1UpdateInstanceApplicationRequest
- */
 export interface EdfiAdminApiEdfiAdminV1UpdateInstanceApplicationRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceApplicationRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceApplicationRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceApplicationRequest
-     */
     'instanceApplicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceApplicationRequest
-     */
     'name'?: string | null;
 }
 

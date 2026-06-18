@@ -17,53 +17,13 @@
 // @ts-ignore
 import type { ValidationsApiRulesV1UrlType } from './validations-api-rules-v1-url-type';
 
-/**
- * 
- * @export
- * @interface ValidationsApiRulesV1Url
- */
 export interface ValidationsApiRulesV1Url {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1Url
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1Url
-     */
     'label'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1Url
-     */
     'value'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiRulesV1Url
-     */
     'openInNewTab'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiRulesV1Url
-     */
     'systemDefined'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiRulesV1Url
-     */
     'readonly'?: boolean | null;
-    /**
-     * 
-     * @type {ValidationsApiRulesV1UrlType}
-     * @memberof ValidationsApiRulesV1Url
-     */
     'urlType'?: ValidationsApiRulesV1UrlType;
 }
 

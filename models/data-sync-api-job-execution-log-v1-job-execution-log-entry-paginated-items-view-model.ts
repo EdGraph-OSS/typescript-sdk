@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { DataSyncApiJobExecutionLogV1JobExecutionLogEntry } from './data-sync-api-job-execution-log-v1-job-execution-log-entry';
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobExecutionLogV1JobExecutionLogEntryPaginatedItemsViewModel
- */
 export interface DataSyncApiJobExecutionLogV1JobExecutionLogEntryPaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiJobExecutionLogV1JobExecutionLogEntryPaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiJobExecutionLogV1JobExecutionLogEntryPaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiJobExecutionLogV1JobExecutionLogEntryPaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<DataSyncApiJobExecutionLogV1JobExecutionLogEntry>}
-     * @memberof DataSyncApiJobExecutionLogV1JobExecutionLogEntryPaginatedItemsViewModel
-     */
     'data'?: Array<DataSyncApiJobExecutionLogV1JobExecutionLogEntry> | null;
 }
 

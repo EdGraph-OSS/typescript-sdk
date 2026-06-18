@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiSectionsV1CourseListResponse
- */
 export interface TenantApiSectionsV1CourseListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1CourseListResponse
-     */
     'courseCode'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1CourseListResponse
-     */
     'courseTitle'?: string | null;
 }
 

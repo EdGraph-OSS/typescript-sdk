@@ -17,101 +17,30 @@
 // @ts-ignore
 import type { ValidationsApiRulesV1Url } from './validations-api-rules-v1-url';
 
-/**
- * 
- * @export
- * @interface ValidationsApiRulesV1UpdateRequest
- */
 export interface ValidationsApiRulesV1UpdateRequest {
     /**
      * Details
-     * @type {string}
-     * @memberof ValidationsApiRulesV1UpdateRequest
      */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1UpdateRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1UpdateRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1UpdateRequest
-     */
     'description'?: string | null;
     /**
      * SQL
-     * @type {string}
-     * @memberof ValidationsApiRulesV1UpdateRequest
      */
     'diagnosticSql'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1UpdateRequest
-     */
     'countSql'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiRulesV1UpdateRequest
-     */
     'errorSeverityLevel'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1UpdateRequest
-     */
     'errorMessage'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiRulesV1UpdateRequest
-     */
     'maxNumberResults'?: number | null;
     /**
      * Metadata
-     * @type {string}
-     * @memberof ValidationsApiRulesV1UpdateRequest
      */
     'ruleIdentification'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1UpdateRequest
-     */
     'resolution'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ValidationsApiRulesV1UpdateRequest
-     */
     'tags'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1UpdateRequest
-     */
     'version'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1UpdateRequest
-     */
     'collectionId'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiRulesV1Url>}
-     * @memberof ValidationsApiRulesV1UpdateRequest
-     */
     'urls'?: Array<ValidationsApiRulesV1Url> | null;
 }
 

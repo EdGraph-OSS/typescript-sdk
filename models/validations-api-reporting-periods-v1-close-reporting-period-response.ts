@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1CloseReportingPeriodResponse
- */
 export interface ValidationsApiReportingPeriodsV1CloseReportingPeriodResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1CloseReportingPeriodResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1CloseReportingPeriodResponse
-     */
     'reportingPeriodId'?: string | null;
 }
 

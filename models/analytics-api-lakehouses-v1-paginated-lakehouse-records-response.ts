@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { AnalyticsApiLakehousesV1LakehouseRecord } from './analytics-api-lakehouses-v1-lakehouse-record';
 
-/**
- * 
- * @export
- * @interface AnalyticsApiLakehousesV1PaginatedLakehouseRecordsResponse
- */
 export interface AnalyticsApiLakehousesV1PaginatedLakehouseRecordsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsApiLakehousesV1PaginatedLakehouseRecordsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsApiLakehousesV1PaginatedLakehouseRecordsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsApiLakehousesV1PaginatedLakehouseRecordsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<AnalyticsApiLakehousesV1LakehouseRecord>}
-     * @memberof AnalyticsApiLakehousesV1PaginatedLakehouseRecordsResponse
-     */
     'data'?: Array<AnalyticsApiLakehousesV1LakehouseRecord> | null;
 }
 

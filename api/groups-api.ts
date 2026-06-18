@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -37,7 +37,6 @@ import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 /**
  * GroupsApi - axios parameter creator
- * @export
  */
 export const GroupsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -56,8 +55,8 @@ export const GroupsApiAxiosParamCreator = function (configuration?: Configuratio
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('addUsersToGroupAsync', 'groupId', groupId)
             const localVarPath = `/tenants/{tenantId}/analytics/groups/{groupId}/users/bulk`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"groupId"}}`, encodeURIComponent(String(groupId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{groupId}', encodeURIComponent(String(groupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -73,9 +72,8 @@ export const GroupsApiAxiosParamCreator = function (configuration?: Configuratio
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -99,7 +97,7 @@ export const GroupsApiAxiosParamCreator = function (configuration?: Configuratio
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createAnalyticsPowerBiGroup', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/groups`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -115,9 +113,8 @@ export const GroupsApiAxiosParamCreator = function (configuration?: Configuratio
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -143,8 +140,8 @@ export const GroupsApiAxiosParamCreator = function (configuration?: Configuratio
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('deleteAnalyticsPowerBiGroup', 'groupId', groupId)
             const localVarPath = `/tenants/{tenantId}/analytics/groups/{groupId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"groupId"}}`, encodeURIComponent(String(groupId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{groupId}', encodeURIComponent(String(groupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -160,8 +157,8 @@ export const GroupsApiAxiosParamCreator = function (configuration?: Configuratio
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -187,8 +184,8 @@ export const GroupsApiAxiosParamCreator = function (configuration?: Configuratio
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('getAnalyticsPowerBiGroupUsers', 'groupId', groupId)
             const localVarPath = `/tenants/{tenantId}/analytics/groups/{groupId}/users`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"groupId"}}`, encodeURIComponent(String(groupId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{groupId}', encodeURIComponent(String(groupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -212,8 +209,8 @@ export const GroupsApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['topFirstN'] = topFirstN;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -235,7 +232,7 @@ export const GroupsApiAxiosParamCreator = function (configuration?: Configuratio
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getGroupsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/groups`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -255,8 +252,8 @@ export const GroupsApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -271,7 +268,6 @@ export const GroupsApiAxiosParamCreator = function (configuration?: Configuratio
 
 /**
  * GroupsApi - functional programming interface
- * @export
  */
 export const GroupsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = GroupsApiAxiosParamCreator(configuration)
@@ -354,7 +350,6 @@ export const GroupsApiFp = function(configuration?: Configuration) {
 
 /**
  * GroupsApi - factory interface
- * @export
  */
 export const GroupsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = GroupsApiFp(configuration)
@@ -414,135 +409,96 @@ export const GroupsApiFactory = function (configuration?: Configuration, basePat
 
 /**
  * Request parameters for addUsersToGroupAsync operation in GroupsApi.
- * @export
- * @interface GroupsApiAddUsersToGroupAsyncRequest
  */
 export interface GroupsApiAddUsersToGroupAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof GroupsApiAddUsersToGroupAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof GroupsApiAddUsersToGroupAsync
      */
     readonly groupId: string
 
     /**
      * 
-     * @type {AnalyticsApiGroupsV1AddGroupUsersRequest}
-     * @memberof GroupsApiAddUsersToGroupAsync
      */
     readonly analyticsApiGroupsV1AddGroupUsersRequest?: AnalyticsApiGroupsV1AddGroupUsersRequest
 }
 
 /**
  * Request parameters for createAnalyticsPowerBiGroup operation in GroupsApi.
- * @export
- * @interface GroupsApiCreateAnalyticsPowerBiGroupRequest
  */
 export interface GroupsApiCreateAnalyticsPowerBiGroupRequest {
     /**
      * 
-     * @type {string}
-     * @memberof GroupsApiCreateAnalyticsPowerBiGroup
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {AnalyticsApiGroupsV1CreateGroupRequest}
-     * @memberof GroupsApiCreateAnalyticsPowerBiGroup
      */
     readonly analyticsApiGroupsV1CreateGroupRequest?: AnalyticsApiGroupsV1CreateGroupRequest
 }
 
 /**
  * Request parameters for deleteAnalyticsPowerBiGroup operation in GroupsApi.
- * @export
- * @interface GroupsApiDeleteAnalyticsPowerBiGroupRequest
  */
 export interface GroupsApiDeleteAnalyticsPowerBiGroupRequest {
     /**
      * 
-     * @type {string}
-     * @memberof GroupsApiDeleteAnalyticsPowerBiGroup
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof GroupsApiDeleteAnalyticsPowerBiGroup
      */
     readonly groupId: string
 }
 
 /**
  * Request parameters for getAnalyticsPowerBiGroupUsers operation in GroupsApi.
- * @export
- * @interface GroupsApiGetAnalyticsPowerBiGroupUsersRequest
  */
 export interface GroupsApiGetAnalyticsPowerBiGroupUsersRequest {
     /**
      * 
-     * @type {string}
-     * @memberof GroupsApiGetAnalyticsPowerBiGroupUsers
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof GroupsApiGetAnalyticsPowerBiGroupUsers
      */
     readonly groupId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof GroupsApiGetAnalyticsPowerBiGroupUsers
      */
     readonly skipFirstN?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof GroupsApiGetAnalyticsPowerBiGroupUsers
      */
     readonly topFirstN?: number
 }
 
 /**
  * Request parameters for getGroupsAsync operation in GroupsApi.
- * @export
- * @interface GroupsApiGetGroupsAsyncRequest
  */
 export interface GroupsApiGetGroupsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof GroupsApiGetGroupsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof GroupsApiGetGroupsAsync
      */
     readonly filter?: string
 }
 
 /**
  * GroupsApi - object-oriented interface
- * @export
- * @class GroupsApi
- * @extends {BaseAPI}
  */
 export class GroupsApi extends BaseAPI {
     /**
@@ -551,7 +507,6 @@ export class GroupsApi extends BaseAPI {
      * @param {GroupsApiAddUsersToGroupAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GroupsApi
      */
     public addUsersToGroupAsync(requestParameters: GroupsApiAddUsersToGroupAsyncRequest, options?: RawAxiosRequestConfig) {
         return GroupsApiFp(this.configuration).addUsersToGroupAsync(requestParameters.tenantId, requestParameters.groupId, requestParameters.analyticsApiGroupsV1AddGroupUsersRequest, options).then((request) => request(this.axios, this.basePath));
@@ -563,7 +518,6 @@ export class GroupsApi extends BaseAPI {
      * @param {GroupsApiCreateAnalyticsPowerBiGroupRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GroupsApi
      */
     public createAnalyticsPowerBiGroup(requestParameters: GroupsApiCreateAnalyticsPowerBiGroupRequest, options?: RawAxiosRequestConfig) {
         return GroupsApiFp(this.configuration).createAnalyticsPowerBiGroup(requestParameters.tenantId, requestParameters.analyticsApiGroupsV1CreateGroupRequest, options).then((request) => request(this.axios, this.basePath));
@@ -575,7 +529,6 @@ export class GroupsApi extends BaseAPI {
      * @param {GroupsApiDeleteAnalyticsPowerBiGroupRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GroupsApi
      */
     public deleteAnalyticsPowerBiGroup(requestParameters: GroupsApiDeleteAnalyticsPowerBiGroupRequest, options?: RawAxiosRequestConfig) {
         return GroupsApiFp(this.configuration).deleteAnalyticsPowerBiGroup(requestParameters.tenantId, requestParameters.groupId, options).then((request) => request(this.axios, this.basePath));
@@ -587,7 +540,6 @@ export class GroupsApi extends BaseAPI {
      * @param {GroupsApiGetAnalyticsPowerBiGroupUsersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GroupsApi
      */
     public getAnalyticsPowerBiGroupUsers(requestParameters: GroupsApiGetAnalyticsPowerBiGroupUsersRequest, options?: RawAxiosRequestConfig) {
         return GroupsApiFp(this.configuration).getAnalyticsPowerBiGroupUsers(requestParameters.tenantId, requestParameters.groupId, requestParameters.skipFirstN, requestParameters.topFirstN, options).then((request) => request(this.axios, this.basePath));
@@ -599,7 +551,6 @@ export class GroupsApi extends BaseAPI {
      * @param {GroupsApiGetGroupsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GroupsApi
      */
     public getGroupsAsync(requestParameters: GroupsApiGetGroupsAsyncRequest, options?: RawAxiosRequestConfig) {
         return GroupsApiFp(this.configuration).getGroupsAsync(requestParameters.tenantId, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));

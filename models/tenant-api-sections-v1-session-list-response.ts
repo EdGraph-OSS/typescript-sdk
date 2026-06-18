@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiSectionsV1SessionListResponse
- */
 export interface TenantApiSectionsV1SessionListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SessionListResponse
-     */
     'name'?: string | null;
 }
 

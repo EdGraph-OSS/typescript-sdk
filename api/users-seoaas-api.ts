@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -37,7 +37,6 @@ import type { IdentityApiUserV1SEOAAUpdatedResponse } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * UsersSEOAAsApi - axios parameter creator
- * @export
  */
 export const UsersSEOAAsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -56,8 +55,8 @@ export const UsersSEOAAsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('addUserSEOAA', 'userId', userId)
             const localVarPath = `/v2/tenants/{tenantId}/users/{userId}/seoaas`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -73,9 +72,8 @@ export const UsersSEOAAsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -104,9 +102,9 @@ export const UsersSEOAAsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'seoaaId' is not null or undefined
             assertParamExists('deleteUserSEOAA', 'seoaaId', seoaaId)
             const localVarPath = `/v2/tenants/{tenantId}/users/{userId}/seoaas/{seoaaId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)))
-                .replace(`{${"seoaaId"}}`, encodeURIComponent(String(seoaaId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)))
+                .replace('{seoaaId}', encodeURIComponent(String(seoaaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -122,8 +120,8 @@ export const UsersSEOAAsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -151,8 +149,8 @@ export const UsersSEOAAsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('searchUserSEOAA', 'userId', userId)
             const localVarPath = `/v2/tenants/{tenantId}/users/{userId}/seoaas`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -184,8 +182,8 @@ export const UsersSEOAAsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -213,9 +211,9 @@ export const UsersSEOAAsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'seoaaId' is not null or undefined
             assertParamExists('updateUserSEOAA', 'seoaaId', seoaaId)
             const localVarPath = `/v2/tenants/{tenantId}/users/{userId}/seoaas/{seoaaId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)))
-                .replace(`{${"seoaaId"}}`, encodeURIComponent(String(seoaaId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)))
+                .replace('{seoaaId}', encodeURIComponent(String(seoaaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -231,9 +229,8 @@ export const UsersSEOAAsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -250,7 +247,6 @@ export const UsersSEOAAsApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * UsersSEOAAsApi - functional programming interface
- * @export
  */
 export const UsersSEOAAsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = UsersSEOAAsApiAxiosParamCreator(configuration)
@@ -324,7 +320,6 @@ export const UsersSEOAAsApiFp = function(configuration?: Configuration) {
 
 /**
  * UsersSEOAAsApi - factory interface
- * @export
  */
 export const UsersSEOAAsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = UsersSEOAAsApiFp(configuration)
@@ -374,149 +369,106 @@ export const UsersSEOAAsApiFactory = function (configuration?: Configuration, ba
 
 /**
  * Request parameters for addUserSEOAA operation in UsersSEOAAsApi.
- * @export
- * @interface UsersSEOAAsApiAddUserSEOAARequest
  */
 export interface UsersSEOAAsApiAddUserSEOAARequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersSEOAAsApiAddUserSEOAA
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSEOAAsApiAddUserSEOAA
      */
     readonly userId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV2RequestsAddSeoaaRequest}
-     * @memberof UsersSEOAAsApiAddUserSEOAA
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV2RequestsAddSeoaaRequest?: EdGraphHttpAggregatorsTenantApiControllersV2RequestsAddSeoaaRequest
 }
 
 /**
  * Request parameters for deleteUserSEOAA operation in UsersSEOAAsApi.
- * @export
- * @interface UsersSEOAAsApiDeleteUserSEOAARequest
  */
 export interface UsersSEOAAsApiDeleteUserSEOAARequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersSEOAAsApiDeleteUserSEOAA
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSEOAAsApiDeleteUserSEOAA
      */
     readonly userId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSEOAAsApiDeleteUserSEOAA
      */
     readonly seoaaId: string
 }
 
 /**
  * Request parameters for searchUserSEOAA operation in UsersSEOAAsApi.
- * @export
- * @interface UsersSEOAAsApiSearchUserSEOAARequest
  */
 export interface UsersSEOAAsApiSearchUserSEOAARequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersSEOAAsApiSearchUserSEOAA
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSEOAAsApiSearchUserSEOAA
      */
     readonly userId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersSEOAAsApiSearchUserSEOAA
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersSEOAAsApiSearchUserSEOAA
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSEOAAsApiSearchUserSEOAA
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSEOAAsApiSearchUserSEOAA
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for updateUserSEOAA operation in UsersSEOAAsApi.
- * @export
- * @interface UsersSEOAAsApiUpdateUserSEOAARequest
  */
 export interface UsersSEOAAsApiUpdateUserSEOAARequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersSEOAAsApiUpdateUserSEOAA
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSEOAAsApiUpdateUserSEOAA
      */
     readonly userId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSEOAAsApiUpdateUserSEOAA
      */
     readonly seoaaId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest}
-     * @memberof UsersSEOAAsApiUpdateUserSEOAA
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest?: EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest
 }
 
 /**
  * UsersSEOAAsApi - object-oriented interface
- * @export
- * @class UsersSEOAAsApi
- * @extends {BaseAPI}
  */
 export class UsersSEOAAsApi extends BaseAPI {
     /**
@@ -525,7 +477,6 @@ export class UsersSEOAAsApi extends BaseAPI {
      * @param {UsersSEOAAsApiAddUserSEOAARequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersSEOAAsApi
      */
     public addUserSEOAA(requestParameters: UsersSEOAAsApiAddUserSEOAARequest, options?: RawAxiosRequestConfig) {
         return UsersSEOAAsApiFp(this.configuration).addUserSEOAA(requestParameters.tenantId, requestParameters.userId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV2RequestsAddSeoaaRequest, options).then((request) => request(this.axios, this.basePath));
@@ -537,7 +488,6 @@ export class UsersSEOAAsApi extends BaseAPI {
      * @param {UsersSEOAAsApiDeleteUserSEOAARequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersSEOAAsApi
      */
     public deleteUserSEOAA(requestParameters: UsersSEOAAsApiDeleteUserSEOAARequest, options?: RawAxiosRequestConfig) {
         return UsersSEOAAsApiFp(this.configuration).deleteUserSEOAA(requestParameters.tenantId, requestParameters.userId, requestParameters.seoaaId, options).then((request) => request(this.axios, this.basePath));
@@ -549,7 +499,6 @@ export class UsersSEOAAsApi extends BaseAPI {
      * @param {UsersSEOAAsApiSearchUserSEOAARequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersSEOAAsApi
      */
     public searchUserSEOAA(requestParameters: UsersSEOAAsApiSearchUserSEOAARequest, options?: RawAxiosRequestConfig) {
         return UsersSEOAAsApiFp(this.configuration).searchUserSEOAA(requestParameters.tenantId, requestParameters.userId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -561,7 +510,6 @@ export class UsersSEOAAsApi extends BaseAPI {
      * @param {UsersSEOAAsApiUpdateUserSEOAARequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersSEOAAsApi
      */
     public updateUserSEOAA(requestParameters: UsersSEOAAsApiUpdateUserSEOAARequest, options?: RawAxiosRequestConfig) {
         return UsersSEOAAsApiFp(this.configuration).updateUserSEOAA(requestParameters.tenantId, requestParameters.userId, requestParameters.seoaaId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest, options).then((request) => request(this.axios, this.basePath));

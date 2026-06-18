@@ -14,77 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiConnectionV1ConnectionListResponse
- */
 export interface DataSyncApiConnectionV1ConnectionListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponse
-     */
     'connectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponse
-     */
     'providerId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponse
-     */
     'providerName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponse
-     */
     'connectionTypeId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponse
-     */
     'connectionTypeName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponse
-     */
     'lastModifiedDateTime'?: string | null;
 }
 

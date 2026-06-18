@@ -20,125 +20,25 @@ import type { TenantApiTenantV1LicenseType } from './tenant-api-tenant-v1-licens
 // @ts-ignore
 import type { TenantApiTenantV1SubscriptionStatus } from './tenant-api-tenant-v1-subscription-status';
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1SubscriptionProfileResponse
- */
 export interface TenantApiTenantV1SubscriptionProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'subscriptionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'startDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'endDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'actualEndDateTime'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'gracePeriod'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'numberOfLicenses'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'assignedLicenses'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'maxAssignedLicenses'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'lastMaxAssignedLicensesDateTime'?: string | null;
-    /**
-     * 
-     * @type {TenantApiTenantV1LicenseType}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'licenseType'?: TenantApiTenantV1LicenseType;
-    /**
-     * 
-     * @type {TenantApiTenantV1SubscriptionStatus}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'subscriptionStatus'?: TenantApiTenantV1SubscriptionStatus;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'autoAssign'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionProfileResponse
-     */
     'deletedAt'?: string | null;
 }
 

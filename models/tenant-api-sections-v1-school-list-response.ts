@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiSectionsV1SchoolListResponse
- */
 export interface TenantApiSectionsV1SchoolListResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1SchoolListResponse
-     */
     'schoolId'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1SchoolListResponse
-     */
     'schoolYear'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1SchoolListResponse
-     */
     'schoolName'?: string | null;
 }
 

@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1LicenseAssignedResponse
- */
 export interface IdentityApiUserV1LicenseAssignedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1LicenseAssignedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1LicenseAssignedResponse
-     */
     'subscriptionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1LicenseAssignedResponse
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1LicenseAssignedResponse
-     */
     'userId'?: string | null;
 }
 

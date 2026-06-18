@@ -16,8 +16,6 @@
 
 /**
  * Contains the list of the supported login identity providers
- * @export
- * @enum {string}
  */
 
 export const EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderId = {
@@ -27,7 +25,7 @@ export const EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenan
     Adfs: 'Adfs',
     Txedexchange: 'Txedexchange',
     Mspersonalv2: 'Mspersonalv2',
-    Classlink: 'Classlink'
+    Classlink: 'Classlink',
 } as const;
 
 export type EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderId = typeof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderId[keyof typeof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderId];

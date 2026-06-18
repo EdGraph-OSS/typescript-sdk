@@ -26,215 +26,40 @@ import type { IdentityApiApiClientV1TokenExpiration } from './identity-api-api-c
 // @ts-ignore
 import type { IdentityApiApiClientV1TokenUsage } from './identity-api-api-client-v1-token-usage';
 
-/**
- * 
- * @export
- * @interface IdentityApiApiClientV1ApiClientProfileResponse
- */
 export interface IdentityApiApiClientV1ApiClientProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'clientName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'clientUri'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'logoUri'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {IdentityApiApiClientV1AccessTokenType}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'accessTokenType'?: IdentityApiApiClientV1AccessTokenType;
-    /**
-     * 
-     * @type {IdentityApiApiClientV1TokenUsage}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'tokenUsage'?: IdentityApiApiClientV1TokenUsage;
-    /**
-     * 
-     * @type {IdentityApiApiClientV1TokenExpiration}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'refreshTokenExpiration'?: IdentityApiApiClientV1TokenExpiration;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'enableLocalLogin'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'allowOfflineAccess'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'allowAccessTokensViaBrowser'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'updateAccessTokenClaimsOnRefresh'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'alwaysIncludeUserClaimsInIdToken'?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'identityTokenLifetime'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'accessTokenLifetime'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'authorizationCodeLifetime'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'absoluteRefreshTokenLifetime'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'slidingRefreshTokenLifetime'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'requireClientSecret'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'requireConsent'?: boolean;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'allowedScopes'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'allowedCorsOrigins'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'allowedGrantTypes'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'identityProviderRestrictions'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'redirectUris'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'postLogoutRedirectUris'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<IdentityApiApiClientV1Claim>}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'claims'?: Array<IdentityApiApiClientV1Claim> | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'requirePkce'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
 }
 

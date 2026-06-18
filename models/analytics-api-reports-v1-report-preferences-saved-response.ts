@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiReportsV1ReportPreferencesSavedResponse
- */
 export interface AnalyticsApiReportsV1ReportPreferencesSavedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1ReportPreferencesSavedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1ReportPreferencesSavedResponse
-     */
     'reportId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1ReportPreferencesSavedResponse
-     */
     'userId'?: string | null;
 }
 

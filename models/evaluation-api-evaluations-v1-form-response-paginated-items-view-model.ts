@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EvaluationApiEvaluationsV1FormResponse } from './evaluation-api-evaluations-v1-form-response';
 
-/**
- * 
- * @export
- * @interface EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel
- */
 export interface EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EvaluationApiEvaluationsV1FormResponse>}
-     * @memberof EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel
-     */
     'data'?: Array<EvaluationApiEvaluationsV1FormResponse> | null;
 }
 

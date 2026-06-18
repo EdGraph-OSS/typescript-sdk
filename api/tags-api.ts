@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -37,7 +37,6 @@ import type { ValidationsApiTagsV1TagDto } from '../models';
 import type { ValidationsApiTagsV1UpdateRequest } from '../models';
 /**
  * TagsApi - axios parameter creator
- * @export
  */
 export const TagsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -53,7 +52,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createTag', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/validations/tags`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,9 +68,8 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -97,8 +95,8 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'tagId' is not null or undefined
             assertParamExists('deleteTag', 'tagId', tagId)
             const localVarPath = `/tenants/{tenantId}/validations/tags/{tagId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"tagId"}}`, encodeURIComponent(String(tagId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{tagId}', encodeURIComponent(String(tagId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -114,8 +112,8 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -139,8 +137,8 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'tagId' is not null or undefined
             assertParamExists('getTagById', 'tagId', tagId)
             const localVarPath = `/tenants/{tenantId}/validations/tags/{tagId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"tagId"}}`, encodeURIComponent(String(tagId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{tagId}', encodeURIComponent(String(tagId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -156,8 +154,8 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -182,7 +180,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getTags', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/validations/tags`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -214,8 +212,8 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -240,8 +238,8 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'tagId' is not null or undefined
             assertParamExists('updateTag', 'tagId', tagId)
             const localVarPath = `/tenants/{tenantId}/validations/tags/{tagId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"tagId"}}`, encodeURIComponent(String(tagId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{tagId}', encodeURIComponent(String(tagId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -257,9 +255,8 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -276,7 +273,6 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
 
 /**
  * TagsApi - functional programming interface
- * @export
  */
 export const TagsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TagsApiAxiosParamCreator(configuration)
@@ -360,7 +356,6 @@ export const TagsApiFp = function(configuration?: Configuration) {
 
 /**
  * TagsApi - factory interface
- * @export
  */
 export const TagsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TagsApiFp(configuration)
@@ -420,142 +415,101 @@ export const TagsApiFactory = function (configuration?: Configuration, basePath?
 
 /**
  * Request parameters for createTag operation in TagsApi.
- * @export
- * @interface TagsApiCreateTagRequest
  */
 export interface TagsApiCreateTagRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TagsApiCreateTag
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {ValidationsApiTagsV1CreateRequest}
-     * @memberof TagsApiCreateTag
      */
     readonly validationsApiTagsV1CreateRequest?: ValidationsApiTagsV1CreateRequest
 }
 
 /**
  * Request parameters for deleteTag operation in TagsApi.
- * @export
- * @interface TagsApiDeleteTagRequest
  */
 export interface TagsApiDeleteTagRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TagsApiDeleteTag
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TagsApiDeleteTag
      */
     readonly tagId: string
 }
 
 /**
  * Request parameters for getTagById operation in TagsApi.
- * @export
- * @interface TagsApiGetTagByIdRequest
  */
 export interface TagsApiGetTagByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TagsApiGetTagById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TagsApiGetTagById
      */
     readonly tagId: string
 }
 
 /**
  * Request parameters for getTags operation in TagsApi.
- * @export
- * @interface TagsApiGetTagsRequest
  */
 export interface TagsApiGetTagsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TagsApiGetTags
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof TagsApiGetTags
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof TagsApiGetTags
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof TagsApiGetTags
      */
     readonly filter?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TagsApiGetTags
      */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for updateTag operation in TagsApi.
- * @export
- * @interface TagsApiUpdateTagRequest
  */
 export interface TagsApiUpdateTagRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TagsApiUpdateTag
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TagsApiUpdateTag
      */
     readonly tagId: string
 
     /**
      * 
-     * @type {ValidationsApiTagsV1UpdateRequest}
-     * @memberof TagsApiUpdateTag
      */
     readonly validationsApiTagsV1UpdateRequest?: ValidationsApiTagsV1UpdateRequest
 }
 
 /**
  * TagsApi - object-oriented interface
- * @export
- * @class TagsApi
- * @extends {BaseAPI}
  */
 export class TagsApi extends BaseAPI {
     /**
@@ -564,7 +518,6 @@ export class TagsApi extends BaseAPI {
      * @param {TagsApiCreateTagRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TagsApi
      */
     public createTag(requestParameters: TagsApiCreateTagRequest, options?: RawAxiosRequestConfig) {
         return TagsApiFp(this.configuration).createTag(requestParameters.tenantId, requestParameters.validationsApiTagsV1CreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -576,7 +529,6 @@ export class TagsApi extends BaseAPI {
      * @param {TagsApiDeleteTagRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TagsApi
      */
     public deleteTag(requestParameters: TagsApiDeleteTagRequest, options?: RawAxiosRequestConfig) {
         return TagsApiFp(this.configuration).deleteTag(requestParameters.tenantId, requestParameters.tagId, options).then((request) => request(this.axios, this.basePath));
@@ -588,7 +540,6 @@ export class TagsApi extends BaseAPI {
      * @param {TagsApiGetTagByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TagsApi
      */
     public getTagById(requestParameters: TagsApiGetTagByIdRequest, options?: RawAxiosRequestConfig) {
         return TagsApiFp(this.configuration).getTagById(requestParameters.tenantId, requestParameters.tagId, options).then((request) => request(this.axios, this.basePath));
@@ -600,7 +551,6 @@ export class TagsApi extends BaseAPI {
      * @param {TagsApiGetTagsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TagsApi
      */
     public getTags(requestParameters: TagsApiGetTagsRequest, options?: RawAxiosRequestConfig) {
         return TagsApiFp(this.configuration).getTags(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -612,7 +562,6 @@ export class TagsApi extends BaseAPI {
      * @param {TagsApiUpdateTagRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TagsApi
      */
     public updateTag(requestParameters: TagsApiUpdateTagRequest, options?: RawAxiosRequestConfig) {
         return TagsApiFp(this.configuration).updateTag(requestParameters.tenantId, requestParameters.tagId, requestParameters.validationsApiTagsV1UpdateRequest, options).then((request) => request(this.axios, this.basePath));

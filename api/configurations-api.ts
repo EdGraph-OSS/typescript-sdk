@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -43,7 +43,6 @@ import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 /**
  * ConfigurationsApi - axios parameter creator
- * @export
  */
 export const ConfigurationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -62,8 +61,8 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'workspaceName' is not null or undefined
             assertParamExists('createAnalyticsConfigurationAsync', 'workspaceName', workspaceName)
             const localVarPath = `/tenants/{tenantId}/analytics/configurations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"workspaceName"}}`, encodeURIComponent(String(workspaceName)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{workspaceName}', encodeURIComponent(String(workspaceName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -79,9 +78,8 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -107,8 +105,8 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'configurationId' is not null or undefined
             assertParamExists('deleteAnalyticsConfigurationAsync', 'configurationId', configurationId)
             const localVarPath = `/tenants/{tenantId}/analytics/configurations/{configurationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"configurationId"}}`, encodeURIComponent(String(configurationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{configurationId}', encodeURIComponent(String(configurationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -124,8 +122,8 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -150,7 +148,7 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllAnalyticsConfigurationsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/configurations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -182,8 +180,8 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -207,8 +205,8 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'configurationId' is not null or undefined
             assertParamExists('getAnalyticsConfigurationByIdAsync', 'configurationId', configurationId)
             const localVarPath = `/tenants/{tenantId}/analytics/configurations/{configurationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"configurationId"}}`, encodeURIComponent(String(configurationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{configurationId}', encodeURIComponent(String(configurationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -224,8 +222,8 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -246,7 +244,7 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAnalyticsConfigurationByTenantIdAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/configurations/default`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -262,8 +260,8 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -284,7 +282,7 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('hasValidAnalyticsConfigurationAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/configurations/default/valid`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -300,8 +298,8 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -326,8 +324,8 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'configurationId' is not null or undefined
             assertParamExists('updateAnalyticsConfigurationAsync', 'configurationId', configurationId)
             const localVarPath = `/tenants/{tenantId}/analytics/configurations/{configurationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"configurationId"}}`, encodeURIComponent(String(configurationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{configurationId}', encodeURIComponent(String(configurationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -343,9 +341,8 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -369,7 +366,7 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('validateAADTokenAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/configurations/azure/testconnection`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -385,9 +382,8 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -404,7 +400,6 @@ export const ConfigurationsApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * ConfigurationsApi - functional programming interface
- * @export
  */
 export const ConfigurationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ConfigurationsApiAxiosParamCreator(configuration)
@@ -529,7 +524,6 @@ export const ConfigurationsApiFp = function(configuration?: Configuration) {
 
 /**
  * ConfigurationsApi - factory interface
- * @export
  */
 export const ConfigurationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ConfigurationsApiFp(configuration)
@@ -619,198 +613,138 @@ export const ConfigurationsApiFactory = function (configuration?: Configuration,
 
 /**
  * Request parameters for createAnalyticsConfigurationAsync operation in ConfigurationsApi.
- * @export
- * @interface ConfigurationsApiCreateAnalyticsConfigurationAsyncRequest
  */
 export interface ConfigurationsApiCreateAnalyticsConfigurationAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConfigurationsApiCreateAnalyticsConfigurationAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConfigurationsApiCreateAnalyticsConfigurationAsync
      */
     readonly workspaceName: string
 
     /**
      * 
-     * @type {AnalyticsApiConfigurationsV1CreateConfigurationRequest}
-     * @memberof ConfigurationsApiCreateAnalyticsConfigurationAsync
      */
     readonly analyticsApiConfigurationsV1CreateConfigurationRequest?: AnalyticsApiConfigurationsV1CreateConfigurationRequest
 }
 
 /**
  * Request parameters for deleteAnalyticsConfigurationAsync operation in ConfigurationsApi.
- * @export
- * @interface ConfigurationsApiDeleteAnalyticsConfigurationAsyncRequest
  */
 export interface ConfigurationsApiDeleteAnalyticsConfigurationAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConfigurationsApiDeleteAnalyticsConfigurationAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConfigurationsApiDeleteAnalyticsConfigurationAsync
      */
     readonly configurationId: string
 }
 
 /**
  * Request parameters for getAllAnalyticsConfigurationsAsync operation in ConfigurationsApi.
- * @export
- * @interface ConfigurationsApiGetAllAnalyticsConfigurationsAsyncRequest
  */
 export interface ConfigurationsApiGetAllAnalyticsConfigurationsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConfigurationsApiGetAllAnalyticsConfigurationsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ConfigurationsApiGetAllAnalyticsConfigurationsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ConfigurationsApiGetAllAnalyticsConfigurationsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ConfigurationsApiGetAllAnalyticsConfigurationsAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConfigurationsApiGetAllAnalyticsConfigurationsAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getAnalyticsConfigurationByIdAsync operation in ConfigurationsApi.
- * @export
- * @interface ConfigurationsApiGetAnalyticsConfigurationByIdAsyncRequest
  */
 export interface ConfigurationsApiGetAnalyticsConfigurationByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConfigurationsApiGetAnalyticsConfigurationByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConfigurationsApiGetAnalyticsConfigurationByIdAsync
      */
     readonly configurationId: string
 }
 
 /**
  * Request parameters for getAnalyticsConfigurationByTenantIdAsync operation in ConfigurationsApi.
- * @export
- * @interface ConfigurationsApiGetAnalyticsConfigurationByTenantIdAsyncRequest
  */
 export interface ConfigurationsApiGetAnalyticsConfigurationByTenantIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConfigurationsApiGetAnalyticsConfigurationByTenantIdAsync
      */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for hasValidAnalyticsConfigurationAsync operation in ConfigurationsApi.
- * @export
- * @interface ConfigurationsApiHasValidAnalyticsConfigurationAsyncRequest
  */
 export interface ConfigurationsApiHasValidAnalyticsConfigurationAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConfigurationsApiHasValidAnalyticsConfigurationAsync
      */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for updateAnalyticsConfigurationAsync operation in ConfigurationsApi.
- * @export
- * @interface ConfigurationsApiUpdateAnalyticsConfigurationAsyncRequest
  */
 export interface ConfigurationsApiUpdateAnalyticsConfigurationAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConfigurationsApiUpdateAnalyticsConfigurationAsync
      */
     readonly tenantId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ConfigurationsApiUpdateAnalyticsConfigurationAsync
-     */
     readonly configurationId: string
 
     /**
      * 
-     * @type {AnalyticsApiConfigurationsV1UpdateConfigurationRequest}
-     * @memberof ConfigurationsApiUpdateAnalyticsConfigurationAsync
      */
     readonly analyticsApiConfigurationsV1UpdateConfigurationRequest?: AnalyticsApiConfigurationsV1UpdateConfigurationRequest
 }
 
 /**
  * Request parameters for validateAADTokenAsync operation in ConfigurationsApi.
- * @export
- * @interface ConfigurationsApiValidateAADTokenAsyncRequest
  */
 export interface ConfigurationsApiValidateAADTokenAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConfigurationsApiValidateAADTokenAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {AnalyticsApiConfigurationsV1AnalyticsAzureAd}
-     * @memberof ConfigurationsApiValidateAADTokenAsync
      */
     readonly analyticsApiConfigurationsV1AnalyticsAzureAd?: AnalyticsApiConfigurationsV1AnalyticsAzureAd
 }
 
 /**
  * ConfigurationsApi - object-oriented interface
- * @export
- * @class ConfigurationsApi
- * @extends {BaseAPI}
  */
 export class ConfigurationsApi extends BaseAPI {
     /**
@@ -819,7 +753,6 @@ export class ConfigurationsApi extends BaseAPI {
      * @param {ConfigurationsApiCreateAnalyticsConfigurationAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationsApi
      */
     public createAnalyticsConfigurationAsync(requestParameters: ConfigurationsApiCreateAnalyticsConfigurationAsyncRequest, options?: RawAxiosRequestConfig) {
         return ConfigurationsApiFp(this.configuration).createAnalyticsConfigurationAsync(requestParameters.tenantId, requestParameters.workspaceName, requestParameters.analyticsApiConfigurationsV1CreateConfigurationRequest, options).then((request) => request(this.axios, this.basePath));
@@ -831,7 +764,6 @@ export class ConfigurationsApi extends BaseAPI {
      * @param {ConfigurationsApiDeleteAnalyticsConfigurationAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationsApi
      */
     public deleteAnalyticsConfigurationAsync(requestParameters: ConfigurationsApiDeleteAnalyticsConfigurationAsyncRequest, options?: RawAxiosRequestConfig) {
         return ConfigurationsApiFp(this.configuration).deleteAnalyticsConfigurationAsync(requestParameters.tenantId, requestParameters.configurationId, options).then((request) => request(this.axios, this.basePath));
@@ -843,7 +775,6 @@ export class ConfigurationsApi extends BaseAPI {
      * @param {ConfigurationsApiGetAllAnalyticsConfigurationsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationsApi
      */
     public getAllAnalyticsConfigurationsAsync(requestParameters: ConfigurationsApiGetAllAnalyticsConfigurationsAsyncRequest, options?: RawAxiosRequestConfig) {
         return ConfigurationsApiFp(this.configuration).getAllAnalyticsConfigurationsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -855,7 +786,6 @@ export class ConfigurationsApi extends BaseAPI {
      * @param {ConfigurationsApiGetAnalyticsConfigurationByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationsApi
      */
     public getAnalyticsConfigurationByIdAsync(requestParameters: ConfigurationsApiGetAnalyticsConfigurationByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return ConfigurationsApiFp(this.configuration).getAnalyticsConfigurationByIdAsync(requestParameters.tenantId, requestParameters.configurationId, options).then((request) => request(this.axios, this.basePath));
@@ -867,7 +797,6 @@ export class ConfigurationsApi extends BaseAPI {
      * @param {ConfigurationsApiGetAnalyticsConfigurationByTenantIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationsApi
      */
     public getAnalyticsConfigurationByTenantIdAsync(requestParameters: ConfigurationsApiGetAnalyticsConfigurationByTenantIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return ConfigurationsApiFp(this.configuration).getAnalyticsConfigurationByTenantIdAsync(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -879,7 +808,6 @@ export class ConfigurationsApi extends BaseAPI {
      * @param {ConfigurationsApiHasValidAnalyticsConfigurationAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationsApi
      */
     public hasValidAnalyticsConfigurationAsync(requestParameters: ConfigurationsApiHasValidAnalyticsConfigurationAsyncRequest, options?: RawAxiosRequestConfig) {
         return ConfigurationsApiFp(this.configuration).hasValidAnalyticsConfigurationAsync(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -891,7 +819,6 @@ export class ConfigurationsApi extends BaseAPI {
      * @param {ConfigurationsApiUpdateAnalyticsConfigurationAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationsApi
      */
     public updateAnalyticsConfigurationAsync(requestParameters: ConfigurationsApiUpdateAnalyticsConfigurationAsyncRequest, options?: RawAxiosRequestConfig) {
         return ConfigurationsApiFp(this.configuration).updateAnalyticsConfigurationAsync(requestParameters.tenantId, requestParameters.configurationId, requestParameters.analyticsApiConfigurationsV1UpdateConfigurationRequest, options).then((request) => request(this.axios, this.basePath));
@@ -903,7 +830,6 @@ export class ConfigurationsApi extends BaseAPI {
      * @param {ConfigurationsApiValidateAADTokenAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationsApi
      */
     public validateAADTokenAsync(requestParameters: ConfigurationsApiValidateAADTokenAsyncRequest, options?: RawAxiosRequestConfig) {
         return ConfigurationsApiFp(this.configuration).validateAADTokenAsync(requestParameters.tenantId, requestParameters.analyticsApiConfigurationsV1AnalyticsAzureAd, options).then((request) => request(this.axios, this.basePath));

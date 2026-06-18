@@ -14,77 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobTypeV1JobMetadataField
- */
 export interface DataSyncApiJobTypeV1JobMetadataField {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobMetadataField
-     */
     'tab'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobMetadataField
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobMetadataField
-     */
     'label'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobMetadataField
-     */
     'validation'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobMetadataField
-     */
     'order'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiJobTypeV1JobMetadataField
-     */
     'display'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobMetadataField
-     */
     'defaultValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobMetadataField
-     */
     'type'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobMetadataField
-     */
     'values'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobMetadataField
-     */
     'api'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiJobTypeV1JobMetadataField
-     */
     'isSecret'?: boolean;
 }
 

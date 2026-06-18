@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiInvitationV1AssignLicenseRequest
- */
 export interface IdentityApiInvitationV1AssignLicenseRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1AssignLicenseRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1AssignLicenseRequest
-     */
     'subscriptionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1AssignLicenseRequest
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInvitationV1AssignLicenseRequest
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiInvitationV1AssignLicenseRequest
-     */
     'roles'?: Array<string> | null;
 }
 

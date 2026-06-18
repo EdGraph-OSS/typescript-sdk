@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiConfigurationsV1AnalyticsTriggerOption
- */
 export interface AnalyticsApiConfigurationsV1AnalyticsTriggerOption {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsTriggerOption
-     */
     'startTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsTriggerOption
-     */
     'endTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsTriggerOption
-     */
     'recurrence'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsTriggerOption
-     */
     'timeZone'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsTriggerOption
-     */
     'interval'?: number | null;
 }
 

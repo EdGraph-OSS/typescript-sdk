@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus = {
     Unknown: 'Unknown',
     Active: 'Active',
-    Inactive: 'Inactive'
+    Inactive: 'Inactive',
 } as const;
 
 export type EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus = typeof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus[keyof typeof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus];

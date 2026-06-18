@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1RaceRepresentation } from './edfi-admin-api-edfi-admin-v1-race-representation';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1StudentEnrollmentByRaceReportResponse
- */
 export interface EdfiAdminApiEdfiAdminV1StudentEnrollmentByRaceReportResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEnrollmentByRaceReportResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEnrollmentByRaceReportResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEnrollmentByRaceReportResponse
-     */
     'localEducationAgencyId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEnrollmentByRaceReportResponse
-     */
     'localEducationAgencyName'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEnrollmentByRaceReportResponse
-     */
     'totalStudentCount'?: number;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1RaceRepresentation>}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEnrollmentByRaceReportResponse
-     */
     'raceRepresentation'?: Array<EdfiAdminApiEdfiAdminV1RaceRepresentation> | null;
 }
 

@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EvaluationApiEvaluationSettingsV1SetUsersRequest
- */
 export interface EvaluationApiEvaluationSettingsV1SetUsersRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1SetUsersRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EvaluationApiEvaluationSettingsV1SetUsersRequest
-     */
     'appraisers'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EvaluationApiEvaluationSettingsV1SetUsersRequest
-     */
     'staffClassifications'?: Array<string> | null;
 }
 

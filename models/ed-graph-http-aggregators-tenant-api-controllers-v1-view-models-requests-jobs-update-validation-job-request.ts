@@ -20,53 +20,13 @@ import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobs
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsSchedule } from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-requests-jobs-schedule';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateValidationJobRequest
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateValidationJobRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateValidationJobRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateValidationJobRequest
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateValidationJobRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsSchedule}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateValidationJobRequest
-     */
     'schedule'?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsSchedule;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateValidationJobRequest
-     */
     'notificationEmails'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsJobCategory>}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateValidationJobRequest
-     */
     'categories'?: Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsJobCategory> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateValidationJobRequest
-     */
     'environmentId'?: string;
 }
 

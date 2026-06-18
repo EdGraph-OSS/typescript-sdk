@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1VerifyDomainRequest
- */
 export interface TenantApiTenantV1VerifyDomainRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1VerifyDomainRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1VerifyDomainRequest
-     */
     'domainName'?: string | null;
 }
 

@@ -47,173 +47,33 @@ import type { TenantApiTenantV1TenantStatus } from './tenant-api-tenant-v1-tenan
 // @ts-ignore
 import type { TenantApiTenantV1TenantType } from './tenant-api-tenant-v1-tenant-type';
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1TenantProfileResponse
- */
 export interface TenantApiTenantV1TenantProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<TenantApiTenantV1TenantType>}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'tenantTypes'?: Array<TenantApiTenantV1TenantType> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'organizationIdentifier'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'organizationName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'state'?: string | null;
-    /**
-     * 
-     * @type {TenantApiTenantV1TenantStatus}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'tenantStatus'?: TenantApiTenantV1TenantStatus;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'isDemo'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'subscriptionsMigrated'?: boolean;
-    /**
-     * 
-     * @type {Array<TenantApiTenantV1SubscriptionProfileResponse>}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'subscriptions'?: Array<TenantApiTenantV1SubscriptionProfileResponse> | null;
-    /**
-     * 
-     * @type {Array<TenantApiTenantV1DomainProfileResponse>}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'domains'?: Array<TenantApiTenantV1DomainProfileResponse> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {Array<TenantApiTenantV1TenantIdentityProviders>}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'identityProviders'?: Array<TenantApiTenantV1TenantIdentityProviders> | null;
-    /**
-     * 
-     * @type {TenantApiTenantV1Onboarding}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'onboarding'?: TenantApiTenantV1Onboarding;
-    /**
-     * 
-     * @type {Array<TenantApiTenantV1Organization>}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'organizations'?: Array<TenantApiTenantV1Organization> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'organizationIdentifierHash'?: string | null;
-    /**
-     * 
-     * @type {Array<TenantApiTenantV1TenantSetting>}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'settings'?: Array<TenantApiTenantV1TenantSetting> | null;
-    /**
-     * 
-     * @type {TenantApiTenantV1TenantAdditionalSetting}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'additionalSettings'?: TenantApiTenantV1TenantAdditionalSetting;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'tenantType'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'securityScore'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'organizationalAccountRating'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'multiFactorAuthenticationRating'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'domainVerificationRating'?: number | null;
-    /**
-     * 
-     * @type {TenantApiTenantV1DeploymentType}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'deploymentType'?: TenantApiTenantV1DeploymentType;
-    /**
-     * 
-     * @type {TenantApiTenantV1TenantBrandingResponse}
-     * @memberof TenantApiTenantV1TenantProfileResponse
-     */
     'branding'?: TenantApiTenantV1TenantBrandingResponse;
 }
 

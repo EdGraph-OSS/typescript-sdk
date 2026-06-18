@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1ReportingPeriodStepStatus } from './ed-graph-services-state-reporting-v1-reporting-period-step-status';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1ReportingPeriodStep
- */
 export interface EdGraphServicesStateReportingV1ReportingPeriodStep {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodStep
-     */
     'number'?: number;
-    /**
-     * 
-     * @type {EdGraphServicesStateReportingV1ReportingPeriodStepStatus}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodStep
-     */
     'status'?: EdGraphServicesStateReportingV1ReportingPeriodStepStatus;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1SchoolCountRepresentation
- */
 export interface EdfiAdminApiEdfiAdminV1SchoolCountRepresentation {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SchoolCountRepresentation
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1SchoolCountRepresentation
-     */
     'count'?: number;
 }
 

@@ -26,143 +26,28 @@ import type { EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResp
 // @ts-ignore
 import type { EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant } from './ed-graph-platform-http-aggregators-tenant-api-controllers-v1-view-models-responses-user-tenant';
 
-/**
- * 
- * @export
- * @interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
- */
 export interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'userName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'firstName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'lastName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'phoneNumber'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'lockoutEnabled'?: string | null;
-    /**
-     * 
-     * @type {Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant>}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'tenants'?: Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant> | null;
-    /**
-     * 
-     * @type {Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfilePreference>}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'preferences'?: Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfilePreference> | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'browserDebugEnabled'?: boolean;
-    /**
-     * 
-     * @type {Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense>}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'licenses'?: Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin>}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'logins'?: Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'source'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'lastLoginDateTime'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'mfaCompleted'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'isDeleted'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'deletedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense
-     */
     'deletedBy'?: string | null;
 }
 

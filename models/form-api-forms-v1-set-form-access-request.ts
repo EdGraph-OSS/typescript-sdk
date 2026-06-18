@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { FormApiFormsV1AudienceType } from './form-api-forms-v1-audience-type';
 
-/**
- * 
- * @export
- * @interface FormApiFormsV1SetFormAccessRequest
- */
 export interface FormApiFormsV1SetFormAccessRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1SetFormAccessRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1SetFormAccessRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {FormApiFormsV1AudienceType}
-     * @memberof FormApiFormsV1SetFormAccessRequest
-     */
     'targetAudience'?: FormApiFormsV1AudienceType;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FormApiFormsV1SetFormAccessRequest
-     */
     'singleResponsePerIndividual'?: boolean | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof FormApiFormsV1SetFormAccessRequest
-     */
     'staffClassifications'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof FormApiFormsV1SetFormAccessRequest
-     */
     'users'?: Array<string> | null;
 }
 

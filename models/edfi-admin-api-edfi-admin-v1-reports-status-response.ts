@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1ReportsStatusResponse
- */
 export interface EdfiAdminApiEdfiAdminV1ReportsStatusResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ReportsStatusResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ReportsStatusResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1ReportsStatusResponse
-     */
     'districtSchoolsByTypeReport'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1ReportsStatusResponse
-     */
     'districtTotalEnrollmentsReport'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1ReportsStatusResponse
-     */
     'localEducationAgenciesReport'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1ReportsStatusResponse
-     */
     'studentDemographicsReport'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1ReportsStatusResponse
-     */
     'studentEconomicSituationReport'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1ReportsStatusResponse
-     */
     'studentsByProgramReport'?: boolean;
 }
 

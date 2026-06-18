@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { EdfiAdminApiEdfiAdminV1Instance } from '../models';
 import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 /**
  * EdFiInstancesApi - axios parameter creator
- * @export
  */
 export const EdFiInstancesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -50,7 +49,7 @@ export const EdFiInstancesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllEdFiAdminConnectionsFromAnalyticsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/edfiadmin/connections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -82,8 +81,8 @@ export const EdFiInstancesApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -108,7 +107,7 @@ export const EdFiInstancesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllEdFiAdminInstancesFromAnalyticsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/edfiadmin/instances`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -140,8 +139,8 @@ export const EdFiInstancesApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -165,8 +164,8 @@ export const EdFiInstancesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'instanceId' is not null or undefined
             assertParamExists('getEdFiAdminInstanceByIdFromAnalyticsAsync', 'instanceId', instanceId)
             const localVarPath = `/tenants/{tenantId}/analytics/edfiadmin/instances/{instanceId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -182,8 +181,8 @@ export const EdFiInstancesApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -198,7 +197,6 @@ export const EdFiInstancesApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * EdFiInstancesApi - functional programming interface
- * @export
  */
 export const EdFiInstancesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EdFiInstancesApiAxiosParamCreator(configuration)
@@ -256,7 +254,6 @@ export const EdFiInstancesApiFp = function(configuration?: Configuration) {
 
 /**
  * EdFiInstancesApi - factory interface
- * @export
  */
 export const EdFiInstancesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EdFiInstancesApiFp(configuration)
@@ -296,114 +293,81 @@ export const EdFiInstancesApiFactory = function (configuration?: Configuration, 
 
 /**
  * Request parameters for getAllEdFiAdminConnectionsFromAnalyticsAsync operation in EdFiInstancesApi.
- * @export
- * @interface EdFiInstancesApiGetAllEdFiAdminConnectionsFromAnalyticsAsyncRequest
  */
 export interface EdFiInstancesApiGetAllEdFiAdminConnectionsFromAnalyticsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EdFiInstancesApiGetAllEdFiAdminConnectionsFromAnalyticsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof EdFiInstancesApiGetAllEdFiAdminConnectionsFromAnalyticsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof EdFiInstancesApiGetAllEdFiAdminConnectionsFromAnalyticsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof EdFiInstancesApiGetAllEdFiAdminConnectionsFromAnalyticsAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EdFiInstancesApiGetAllEdFiAdminConnectionsFromAnalyticsAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getAllEdFiAdminInstancesFromAnalyticsAsync operation in EdFiInstancesApi.
- * @export
- * @interface EdFiInstancesApiGetAllEdFiAdminInstancesFromAnalyticsAsyncRequest
  */
 export interface EdFiInstancesApiGetAllEdFiAdminInstancesFromAnalyticsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EdFiInstancesApiGetAllEdFiAdminInstancesFromAnalyticsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof EdFiInstancesApiGetAllEdFiAdminInstancesFromAnalyticsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof EdFiInstancesApiGetAllEdFiAdminInstancesFromAnalyticsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof EdFiInstancesApiGetAllEdFiAdminInstancesFromAnalyticsAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EdFiInstancesApiGetAllEdFiAdminInstancesFromAnalyticsAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getEdFiAdminInstanceByIdFromAnalyticsAsync operation in EdFiInstancesApi.
- * @export
- * @interface EdFiInstancesApiGetEdFiAdminInstanceByIdFromAnalyticsAsyncRequest
  */
 export interface EdFiInstancesApiGetEdFiAdminInstanceByIdFromAnalyticsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EdFiInstancesApiGetEdFiAdminInstanceByIdFromAnalyticsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EdFiInstancesApiGetEdFiAdminInstanceByIdFromAnalyticsAsync
      */
     readonly instanceId: string
 }
 
 /**
  * EdFiInstancesApi - object-oriented interface
- * @export
- * @class EdFiInstancesApi
- * @extends {BaseAPI}
  */
 export class EdFiInstancesApi extends BaseAPI {
     /**
@@ -412,7 +376,6 @@ export class EdFiInstancesApi extends BaseAPI {
      * @param {EdFiInstancesApiGetAllEdFiAdminConnectionsFromAnalyticsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EdFiInstancesApi
      */
     public getAllEdFiAdminConnectionsFromAnalyticsAsync(requestParameters: EdFiInstancesApiGetAllEdFiAdminConnectionsFromAnalyticsAsyncRequest, options?: RawAxiosRequestConfig) {
         return EdFiInstancesApiFp(this.configuration).getAllEdFiAdminConnectionsFromAnalyticsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -424,7 +387,6 @@ export class EdFiInstancesApi extends BaseAPI {
      * @param {EdFiInstancesApiGetAllEdFiAdminInstancesFromAnalyticsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EdFiInstancesApi
      */
     public getAllEdFiAdminInstancesFromAnalyticsAsync(requestParameters: EdFiInstancesApiGetAllEdFiAdminInstancesFromAnalyticsAsyncRequest, options?: RawAxiosRequestConfig) {
         return EdFiInstancesApiFp(this.configuration).getAllEdFiAdminInstancesFromAnalyticsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -436,7 +398,6 @@ export class EdFiInstancesApi extends BaseAPI {
      * @param {EdFiInstancesApiGetEdFiAdminInstanceByIdFromAnalyticsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EdFiInstancesApi
      */
     public getEdFiAdminInstanceByIdFromAnalyticsAsync(requestParameters: EdFiInstancesApiGetEdFiAdminInstanceByIdFromAnalyticsAsyncRequest, options?: RawAxiosRequestConfig) {
         return EdFiInstancesApiFp(this.configuration).getEdFiAdminInstanceByIdFromAnalyticsAsync(requestParameters.tenantId, requestParameters.instanceId, options).then((request) => request(this.axios, this.basePath));

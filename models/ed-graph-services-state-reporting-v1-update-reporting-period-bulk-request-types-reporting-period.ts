@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequestTypesReportingPeriod
- */
 export interface EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequestTypesReportingPeriod {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequestTypesReportingPeriod
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequestTypesReportingPeriod
-     */
     'startDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequestTypesReportingPeriod
-     */
     'endDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequestTypesReportingPeriod
-     */
     'reSubmissionDate'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphServicesStateReportingV1UpdateReportingPeriodBulkRequestTypesReportingPeriod
-     */
     'autoRunNightly'?: boolean;
 }
 

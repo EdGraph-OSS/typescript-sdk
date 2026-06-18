@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiStaffClassificationV1StaffClassificationCreatedResponse
- */
 export interface IdentityApiStaffClassificationV1StaffClassificationCreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationCreatedResponse
-     */
     'id'?: string | null;
 }
 

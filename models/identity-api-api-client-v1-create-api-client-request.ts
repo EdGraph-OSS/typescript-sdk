@@ -17,41 +17,11 @@
 // @ts-ignore
 import type { IdentityApiApiClientV1ApiClaim } from './identity-api-api-client-v1-api-claim';
 
-/**
- * 
- * @export
- * @interface IdentityApiApiClientV1CreateApiClientRequest
- */
 export interface IdentityApiApiClientV1CreateApiClientRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1CreateApiClientRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1CreateApiClientRequest
-     */
     'clientName'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiApiClientV1CreateApiClientRequest
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {Array<IdentityApiApiClientV1ApiClaim>}
-     * @memberof IdentityApiApiClientV1CreateApiClientRequest
-     */
     'apiClaims'?: Array<IdentityApiApiClientV1ApiClaim> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1CreateApiClientRequest
-     */
     'secretExpirationDateTime'?: string | null;
 }
 

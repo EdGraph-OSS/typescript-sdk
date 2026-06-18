@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequest Types Record } from './validations-api-reporting-periods-v1-set-rule-record-post-flag-bulk-request types record';
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequest
- */
 export interface ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequest
-     */
     'ruleId'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequest Types Record>}
-     * @memberof ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequest
-     */
     'records'?: Array<ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequest Types Record> | null;
 }
 

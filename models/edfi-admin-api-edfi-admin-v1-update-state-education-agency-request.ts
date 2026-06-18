@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest
- */
 export interface EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest
-     */
     'stateEducationAgencyId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest
-     */
     'nameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest
-     */
     'educationOrganizationCategoryDescriptors'?: Array<string> | null;
 }
 

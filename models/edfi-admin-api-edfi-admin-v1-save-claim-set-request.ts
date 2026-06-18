@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim } from './edfi-admin-api-edfi-admin-v1-claim-set-details-resource-claim';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1SaveClaimSetRequest
- */
 export interface EdfiAdminApiEdfiAdminV1SaveClaimSetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SaveClaimSetRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SaveClaimSetRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1SaveClaimSetRequest
-     */
     'claimSetId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SaveClaimSetRequest
-     */
     'claimSetName'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1SaveClaimSetRequest
-     */
     'applicationId'?: number;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim>}
-     * @memberof EdfiAdminApiEdfiAdminV1SaveClaimSetRequest
-     */
     'resourceClaims'?: Array<EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim> | null;
 }
 

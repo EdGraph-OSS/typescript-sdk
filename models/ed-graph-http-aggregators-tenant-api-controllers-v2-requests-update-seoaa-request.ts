@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest
-     */
     'seoaaId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest
-     */
     'educationOrganizationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest
-     */
     'staffClassificationDescriptor'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest
-     */
     'staffUniqueId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest
-     */
     'beginDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest
-     */
     'endDate'?: string | null;
 }
 

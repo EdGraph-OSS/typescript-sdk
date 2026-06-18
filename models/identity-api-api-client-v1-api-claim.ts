@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiApiClientV1ApiClaim
- */
 export interface IdentityApiApiClientV1ApiClaim {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClaim
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClaim
-     */
     'subscriptionId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiApiClientV1ApiClaim
-     */
     'value'?: Array<string> | null;
 }
 

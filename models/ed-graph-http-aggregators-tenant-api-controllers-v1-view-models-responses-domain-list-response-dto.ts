@@ -17,65 +17,15 @@
 // @ts-ignore
 import type { TenantApiTenantV1DomainStatus } from './tenant-api-tenant-v1-domain-status';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto
-     */
     'domainName'?: string | null;
-    /**
-     * 
-     * @type {TenantApiTenantV1DomainStatus}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto
-     */
     'domainStatus'?: TenantApiTenantV1DomainStatus;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto
-     */
     'autoAssignUsers'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto
-     */
     'manuallyVerified'?: boolean;
 }
 

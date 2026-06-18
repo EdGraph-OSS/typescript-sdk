@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiReportsV1DownloadReportResponse
- */
 export interface AnalyticsApiReportsV1DownloadReportResponse {
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof AnalyticsApiReportsV1DownloadReportResponse
-     */
     'content'?: Array<number> | null;
 }
 

@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ConnectionsTestConnectionDetailsByIdRequest
- */
 export interface IMSAdminApiV1ConnectionsTestConnectionDetailsByIdRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ConnectionsTestConnectionDetailsByIdRequest
-     */
     'connectionId'?: string | null;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1LicenseRevokedBulkResponse
- */
 export interface IdentityApiUserV1LicenseRevokedBulkResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1LicenseRevokedBulkResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1LicenseRevokedBulkResponse
-     */
     'userId'?: string | null;
 }
 

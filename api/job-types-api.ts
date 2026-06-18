@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 /**
  * JobTypesApi - axios parameter creator
- * @export
  */
 export const JobTypesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -50,7 +49,7 @@ export const JobTypesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllTenantDataSyncJobTypes', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/datasync/jobtypes`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -82,8 +81,8 @@ export const JobTypesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -107,8 +106,8 @@ export const JobTypesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'jobTypeId' is not null or undefined
             assertParamExists('getTenantDataSyncJobTypeProfileById', 'jobTypeId', jobTypeId)
             const localVarPath = `/tenants/{tenantId}/datasync/jobtypes/{jobTypeId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobTypeId"}}`, encodeURIComponent(String(jobTypeId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobTypeId}', encodeURIComponent(String(jobTypeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -124,8 +123,8 @@ export const JobTypesApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -140,7 +139,6 @@ export const JobTypesApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * JobTypesApi - functional programming interface
- * @export
  */
 export const JobTypesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = JobTypesApiAxiosParamCreator(configuration)
@@ -181,7 +179,6 @@ export const JobTypesApiFp = function(configuration?: Configuration) {
 
 /**
  * JobTypesApi - factory interface
- * @export
  */
 export const JobTypesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = JobTypesApiFp(configuration)
@@ -211,72 +208,51 @@ export const JobTypesApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * Request parameters for getAllTenantDataSyncJobTypes operation in JobTypesApi.
- * @export
- * @interface JobTypesApiGetAllTenantDataSyncJobTypesRequest
  */
 export interface JobTypesApiGetAllTenantDataSyncJobTypesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobTypesApiGetAllTenantDataSyncJobTypes
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof JobTypesApiGetAllTenantDataSyncJobTypes
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof JobTypesApiGetAllTenantDataSyncJobTypes
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof JobTypesApiGetAllTenantDataSyncJobTypes
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobTypesApiGetAllTenantDataSyncJobTypes
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getTenantDataSyncJobTypeProfileById operation in JobTypesApi.
- * @export
- * @interface JobTypesApiGetTenantDataSyncJobTypeProfileByIdRequest
  */
 export interface JobTypesApiGetTenantDataSyncJobTypeProfileByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobTypesApiGetTenantDataSyncJobTypeProfileById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobTypesApiGetTenantDataSyncJobTypeProfileById
      */
     readonly jobTypeId: string
 }
 
 /**
  * JobTypesApi - object-oriented interface
- * @export
- * @class JobTypesApi
- * @extends {BaseAPI}
  */
 export class JobTypesApi extends BaseAPI {
     /**
@@ -285,7 +261,6 @@ export class JobTypesApi extends BaseAPI {
      * @param {JobTypesApiGetAllTenantDataSyncJobTypesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobTypesApi
      */
     public getAllTenantDataSyncJobTypes(requestParameters: JobTypesApiGetAllTenantDataSyncJobTypesRequest, options?: RawAxiosRequestConfig) {
         return JobTypesApiFp(this.configuration).getAllTenantDataSyncJobTypes(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -297,7 +272,6 @@ export class JobTypesApi extends BaseAPI {
      * @param {JobTypesApiGetTenantDataSyncJobTypeProfileByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobTypesApi
      */
     public getTenantDataSyncJobTypeProfileById(requestParameters: JobTypesApiGetTenantDataSyncJobTypeProfileByIdRequest, options?: RawAxiosRequestConfig) {
         return JobTypesApiFp(this.configuration).getTenantDataSyncJobTypeProfileById(requestParameters.tenantId, requestParameters.jobTypeId, options).then((request) => request(this.axios, this.basePath));

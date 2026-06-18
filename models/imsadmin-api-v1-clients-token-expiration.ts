@@ -14,15 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const IMSAdminApiV1ClientsTokenExpiration = {
     Sliding: 'Sliding',
-    Absolute: 'Absolute'
+    Absolute: 'Absolute',
 } as const;
 
 export type IMSAdminApiV1ClientsTokenExpiration = typeof IMSAdminApiV1ClientsTokenExpiration[keyof typeof IMSAdminApiV1ClientsTokenExpiration];

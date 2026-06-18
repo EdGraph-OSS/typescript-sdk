@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1PipelineRun
- */
 export interface ValidationsApiReportingPeriodsV1PipelineRun {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1PipelineRun
-     */
     'runId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1PipelineRun
-     */
     'runStart'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1PipelineRun
-     */
     'runEnd'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1PipelineRun
-     */
     'durationInMs'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1PipelineRun
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1PipelineRun
-     */
     'message'?: string | null;
 }
 

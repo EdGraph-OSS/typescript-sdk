@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequestTypesRecord
- */
 export interface ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequestTypesRecord {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequestTypesRecord
-     */
     'recordId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequestTypesRecord
-     */
     'excludeFromPost'?: boolean;
 }
 

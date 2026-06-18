@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole
-     */
     'role'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole
-     */
     'assignedPersonaIdentifiers'?: Array<string> | null;
 }
 

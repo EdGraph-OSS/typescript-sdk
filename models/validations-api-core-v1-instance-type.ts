@@ -14,17 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ValidationsApiCoreV1InstanceType = {
     Unknown: 'Unknown',
     Edfi: 'Edfi',
     OpenEducationAnalytics: 'OpenEducationAnalytics',
-    Stadium: 'Stadium'
+    Stadium: 'Stadium',
 } as const;
 
 export type ValidationsApiCoreV1InstanceType = typeof ValidationsApiCoreV1InstanceType[keyof typeof ValidationsApiCoreV1InstanceType];

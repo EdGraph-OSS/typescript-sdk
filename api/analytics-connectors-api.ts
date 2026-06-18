@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -37,7 +37,6 @@ import type { EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesConnecto
 import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 /**
  * AnalyticsConnectorsApi - axios parameter creator
- * @export
  */
 export const AnalyticsConnectorsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -53,7 +52,7 @@ export const AnalyticsConnectorsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createConnector', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/connectors`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,9 +68,8 @@ export const AnalyticsConnectorsApiAxiosParamCreator = function (configuration?:
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -97,8 +95,8 @@ export const AnalyticsConnectorsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'connectorId' is not null or undefined
             assertParamExists('deleteConnector', 'connectorId', connectorId)
             const localVarPath = `/tenants/{tenantId}/analytics/connectors/{connectorId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"connectorId"}}`, encodeURIComponent(String(connectorId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{connectorId}', encodeURIComponent(String(connectorId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -114,8 +112,8 @@ export const AnalyticsConnectorsApiAxiosParamCreator = function (configuration?:
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -139,8 +137,8 @@ export const AnalyticsConnectorsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'connectorId' is not null or undefined
             assertParamExists('getADLSGen2ConnectorById', 'connectorId', connectorId)
             const localVarPath = `/tenants/{tenantId}/analytics/connectors/{connectorId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"connectorId"}}`, encodeURIComponent(String(connectorId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{connectorId}', encodeURIComponent(String(connectorId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -156,8 +154,8 @@ export const AnalyticsConnectorsApiAxiosParamCreator = function (configuration?:
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -182,7 +180,7 @@ export const AnalyticsConnectorsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getPaginatedConnectors', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/connectors`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -214,8 +212,8 @@ export const AnalyticsConnectorsApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -240,8 +238,8 @@ export const AnalyticsConnectorsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'connectorId' is not null or undefined
             assertParamExists('updateConnector', 'connectorId', connectorId)
             const localVarPath = `/tenants/{tenantId}/analytics/connectors/{connectorId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"connectorId"}}`, encodeURIComponent(String(connectorId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{connectorId}', encodeURIComponent(String(connectorId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -257,9 +255,8 @@ export const AnalyticsConnectorsApiAxiosParamCreator = function (configuration?:
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -276,7 +273,6 @@ export const AnalyticsConnectorsApiAxiosParamCreator = function (configuration?:
 
 /**
  * AnalyticsConnectorsApi - functional programming interface
- * @export
  */
 export const AnalyticsConnectorsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AnalyticsConnectorsApiAxiosParamCreator(configuration)
@@ -360,7 +356,6 @@ export const AnalyticsConnectorsApiFp = function(configuration?: Configuration) 
 
 /**
  * AnalyticsConnectorsApi - factory interface
- * @export
  */
 export const AnalyticsConnectorsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = AnalyticsConnectorsApiFp(configuration)
@@ -420,142 +415,101 @@ export const AnalyticsConnectorsApiFactory = function (configuration?: Configura
 
 /**
  * Request parameters for createConnector operation in AnalyticsConnectorsApi.
- * @export
- * @interface AnalyticsConnectorsApiCreateConnectorRequest
  */
 export interface AnalyticsConnectorsApiCreateConnectorRequest {
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsConnectorsApiCreateConnector
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {any}
-     * @memberof AnalyticsConnectorsApiCreateConnector
      */
     readonly body?: any
 }
 
 /**
  * Request parameters for deleteConnector operation in AnalyticsConnectorsApi.
- * @export
- * @interface AnalyticsConnectorsApiDeleteConnectorRequest
  */
 export interface AnalyticsConnectorsApiDeleteConnectorRequest {
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsConnectorsApiDeleteConnector
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsConnectorsApiDeleteConnector
      */
     readonly connectorId: string
 }
 
 /**
  * Request parameters for getADLSGen2ConnectorById operation in AnalyticsConnectorsApi.
- * @export
- * @interface AnalyticsConnectorsApiGetADLSGen2ConnectorByIdRequest
  */
 export interface AnalyticsConnectorsApiGetADLSGen2ConnectorByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsConnectorsApiGetADLSGen2ConnectorById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsConnectorsApiGetADLSGen2ConnectorById
      */
     readonly connectorId: string
 }
 
 /**
  * Request parameters for getPaginatedConnectors operation in AnalyticsConnectorsApi.
- * @export
- * @interface AnalyticsConnectorsApiGetPaginatedConnectorsRequest
  */
 export interface AnalyticsConnectorsApiGetPaginatedConnectorsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsConnectorsApiGetPaginatedConnectors
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof AnalyticsConnectorsApiGetPaginatedConnectors
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof AnalyticsConnectorsApiGetPaginatedConnectors
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsConnectorsApiGetPaginatedConnectors
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsConnectorsApiGetPaginatedConnectors
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for updateConnector operation in AnalyticsConnectorsApi.
- * @export
- * @interface AnalyticsConnectorsApiUpdateConnectorRequest
  */
 export interface AnalyticsConnectorsApiUpdateConnectorRequest {
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsConnectorsApiUpdateConnector
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsConnectorsApiUpdateConnector
      */
     readonly connectorId: string
 
     /**
      * 
-     * @type {any}
-     * @memberof AnalyticsConnectorsApiUpdateConnector
      */
     readonly body?: any
 }
 
 /**
  * AnalyticsConnectorsApi - object-oriented interface
- * @export
- * @class AnalyticsConnectorsApi
- * @extends {BaseAPI}
  */
 export class AnalyticsConnectorsApi extends BaseAPI {
     /**
@@ -564,7 +518,6 @@ export class AnalyticsConnectorsApi extends BaseAPI {
      * @param {AnalyticsConnectorsApiCreateConnectorRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsConnectorsApi
      */
     public createConnector(requestParameters: AnalyticsConnectorsApiCreateConnectorRequest, options?: RawAxiosRequestConfig) {
         return AnalyticsConnectorsApiFp(this.configuration).createConnector(requestParameters.tenantId, requestParameters.body, options).then((request) => request(this.axios, this.basePath));
@@ -576,7 +529,6 @@ export class AnalyticsConnectorsApi extends BaseAPI {
      * @param {AnalyticsConnectorsApiDeleteConnectorRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsConnectorsApi
      */
     public deleteConnector(requestParameters: AnalyticsConnectorsApiDeleteConnectorRequest, options?: RawAxiosRequestConfig) {
         return AnalyticsConnectorsApiFp(this.configuration).deleteConnector(requestParameters.tenantId, requestParameters.connectorId, options).then((request) => request(this.axios, this.basePath));
@@ -588,7 +540,6 @@ export class AnalyticsConnectorsApi extends BaseAPI {
      * @param {AnalyticsConnectorsApiGetADLSGen2ConnectorByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsConnectorsApi
      */
     public getADLSGen2ConnectorById(requestParameters: AnalyticsConnectorsApiGetADLSGen2ConnectorByIdRequest, options?: RawAxiosRequestConfig) {
         return AnalyticsConnectorsApiFp(this.configuration).getADLSGen2ConnectorById(requestParameters.tenantId, requestParameters.connectorId, options).then((request) => request(this.axios, this.basePath));
@@ -600,7 +551,6 @@ export class AnalyticsConnectorsApi extends BaseAPI {
      * @param {AnalyticsConnectorsApiGetPaginatedConnectorsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsConnectorsApi
      */
     public getPaginatedConnectors(requestParameters: AnalyticsConnectorsApiGetPaginatedConnectorsRequest, options?: RawAxiosRequestConfig) {
         return AnalyticsConnectorsApiFp(this.configuration).getPaginatedConnectors(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -612,7 +562,6 @@ export class AnalyticsConnectorsApi extends BaseAPI {
      * @param {AnalyticsConnectorsApiUpdateConnectorRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsConnectorsApi
      */
     public updateConnector(requestParameters: AnalyticsConnectorsApiUpdateConnectorRequest, options?: RawAxiosRequestConfig) {
         return AnalyticsConnectorsApiFp(this.configuration).updateConnector(requestParameters.tenantId, requestParameters.connectorId, requestParameters.body, options).then((request) => request(this.axios, this.basePath));

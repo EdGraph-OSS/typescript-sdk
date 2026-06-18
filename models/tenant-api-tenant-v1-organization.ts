@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1Organization
- */
 export interface TenantApiTenantV1Organization {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1Organization
-     */
     'identifierType'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1Organization
-     */
     'identifierValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1Organization
-     */
     'discriminator'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1Organization
-     */
     'source'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1Organization
-     */
     'shortNameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1Organization
-     */
     'nameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiTenantV1Organization
-     */
     'includeInJwt'?: boolean;
 }
 

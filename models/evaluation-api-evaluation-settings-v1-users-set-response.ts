@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface EvaluationApiEvaluationSettingsV1UsersSetResponse
- */
 export interface EvaluationApiEvaluationSettingsV1UsersSetResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1UsersSetResponse
-     */
     'tenantId'?: string | null;
 }
 

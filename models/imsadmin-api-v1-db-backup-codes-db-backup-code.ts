@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1DbBackupCodesDbBackupCode
- */
 export interface IMSAdminApiV1DbBackupCodesDbBackupCode {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1DbBackupCodesDbBackupCode
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1DbBackupCodesDbBackupCode
-     */
     'type'?: string | null;
 }
 

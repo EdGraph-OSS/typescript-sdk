@@ -14,11 +14,6 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const DataSyncApiJobV1JobExecutionStatus = {
     Unknown: 'Unknown',
@@ -28,7 +23,7 @@ export const DataSyncApiJobV1JobExecutionStatus = {
     CompletedWithErrors: 'CompletedWithErrors',
     Cancelled: 'Cancelled',
     Error: 'Error',
-    QueuedForCancel: 'QueuedForCancel'
+    QueuedForCancel: 'QueuedForCancel',
 } as const;
 
 export type DataSyncApiJobV1JobExecutionStatus = typeof DataSyncApiJobV1JobExecutionStatus[keyof typeof DataSyncApiJobV1JobExecutionStatus];

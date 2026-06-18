@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1PostReportingPeriodRequest
- */
 export interface EdGraphServicesStateReportingV1PostReportingPeriodRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1PostReportingPeriodRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1PostReportingPeriodRequest
-     */
     'environmentId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1PostReportingPeriodRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdGraphServicesStateReportingV1PostReportingPeriodRequest
-     */
     'categoryIds'?: Array<string> | null;
 }
 

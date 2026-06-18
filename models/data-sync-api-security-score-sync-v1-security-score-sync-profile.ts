@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiSecurityScoreSyncV1SecurityScoreSyncProfile
- */
 export interface DataSyncApiSecurityScoreSyncV1SecurityScoreSyncProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiSecurityScoreSyncV1SecurityScoreSyncProfile
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiSecurityScoreSyncV1SecurityScoreSyncProfile
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiSecurityScoreSyncV1SecurityScoreSyncProfile
-     */
     'enabled'?: boolean | null;
 }
 

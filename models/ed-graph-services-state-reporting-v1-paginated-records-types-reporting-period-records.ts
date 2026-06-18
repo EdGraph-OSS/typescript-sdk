@@ -20,23 +20,8 @@ import type { EdGraphServicesStateReportingV1PaginatedRecords Types ReportingPer
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1ValidationResultRecord } from './ed-graph-services-state-reporting-v1-validation-result-record';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1PaginatedRecordsTypesReportingPeriodRecords
- */
 export interface EdGraphServicesStateReportingV1PaginatedRecordsTypesReportingPeriodRecords {
-    /**
-     * 
-     * @type {EdGraphServicesStateReportingV1PaginatedRecords Types ReportingPeriodRecords Types Rule}
-     * @memberof EdGraphServicesStateReportingV1PaginatedRecordsTypesReportingPeriodRecords
-     */
     'rule'?: EdGraphServicesStateReportingV1PaginatedRecords Types ReportingPeriodRecords Types Rule;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1ValidationResultRecord>}
-     * @memberof EdGraphServicesStateReportingV1PaginatedRecordsTypesReportingPeriodRecords
-     */
     'records'?: Array<EdGraphServicesStateReportingV1ValidationResultRecord> | null;
 }
 

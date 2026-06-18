@@ -20,101 +20,21 @@ import type { EdfiAdminApiEdfiAdminV1SecretEncryptionMetadata } from './edfi-adm
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1SecretValueType } from './edfi-admin-api-edfi-admin-v1-secret-value-type';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
- */
 export interface EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'instanceApplicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'apiClientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'key'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'secretName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'secretValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'secretValueRaw'?: string | null;
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1SecretValueType}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'secretValueType'?: EdfiAdminApiEdfiAdminV1SecretValueType;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'secretValueEncryptionKey'?: string | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1SecretEncryptionMetadata>}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'secretEncryptionMetadata'?: Array<EdfiAdminApiEdfiAdminV1SecretEncryptionMetadata> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
 }
 

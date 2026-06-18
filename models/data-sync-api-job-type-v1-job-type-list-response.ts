@@ -17,77 +17,17 @@
 // @ts-ignore
 import type { DataSyncApiJobTypeV1Profile } from './data-sync-api-job-type-v1-profile';
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobTypeV1JobTypeListResponse
- */
 export interface DataSyncApiJobTypeV1JobTypeListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponse
-     */
     'jobTypeId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponse
-     */
     'sourceConnectionTypeId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponse
-     */
     'destinationConnectionTypeId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponse
-     */
     'sourceConnectionRequired'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponse
-     */
     'destinationConnectionRequired'?: boolean;
-    /**
-     * 
-     * @type {Array<DataSyncApiJobTypeV1Profile>}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponse
-     */
     'profiles'?: Array<DataSyncApiJobTypeV1Profile> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeListResponse
-     */
     'lastModifiedDateTime'?: string | null;
 }
 

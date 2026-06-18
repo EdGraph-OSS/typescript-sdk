@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiReportingPeriodsV1SubmissionMetricsDetails } from './validations-api-reporting-periods-v1-submission-metrics-details';
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1SubmissionMetricsResponse
- */
 export interface ValidationsApiReportingPeriodsV1SubmissionMetricsResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionMetricsResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionMetricsResponse
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionMetricsResponse
-     */
     'submissionId'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiReportingPeriodsV1SubmissionMetricsDetails>}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionMetricsResponse
-     */
     'details'?: Array<ValidationsApiReportingPeriodsV1SubmissionMetricsDetails> | null;
 }
 

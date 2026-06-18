@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1EdFiApplicationListResponse
- */
 export interface EdfiAdminApiEdfiAdminV1EdFiApplicationListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationListResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationListResponse
-     */
     'applicationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationListResponse
-     */
     'applicationName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationListResponse
-     */
     'claimSetName'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationListResponse
-     */
     'vendorId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationListResponse
-     */
     'vendorName'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationListResponse
-     */
     'edOrgsCount'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationListResponse
-     */
     'operationalContextUri'?: string | null;
 }
 

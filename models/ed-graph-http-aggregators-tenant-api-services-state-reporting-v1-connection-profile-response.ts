@@ -14,95 +14,20 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'type'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'displayName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'environmentId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'server'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'username'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'database'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'password'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'authUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'resourcesUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'apiKey'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'apiSecret'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse
-     */
     'instanceType'?: string | null;
 }
 

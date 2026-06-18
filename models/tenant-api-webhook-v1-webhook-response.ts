@@ -20,107 +20,22 @@ import type { TenantApiWebhookV1WebhookSchema } from './tenant-api-webhook-v1-we
 // @ts-ignore
 import type { TenantApiWebhookV1WebhookSubscriberResponse } from './tenant-api-webhook-v1-webhook-subscriber-response';
 
-/**
- * 
- * @export
- * @interface TenantApiWebhookV1WebhookResponse
- */
 export interface TenantApiWebhookV1WebhookResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'createdAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'updatedAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'updatedBy'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'isDeleted'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'url'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'secretHeader'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'secretValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'contentType'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {Array<TenantApiWebhookV1WebhookSubscriberResponse>}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'eventSubscriptions'?: Array<TenantApiWebhookV1WebhookSubscriberResponse> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'subscriptions'?: Array<string> | null;
-    /**
-     * 
-     * @type {TenantApiWebhookV1WebhookSchema}
-     * @memberof TenantApiWebhookV1WebhookResponse
-     */
     'webhookSchema'?: TenantApiWebhookV1WebhookSchema;
 }
 

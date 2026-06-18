@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1PaginatedCategoryTreeResponseTypesSubCategoryTree
- */
 export interface ValidationsApiContainersV1PaginatedCategoryTreeResponseTypesSubCategoryTree {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1PaginatedCategoryTreeResponseTypesSubCategoryTree
-     */
     'subCategoryId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1PaginatedCategoryTreeResponseTypesSubCategoryTree
-     */
     'name'?: string | null;
 }
 

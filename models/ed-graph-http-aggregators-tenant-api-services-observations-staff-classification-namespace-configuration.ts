@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole } from './ed-graph-http-aggregators-tenant-api-services-observations-staff-classification-namespace-role';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceConfiguration
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceConfiguration {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceConfiguration
-     */
     'namespace'?: string | null;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceConfiguration
-     */
     'roles'?: Array<EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole> | null;
 }
 

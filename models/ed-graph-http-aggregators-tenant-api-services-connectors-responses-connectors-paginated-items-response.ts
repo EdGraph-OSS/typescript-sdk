@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesMappedConnectorListResponse } from './ed-graph-http-aggregators-tenant-api-services-connectors-responses-mapped-connector-list-response';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesConnectorsPaginatedItemsResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesConnectorsPaginatedItemsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesConnectorsPaginatedItemsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesConnectorsPaginatedItemsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesConnectorsPaginatedItemsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesMappedConnectorListResponse>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesConnectorsPaginatedItemsResponse
-     */
     'data'?: Array<EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesMappedConnectorListResponse> | null;
 }
 

@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1Rule
- */
 export interface EdGraphServicesStateReportingV1Rule {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1Rule
-     */
     'categoryId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1Rule
-     */
     'subCategoryId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1Rule
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1Rule
-     */
     'ruleIdentification'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1Rule
-     */
     'errorSeverityLevel'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1Rule
-     */
     'lastExecutionTotalResults'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1Rule
-     */
     'lastExecutionTotalInvalidResults'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1Rule
-     */
     'id'?: string | null;
 }
 

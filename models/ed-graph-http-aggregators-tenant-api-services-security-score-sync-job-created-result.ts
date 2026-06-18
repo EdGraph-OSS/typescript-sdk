@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesSecurityScoreSyncJobCreatedResult
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesSecurityScoreSyncJobCreatedResult {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesSecurityScoreSyncJobCreatedResult
-     */
     'tenantId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesSecurityScoreSyncJobCreatedResult
-     */
     'jobId'?: string;
 }
 

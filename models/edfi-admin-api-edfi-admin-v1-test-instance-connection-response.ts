@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse
- */
 export interface EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse
-     */
     'details'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse
-     */
     'connectionResultCode'?: string | null;
 }
 

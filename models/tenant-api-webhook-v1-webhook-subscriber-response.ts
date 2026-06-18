@@ -16,39 +16,12 @@
 
 /**
  * Webhook Subscribers
- * @export
- * @interface TenantApiWebhookV1WebhookSubscriberResponse
  */
 export interface TenantApiWebhookV1WebhookSubscriberResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookSubscriberResponse
-     */
     'eventName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookSubscriberResponse
-     */
     'eventVersion'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookSubscriberResponse
-     */
     'eventSchema'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookSubscriberResponse
-     */
     'groupName'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof TenantApiWebhookV1WebhookSubscriberResponse
-     */
     'scope'?: Array<string> | null;
 }
 

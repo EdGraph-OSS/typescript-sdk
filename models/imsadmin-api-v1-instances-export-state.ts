@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const IMSAdminApiV1InstancesExportState = {
     Unknown: 'Unknown',
     Failure: 'Failure',
-    Exported: 'Exported'
+    Exported: 'Exported',
 } as const;
 
 export type IMSAdminApiV1InstancesExportState = typeof IMSAdminApiV1InstancesExportState[keyof typeof IMSAdminApiV1InstancesExportState];

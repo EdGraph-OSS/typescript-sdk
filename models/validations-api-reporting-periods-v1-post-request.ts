@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1PostRequest
- */
 export interface ValidationsApiReportingPeriodsV1PostRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1PostRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1PostRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ValidationsApiReportingPeriodsV1PostRequest
-     */
     'categoryIds'?: Array<string> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1PostRequest
-     */
     'schoolYear'?: number;
 }
 

@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1InstancesGetInstanceCsvExportResponse
- */
 export interface IMSAdminApiV1InstancesGetInstanceCsvExportResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesGetInstanceCsvExportResponse
-     */
     'downloadUri'?: string | null;
 }
 

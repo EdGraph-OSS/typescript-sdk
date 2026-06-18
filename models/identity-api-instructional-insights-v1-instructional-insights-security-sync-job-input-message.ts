@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage
- */
 export interface IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage
-     */
     'tenant'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage
-     */
     'pageSize'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage
-     */
     'orderBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage
-     */
     'filter'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage
-     */
     'loadBatchSize'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage
-     */
     'loadBatchThrottle'?: string | null;
 }
 

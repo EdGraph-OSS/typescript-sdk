@@ -20,29 +20,9 @@ import type { TenantApiPartnershipV1PartnershipSyncDirection } from './tenant-ap
 // @ts-ignore
 import type { TenantApiPartnershipV1PartnershipSyncType } from './tenant-api-partnership-v1-partnership-sync-type';
 
-/**
- * 
- * @export
- * @interface TenantApiPartnershipV1PartnershipSyncDTO
- */
 export interface TenantApiPartnershipV1PartnershipSyncDTO {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiPartnershipV1PartnershipSyncDTO
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {TenantApiPartnershipV1PartnershipSyncDirection}
-     * @memberof TenantApiPartnershipV1PartnershipSyncDTO
-     */
     'direction'?: TenantApiPartnershipV1PartnershipSyncDirection;
-    /**
-     * 
-     * @type {Array<TenantApiPartnershipV1PartnershipSyncType>}
-     * @memberof TenantApiPartnershipV1PartnershipSyncDTO
-     */
     'syncTypes'?: Array<TenantApiPartnershipV1PartnershipSyncType> | null;
 }
 

@@ -17,41 +17,11 @@
 // @ts-ignore
 import type { EdFiAdminApiApplicationAccessV1ApplicationUserAccessResponse } from './ed-fi-admin-api-application-access-v1-application-user-access-response';
 
-/**
- * 
- * @export
- * @interface EdFiAdminApiApplicationAccessV1UpdateApplicationAccessRequest
- */
 export interface EdFiAdminApiApplicationAccessV1UpdateApplicationAccessRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdFiAdminApiApplicationAccessV1UpdateApplicationAccessRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdFiAdminApiApplicationAccessV1UpdateApplicationAccessRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdFiAdminApiApplicationAccessV1UpdateApplicationAccessRequest
-     */
     'applicationId'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdFiAdminApiApplicationAccessV1UpdateApplicationAccessRequest
-     */
     'apiClientId'?: number;
-    /**
-     * 
-     * @type {Array<EdFiAdminApiApplicationAccessV1ApplicationUserAccessResponse>}
-     * @memberof EdFiAdminApiApplicationAccessV1UpdateApplicationAccessRequest
-     */
     'users'?: Array<EdFiAdminApiApplicationAccessV1ApplicationUserAccessResponse> | null;
 }
 

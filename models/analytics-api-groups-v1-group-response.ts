@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiGroupsV1GroupResponse
- */
 export interface AnalyticsApiGroupsV1GroupResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiGroupsV1GroupResponse
-     */
     'groupId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiGroupsV1GroupResponse
-     */
     'groupName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiGroupsV1GroupResponse
-     */
     'capacityId'?: string | null;
 }
 

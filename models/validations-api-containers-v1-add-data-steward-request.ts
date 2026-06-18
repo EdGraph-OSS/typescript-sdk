@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1AddDataStewardRequest
- */
 export interface ValidationsApiContainersV1AddDataStewardRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1AddDataStewardRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1AddDataStewardRequest
-     */
     'collectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1AddDataStewardRequest
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1AddDataStewardRequest
-     */
     'firstName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1AddDataStewardRequest
-     */
     'lastName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1AddDataStewardRequest
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1AddDataStewardRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1AddDataStewardRequest
-     */
     'environmentId'?: string | null;
 }
 

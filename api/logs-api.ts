@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 import type { ValidationsApiValidationResultsV1FindResponse } from '../models';
 /**
  * LogsApi - axios parameter creator
- * @export
  */
 export const LogsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -53,7 +52,7 @@ export const LogsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getLogs', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/validations/logs`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -105,8 +104,8 @@ export const LogsApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['jobExecutionId'] = jobExecutionId;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -121,7 +120,6 @@ export const LogsApiAxiosParamCreator = function (configuration?: Configuration)
 
 /**
  * LogsApi - functional programming interface
- * @export
  */
 export const LogsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = LogsApiAxiosParamCreator(configuration)
@@ -153,7 +151,6 @@ export const LogsApiFp = function(configuration?: Configuration) {
 
 /**
  * LogsApi - factory interface
- * @export
  */
 export const LogsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = LogsApiFp(configuration)
@@ -173,86 +170,61 @@ export const LogsApiFactory = function (configuration?: Configuration, basePath?
 
 /**
  * Request parameters for getLogs operation in LogsApi.
- * @export
- * @interface LogsApiGetLogsRequest
  */
 export interface LogsApiGetLogsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof LogsApiGetLogs
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof LogsApiGetLogs
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof LogsApiGetLogs
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof LogsApiGetLogs
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof LogsApiGetLogs
      */
     readonly environmentId?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof LogsApiGetLogs
      */
     readonly collectionId?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof LogsApiGetLogs
      */
     readonly containerId?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof LogsApiGetLogs
      */
     readonly ruleId?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof LogsApiGetLogs
      */
     readonly jobId?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof LogsApiGetLogs
      */
     readonly jobExecutionId?: string
 }
 
 /**
  * LogsApi - object-oriented interface
- * @export
- * @class LogsApi
- * @extends {BaseAPI}
  */
 export class LogsApi extends BaseAPI {
     /**
@@ -261,7 +233,6 @@ export class LogsApi extends BaseAPI {
      * @param {LogsApiGetLogsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LogsApi
      */
     public getLogs(requestParameters: LogsApiGetLogsRequest, options?: RawAxiosRequestConfig) {
         return LogsApiFp(this.configuration).getLogs(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.environmentId, requestParameters.collectionId, requestParameters.containerId, requestParameters.ruleId, requestParameters.jobId, requestParameters.jobExecutionId, options).then((request) => request(this.axios, this.basePath));

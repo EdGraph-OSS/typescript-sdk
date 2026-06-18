@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiGroupsV1AnalyticsGroupUser
- */
 export interface AnalyticsApiGroupsV1AnalyticsGroupUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiGroupsV1AnalyticsGroupUser
-     */
     'displayName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiGroupsV1AnalyticsGroupUser
-     */
     'emailAddress'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiGroupsV1AnalyticsGroupUser
-     */
     'groupUserAccessRight'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiGroupsV1AnalyticsGroupUser
-     */
     'identifier'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiGroupsV1AnalyticsGroupUser
-     */
     'principalType'?: string | null;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiCapacitiesV1ResumeCapacityRequest
- */
 export interface AnalyticsApiCapacitiesV1ResumeCapacityRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiCapacitiesV1ResumeCapacityRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiCapacitiesV1ResumeCapacityRequest
-     */
     'dedicatedCapacityName'?: string | null;
 }
 

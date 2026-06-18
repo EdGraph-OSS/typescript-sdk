@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiInstructionalInsightsV1JobExecutionMessage
- */
 export interface IdentityApiInstructionalInsightsV1JobExecutionMessage {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1JobExecutionMessage
-     */
     'executionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1JobExecutionMessage
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1JobExecutionMessage
-     */
     'queueDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1JobExecutionMessage
-     */
     'startDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1JobExecutionMessage
-     */
     'endDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1JobExecutionMessage
-     */
     'input'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1JobExecutionMessage
-     */
     'output'?: string | null;
 }
 

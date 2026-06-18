@@ -16,21 +16,9 @@
 
 /**
  * Role Personas
- * @export
- * @interface EvaluationApiEvaluationSettingsV1RoleConfigurationResponse
  */
 export interface EvaluationApiEvaluationSettingsV1RoleConfigurationResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1RoleConfigurationResponse
-     */
     'role'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EvaluationApiEvaluationSettingsV1RoleConfigurationResponse
-     */
     'assignedPersonaIdentifiers'?: Array<string> | null;
 }
 

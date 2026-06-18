@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface FormApiSubmissionsV1UpdateSubmissionRequest
- */
 export interface FormApiSubmissionsV1UpdateSubmissionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1UpdateSubmissionRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1UpdateSubmissionRequest
-     */
     'formId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1UpdateSubmissionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof FormApiSubmissionsV1UpdateSubmissionRequest
-     */
     'currentStep'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1UpdateSubmissionRequest
-     */
     'data'?: string | null;
 }
 

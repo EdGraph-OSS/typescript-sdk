@@ -35,191 +35,36 @@ import type { DataSyncApiJobV1Metric } from './data-sync-api-job-v1-metric';
 // @ts-ignore
 import type { DataSyncApiJobV1Schedule } from './data-sync-api-job-v1-schedule';
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobV1JobProfileResponse
- */
 export interface DataSyncApiJobV1JobProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'jobTypeId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'jobTypeName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'sourceConnectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'destinationConnectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'profileId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'profileName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'jobPoints'?: number;
-    /**
-     * 
-     * @type {DataSyncApiJobV1DataRefreshType}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'dataRefreshType'?: DataSyncApiJobV1DataRefreshType;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'dataRefreshSpecificDate'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'maxApiFailure'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'maxApiRetry'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'jobCompleteCallbackUrl'?: string | null;
-    /**
-     * 
-     * @type {Array<DataSyncApiJobV1JobMetadata>}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'jobMetadata'?: Array<DataSyncApiJobV1JobMetadata> | null;
-    /**
-     * 
-     * @type {DataSyncApiJobV1Schedule}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'schedule'?: DataSyncApiJobV1Schedule;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'notificationEmails'?: Array<string> | null;
-    /**
-     * 
-     * @type {DataSyncApiJobV1JobStatus}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'jobStatus'?: DataSyncApiJobV1JobStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'jobExecutionId'?: string | null;
-    /**
-     * 
-     * @type {DataSyncApiJobV1JobExecutionStatus}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'jobExecutionStatus'?: DataSyncApiJobV1JobExecutionStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'jobExecutionStartDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'jobExecutionEndDateTime'?: string | null;
-    /**
-     * 
-     * @type {Array<DataSyncApiJobV1Metric>}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'metrics'?: Array<DataSyncApiJobV1Metric> | null;
-    /**
-     * 
-     * @type {Array<DataSyncApiJobV1ChildJob>}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'childJobs'?: Array<DataSyncApiJobV1ChildJob> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1JobProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
 }
 

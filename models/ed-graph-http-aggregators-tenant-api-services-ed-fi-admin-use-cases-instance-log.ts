@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLog
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLog {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLog
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLog
-     */
     'timestamp'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLog
-     */
     'transactionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLog
-     */
     'path'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLog
-     */
     'method'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLog
-     */
     'status'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiAdminUseCasesInstanceLog
-     */
     'responseTime'?: number;
 }
 

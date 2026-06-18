@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1SectionRemovedBulkResponse
- */
 export interface IdentityApiUserV1SectionRemovedBulkResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionRemovedBulkResponse
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionRemovedBulkResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiUserV1SectionRemovedBulkResponse
-     */
     'userSectionIds'?: Array<string> | null;
 }
 

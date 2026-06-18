@@ -17,65 +17,15 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1DescriptorMappingModelEntity } from './edfi-admin-api-edfi-admin-v1-descriptor-mapping-model-entity';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest
- */
 export interface EdfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest
-     */
     'mappedNamespace'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest
-     */
     'mappedValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest
-     */
     'namespace'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest
-     */
     'value'?: string | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1DescriptorMappingModelEntity>}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest
-     */
     'modelEntities'?: Array<EdfiAdminApiEdfiAdminV1DescriptorMappingModelEntity> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest
-     */
     'etag'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest
-     */
     'year'?: number;
 }
 

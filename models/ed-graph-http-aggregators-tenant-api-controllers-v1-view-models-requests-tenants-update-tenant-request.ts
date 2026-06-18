@@ -23,29 +23,9 @@ import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTena
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting } from './ed-graph-http-aggregators-tenant-api-controllers-v1-view-models-requests-tenants-tenant-setting';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest {
-    /**
-     * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantAdditionalSetting}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest
-     */
     'additionalSettings'?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantAdditionalSetting;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders>}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest
-     */
     'identityProviders'?: Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders> | null;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting>}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest
-     */
     'settings'?: Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting> | null;
 }
 

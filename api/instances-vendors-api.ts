@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -41,7 +41,6 @@ import type { EdfiAdminApiEdfiAdminV1VendorUpdatedResponse } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * InstancesVendorsApi - axios parameter creator
- * @export
  */
 export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -60,8 +59,8 @@ export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'instanceId' is not null or undefined
             assertParamExists('createVendorAsync', 'instanceId', instanceId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/vendors`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -77,9 +76,8 @@ export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -108,9 +106,9 @@ export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'vendorId' is not null or undefined
             assertParamExists('deleteVendorAsync', 'vendorId', vendorId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/vendors/{vendorId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"vendorId"}}`, encodeURIComponent(String(vendorId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{vendorId}', encodeURIComponent(String(vendorId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -126,8 +124,8 @@ export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -154,9 +152,9 @@ export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'vendorId' is not null or undefined
             assertParamExists('getVendorByIdAsync', 'vendorId', vendorId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/vendors/{vendorId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"vendorId"}}`, encodeURIComponent(String(vendorId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{vendorId}', encodeURIComponent(String(vendorId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -172,8 +170,8 @@ export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -201,8 +199,8 @@ export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'instanceId' is not null or undefined
             assertParamExists('getVendorsAsync', 'instanceId', instanceId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/vendors`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -234,8 +232,8 @@ export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -263,9 +261,9 @@ export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'vendorId' is not null or undefined
             assertParamExists('syncVendorAsync', 'vendorId', vendorId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/vendors/{vendorId}/sync`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"vendorId"}}`, encodeURIComponent(String(vendorId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{vendorId}', encodeURIComponent(String(vendorId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -281,9 +279,8 @@ export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -313,9 +310,9 @@ export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'vendorId' is not null or undefined
             assertParamExists('updateVendorAsync', 'vendorId', vendorId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/vendors/{vendorId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"vendorId"}}`, encodeURIComponent(String(vendorId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{vendorId}', encodeURIComponent(String(vendorId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -331,9 +328,8 @@ export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -350,7 +346,6 @@ export const InstancesVendorsApiAxiosParamCreator = function (configuration?: Co
 
 /**
  * InstancesVendorsApi - functional programming interface
- * @export
  */
 export const InstancesVendorsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InstancesVendorsApiAxiosParamCreator(configuration)
@@ -455,7 +450,6 @@ export const InstancesVendorsApiFp = function(configuration?: Configuration) {
 
 /**
  * InstancesVendorsApi - factory interface
- * @export
  */
 export const InstancesVendorsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InstancesVendorsApiFp(configuration)
@@ -525,212 +519,151 @@ export const InstancesVendorsApiFactory = function (configuration?: Configuratio
 
 /**
  * Request parameters for createVendorAsync operation in InstancesVendorsApi.
- * @export
- * @interface InstancesVendorsApiCreateVendorAsyncRequest
  */
 export interface InstancesVendorsApiCreateVendorAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiCreateVendorAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiCreateVendorAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1CreateVendorRequest}
-     * @memberof InstancesVendorsApiCreateVendorAsync
      */
     readonly edfiAdminApiEdfiAdminV1CreateVendorRequest?: EdfiAdminApiEdfiAdminV1CreateVendorRequest
 }
 
 /**
  * Request parameters for deleteVendorAsync operation in InstancesVendorsApi.
- * @export
- * @interface InstancesVendorsApiDeleteVendorAsyncRequest
  */
 export interface InstancesVendorsApiDeleteVendorAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiDeleteVendorAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiDeleteVendorAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesVendorsApiDeleteVendorAsync
      */
     readonly vendorId: number
 }
 
 /**
  * Request parameters for getVendorByIdAsync operation in InstancesVendorsApi.
- * @export
- * @interface InstancesVendorsApiGetVendorByIdAsyncRequest
  */
 export interface InstancesVendorsApiGetVendorByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiGetVendorByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiGetVendorByIdAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiGetVendorByIdAsync
      */
     readonly vendorId: string
 }
 
 /**
  * Request parameters for getVendorsAsync operation in InstancesVendorsApi.
- * @export
- * @interface InstancesVendorsApiGetVendorsAsyncRequest
  */
 export interface InstancesVendorsApiGetVendorsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiGetVendorsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiGetVendorsAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesVendorsApiGetVendorsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesVendorsApiGetVendorsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiGetVendorsAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiGetVendorsAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for syncVendorAsync operation in InstancesVendorsApi.
- * @export
- * @interface InstancesVendorsApiSyncVendorAsyncRequest
  */
 export interface InstancesVendorsApiSyncVendorAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiSyncVendorAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiSyncVendorAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesVendorsApiSyncVendorAsync
      */
     readonly vendorId: number
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1SyncVendorRequest}
-     * @memberof InstancesVendorsApiSyncVendorAsync
      */
     readonly edfiAdminApiEdfiAdminV1SyncVendorRequest?: EdfiAdminApiEdfiAdminV1SyncVendorRequest
 }
 
 /**
  * Request parameters for updateVendorAsync operation in InstancesVendorsApi.
- * @export
- * @interface InstancesVendorsApiUpdateVendorAsyncRequest
  */
 export interface InstancesVendorsApiUpdateVendorAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiUpdateVendorAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiUpdateVendorAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesVendorsApiUpdateVendorAsync
      */
     readonly vendorId: string
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1UpdateVendorRequest}
-     * @memberof InstancesVendorsApiUpdateVendorAsync
      */
     readonly edfiAdminApiEdfiAdminV1UpdateVendorRequest?: EdfiAdminApiEdfiAdminV1UpdateVendorRequest
 }
 
 /**
  * InstancesVendorsApi - object-oriented interface
- * @export
- * @class InstancesVendorsApi
- * @extends {BaseAPI}
  */
 export class InstancesVendorsApi extends BaseAPI {
     /**
@@ -739,7 +672,6 @@ export class InstancesVendorsApi extends BaseAPI {
      * @param {InstancesVendorsApiCreateVendorAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesVendorsApi
      */
     public createVendorAsync(requestParameters: InstancesVendorsApiCreateVendorAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesVendorsApiFp(this.configuration).createVendorAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.edfiAdminApiEdfiAdminV1CreateVendorRequest, options).then((request) => request(this.axios, this.basePath));
@@ -751,7 +683,6 @@ export class InstancesVendorsApi extends BaseAPI {
      * @param {InstancesVendorsApiDeleteVendorAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesVendorsApi
      */
     public deleteVendorAsync(requestParameters: InstancesVendorsApiDeleteVendorAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesVendorsApiFp(this.configuration).deleteVendorAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.vendorId, options).then((request) => request(this.axios, this.basePath));
@@ -763,7 +694,6 @@ export class InstancesVendorsApi extends BaseAPI {
      * @param {InstancesVendorsApiGetVendorByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesVendorsApi
      */
     public getVendorByIdAsync(requestParameters: InstancesVendorsApiGetVendorByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesVendorsApiFp(this.configuration).getVendorByIdAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.vendorId, options).then((request) => request(this.axios, this.basePath));
@@ -775,7 +705,6 @@ export class InstancesVendorsApi extends BaseAPI {
      * @param {InstancesVendorsApiGetVendorsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesVendorsApi
      */
     public getVendorsAsync(requestParameters: InstancesVendorsApiGetVendorsAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesVendorsApiFp(this.configuration).getVendorsAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -787,7 +716,6 @@ export class InstancesVendorsApi extends BaseAPI {
      * @param {InstancesVendorsApiSyncVendorAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesVendorsApi
      */
     public syncVendorAsync(requestParameters: InstancesVendorsApiSyncVendorAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesVendorsApiFp(this.configuration).syncVendorAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.vendorId, requestParameters.edfiAdminApiEdfiAdminV1SyncVendorRequest, options).then((request) => request(this.axios, this.basePath));
@@ -799,7 +727,6 @@ export class InstancesVendorsApi extends BaseAPI {
      * @param {InstancesVendorsApiUpdateVendorAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesVendorsApi
      */
     public updateVendorAsync(requestParameters: InstancesVendorsApiUpdateVendorAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesVendorsApiFp(this.configuration).updateVendorAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.vendorId, requestParameters.edfiAdminApiEdfiAdminV1UpdateVendorRequest, options).then((request) => request(this.axios, this.basePath));

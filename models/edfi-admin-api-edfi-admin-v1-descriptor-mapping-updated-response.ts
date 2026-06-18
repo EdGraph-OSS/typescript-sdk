@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1DescriptorMapping } from './edfi-admin-api-edfi-admin-v1-descriptor-mapping';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1DescriptorMappingUpdatedResponse
- */
 export interface EdfiAdminApiEdfiAdminV1DescriptorMappingUpdatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1DescriptorMappingUpdatedResponse
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1DescriptorMappingUpdatedResponse
-     */
     'previousMappingId'?: string | null;
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1DescriptorMapping}
-     * @memberof EdfiAdminApiEdfiAdminV1DescriptorMappingUpdatedResponse
-     */
     'descriptorMapping'?: EdfiAdminApiEdfiAdminV1DescriptorMapping;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1DescriptorMappingUpdatedResponse
-     */
     'details'?: string | null;
 }
 

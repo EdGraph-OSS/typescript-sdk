@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const FormApiFormsV1FormSource = {
     Unknown: 'Unknown',
     Edgraph: 'Edgraph',
-    External: 'External'
+    External: 'External',
 } as const;
 
 export type FormApiFormsV1FormSource = typeof FormApiFormsV1FormSource[keyof typeof FormApiFormsV1FormSource];

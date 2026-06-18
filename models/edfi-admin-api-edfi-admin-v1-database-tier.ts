@@ -14,15 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const EdfiAdminApiEdfiAdminV1DatabaseTier = {
     GeneralPurpose: 'GeneralPurpose',
-    BusinessCritical: 'BusinessCritical'
+    BusinessCritical: 'BusinessCritical',
 } as const;
 
 export type EdfiAdminApiEdfiAdminV1DatabaseTier = typeof EdfiAdminApiEdfiAdminV1DatabaseTier[keyof typeof EdfiAdminApiEdfiAdminV1DatabaseTier];

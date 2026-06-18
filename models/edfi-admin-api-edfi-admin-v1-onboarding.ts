@@ -17,53 +17,13 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1OnboardingStep } from './edfi-admin-api-edfi-admin-v1-onboarding-step';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1Onboarding
- */
 export interface EdfiAdminApiEdfiAdminV1Onboarding {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1Onboarding
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1Onboarding
-     */
     'progressPercentage'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1Onboarding
-     */
     'totalSteps'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1Onboarding
-     */
     'lastCompletedStep'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1Onboarding
-     */
     'startedAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1Onboarding
-     */
     'completedAt'?: string | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1OnboardingStep>}
-     * @memberof EdfiAdminApiEdfiAdminV1Onboarding
-     */
     'steps'?: Array<EdfiAdminApiEdfiAdminV1OnboardingStep> | null;
 }
 

@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { EvaluationApiEvaluationSettingsV1FormVersionConfigurationResponse } from './evaluation-api-evaluation-settings-v1-form-version-configuration-response';
 
-/**
- * 
- * @export
- * @interface EvaluationApiEvaluationSettingsV1FormConfigurationResponse
- */
 export interface EvaluationApiEvaluationSettingsV1FormConfigurationResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1FormConfigurationResponse
-     */
     'formId'?: string | null;
-    /**
-     * 
-     * @type {Array<EvaluationApiEvaluationSettingsV1FormVersionConfigurationResponse>}
-     * @memberof EvaluationApiEvaluationSettingsV1FormConfigurationResponse
-     */
     'versions'?: Array<EvaluationApiEvaluationSettingsV1FormVersionConfigurationResponse> | null;
 }
 

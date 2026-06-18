@@ -26,53 +26,13 @@ import type { IdentityApiInstructionalInsightsV1RetryPolicyMessage } from './ide
 // @ts-ignore
 import type { IdentityApiInstructionalInsightsV1ScheduleMessage } from './identity-api-instructional-insights-v1-schedule-message';
 
-/**
- * 
- * @export
- * @interface IdentityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest
- */
 export interface IdentityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage}
-     * @memberof IdentityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest
-     */
     'input'?: IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage;
-    /**
-     * 
-     * @type {IdentityApiInstructionalInsightsV1ScheduleMessage}
-     * @memberof IdentityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest
-     */
     'schedule'?: IdentityApiInstructionalInsightsV1ScheduleMessage;
-    /**
-     * 
-     * @type {IdentityApiInstructionalInsightsV1RetryPolicyMessage}
-     * @memberof IdentityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest
-     */
     'retryPolicy'?: IdentityApiInstructionalInsightsV1RetryPolicyMessage;
-    /**
-     * 
-     * @type {Array<IdentityApiInstructionalInsightsV1CallbackNotificationMessage>}
-     * @memberof IdentityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest
-     */
     'callbackNotifications'?: Array<IdentityApiInstructionalInsightsV1CallbackNotificationMessage> | null;
 }
 

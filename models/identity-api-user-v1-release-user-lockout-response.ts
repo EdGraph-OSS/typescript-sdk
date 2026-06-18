@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1ReleaseUserLockoutResponse
- */
 export interface IdentityApiUserV1ReleaseUserLockoutResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1ReleaseUserLockoutResponse
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1ReleaseUserLockoutResponse
-     */
     'tenantId'?: string | null;
 }
 

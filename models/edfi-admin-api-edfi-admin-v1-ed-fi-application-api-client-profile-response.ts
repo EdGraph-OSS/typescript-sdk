@@ -14,83 +14,18 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse
- */
 export interface EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse
-     */
     'apiClientId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse
-     */
     'key'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse
-     */
     'secret'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse
-     */
     'isApproved'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse
-     */
     'useSandbox'?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse
-     */
     'sandboxType'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse
-     */
     'applicationId'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse
-     */
     'secretIsHashed'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiApplicationApiClientProfileResponse
-     */
     'keyStatus'?: string | null;
 }
 

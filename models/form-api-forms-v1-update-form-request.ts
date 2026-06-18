@@ -20,65 +20,15 @@ import type { FormApiFormsV1FormSource } from './form-api-forms-v1-form-source';
 // @ts-ignore
 import type { FormApiFormsV1FormStatus } from './form-api-forms-v1-form-status';
 
-/**
- * 
- * @export
- * @interface FormApiFormsV1UpdateFormRequest
- */
 export interface FormApiFormsV1UpdateFormRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFormRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFormRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFormRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {FormApiFormsV1FormSource}
-     * @memberof FormApiFormsV1UpdateFormRequest
-     */
     'source'?: FormApiFormsV1FormSource;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFormRequest
-     */
     'version'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FormApiFormsV1UpdateFormRequest
-     */
     'anonymous'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFormRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {FormApiFormsV1FormStatus}
-     * @memberof FormApiFormsV1UpdateFormRequest
-     */
     'status'?: FormApiFormsV1FormStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFormRequest
-     */
     'image'?: string | null;
 }
 

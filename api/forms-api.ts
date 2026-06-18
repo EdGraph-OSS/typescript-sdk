@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -61,7 +61,6 @@ import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * FormsApi - axios parameter creator
- * @export
  */
 export const FormsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -77,7 +76,7 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createForm', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/forms`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -93,9 +92,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -119,7 +117,7 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createFullForm', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/forms/full`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -135,9 +133,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -163,8 +160,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('deleteForm', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -180,8 +177,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -205,8 +202,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('duplicateForm', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/duplicate`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -222,8 +219,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -247,8 +244,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('getForm', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -264,8 +261,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -289,8 +286,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('getFormAccess', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/access`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -306,8 +303,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -331,8 +328,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('getFullFormSchema', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/full/schemas`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -348,8 +345,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -371,7 +368,7 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('importForm', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/forms/import`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -387,9 +384,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -416,7 +412,7 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('searchForms', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/forms`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -448,8 +444,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -474,8 +470,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('setFormAccess', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/access`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -491,9 +487,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -520,8 +515,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('updateForm', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -537,9 +532,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -566,8 +560,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('updateFullForm', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/full`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -583,9 +577,8 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -602,7 +595,6 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * FormsApi - functional programming interface
- * @export
  */
 export const FormsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = FormsApiAxiosParamCreator(configuration)
@@ -786,7 +778,6 @@ export const FormsApiFp = function(configuration?: Configuration) {
 
 /**
  * FormsApi - factory interface
- * @export
  */
 export const FormsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = FormsApiFp(configuration)
@@ -916,303 +907,216 @@ export const FormsApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * Request parameters for createForm operation in FormsApi.
- * @export
- * @interface FormsApiCreateFormRequest
  */
 export interface FormsApiCreateFormRequest {
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiCreateForm
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {FormApiFormsV1CreateFormRequest}
-     * @memberof FormsApiCreateForm
      */
     readonly formApiFormsV1CreateFormRequest?: FormApiFormsV1CreateFormRequest
 }
 
 /**
  * Request parameters for createFullForm operation in FormsApi.
- * @export
- * @interface FormsApiCreateFullFormRequest
  */
 export interface FormsApiCreateFullFormRequest {
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiCreateFullForm
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {FormApiFormsV1CreateFullFormRequest}
-     * @memberof FormsApiCreateFullForm
      */
     readonly formApiFormsV1CreateFullFormRequest?: FormApiFormsV1CreateFullFormRequest
 }
 
 /**
  * Request parameters for deleteForm operation in FormsApi.
- * @export
- * @interface FormsApiDeleteFormRequest
  */
 export interface FormsApiDeleteFormRequest {
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiDeleteForm
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiDeleteForm
      */
     readonly formId: string
 }
 
 /**
  * Request parameters for duplicateForm operation in FormsApi.
- * @export
- * @interface FormsApiDuplicateFormRequest
  */
 export interface FormsApiDuplicateFormRequest {
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiDuplicateForm
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiDuplicateForm
      */
     readonly formId: string
 }
 
 /**
  * Request parameters for getForm operation in FormsApi.
- * @export
- * @interface FormsApiGetFormRequest
  */
 export interface FormsApiGetFormRequest {
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiGetForm
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiGetForm
      */
     readonly formId: string
 }
 
 /**
  * Request parameters for getFormAccess operation in FormsApi.
- * @export
- * @interface FormsApiGetFormAccessRequest
  */
 export interface FormsApiGetFormAccessRequest {
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiGetFormAccess
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiGetFormAccess
      */
     readonly formId: string
 }
 
 /**
  * Request parameters for getFullFormSchema operation in FormsApi.
- * @export
- * @interface FormsApiGetFullFormSchemaRequest
  */
 export interface FormsApiGetFullFormSchemaRequest {
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiGetFullFormSchema
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiGetFullFormSchema
      */
     readonly formId: string
 }
 
 /**
  * Request parameters for importForm operation in FormsApi.
- * @export
- * @interface FormsApiImportFormRequest
  */
 export interface FormsApiImportFormRequest {
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiImportForm
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {object}
-     * @memberof FormsApiImportForm
      */
     readonly body?: object
 }
 
 /**
  * Request parameters for searchForms operation in FormsApi.
- * @export
- * @interface FormsApiSearchFormsRequest
  */
 export interface FormsApiSearchFormsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiSearchForms
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof FormsApiSearchForms
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof FormsApiSearchForms
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiSearchForms
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiSearchForms
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for setFormAccess operation in FormsApi.
- * @export
- * @interface FormsApiSetFormAccessRequest
  */
 export interface FormsApiSetFormAccessRequest {
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiSetFormAccess
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiSetFormAccess
      */
     readonly formId: string
 
     /**
      * 
-     * @type {FormApiFormsV1SetFormAccessRequest}
-     * @memberof FormsApiSetFormAccess
      */
     readonly formApiFormsV1SetFormAccessRequest?: FormApiFormsV1SetFormAccessRequest
 }
 
 /**
  * Request parameters for updateForm operation in FormsApi.
- * @export
- * @interface FormsApiUpdateFormRequest
  */
 export interface FormsApiUpdateFormRequest {
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiUpdateForm
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiUpdateForm
      */
     readonly formId: string
 
     /**
      * 
-     * @type {FormApiFormsV1UpdateFormRequest}
-     * @memberof FormsApiUpdateForm
      */
     readonly formApiFormsV1UpdateFormRequest?: FormApiFormsV1UpdateFormRequest
 }
 
 /**
  * Request parameters for updateFullForm operation in FormsApi.
- * @export
- * @interface FormsApiUpdateFullFormRequest
  */
 export interface FormsApiUpdateFullFormRequest {
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiUpdateFullForm
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof FormsApiUpdateFullForm
      */
     readonly formId: string
 
     /**
      * 
-     * @type {FormApiFormsV1UpdateFullFormRequest}
-     * @memberof FormsApiUpdateFullForm
      */
     readonly formApiFormsV1UpdateFullFormRequest?: FormApiFormsV1UpdateFullFormRequest
 }
 
 /**
  * FormsApi - object-oriented interface
- * @export
- * @class FormsApi
- * @extends {BaseAPI}
  */
 export class FormsApi extends BaseAPI {
     /**
@@ -1221,7 +1125,6 @@ export class FormsApi extends BaseAPI {
      * @param {FormsApiCreateFormRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FormsApi
      */
     public createForm(requestParameters: FormsApiCreateFormRequest, options?: RawAxiosRequestConfig) {
         return FormsApiFp(this.configuration).createForm(requestParameters.tenantId, requestParameters.formApiFormsV1CreateFormRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1233,7 +1136,6 @@ export class FormsApi extends BaseAPI {
      * @param {FormsApiCreateFullFormRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FormsApi
      */
     public createFullForm(requestParameters: FormsApiCreateFullFormRequest, options?: RawAxiosRequestConfig) {
         return FormsApiFp(this.configuration).createFullForm(requestParameters.tenantId, requestParameters.formApiFormsV1CreateFullFormRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1245,7 +1147,6 @@ export class FormsApi extends BaseAPI {
      * @param {FormsApiDeleteFormRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FormsApi
      */
     public deleteForm(requestParameters: FormsApiDeleteFormRequest, options?: RawAxiosRequestConfig) {
         return FormsApiFp(this.configuration).deleteForm(requestParameters.tenantId, requestParameters.formId, options).then((request) => request(this.axios, this.basePath));
@@ -1257,7 +1158,6 @@ export class FormsApi extends BaseAPI {
      * @param {FormsApiDuplicateFormRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FormsApi
      */
     public duplicateForm(requestParameters: FormsApiDuplicateFormRequest, options?: RawAxiosRequestConfig) {
         return FormsApiFp(this.configuration).duplicateForm(requestParameters.tenantId, requestParameters.formId, options).then((request) => request(this.axios, this.basePath));
@@ -1269,7 +1169,6 @@ export class FormsApi extends BaseAPI {
      * @param {FormsApiGetFormRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FormsApi
      */
     public getForm(requestParameters: FormsApiGetFormRequest, options?: RawAxiosRequestConfig) {
         return FormsApiFp(this.configuration).getForm(requestParameters.tenantId, requestParameters.formId, options).then((request) => request(this.axios, this.basePath));
@@ -1281,7 +1180,6 @@ export class FormsApi extends BaseAPI {
      * @param {FormsApiGetFormAccessRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FormsApi
      */
     public getFormAccess(requestParameters: FormsApiGetFormAccessRequest, options?: RawAxiosRequestConfig) {
         return FormsApiFp(this.configuration).getFormAccess(requestParameters.tenantId, requestParameters.formId, options).then((request) => request(this.axios, this.basePath));
@@ -1293,7 +1191,6 @@ export class FormsApi extends BaseAPI {
      * @param {FormsApiGetFullFormSchemaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FormsApi
      */
     public getFullFormSchema(requestParameters: FormsApiGetFullFormSchemaRequest, options?: RawAxiosRequestConfig) {
         return FormsApiFp(this.configuration).getFullFormSchema(requestParameters.tenantId, requestParameters.formId, options).then((request) => request(this.axios, this.basePath));
@@ -1305,7 +1202,6 @@ export class FormsApi extends BaseAPI {
      * @param {FormsApiImportFormRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FormsApi
      */
     public importForm(requestParameters: FormsApiImportFormRequest, options?: RawAxiosRequestConfig) {
         return FormsApiFp(this.configuration).importForm(requestParameters.tenantId, requestParameters.body, options).then((request) => request(this.axios, this.basePath));
@@ -1317,7 +1213,6 @@ export class FormsApi extends BaseAPI {
      * @param {FormsApiSearchFormsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FormsApi
      */
     public searchForms(requestParameters: FormsApiSearchFormsRequest, options?: RawAxiosRequestConfig) {
         return FormsApiFp(this.configuration).searchForms(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1329,7 +1224,6 @@ export class FormsApi extends BaseAPI {
      * @param {FormsApiSetFormAccessRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FormsApi
      */
     public setFormAccess(requestParameters: FormsApiSetFormAccessRequest, options?: RawAxiosRequestConfig) {
         return FormsApiFp(this.configuration).setFormAccess(requestParameters.tenantId, requestParameters.formId, requestParameters.formApiFormsV1SetFormAccessRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1341,7 +1235,6 @@ export class FormsApi extends BaseAPI {
      * @param {FormsApiUpdateFormRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FormsApi
      */
     public updateForm(requestParameters: FormsApiUpdateFormRequest, options?: RawAxiosRequestConfig) {
         return FormsApiFp(this.configuration).updateForm(requestParameters.tenantId, requestParameters.formId, requestParameters.formApiFormsV1UpdateFormRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1353,7 +1246,6 @@ export class FormsApi extends BaseAPI {
      * @param {FormsApiUpdateFullFormRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FormsApi
      */
     public updateFullForm(requestParameters: FormsApiUpdateFullFormRequest, options?: RawAxiosRequestConfig) {
         return FormsApiFp(this.configuration).updateFullForm(requestParameters.tenantId, requestParameters.formId, requestParameters.formApiFormsV1UpdateFullFormRequest, options).then((request) => request(this.axios, this.basePath));

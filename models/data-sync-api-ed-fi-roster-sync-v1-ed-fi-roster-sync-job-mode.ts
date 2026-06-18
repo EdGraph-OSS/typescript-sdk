@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobMode = {
     Unknown: 'Unknown',
     DefaultInstance: 'DefaultInstance',
-    Custom: 'Custom'
+    Custom: 'Custom',
 } as const;
 
 export type DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobMode = typeof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobMode[keyof typeof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobMode];

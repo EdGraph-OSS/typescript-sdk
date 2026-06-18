@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiCapacitiesV1AnalyticsCapacity
- */
 export interface AnalyticsApiCapacitiesV1AnalyticsCapacity {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiCapacitiesV1AnalyticsCapacity
-     */
     'capacityId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiCapacitiesV1AnalyticsCapacity
-     */
     'displayName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiCapacitiesV1AnalyticsCapacity
-     */
     'sku'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiCapacitiesV1AnalyticsCapacity
-     */
     'state'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiCapacitiesV1AnalyticsCapacity
-     */
     'region'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiCapacitiesV1AnalyticsCapacity
-     */
     'capacityUserAccessRight'?: string | null;
 }
 

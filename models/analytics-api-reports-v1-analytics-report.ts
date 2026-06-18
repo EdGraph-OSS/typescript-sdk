@@ -22,171 +22,34 @@ import type { AnalyticsApiReportsV1ReportSource } from './analytics-api-reports-
 
 /**
  * Entities
- * @export
- * @interface AnalyticsApiReportsV1AnalyticsReport
  */
 export interface AnalyticsApiReportsV1AnalyticsReport {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'reportId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'groupId'?: string | null;
-    /**
-     * 
-     * @type {Array<AnalyticsApiReportsV1AnalyticsReportDataset>}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'datasetIds'?: Array<AnalyticsApiReportsV1AnalyticsReportDataset> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'reportName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'shortDescription'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'embedUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'type'?: string | null;
-    /**
-     * 
-     * @type {AnalyticsApiReportsV1ReportSource}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'source'?: AnalyticsApiReportsV1ReportSource;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'isVisible'?: boolean;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'tags'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'deletedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'deletedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'lastUploadedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'lastUploadedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'downloadUri'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'version'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'rolesRequired'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'identityRequired'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReport
-     */
     'state'?: string | null;
 }
 

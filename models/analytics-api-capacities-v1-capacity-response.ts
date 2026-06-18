@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { AnalyticsApiCapacitiesV1AnalyticsCapacity } from './analytics-api-capacities-v1-analytics-capacity';
 
-/**
- * 
- * @export
- * @interface AnalyticsApiCapacitiesV1CapacityResponse
- */
 export interface AnalyticsApiCapacitiesV1CapacityResponse {
-    /**
-     * 
-     * @type {Array<AnalyticsApiCapacitiesV1AnalyticsCapacity>}
-     * @memberof AnalyticsApiCapacitiesV1CapacityResponse
-     */
     'capacities'?: Array<AnalyticsApiCapacitiesV1AnalyticsCapacity> | null;
 }
 

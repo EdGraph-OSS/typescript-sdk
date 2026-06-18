@@ -20,53 +20,13 @@ import type { EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiDataMode
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls } from './ed-graph-http-aggregators-tenant-api-services-onboarding-steps-urls';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi
-     */
     'version'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi
-     */
     'informationalVersion'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi
-     */
     'suite'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi
-     */
     'build'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi
-     */
     'apiMode'?: string | null;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiDataModel>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi
-     */
     'dataModels'?: Array<EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiDataModel> | null;
-    /**
-     * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi
-     */
     'urls'?: EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls;
 }
 

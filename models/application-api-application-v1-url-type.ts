@@ -14,15 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ApplicationApiApplicationV1UrlType = {
     Link: 'Link',
-    Asset: 'Asset'
+    Asset: 'Asset',
 } as const;
 
 export type ApplicationApiApplicationV1UrlType = typeof ApplicationApiApplicationV1UrlType[keyof typeof ApplicationApiApplicationV1UrlType];

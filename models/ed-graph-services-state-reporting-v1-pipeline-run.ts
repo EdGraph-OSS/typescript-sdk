@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1PipelineRun
- */
 export interface EdGraphServicesStateReportingV1PipelineRun {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1PipelineRun
-     */
     'runId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1PipelineRun
-     */
     'runStart'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1PipelineRun
-     */
     'runEnd'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PipelineRun
-     */
     'durationInMs'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1PipelineRun
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1PipelineRun
-     */
     'message'?: string | null;
 }
 

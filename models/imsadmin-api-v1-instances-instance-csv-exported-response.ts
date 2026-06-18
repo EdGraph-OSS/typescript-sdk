@@ -17,41 +17,11 @@
 // @ts-ignore
 import type { IMSAdminApiV1InstancesExportState } from './imsadmin-api-v1-instances-export-state';
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1InstancesInstanceCsvExportedResponse
- */
 export interface IMSAdminApiV1InstancesInstanceCsvExportedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceCsvExportedResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceCsvExportedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {IMSAdminApiV1InstancesExportState}
-     * @memberof IMSAdminApiV1InstancesInstanceCsvExportedResponse
-     */
     'status'?: IMSAdminApiV1InstancesExportState;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceCsvExportedResponse
-     */
     'details'?: string | null;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof IMSAdminApiV1InstancesInstanceCsvExportedResponse
-     */
     'zippedContents'?: Array<number> | null;
 }
 

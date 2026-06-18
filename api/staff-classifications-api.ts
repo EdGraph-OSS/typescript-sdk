@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -43,7 +43,6 @@ import type { IdentityApiStaffClassificationV1UpdateStaffClassificationRequest }
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * StaffClassificationsApi - axios parameter creator
- * @export
  */
 export const StaffClassificationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -59,7 +58,7 @@ export const StaffClassificationsApiAxiosParamCreator = function (configuration?
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createStaffClassification', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/staffclassifications`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -75,9 +74,8 @@ export const StaffClassificationsApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -103,8 +101,8 @@ export const StaffClassificationsApiAxiosParamCreator = function (configuration?
             // verify required parameter 'staffClassificationId' is not null or undefined
             assertParamExists('deleteStaffClassification', 'staffClassificationId', staffClassificationId)
             const localVarPath = `/tenants/{tenantId}/staffclassifications/{staffClassificationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"staffClassificationId"}}`, encodeURIComponent(String(staffClassificationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{staffClassificationId}', encodeURIComponent(String(staffClassificationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -120,8 +118,8 @@ export const StaffClassificationsApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -145,8 +143,8 @@ export const StaffClassificationsApiAxiosParamCreator = function (configuration?
             // verify required parameter 'staffClassificationId' is not null or undefined
             assertParamExists('getStaffClassificationById', 'staffClassificationId', staffClassificationId)
             const localVarPath = `/tenants/{tenantId}/staffclassifications/{staffClassificationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"staffClassificationId"}}`, encodeURIComponent(String(staffClassificationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{staffClassificationId}', encodeURIComponent(String(staffClassificationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -162,8 +160,8 @@ export const StaffClassificationsApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -188,7 +186,7 @@ export const StaffClassificationsApiAxiosParamCreator = function (configuration?
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getStaffClassifications', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/staffclassifications`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -220,8 +218,8 @@ export const StaffClassificationsApiAxiosParamCreator = function (configuration?
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -245,7 +243,7 @@ export const StaffClassificationsApiAxiosParamCreator = function (configuration?
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getStaffClassificationsNamespaces', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/staffclassifications/namespaces`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -273,8 +271,8 @@ export const StaffClassificationsApiAxiosParamCreator = function (configuration?
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -299,8 +297,8 @@ export const StaffClassificationsApiAxiosParamCreator = function (configuration?
             // verify required parameter 'staffClassificationId' is not null or undefined
             assertParamExists('updateStaffClassification', 'staffClassificationId', staffClassificationId)
             const localVarPath = `/tenants/{tenantId}/staffclassifications/{staffClassificationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"staffClassificationId"}}`, encodeURIComponent(String(staffClassificationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{staffClassificationId}', encodeURIComponent(String(staffClassificationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -316,9 +314,8 @@ export const StaffClassificationsApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -335,7 +332,6 @@ export const StaffClassificationsApiAxiosParamCreator = function (configuration?
 
 /**
  * StaffClassificationsApi - functional programming interface
- * @export
  */
 export const StaffClassificationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = StaffClassificationsApiAxiosParamCreator(configuration)
@@ -435,7 +431,6 @@ export const StaffClassificationsApiFp = function(configuration?: Configuration)
 
 /**
  * StaffClassificationsApi - factory interface
- * @export
  */
 export const StaffClassificationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = StaffClassificationsApiFp(configuration)
@@ -505,177 +500,126 @@ export const StaffClassificationsApiFactory = function (configuration?: Configur
 
 /**
  * Request parameters for createStaffClassification operation in StaffClassificationsApi.
- * @export
- * @interface StaffClassificationsApiCreateStaffClassificationRequest
  */
 export interface StaffClassificationsApiCreateStaffClassificationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof StaffClassificationsApiCreateStaffClassification
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {IdentityApiStaffClassificationV1CreateStaffClassificationRequest}
-     * @memberof StaffClassificationsApiCreateStaffClassification
      */
     readonly identityApiStaffClassificationV1CreateStaffClassificationRequest?: IdentityApiStaffClassificationV1CreateStaffClassificationRequest
 }
 
 /**
  * Request parameters for deleteStaffClassification operation in StaffClassificationsApi.
- * @export
- * @interface StaffClassificationsApiDeleteStaffClassificationRequest
  */
 export interface StaffClassificationsApiDeleteStaffClassificationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof StaffClassificationsApiDeleteStaffClassification
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof StaffClassificationsApiDeleteStaffClassification
      */
     readonly staffClassificationId: string
 }
 
 /**
  * Request parameters for getStaffClassificationById operation in StaffClassificationsApi.
- * @export
- * @interface StaffClassificationsApiGetStaffClassificationByIdRequest
  */
 export interface StaffClassificationsApiGetStaffClassificationByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof StaffClassificationsApiGetStaffClassificationById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof StaffClassificationsApiGetStaffClassificationById
      */
     readonly staffClassificationId: string
 }
 
 /**
  * Request parameters for getStaffClassifications operation in StaffClassificationsApi.
- * @export
- * @interface StaffClassificationsApiGetStaffClassificationsRequest
  */
 export interface StaffClassificationsApiGetStaffClassificationsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof StaffClassificationsApiGetStaffClassifications
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof StaffClassificationsApiGetStaffClassifications
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof StaffClassificationsApiGetStaffClassifications
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof StaffClassificationsApiGetStaffClassifications
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof StaffClassificationsApiGetStaffClassifications
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getStaffClassificationsNamespaces operation in StaffClassificationsApi.
- * @export
- * @interface StaffClassificationsApiGetStaffClassificationsNamespacesRequest
  */
 export interface StaffClassificationsApiGetStaffClassificationsNamespacesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof StaffClassificationsApiGetStaffClassificationsNamespaces
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof StaffClassificationsApiGetStaffClassificationsNamespaces
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof StaffClassificationsApiGetStaffClassificationsNamespaces
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof StaffClassificationsApiGetStaffClassificationsNamespaces
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for updateStaffClassification operation in StaffClassificationsApi.
- * @export
- * @interface StaffClassificationsApiUpdateStaffClassificationRequest
  */
 export interface StaffClassificationsApiUpdateStaffClassificationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof StaffClassificationsApiUpdateStaffClassification
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof StaffClassificationsApiUpdateStaffClassification
      */
     readonly staffClassificationId: string
 
     /**
      * 
-     * @type {IdentityApiStaffClassificationV1UpdateStaffClassificationRequest}
-     * @memberof StaffClassificationsApiUpdateStaffClassification
      */
     readonly identityApiStaffClassificationV1UpdateStaffClassificationRequest?: IdentityApiStaffClassificationV1UpdateStaffClassificationRequest
 }
 
 /**
  * StaffClassificationsApi - object-oriented interface
- * @export
- * @class StaffClassificationsApi
- * @extends {BaseAPI}
  */
 export class StaffClassificationsApi extends BaseAPI {
     /**
@@ -684,7 +628,6 @@ export class StaffClassificationsApi extends BaseAPI {
      * @param {StaffClassificationsApiCreateStaffClassificationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StaffClassificationsApi
      */
     public createStaffClassification(requestParameters: StaffClassificationsApiCreateStaffClassificationRequest, options?: RawAxiosRequestConfig) {
         return StaffClassificationsApiFp(this.configuration).createStaffClassification(requestParameters.tenantId, requestParameters.identityApiStaffClassificationV1CreateStaffClassificationRequest, options).then((request) => request(this.axios, this.basePath));
@@ -696,7 +639,6 @@ export class StaffClassificationsApi extends BaseAPI {
      * @param {StaffClassificationsApiDeleteStaffClassificationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StaffClassificationsApi
      */
     public deleteStaffClassification(requestParameters: StaffClassificationsApiDeleteStaffClassificationRequest, options?: RawAxiosRequestConfig) {
         return StaffClassificationsApiFp(this.configuration).deleteStaffClassification(requestParameters.tenantId, requestParameters.staffClassificationId, options).then((request) => request(this.axios, this.basePath));
@@ -708,7 +650,6 @@ export class StaffClassificationsApi extends BaseAPI {
      * @param {StaffClassificationsApiGetStaffClassificationByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StaffClassificationsApi
      */
     public getStaffClassificationById(requestParameters: StaffClassificationsApiGetStaffClassificationByIdRequest, options?: RawAxiosRequestConfig) {
         return StaffClassificationsApiFp(this.configuration).getStaffClassificationById(requestParameters.tenantId, requestParameters.staffClassificationId, options).then((request) => request(this.axios, this.basePath));
@@ -720,7 +661,6 @@ export class StaffClassificationsApi extends BaseAPI {
      * @param {StaffClassificationsApiGetStaffClassificationsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StaffClassificationsApi
      */
     public getStaffClassifications(requestParameters: StaffClassificationsApiGetStaffClassificationsRequest, options?: RawAxiosRequestConfig) {
         return StaffClassificationsApiFp(this.configuration).getStaffClassifications(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -732,7 +672,6 @@ export class StaffClassificationsApi extends BaseAPI {
      * @param {StaffClassificationsApiGetStaffClassificationsNamespacesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StaffClassificationsApi
      */
     public getStaffClassificationsNamespaces(requestParameters: StaffClassificationsApiGetStaffClassificationsNamespacesRequest, options?: RawAxiosRequestConfig) {
         return StaffClassificationsApiFp(this.configuration).getStaffClassificationsNamespaces(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -744,7 +683,6 @@ export class StaffClassificationsApi extends BaseAPI {
      * @param {StaffClassificationsApiUpdateStaffClassificationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StaffClassificationsApi
      */
     public updateStaffClassification(requestParameters: StaffClassificationsApiUpdateStaffClassificationRequest, options?: RawAxiosRequestConfig) {
         return StaffClassificationsApiFp(this.configuration).updateStaffClassification(requestParameters.tenantId, requestParameters.staffClassificationId, requestParameters.identityApiStaffClassificationV1UpdateStaffClassificationRequest, options).then((request) => request(this.axios, this.basePath));

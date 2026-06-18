@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1CertificationStatusSetResponse
- */
 export interface ValidationsApiContainersV1CertificationStatusSetResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CertificationStatusSetResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CertificationStatusSetResponse
-     */
     'collectionId'?: string | null;
 }
 

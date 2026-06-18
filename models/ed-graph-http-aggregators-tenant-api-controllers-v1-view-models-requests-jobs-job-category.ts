@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsJobCategory
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsJobCategory {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsJobCategory
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsJobCategory
-     */
     'subCategories'?: Array<string> | null;
 }
 

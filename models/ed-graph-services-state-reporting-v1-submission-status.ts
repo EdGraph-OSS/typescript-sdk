@@ -14,11 +14,6 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const EdGraphServicesStateReportingV1SubmissionStatus = {
     Unknown: 'Unknown',
@@ -27,7 +22,7 @@ export const EdGraphServicesStateReportingV1SubmissionStatus = {
     Cancelled: 'Cancelled',
     Error: 'Error',
     CompletedWithErrors: 'CompletedWithErrors',
-    Completed: 'Completed'
+    Completed: 'Completed',
 } as const;
 
 export type EdGraphServicesStateReportingV1SubmissionStatus = typeof EdGraphServicesStateReportingV1SubmissionStatus[keyof typeof EdGraphServicesStateReportingV1SubmissionStatus];

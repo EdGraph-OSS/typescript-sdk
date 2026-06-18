@@ -14,15 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const IdentityApiApiClientV1AccessTokenType = {
     Jwt: 'Jwt',
-    Reference: 'Reference'
+    Reference: 'Reference',
 } as const;
 
 export type IdentityApiApiClientV1AccessTokenType = typeof IdentityApiApiClientV1AccessTokenType[keyof typeof IdentityApiApiClientV1AccessTokenType];

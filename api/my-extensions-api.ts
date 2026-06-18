@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,7 +33,6 @@ import type { IdentityApiUserV1UserExtensionSetResponse } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * MyExtensionsApi - axios parameter creator
- * @export
  */
 export const MyExtensionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const MyExtensionsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'code' is not null or undefined
             assertParamExists('removeUserExtension', 'code', code)
             const localVarPath = `/me/extensions/{code}`
-                .replace(`{${"code"}}`, encodeURIComponent(String(code)));
+                .replace('{code}', encodeURIComponent(String(code)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -64,8 +63,8 @@ export const MyExtensionsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -99,9 +98,8 @@ export const MyExtensionsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -118,7 +116,6 @@ export const MyExtensionsApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * MyExtensionsApi - functional programming interface
- * @export
  */
 export const MyExtensionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MyExtensionsApiAxiosParamCreator(configuration)
@@ -154,7 +151,6 @@ export const MyExtensionsApiFp = function(configuration?: Configuration) {
 
 /**
  * MyExtensionsApi - factory interface
- * @export
  */
 export const MyExtensionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MyExtensionsApiFp(configuration)
@@ -184,37 +180,26 @@ export const MyExtensionsApiFactory = function (configuration?: Configuration, b
 
 /**
  * Request parameters for removeUserExtension operation in MyExtensionsApi.
- * @export
- * @interface MyExtensionsApiRemoveUserExtensionRequest
  */
 export interface MyExtensionsApiRemoveUserExtensionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof MyExtensionsApiRemoveUserExtension
      */
     readonly code: string
 }
 
 /**
  * Request parameters for setUserExtension operation in MyExtensionsApi.
- * @export
- * @interface MyExtensionsApiSetUserExtensionRequest
  */
 export interface MyExtensionsApiSetUserExtensionRequest {
     /**
      * 
-     * @type {IdentityApiUserV1SetUserExtensionRequest}
-     * @memberof MyExtensionsApiSetUserExtension
      */
     readonly identityApiUserV1SetUserExtensionRequest?: IdentityApiUserV1SetUserExtensionRequest
 }
 
 /**
  * MyExtensionsApi - object-oriented interface
- * @export
- * @class MyExtensionsApi
- * @extends {BaseAPI}
  */
 export class MyExtensionsApi extends BaseAPI {
     /**
@@ -223,7 +208,6 @@ export class MyExtensionsApi extends BaseAPI {
      * @param {MyExtensionsApiRemoveUserExtensionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MyExtensionsApi
      */
     public removeUserExtension(requestParameters: MyExtensionsApiRemoveUserExtensionRequest, options?: RawAxiosRequestConfig) {
         return MyExtensionsApiFp(this.configuration).removeUserExtension(requestParameters.code, options).then((request) => request(this.axios, this.basePath));
@@ -235,7 +219,6 @@ export class MyExtensionsApi extends BaseAPI {
      * @param {MyExtensionsApiSetUserExtensionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MyExtensionsApi
      */
     public setUserExtension(requestParameters: MyExtensionsApiSetUserExtensionRequest = {}, options?: RawAxiosRequestConfig) {
         return MyExtensionsApiFp(this.configuration).setUserExtension(requestParameters.identityApiUserV1SetUserExtensionRequest, options).then((request) => request(this.axios, this.basePath));

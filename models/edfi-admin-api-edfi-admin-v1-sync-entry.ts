@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1SyncEntry
- */
 export interface EdfiAdminApiEdfiAdminV1SyncEntry {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SyncEntry
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdfiAdminApiEdfiAdminV1SyncEntry
-     */
     'instances'?: Array<string> | null;
 }
 

@@ -14,65 +14,15 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1InstancesCreateInstanceRequest
- */
 export interface IMSAdminApiV1InstancesCreateInstanceRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesCreateInstanceRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesCreateInstanceRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1InstancesCreateInstanceRequest
-     */
     'useCustomId'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesCreateInstanceRequest
-     */
     'customId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesCreateInstanceRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesCreateInstanceRequest
-     */
     'connectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesCreateInstanceRequest
-     */
     'tier'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesCreateInstanceRequest
-     */
     'backupCode'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1InstancesCreateInstanceRequest
-     */
     'schoolYear'?: number | null;
 }
 

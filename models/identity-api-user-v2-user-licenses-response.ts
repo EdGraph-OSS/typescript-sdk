@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IdentityApiUserV2UserLicenseProfileResponse } from './identity-api-user-v2-user-license-profile-response';
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV2UserLicensesResponse
- */
 export interface IdentityApiUserV2UserLicensesResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2UserLicensesResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2UserLicensesResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2UserLicensesResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV2UserLicenseProfileResponse>}
-     * @memberof IdentityApiUserV2UserLicensesResponse
-     */
     'data'?: Array<IdentityApiUserV2UserLicenseProfileResponse> | null;
 }
 

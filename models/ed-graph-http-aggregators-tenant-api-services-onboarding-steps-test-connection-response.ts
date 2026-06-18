@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsTestConnectionResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsTestConnectionResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsTestConnectionResponse
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsTestConnectionResponse
-     */
     'details'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsTestConnectionResponse
-     */
     'code'?: string | null;
 }
 

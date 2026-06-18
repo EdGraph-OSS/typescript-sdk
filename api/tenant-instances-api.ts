@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -26,14 +26,13 @@ import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult } from '../models';
 // @ts-ignore
-import type { EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest } from '../models';
-// @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsTestConnectionResponse } from '../models';
+// @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest } from '../models';
 // @ts-ignore
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * TenantInstancesApi - axios parameter creator
- * @export
  */
 export const TenantInstancesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -41,15 +40,15 @@ export const TenantInstancesApiAxiosParamCreator = function (configuration?: Con
          * 
          * @summary Loads connection metadata.
          * @param {string} tenantId 
-         * @param {EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest} [edGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest] 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest} [edGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        loadOnboardingStepEdFiApiMetadata: async (tenantId: string, edGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest?: EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        loadOnboardingStepEdFiApiMetadata: async (tenantId: string, edGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest?: EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('loadOnboardingStepEdFiApiMetadata', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/onboardingsteps/edfi-api-metadata`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -65,14 +64,13 @@ export const TenantInstancesApiAxiosParamCreator = function (configuration?: Con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(edGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(edGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -91,7 +89,7 @@ export const TenantInstancesApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('testOnboardingStepConnection', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/onboardingsteps/testconnection`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -107,9 +105,8 @@ export const TenantInstancesApiAxiosParamCreator = function (configuration?: Con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -126,7 +123,6 @@ export const TenantInstancesApiAxiosParamCreator = function (configuration?: Con
 
 /**
  * TenantInstancesApi - functional programming interface
- * @export
  */
 export const TenantInstancesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TenantInstancesApiAxiosParamCreator(configuration)
@@ -135,12 +131,12 @@ export const TenantInstancesApiFp = function(configuration?: Configuration) {
          * 
          * @summary Loads connection metadata.
          * @param {string} tenantId 
-         * @param {EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest} [edGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest] 
+         * @param {EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest} [edGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async loadOnboardingStepEdFiApiMetadata(tenantId: string, edGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest?: EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.loadOnboardingStepEdFiApiMetadata(tenantId, edGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest, options);
+        async loadOnboardingStepEdFiApiMetadata(tenantId: string, edGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest?: EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.loadOnboardingStepEdFiApiMetadata(tenantId, edGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TenantInstancesApi.loadOnboardingStepEdFiApiMetadata']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -164,7 +160,6 @@ export const TenantInstancesApiFp = function(configuration?: Configuration) {
 
 /**
  * TenantInstancesApi - factory interface
- * @export
  */
 export const TenantInstancesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TenantInstancesApiFp(configuration)
@@ -177,7 +172,7 @@ export const TenantInstancesApiFactory = function (configuration?: Configuration
          * @throws {RequiredError}
          */
         loadOnboardingStepEdFiApiMetadata(requestParameters: TenantInstancesApiLoadOnboardingStepEdFiApiMetadataRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult> {
-            return localVarFp.loadOnboardingStepEdFiApiMetadata(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest, options).then((request) => request(axios, basePath));
+            return localVarFp.loadOnboardingStepEdFiApiMetadata(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -194,51 +189,36 @@ export const TenantInstancesApiFactory = function (configuration?: Configuration
 
 /**
  * Request parameters for loadOnboardingStepEdFiApiMetadata operation in TenantInstancesApi.
- * @export
- * @interface TenantInstancesApiLoadOnboardingStepEdFiApiMetadataRequest
  */
 export interface TenantInstancesApiLoadOnboardingStepEdFiApiMetadataRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantInstancesApiLoadOnboardingStepEdFiApiMetadata
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest}
-     * @memberof TenantInstancesApiLoadOnboardingStepEdFiApiMetadata
      */
-    readonly edGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest?: EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest
+    readonly edGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest?: EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest
 }
 
 /**
  * Request parameters for testOnboardingStepConnection operation in TenantInstancesApi.
- * @export
- * @interface TenantInstancesApiTestOnboardingStepConnectionRequest
  */
 export interface TenantInstancesApiTestOnboardingStepConnectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantInstancesApiTestOnboardingStepConnection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {any}
-     * @memberof TenantInstancesApiTestOnboardingStepConnection
      */
     readonly body?: any
 }
 
 /**
  * TenantInstancesApi - object-oriented interface
- * @export
- * @class TenantInstancesApi
- * @extends {BaseAPI}
  */
 export class TenantInstancesApi extends BaseAPI {
     /**
@@ -247,10 +227,9 @@ export class TenantInstancesApi extends BaseAPI {
      * @param {TenantInstancesApiLoadOnboardingStepEdFiApiMetadataRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantInstancesApi
      */
     public loadOnboardingStepEdFiApiMetadata(requestParameters: TenantInstancesApiLoadOnboardingStepEdFiApiMetadataRequest, options?: RawAxiosRequestConfig) {
-        return TenantInstancesApiFp(this.configuration).loadOnboardingStepEdFiApiMetadata(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest, options).then((request) => request(this.axios, this.basePath));
+        return TenantInstancesApiFp(this.configuration).loadOnboardingStepEdFiApiMetadata(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -259,7 +238,6 @@ export class TenantInstancesApi extends BaseAPI {
      * @param {TenantInstancesApiTestOnboardingStepConnectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantInstancesApi
      */
     public testOnboardingStepConnection(requestParameters: TenantInstancesApiTestOnboardingStepConnectionRequest, options?: RawAxiosRequestConfig) {
         return TenantInstancesApiFp(this.configuration).testOnboardingStepConnection(requestParameters.tenantId, requestParameters.body, options).then((request) => request(this.axios, this.basePath));

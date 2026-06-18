@@ -17,41 +17,11 @@
 // @ts-ignore
 import type { IdentityApiApiClientV1ApiClaim } from './identity-api-api-client-v1-api-claim';
 
-/**
- * 
- * @export
- * @interface IdentityApiApiClientV1UpdateApiClientRequest
- */
 export interface IdentityApiApiClientV1UpdateApiClientRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1UpdateApiClientRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1UpdateApiClientRequest
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1UpdateApiClientRequest
-     */
     'clientName'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiApiClientV1UpdateApiClientRequest
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {Array<IdentityApiApiClientV1ApiClaim>}
-     * @memberof IdentityApiApiClientV1UpdateApiClientRequest
-     */
     'apiClaims'?: Array<IdentityApiApiClientV1ApiClaim> | null;
 }
 

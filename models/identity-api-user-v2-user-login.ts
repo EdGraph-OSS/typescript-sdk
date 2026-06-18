@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV2UserLogin
- */
 export interface IdentityApiUserV2UserLogin {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserLogin
-     */
     'loginProvider'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserLogin
-     */
     'providerDisplayName'?: string | null;
 }
 

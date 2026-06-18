@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1InstancesInstanceTruncatedResponse
- */
 export interface IMSAdminApiV1InstancesInstanceTruncatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceTruncatedResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceTruncatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceTruncatedResponse
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceTruncatedResponse
-     */
     'details'?: string | null;
 }
 

@@ -17,53 +17,13 @@
 // @ts-ignore
 import type { DataSyncApiJobExecutionLogV1MessageType } from './data-sync-api-job-execution-log-v1-message-type';
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobExecutionLogV1JobExecutionLogEntry
- */
 export interface DataSyncApiJobExecutionLogV1JobExecutionLogEntry {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobExecutionLogV1JobExecutionLogEntry
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobExecutionLogV1JobExecutionLogEntry
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobExecutionLogV1JobExecutionLogEntry
-     */
     'jobExecutionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobExecutionLogV1JobExecutionLogEntry
-     */
     'message'?: string | null;
-    /**
-     * 
-     * @type {DataSyncApiJobExecutionLogV1MessageType}
-     * @memberof DataSyncApiJobExecutionLogV1JobExecutionLogEntry
-     */
     'messageType'?: DataSyncApiJobExecutionLogV1MessageType;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobExecutionLogV1JobExecutionLogEntry
-     */
     'loggedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobExecutionLogV1JobExecutionLogEntry
-     */
     'errorCode'?: string | null;
 }
 

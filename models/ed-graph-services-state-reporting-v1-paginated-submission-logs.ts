@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1SubmissionLog } from './ed-graph-services-state-reporting-v1-submission-log';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1PaginatedSubmissionLogs
- */
 export interface EdGraphServicesStateReportingV1PaginatedSubmissionLogs {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedSubmissionLogs
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedSubmissionLogs
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedSubmissionLogs
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1SubmissionLog>}
-     * @memberof EdGraphServicesStateReportingV1PaginatedSubmissionLogs
-     */
     'data'?: Array<EdGraphServicesStateReportingV1SubmissionLog> | null;
 }
 

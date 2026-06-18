@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const EvaluationApiEvaluationsV1OrganizationIdentifierType = {
     Unknown: 'Unknown',
     Main: 'Main',
-    StateId: 'StateId'
+    StateId: 'StateId',
 } as const;
 
 export type EvaluationApiEvaluationsV1OrganizationIdentifierType = typeof EvaluationApiEvaluationsV1OrganizationIdentifierType[keyof typeof EvaluationApiEvaluationsV1OrganizationIdentifierType];

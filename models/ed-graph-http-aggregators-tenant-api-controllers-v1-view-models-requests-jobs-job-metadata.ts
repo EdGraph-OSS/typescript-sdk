@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsJobMetadata
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsJobMetadata {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsJobMetadata
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsJobMetadata
-     */
     'value'?: string | null;
 }
 

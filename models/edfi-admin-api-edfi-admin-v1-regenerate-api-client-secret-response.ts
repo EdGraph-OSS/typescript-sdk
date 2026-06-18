@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1RegenerateApiClientSecretResponse
- */
 export interface EdfiAdminApiEdfiAdminV1RegenerateApiClientSecretResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1RegenerateApiClientSecretResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1RegenerateApiClientSecretResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1RegenerateApiClientSecretResponse
-     */
     'apiClientId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1RegenerateApiClientSecretResponse
-     */
     'newSecret'?: string | null;
 }
 

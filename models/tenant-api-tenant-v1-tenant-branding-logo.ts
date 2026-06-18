@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1TenantBrandingLogo
- */
 export interface TenantApiTenantV1TenantBrandingLogo {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantBrandingLogo
-     */
     'url'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantBrandingLogo
-     */
     'blobName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantBrandingLogo
-     */
     'containerName'?: string | null;
 }
 

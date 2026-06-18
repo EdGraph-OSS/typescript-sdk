@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiDslV1DslProfile
- */
 export interface DataSyncApiDslV1DslProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1DslProfile
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1DslProfile
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiDslV1DslProfile
-     */
     'enabled'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1DslProfile
-     */
     'dagWorkflow'?: string | null;
 }
 

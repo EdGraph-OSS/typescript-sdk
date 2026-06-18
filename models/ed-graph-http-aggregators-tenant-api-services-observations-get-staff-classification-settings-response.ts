@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceConfiguration } from './ed-graph-http-aggregators-tenant-api-services-observations-staff-classification-namespace-configuration';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceConfiguration>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse
-     */
     'namespaces'?: Array<EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceConfiguration> | null;
 }
 

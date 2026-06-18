@@ -20,23 +20,8 @@ import type { ValidationsApiContainersV1ContainerDto } from './validations-api-c
 // @ts-ignore
 import type { ValidationsApiReportingPeriodsV1ValidationSummarySubCategory } from './validations-api-reporting-periods-v1-validation-summary-sub-category';
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1ValidationSummaryCategory
- */
 export interface ValidationsApiReportingPeriodsV1ValidationSummaryCategory {
-    /**
-     * 
-     * @type {ValidationsApiContainersV1ContainerDto}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationSummaryCategory
-     */
     'category'?: ValidationsApiContainersV1ContainerDto;
-    /**
-     * 
-     * @type {Array<ValidationsApiReportingPeriodsV1ValidationSummarySubCategory>}
-     * @memberof ValidationsApiReportingPeriodsV1ValidationSummaryCategory
-     */
     'subCategories'?: Array<ValidationsApiReportingPeriodsV1ValidationSummarySubCategory> | null;
 }
 

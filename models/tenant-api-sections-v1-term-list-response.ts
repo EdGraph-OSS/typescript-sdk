@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiSectionsV1TermListResponse
- */
 export interface TenantApiSectionsV1TermListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiSectionsV1TermListResponse
-     */
     'termDescriptor'?: string | null;
 }
 

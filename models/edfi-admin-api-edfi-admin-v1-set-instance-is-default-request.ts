@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1SetInstanceIsDefaultRequest
- */
 export interface EdfiAdminApiEdfiAdminV1SetInstanceIsDefaultRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SetInstanceIsDefaultRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SetInstanceIsDefaultRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1SetInstanceIsDefaultRequest
-     */
     'isDefault'?: boolean;
 }
 

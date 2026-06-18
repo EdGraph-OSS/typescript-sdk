@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IdentityApiInvitationV1InvitationListResponse } from './identity-api-invitation-v1-invitation-list-response';
 
-/**
- * 
- * @export
- * @interface IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel
- */
 export interface IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<IdentityApiInvitationV1InvitationListResponse>}
-     * @memberof IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel
-     */
     'data'?: Array<IdentityApiInvitationV1InvitationListResponse> | null;
 }
 

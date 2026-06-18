@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { TenantApiSectionsV1SectionListResponse } from './tenant-api-sections-v1-section-list-response';
 
-/**
- * 
- * @export
- * @interface TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse
- */
 export interface TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {Array<TenantApiSectionsV1SectionListResponse>}
-     * @memberof TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse
-     */
     'data'?: Array<TenantApiSectionsV1SectionListResponse> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse
-     */
     'count'?: number;
 }
 

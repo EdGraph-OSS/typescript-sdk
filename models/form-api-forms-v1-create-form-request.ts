@@ -20,59 +20,14 @@ import type { FormApiFormsV1FormSource } from './form-api-forms-v1-form-source';
 // @ts-ignore
 import type { FormApiFormsV1FormStatus } from './form-api-forms-v1-form-status';
 
-/**
- * 
- * @export
- * @interface FormApiFormsV1CreateFormRequest
- */
 export interface FormApiFormsV1CreateFormRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFormRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFormRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {FormApiFormsV1FormSource}
-     * @memberof FormApiFormsV1CreateFormRequest
-     */
     'source'?: FormApiFormsV1FormSource;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFormRequest
-     */
     'version'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FormApiFormsV1CreateFormRequest
-     */
     'anonymous'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFormRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {FormApiFormsV1FormStatus}
-     * @memberof FormApiFormsV1CreateFormRequest
-     */
     'status'?: FormApiFormsV1FormStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFormRequest
-     */
     'image'?: string | null;
 }
 

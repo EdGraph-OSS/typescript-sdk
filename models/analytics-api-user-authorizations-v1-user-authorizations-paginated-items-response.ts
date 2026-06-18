@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { AnalyticsApiUserAuthorizationsV1UserAuthorizationsListResponse } from './analytics-api-user-authorizations-v1-user-authorizations-list-response';
 
-/**
- * 
- * @export
- * @interface AnalyticsApiUserAuthorizationsV1UserAuthorizationsPaginatedItemsResponse
- */
 export interface AnalyticsApiUserAuthorizationsV1UserAuthorizationsPaginatedItemsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsApiUserAuthorizationsV1UserAuthorizationsPaginatedItemsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsApiUserAuthorizationsV1UserAuthorizationsPaginatedItemsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsApiUserAuthorizationsV1UserAuthorizationsPaginatedItemsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<AnalyticsApiUserAuthorizationsV1UserAuthorizationsListResponse>}
-     * @memberof AnalyticsApiUserAuthorizationsV1UserAuthorizationsPaginatedItemsResponse
-     */
     'data'?: Array<AnalyticsApiUserAuthorizationsV1UserAuthorizationsListResponse> | null;
 }
 

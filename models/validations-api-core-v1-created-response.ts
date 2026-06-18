@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiCoreV1CreatedResponse
- */
 export interface ValidationsApiCoreV1CreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiCoreV1CreatedResponse
-     */
     'id'?: string | null;
 }
 

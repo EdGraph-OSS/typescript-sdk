@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ConnectionsConnectionDetailsMetadata
- */
 export interface IMSAdminApiV1ConnectionsConnectionDetailsMetadata {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ConnectionsConnectionDetailsMetadata
-     */
     'key'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ConnectionsConnectionDetailsMetadata
-     */
     'value'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ConnectionsConnectionDetailsMetadata
-     */
     'secret'?: boolean;
 }
 

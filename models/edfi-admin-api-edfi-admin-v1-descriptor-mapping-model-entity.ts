@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1DescriptorMappingModelEntity
- */
 export interface EdfiAdminApiEdfiAdminV1DescriptorMappingModelEntity {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1DescriptorMappingModelEntity
-     */
     'modelEntityDescriptor'?: string | null;
 }
 

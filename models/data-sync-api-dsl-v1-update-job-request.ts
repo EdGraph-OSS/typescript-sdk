@@ -14,65 +14,15 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiDslV1UpdateJobRequest
- */
 export interface DataSyncApiDslV1UpdateJobRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1UpdateJobRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1UpdateJobRequest
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiDslV1UpdateJobRequest
-     */
     'enabled'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1UpdateJobRequest
-     */
     'dagWorkflow'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1UpdateJobRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1UpdateJobRequest
-     */
     'startDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1UpdateJobRequest
-     */
     'endDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1UpdateJobRequest
-     */
     'cron'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1UpdateJobRequest
-     */
     'timeZone'?: string | null;
 }
 

@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobCreatedResponse
- */
 export interface IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobCreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobCreatedResponse
-     */
     'jobId'?: string | null;
 }
 

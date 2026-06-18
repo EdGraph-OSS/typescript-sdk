@@ -17,83 +17,18 @@
 // @ts-ignore
 import type { IdentityApiStaffClassificationV1StaffClassificationLicense } from './identity-api-staff-classification-v1-staff-classification-license';
 
-/**
- * 
- * @export
- * @interface IdentityApiStaffClassificationV1StaffClassificationResponse
- */
 export interface IdentityApiStaffClassificationV1StaffClassificationResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationResponse
-     */
     'isDeleted'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationResponse
-     */
     'namespace'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationResponse
-     */
     'codeValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationResponse
-     */
     'shortDescription'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationResponse
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {Array<IdentityApiStaffClassificationV1StaffClassificationLicense>}
-     * @memberof IdentityApiStaffClassificationV1StaffClassificationResponse
-     */
     'licenses'?: Array<IdentityApiStaffClassificationV1StaffClassificationLicense> | null;
 }
 

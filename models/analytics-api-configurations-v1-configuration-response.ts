@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiConfigurationsV1ConfigurationResponse
- */
 export interface AnalyticsApiConfigurationsV1ConfigurationResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1ConfigurationResponse
-     */
     'id'?: string | null;
 }
 

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 import type { TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModel } from '../models';
 /**
  * TenantSettingTypesApi - axios parameter creator
- * @export
  */
 export const TenantSettingTypesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const TenantSettingTypesApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllSettingTypes', 'tenantId', tenantId)
             const localVarPath = `/tenants/settings`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -80,8 +79,8 @@ export const TenantSettingTypesApiAxiosParamCreator = function (configuration?: 
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -96,7 +95,6 @@ export const TenantSettingTypesApiAxiosParamCreator = function (configuration?: 
 
 /**
  * TenantSettingTypesApi - functional programming interface
- * @export
  */
 export const TenantSettingTypesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TenantSettingTypesApiAxiosParamCreator(configuration)
@@ -123,7 +121,6 @@ export const TenantSettingTypesApiFp = function(configuration?: Configuration) {
 
 /**
  * TenantSettingTypesApi - factory interface
- * @export
  */
 export const TenantSettingTypesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TenantSettingTypesApiFp(configuration)
@@ -143,51 +140,36 @@ export const TenantSettingTypesApiFactory = function (configuration?: Configurat
 
 /**
  * Request parameters for getAllSettingTypes operation in TenantSettingTypesApi.
- * @export
- * @interface TenantSettingTypesApiGetAllSettingTypesRequest
  */
 export interface TenantSettingTypesApiGetAllSettingTypesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantSettingTypesApiGetAllSettingTypes
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof TenantSettingTypesApiGetAllSettingTypes
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof TenantSettingTypesApiGetAllSettingTypes
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof TenantSettingTypesApiGetAllSettingTypes
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof TenantSettingTypesApiGetAllSettingTypes
      */
     readonly filter?: string
 }
 
 /**
  * TenantSettingTypesApi - object-oriented interface
- * @export
- * @class TenantSettingTypesApi
- * @extends {BaseAPI}
  */
 export class TenantSettingTypesApi extends BaseAPI {
     /**
@@ -196,7 +178,6 @@ export class TenantSettingTypesApi extends BaseAPI {
      * @param {TenantSettingTypesApiGetAllSettingTypesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantSettingTypesApi
      */
     public getAllSettingTypes(requestParameters: TenantSettingTypesApiGetAllSettingTypesRequest, options?: RawAxiosRequestConfig) {
         return TenantSettingTypesApiFp(this.configuration).getAllSettingTypes(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));

@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsSchedule
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsSchedule {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsSchedule
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsSchedule
-     */
     'beginDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsSchedule
-     */
     'endDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsSchedule
-     */
     'cron'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsSchedule
-     */
     'timeZone'?: string | null;
 }
 

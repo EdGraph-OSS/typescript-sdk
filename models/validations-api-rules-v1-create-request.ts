@@ -17,107 +17,31 @@
 // @ts-ignore
 import type { ValidationsApiRulesV1Url } from './validations-api-rules-v1-url';
 
-/**
- * 
- * @export
- * @interface ValidationsApiRulesV1CreateRequest
- */
 export interface ValidationsApiRulesV1CreateRequest {
     /**
      * Details
-     * @type {string}
-     * @memberof ValidationsApiRulesV1CreateRequest
      */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1CreateRequest
-     */
     'containerId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1CreateRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1CreateRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1CreateRequest
-     */
     'description'?: string | null;
     /**
      * SQL
-     * @type {string}
-     * @memberof ValidationsApiRulesV1CreateRequest
      */
     'diagnosticSql'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1CreateRequest
-     */
     'countSql'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiRulesV1CreateRequest
-     */
     'errorSeverityLevel'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1CreateRequest
-     */
     'errorMessage'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiRulesV1CreateRequest
-     */
     'maxNumberResults'?: number | null;
     /**
      * Metadata
-     * @type {string}
-     * @memberof ValidationsApiRulesV1CreateRequest
      */
     'ruleIdentification'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1CreateRequest
-     */
     'resolution'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ValidationsApiRulesV1CreateRequest
-     */
     'tags'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1CreateRequest
-     */
     'version'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiRulesV1CreateRequest
-     */
     'collectionId'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiRulesV1Url>}
-     * @memberof ValidationsApiRulesV1CreateRequest
-     */
     'urls'?: Array<ValidationsApiRulesV1Url> | null;
 }
 

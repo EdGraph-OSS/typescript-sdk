@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -39,7 +39,6 @@ import type { EdfiAdminApiEdfiAdminV1SyncClaimSetRequest } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * InstancesClaimSetsApi - axios parameter creator
- * @export
  */
 export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -58,8 +57,8 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'instanceId' is not null or undefined
             assertParamExists('createClaimSetAsync', 'instanceId', instanceId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/claimsets`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -75,9 +74,8 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -106,9 +104,9 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'claimSetId' is not null or undefined
             assertParamExists('deleteClaimSetAsync', 'claimSetId', claimSetId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/claimsets/{claimSetId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"claimSetId"}}`, encodeURIComponent(String(claimSetId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{claimSetId}', encodeURIComponent(String(claimSetId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -124,8 +122,8 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -152,9 +150,9 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'claimSetId' is not null or undefined
             assertParamExists('getClaimSetByIdAsync', 'claimSetId', claimSetId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/claimsets/{claimSetId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"claimSetId"}}`, encodeURIComponent(String(claimSetId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{claimSetId}', encodeURIComponent(String(claimSetId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -170,8 +168,8 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -199,8 +197,8 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'instanceId' is not null or undefined
             assertParamExists('getClaimSetsAsync', 'instanceId', instanceId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/claimsets`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -232,8 +230,8 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -260,9 +258,9 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'claimSetId' is not null or undefined
             assertParamExists('getResourceClaimsGridAsync', 'claimSetId', claimSetId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/claimsets/{claimSetId}/resourceclaims`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"claimSetId"}}`, encodeURIComponent(String(claimSetId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{claimSetId}', encodeURIComponent(String(claimSetId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -278,8 +276,8 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -307,9 +305,9 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'claimSetId' is not null or undefined
             assertParamExists('syncClaimSetAsync', 'claimSetId', claimSetId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/claimsets/{claimSetId}/sync`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"claimSetId"}}`, encodeURIComponent(String(claimSetId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{claimSetId}', encodeURIComponent(String(claimSetId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -325,9 +323,8 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -357,9 +354,9 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'claimSetId' is not null or undefined
             assertParamExists('updateClaimSetAsync', 'claimSetId', claimSetId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/claimsets/{claimSetId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"claimSetId"}}`, encodeURIComponent(String(claimSetId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{claimSetId}', encodeURIComponent(String(claimSetId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -375,9 +372,8 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -394,7 +390,6 @@ export const InstancesClaimSetsApiAxiosParamCreator = function (configuration?: 
 
 /**
  * InstancesClaimSetsApi - functional programming interface
- * @export
  */
 export const InstancesClaimSetsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InstancesClaimSetsApiAxiosParamCreator(configuration)
@@ -514,7 +509,6 @@ export const InstancesClaimSetsApiFp = function(configuration?: Configuration) {
 
 /**
  * InstancesClaimSetsApi - factory interface
- * @export
  */
 export const InstancesClaimSetsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InstancesClaimSetsApiFp(configuration)
@@ -594,240 +588,171 @@ export const InstancesClaimSetsApiFactory = function (configuration?: Configurat
 
 /**
  * Request parameters for createClaimSetAsync operation in InstancesClaimSetsApi.
- * @export
- * @interface InstancesClaimSetsApiCreateClaimSetAsyncRequest
  */
 export interface InstancesClaimSetsApiCreateClaimSetAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiCreateClaimSetAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiCreateClaimSetAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1SaveClaimSetRequest}
-     * @memberof InstancesClaimSetsApiCreateClaimSetAsync
      */
     readonly edfiAdminApiEdfiAdminV1SaveClaimSetRequest?: EdfiAdminApiEdfiAdminV1SaveClaimSetRequest
 }
 
 /**
  * Request parameters for deleteClaimSetAsync operation in InstancesClaimSetsApi.
- * @export
- * @interface InstancesClaimSetsApiDeleteClaimSetAsyncRequest
  */
 export interface InstancesClaimSetsApiDeleteClaimSetAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiDeleteClaimSetAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiDeleteClaimSetAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesClaimSetsApiDeleteClaimSetAsync
      */
     readonly claimSetId: number
 }
 
 /**
  * Request parameters for getClaimSetByIdAsync operation in InstancesClaimSetsApi.
- * @export
- * @interface InstancesClaimSetsApiGetClaimSetByIdAsyncRequest
  */
 export interface InstancesClaimSetsApiGetClaimSetByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiGetClaimSetByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiGetClaimSetByIdAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesClaimSetsApiGetClaimSetByIdAsync
      */
     readonly claimSetId: number
 }
 
 /**
  * Request parameters for getClaimSetsAsync operation in InstancesClaimSetsApi.
- * @export
- * @interface InstancesClaimSetsApiGetClaimSetsAsyncRequest
  */
 export interface InstancesClaimSetsApiGetClaimSetsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiGetClaimSetsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiGetClaimSetsAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesClaimSetsApiGetClaimSetsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesClaimSetsApiGetClaimSetsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiGetClaimSetsAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiGetClaimSetsAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getResourceClaimsGridAsync operation in InstancesClaimSetsApi.
- * @export
- * @interface InstancesClaimSetsApiGetResourceClaimsGridAsyncRequest
  */
 export interface InstancesClaimSetsApiGetResourceClaimsGridAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiGetResourceClaimsGridAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiGetResourceClaimsGridAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesClaimSetsApiGetResourceClaimsGridAsync
      */
     readonly claimSetId: number
 }
 
 /**
  * Request parameters for syncClaimSetAsync operation in InstancesClaimSetsApi.
- * @export
- * @interface InstancesClaimSetsApiSyncClaimSetAsyncRequest
  */
 export interface InstancesClaimSetsApiSyncClaimSetAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiSyncClaimSetAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiSyncClaimSetAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesClaimSetsApiSyncClaimSetAsync
      */
     readonly claimSetId: number
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1SyncClaimSetRequest}
-     * @memberof InstancesClaimSetsApiSyncClaimSetAsync
      */
     readonly edfiAdminApiEdfiAdminV1SyncClaimSetRequest?: EdfiAdminApiEdfiAdminV1SyncClaimSetRequest
 }
 
 /**
  * Request parameters for updateClaimSetAsync operation in InstancesClaimSetsApi.
- * @export
- * @interface InstancesClaimSetsApiUpdateClaimSetAsyncRequest
  */
 export interface InstancesClaimSetsApiUpdateClaimSetAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiUpdateClaimSetAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesClaimSetsApiUpdateClaimSetAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesClaimSetsApiUpdateClaimSetAsync
      */
     readonly claimSetId: number
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1SaveClaimSetRequest}
-     * @memberof InstancesClaimSetsApiUpdateClaimSetAsync
      */
     readonly edfiAdminApiEdfiAdminV1SaveClaimSetRequest?: EdfiAdminApiEdfiAdminV1SaveClaimSetRequest
 }
 
 /**
  * InstancesClaimSetsApi - object-oriented interface
- * @export
- * @class InstancesClaimSetsApi
- * @extends {BaseAPI}
  */
 export class InstancesClaimSetsApi extends BaseAPI {
     /**
@@ -836,7 +761,6 @@ export class InstancesClaimSetsApi extends BaseAPI {
      * @param {InstancesClaimSetsApiCreateClaimSetAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesClaimSetsApi
      */
     public createClaimSetAsync(requestParameters: InstancesClaimSetsApiCreateClaimSetAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesClaimSetsApiFp(this.configuration).createClaimSetAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.edfiAdminApiEdfiAdminV1SaveClaimSetRequest, options).then((request) => request(this.axios, this.basePath));
@@ -848,7 +772,6 @@ export class InstancesClaimSetsApi extends BaseAPI {
      * @param {InstancesClaimSetsApiDeleteClaimSetAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesClaimSetsApi
      */
     public deleteClaimSetAsync(requestParameters: InstancesClaimSetsApiDeleteClaimSetAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesClaimSetsApiFp(this.configuration).deleteClaimSetAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.claimSetId, options).then((request) => request(this.axios, this.basePath));
@@ -860,7 +783,6 @@ export class InstancesClaimSetsApi extends BaseAPI {
      * @param {InstancesClaimSetsApiGetClaimSetByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesClaimSetsApi
      */
     public getClaimSetByIdAsync(requestParameters: InstancesClaimSetsApiGetClaimSetByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesClaimSetsApiFp(this.configuration).getClaimSetByIdAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.claimSetId, options).then((request) => request(this.axios, this.basePath));
@@ -872,7 +794,6 @@ export class InstancesClaimSetsApi extends BaseAPI {
      * @param {InstancesClaimSetsApiGetClaimSetsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesClaimSetsApi
      */
     public getClaimSetsAsync(requestParameters: InstancesClaimSetsApiGetClaimSetsAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesClaimSetsApiFp(this.configuration).getClaimSetsAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -884,7 +805,6 @@ export class InstancesClaimSetsApi extends BaseAPI {
      * @param {InstancesClaimSetsApiGetResourceClaimsGridAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesClaimSetsApi
      */
     public getResourceClaimsGridAsync(requestParameters: InstancesClaimSetsApiGetResourceClaimsGridAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesClaimSetsApiFp(this.configuration).getResourceClaimsGridAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.claimSetId, options).then((request) => request(this.axios, this.basePath));
@@ -896,7 +816,6 @@ export class InstancesClaimSetsApi extends BaseAPI {
      * @param {InstancesClaimSetsApiSyncClaimSetAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesClaimSetsApi
      */
     public syncClaimSetAsync(requestParameters: InstancesClaimSetsApiSyncClaimSetAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesClaimSetsApiFp(this.configuration).syncClaimSetAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.claimSetId, requestParameters.edfiAdminApiEdfiAdminV1SyncClaimSetRequest, options).then((request) => request(this.axios, this.basePath));
@@ -908,7 +827,6 @@ export class InstancesClaimSetsApi extends BaseAPI {
      * @param {InstancesClaimSetsApiUpdateClaimSetAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesClaimSetsApi
      */
     public updateClaimSetAsync(requestParameters: InstancesClaimSetsApiUpdateClaimSetAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesClaimSetsApiFp(this.configuration).updateClaimSetAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.claimSetId, requestParameters.edfiAdminApiEdfiAdminV1SaveClaimSetRequest, options).then((request) => request(this.axios, this.basePath));

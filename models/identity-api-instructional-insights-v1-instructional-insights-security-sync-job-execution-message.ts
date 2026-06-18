@@ -17,77 +17,17 @@
 // @ts-ignore
 import type { IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMetricMessage } from './identity-api-instructional-insights-v1-instructional-insights-security-sync-job-execution-metric-message';
 
-/**
- * 
- * @export
- * @interface IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage
- */
 export interface IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage
-     */
     'executionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage
-     */
     'queuedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage
-     */
     'startDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage
-     */
     'cancelDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage
-     */
     'endDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage
-     */
     'input'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage
-     */
     'output'?: string | null;
-    /**
-     * 
-     * @type {Array<IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMetricMessage>}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage
-     */
     'metrics'?: Array<IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMetricMessage> | null;
 }
 

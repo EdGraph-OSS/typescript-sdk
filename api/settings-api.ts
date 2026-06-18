@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -35,7 +35,6 @@ import type { TenantApiTenantV1SetAppSettingsResponse } from '../models';
 import type { TenantApiTenantV1TenantAppSettings } from '../models';
 /**
  * SettingsApi - axios parameter creator
- * @export
  */
 export const SettingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -54,7 +53,7 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getTenantSettings', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/settings`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -86,8 +85,8 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -111,8 +110,8 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'code' is not null or undefined
             assertParamExists('getTenantSettingsByCode', 'code', code)
             const localVarPath = `/tenants/{tenantId}/settings/{code}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"code"}}`, encodeURIComponent(String(code)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{code}', encodeURIComponent(String(code)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -128,8 +127,8 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -154,8 +153,8 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'code' is not null or undefined
             assertParamExists('setTenantSettings', 'code', code)
             const localVarPath = `/tenants/{tenantId}/settings/{code}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"code"}}`, encodeURIComponent(String(code)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{code}', encodeURIComponent(String(code)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -171,9 +170,8 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -190,7 +188,6 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * SettingsApi - functional programming interface
- * @export
  */
 export const SettingsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SettingsApiAxiosParamCreator(configuration)
@@ -246,7 +243,6 @@ export const SettingsApiFp = function(configuration?: Configuration) {
 
 /**
  * SettingsApi - factory interface
- * @export
  */
 export const SettingsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SettingsApiFp(configuration)
@@ -286,100 +282,71 @@ export const SettingsApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * Request parameters for getTenantSettings operation in SettingsApi.
- * @export
- * @interface SettingsApiGetTenantSettingsRequest
  */
 export interface SettingsApiGetTenantSettingsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SettingsApiGetTenantSettings
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof SettingsApiGetTenantSettings
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof SettingsApiGetTenantSettings
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof SettingsApiGetTenantSettings
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SettingsApiGetTenantSettings
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getTenantSettingsByCode operation in SettingsApi.
- * @export
- * @interface SettingsApiGetTenantSettingsByCodeRequest
  */
 export interface SettingsApiGetTenantSettingsByCodeRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SettingsApiGetTenantSettingsByCode
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SettingsApiGetTenantSettingsByCode
      */
     readonly code: string
 }
 
 /**
  * Request parameters for setTenantSettings operation in SettingsApi.
- * @export
- * @interface SettingsApiSetTenantSettingsRequest
  */
 export interface SettingsApiSetTenantSettingsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SettingsApiSetTenantSettings
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SettingsApiSetTenantSettings
      */
     readonly code: string
 
     /**
      * 
-     * @type {TenantApiTenantV1SetAppSettingsRequest}
-     * @memberof SettingsApiSetTenantSettings
      */
     readonly tenantApiTenantV1SetAppSettingsRequest?: TenantApiTenantV1SetAppSettingsRequest
 }
 
 /**
  * SettingsApi - object-oriented interface
- * @export
- * @class SettingsApi
- * @extends {BaseAPI}
  */
 export class SettingsApi extends BaseAPI {
     /**
@@ -388,7 +355,6 @@ export class SettingsApi extends BaseAPI {
      * @param {SettingsApiGetTenantSettingsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SettingsApi
      */
     public getTenantSettings(requestParameters: SettingsApiGetTenantSettingsRequest, options?: RawAxiosRequestConfig) {
         return SettingsApiFp(this.configuration).getTenantSettings(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -400,7 +366,6 @@ export class SettingsApi extends BaseAPI {
      * @param {SettingsApiGetTenantSettingsByCodeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SettingsApi
      */
     public getTenantSettingsByCode(requestParameters: SettingsApiGetTenantSettingsByCodeRequest, options?: RawAxiosRequestConfig) {
         return SettingsApiFp(this.configuration).getTenantSettingsByCode(requestParameters.tenantId, requestParameters.code, options).then((request) => request(this.axios, this.basePath));
@@ -412,7 +377,6 @@ export class SettingsApi extends BaseAPI {
      * @param {SettingsApiSetTenantSettingsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SettingsApi
      */
     public setTenantSettings(requestParameters: SettingsApiSetTenantSettingsRequest, options?: RawAxiosRequestConfig) {
         return SettingsApiFp(this.configuration).setTenantSettings(requestParameters.tenantId, requestParameters.code, requestParameters.tenantApiTenantV1SetAppSettingsRequest, options).then((request) => request(this.axios, this.basePath));

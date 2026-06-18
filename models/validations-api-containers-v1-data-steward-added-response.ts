@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1DataStewardAddedResponse
- */
 export interface ValidationsApiContainersV1DataStewardAddedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1DataStewardAddedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1DataStewardAddedResponse
-     */
     'collectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1DataStewardAddedResponse
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1DataStewardAddedResponse
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1DataStewardAddedResponse
-     */
     'reportingPeriodId'?: string | null;
 }
 

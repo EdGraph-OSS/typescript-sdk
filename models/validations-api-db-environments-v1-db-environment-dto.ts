@@ -26,101 +26,30 @@ import type { ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection 
 // @ts-ignore
 import type { ValidationsApiDbEnvironmentsV1SqlServerConnection } from './validations-api-db-environments-v1-sql-server-connection';
 
-/**
- * 
- * @export
- * @interface ValidationsApiDbEnvironmentsV1DbEnvironmentDto
- */
 export interface ValidationsApiDbEnvironmentsV1DbEnvironmentDto {
     /**
      * Details
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
      */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
-     */
     'name'?: string | null;
     /**
      * Connection
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
      */
     'connectionType'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiDbEnvironmentsV1SqlServerConnection}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
-     */
     'sqlServerConnection'?: ValidationsApiDbEnvironmentsV1SqlServerConnection;
-    /**
-     * 
-     * @type {ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
-     */
     'azureSynapseSqlServerlessConnection'?: ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
-     */
     'connectionString'?: string | null;
     /**
      * Metadata
-     * @type {number}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
      */
     'maxNumberResults'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
-     */
     'timeoutInMinutes'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
-     */
     'version'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
-     */
     'mapTables'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiCoreV1InstanceType}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
-     */
     'instanceType'?: ValidationsApiCoreV1InstanceType;
-    /**
-     * 
-     * @type {ValidationsApiCoreV1Provider}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
-     */
     'provider'?: ValidationsApiCoreV1Provider;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
-     */
     'isDefault'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1DbEnvironmentDto
-     */
     'metadataJson'?: string | null;
 }
 

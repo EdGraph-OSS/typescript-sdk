@@ -20,35 +20,10 @@ import type { ValidationsApiReportingPeriodsV1CertificationStatusCategory } from
 // @ts-ignore
 import type { ValidationsApiReportingPeriodsV1ReportingPeriodDto } from './validations-api-reporting-periods-v1-reporting-period-dto';
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1CertificationStatus
- */
 export interface ValidationsApiReportingPeriodsV1CertificationStatus {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1CertificationStatus
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiReportingPeriodsV1ReportingPeriodDto}
-     * @memberof ValidationsApiReportingPeriodsV1CertificationStatus
-     */
     'reportingPeriod'?: ValidationsApiReportingPeriodsV1ReportingPeriodDto;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1CertificationStatus
-     */
     'certificationPercentage'?: number;
-    /**
-     * 
-     * @type {Array<ValidationsApiReportingPeriodsV1CertificationStatusCategory>}
-     * @memberof ValidationsApiReportingPeriodsV1CertificationStatus
-     */
     'categories'?: Array<ValidationsApiReportingPeriodsV1CertificationStatusCategory> | null;
 }
 

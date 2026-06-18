@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ChangeLogChangeV1ChangeLogResponse } from './change-log-change-v1-change-log-response';
 
-/**
- * 
- * @export
- * @interface ChangeLogChangeV1ChangeLogResponsePaginatedItemsViewModel
- */
 export interface ChangeLogChangeV1ChangeLogResponsePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof ChangeLogChangeV1ChangeLogResponsePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ChangeLogChangeV1ChangeLogResponsePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ChangeLogChangeV1ChangeLogResponsePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<ChangeLogChangeV1ChangeLogResponse>}
-     * @memberof ChangeLogChangeV1ChangeLogResponsePaginatedItemsViewModel
-     */
     'data'?: Array<ChangeLogChangeV1ChangeLogResponse> | null;
 }
 

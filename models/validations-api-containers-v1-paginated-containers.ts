@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1ContainerDto } from './validations-api-containers-v1-container-dto';
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1PaginatedContainers
- */
 export interface ValidationsApiContainersV1PaginatedContainers {
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiContainersV1PaginatedContainers
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiContainersV1PaginatedContainers
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiContainersV1PaginatedContainers
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<ValidationsApiContainersV1ContainerDto>}
-     * @memberof ValidationsApiContainersV1PaginatedContainers
-     */
     'data'?: Array<ValidationsApiContainersV1ContainerDto> | null;
 }
 

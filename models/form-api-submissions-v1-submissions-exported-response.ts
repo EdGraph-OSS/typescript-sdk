@@ -20,47 +20,12 @@ import type { FormApiSubmissionsV1ExportStatus } from './form-api-submissions-v1
 // @ts-ignore
 import type { FormApiSubmissionsV1ExportType } from './form-api-submissions-v1-export-type';
 
-/**
- * 
- * @export
- * @interface FormApiSubmissionsV1SubmissionsExportedResponse
- */
 export interface FormApiSubmissionsV1SubmissionsExportedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionsExportedResponse
-     */
     'formId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionsExportedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {FormApiSubmissionsV1ExportType}
-     * @memberof FormApiSubmissionsV1SubmissionsExportedResponse
-     */
     'type'?: FormApiSubmissionsV1ExportType;
-    /**
-     * 
-     * @type {FormApiSubmissionsV1ExportStatus}
-     * @memberof FormApiSubmissionsV1SubmissionsExportedResponse
-     */
     'status'?: FormApiSubmissionsV1ExportStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSubmissionsV1SubmissionsExportedResponse
-     */
     'details'?: string | null;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof FormApiSubmissionsV1SubmissionsExportedResponse
-     */
     'contents'?: Array<number> | null;
 }
 

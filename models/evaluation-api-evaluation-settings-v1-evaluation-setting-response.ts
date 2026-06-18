@@ -26,107 +26,22 @@ import type { EvaluationApiEvaluationSettingsV1RoleConfigurationResponse } from 
 // @ts-ignore
 import type { EvaluationApiEvaluationSettingsV1ScheduleType } from './evaluation-api-evaluation-settings-v1-schedule-type';
 
-/**
- * 
- * @export
- * @interface EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
- */
 export interface EvaluationApiEvaluationSettingsV1EvaluationSettingResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<EvaluationApiEvaluationSettingsV1FormConfigurationResponse>}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'forms'?: Array<EvaluationApiEvaluationSettingsV1FormConfigurationResponse> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'recommendedNumberOfEvaluations'?: number | null;
-    /**
-     * 
-     * @type {EvaluationApiEvaluationSettingsV1ScheduleType}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'reminderEmailSchedule'?: EvaluationApiEvaluationSettingsV1ScheduleType;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'deletedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'deletedDateTime'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'isDeleted'?: boolean | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'appraisers'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'staffClassifications'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<EvaluationApiEvaluationSettingsV1PersonaResponse>}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'availablePersonas'?: Array<EvaluationApiEvaluationSettingsV1PersonaResponse> | null;
-    /**
-     * 
-     * @type {Array<EvaluationApiEvaluationSettingsV1RoleConfigurationResponse>}
-     * @memberof EvaluationApiEvaluationSettingsV1EvaluationSettingResponse
-     */
     'roleConfigurations'?: Array<EvaluationApiEvaluationSettingsV1RoleConfigurationResponse> | null;
 }
 

@@ -14,15 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const IdentityApiApiClientV1TokenExpiration = {
     Sliding: 'Sliding',
-    Absolute: 'Absolute'
+    Absolute: 'Absolute',
 } as const;
 
 export type IdentityApiApiClientV1TokenExpiration = typeof IdentityApiApiClientV1TokenExpiration[keyof typeof IdentityApiApiClientV1TokenExpiration];

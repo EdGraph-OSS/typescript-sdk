@@ -20,41 +20,11 @@ import type { EdGraphServicesStateReportingV1ReportingPeriodCertificationStatusC
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1ReportingPeriodListResponse } from './ed-graph-services-state-reporting-v1-reporting-period-list-response';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1ReportingPeriodCertificationStatus
- */
 export interface EdGraphServicesStateReportingV1ReportingPeriodCertificationStatus {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodCertificationStatus
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodCertificationStatus
-     */
     'environmentId'?: string | null;
-    /**
-     * 
-     * @type {EdGraphServicesStateReportingV1ReportingPeriodListResponse}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodCertificationStatus
-     */
     'reportingPeriod'?: EdGraphServicesStateReportingV1ReportingPeriodListResponse;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodCertificationStatus
-     */
     'certificationPercentage'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1ReportingPeriodCertificationStatusCategory>}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodCertificationStatus
-     */
     'categories'?: Array<EdGraphServicesStateReportingV1ReportingPeriodCertificationStatusCategory> | null;
 }
 

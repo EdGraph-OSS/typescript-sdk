@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { TenantApiSectionsV1SchoolListResponse } from './tenant-api-sections-v1-school-list-response';
 
-/**
- * 
- * @export
- * @interface TenantApiSectionsV1PaginatedSchoolsResponse
- */
 export interface TenantApiSectionsV1PaginatedSchoolsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedSchoolsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedSchoolsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedSchoolsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<TenantApiSectionsV1SchoolListResponse>}
-     * @memberof TenantApiSectionsV1PaginatedSchoolsResponse
-     */
     'data'?: Array<TenantApiSectionsV1SchoolListResponse> | null;
 }
 

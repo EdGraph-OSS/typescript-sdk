@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1DeleteReportingPeriodRulesResponse
- */
 export interface ValidationsApiReportingPeriodsV1DeleteReportingPeriodRulesResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1DeleteReportingPeriodRulesResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1DeleteReportingPeriodRulesResponse
-     */
     'reportingPeriodId'?: string | null;
 }
 

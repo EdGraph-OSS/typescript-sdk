@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -65,7 +65,6 @@ import type { IdentityApiUserV2UsersSearchResponse } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * UsersApi - axios parameter creator
- * @export
  */
 export const UsersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -84,8 +83,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('activateTenantUserAsync', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/activate`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -101,9 +100,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -127,7 +125,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createTenantLocalUserAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/users`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -143,9 +141,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -172,8 +169,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('deactivateTenantUserAsync', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/deactivate`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -189,9 +186,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -217,8 +213,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('deleteTenantUserAsync', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -234,8 +230,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -260,7 +256,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllFormUsers', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/forms/users`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -292,8 +288,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -318,7 +314,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllTenantUsersAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/users`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -350,8 +346,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -376,7 +372,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllUsers', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/statereporting/users`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -408,8 +404,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -433,8 +429,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('getTenantUser', 'userId', userId)
             const localVarPath = `/v2/tenants/{tenantId}/users/{userId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -450,8 +446,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -475,8 +471,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('getTenantUserProfileByIdAsync', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -492,8 +488,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -517,8 +513,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('getUserTenant', 'userId', userId)
             const localVarPath = `/v2/tenants/{tenantId}/users/{userId}/tenant`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -534,8 +530,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -559,8 +555,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'email' is not null or undefined
             assertParamExists('getUserTenantStatusProfile', 'email', email)
             const localVarPath = `/tenants/{tenantId}/users/{email}/status`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"email"}}`, encodeURIComponent(String(email)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{email}', encodeURIComponent(String(email)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -576,8 +572,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -601,8 +597,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('resetMfaStatusAsync', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/resetmfa`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -618,8 +614,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -644,8 +640,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('resetPasswordTenantUserAsync', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/resetpassword`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -661,9 +657,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -690,7 +685,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('searchTenantUsers', 'tenantId', tenantId)
             const localVarPath = `/v2/tenants/{tenantId}/users`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -722,8 +717,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -751,8 +746,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('searchUserLicenses', 'userId', userId)
             const localVarPath = `/v2/tenants/{tenantId}/users/{userId}/licenses`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -784,8 +779,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -811,7 +806,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('searchUserLicensesBulk', 'tenantId', tenantId)
             const localVarPath = `/v2/tenants/{tenantId}/users/licensesBulk`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -847,8 +842,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -873,8 +868,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('updateTenantUserAsync', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -890,9 +885,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -909,7 +903,6 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * UsersApi - functional programming interface
- * @export
  */
 export const UsersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = UsersApiAxiosParamCreator(configuration)
@@ -1181,7 +1174,6 @@ export const UsersApiFp = function(configuration?: Configuration) {
 
 /**
  * UsersApi - factory interface
- * @export
  */
 export const UsersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = UsersApiFp(configuration)
@@ -1361,534 +1353,351 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * Request parameters for activateTenantUserAsync operation in UsersApi.
- * @export
- * @interface UsersApiActivateTenantUserAsyncRequest
  */
 export interface UsersApiActivateTenantUserAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiActivateTenantUserAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiActivateTenantUserAsync
      */
     readonly userId: string
 
     /**
      * 
-     * @type {IdentityApiUserV1ActivateUserRequest}
-     * @memberof UsersApiActivateTenantUserAsync
      */
     readonly identityApiUserV1ActivateUserRequest?: IdentityApiUserV1ActivateUserRequest
 }
 
 /**
  * Request parameters for createTenantLocalUserAsync operation in UsersApi.
- * @export
- * @interface UsersApiCreateTenantLocalUserAsyncRequest
  */
 export interface UsersApiCreateTenantLocalUserAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiCreateTenantLocalUserAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest}
-     * @memberof UsersApiCreateTenantLocalUserAsync
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest
 }
 
 /**
  * Request parameters for deactivateTenantUserAsync operation in UsersApi.
- * @export
- * @interface UsersApiDeactivateTenantUserAsyncRequest
  */
 export interface UsersApiDeactivateTenantUserAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiDeactivateTenantUserAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiDeactivateTenantUserAsync
      */
     readonly userId: string
 
     /**
      * 
-     * @type {IdentityApiUserV1DeactivateUserRequest}
-     * @memberof UsersApiDeactivateTenantUserAsync
      */
     readonly identityApiUserV1DeactivateUserRequest?: IdentityApiUserV1DeactivateUserRequest
 }
 
 /**
  * Request parameters for deleteTenantUserAsync operation in UsersApi.
- * @export
- * @interface UsersApiDeleteTenantUserAsyncRequest
  */
 export interface UsersApiDeleteTenantUserAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiDeleteTenantUserAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiDeleteTenantUserAsync
      */
     readonly userId: string
 }
 
 /**
  * Request parameters for getAllFormUsers operation in UsersApi.
- * @export
- * @interface UsersApiGetAllFormUsersRequest
  */
 export interface UsersApiGetAllFormUsersRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiGetAllFormUsers
      */
     readonly tenantId: string
 
-    /**
-     * 
-     * @type {number}
-     * @memberof UsersApiGetAllFormUsers
-     */
     readonly pageSize?: number
 
-    /**
-     * 
-     * @type {number}
-     * @memberof UsersApiGetAllFormUsers
-     */
     readonly pageIndex?: number
 
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiGetAllFormUsers
-     */
     readonly orderBy?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiGetAllFormUsers
-     */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getAllTenantUsersAsync operation in UsersApi.
- * @export
- * @interface UsersApiGetAllTenantUsersAsyncRequest
  */
 export interface UsersApiGetAllTenantUsersAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiGetAllTenantUsersAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersApiGetAllTenantUsersAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersApiGetAllTenantUsersAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiGetAllTenantUsersAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiGetAllTenantUsersAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getAllUsers operation in UsersApi.
- * @export
- * @interface UsersApiGetAllUsersRequest
  */
 export interface UsersApiGetAllUsersRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiGetAllUsers
      */
     readonly tenantId: string
 
-    /**
-     * 
-     * @type {number}
-     * @memberof UsersApiGetAllUsers
-     */
     readonly pageSize?: number
 
-    /**
-     * 
-     * @type {number}
-     * @memberof UsersApiGetAllUsers
-     */
     readonly pageIndex?: number
 
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiGetAllUsers
-     */
     readonly orderBy?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiGetAllUsers
-     */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getTenantUser operation in UsersApi.
- * @export
- * @interface UsersApiGetTenantUserRequest
  */
 export interface UsersApiGetTenantUserRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiGetTenantUser
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiGetTenantUser
      */
     readonly userId: string
 }
 
 /**
  * Request parameters for getTenantUserProfileByIdAsync operation in UsersApi.
- * @export
- * @interface UsersApiGetTenantUserProfileByIdAsyncRequest
  */
 export interface UsersApiGetTenantUserProfileByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiGetTenantUserProfileByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiGetTenantUserProfileByIdAsync
      */
     readonly userId: string
 }
 
 /**
  * Request parameters for getUserTenant operation in UsersApi.
- * @export
- * @interface UsersApiGetUserTenantRequest
  */
 export interface UsersApiGetUserTenantRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiGetUserTenant
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiGetUserTenant
      */
     readonly userId: string
 }
 
 /**
  * Request parameters for getUserTenantStatusProfile operation in UsersApi.
- * @export
- * @interface UsersApiGetUserTenantStatusProfileRequest
  */
 export interface UsersApiGetUserTenantStatusProfileRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiGetUserTenantStatusProfile
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiGetUserTenantStatusProfile
      */
     readonly email: string
 }
 
 /**
  * Request parameters for resetMfaStatusAsync operation in UsersApi.
- * @export
- * @interface UsersApiResetMfaStatusAsyncRequest
  */
 export interface UsersApiResetMfaStatusAsyncRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiResetMfaStatusAsync
-     */
     readonly tenantId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiResetMfaStatusAsync
-     */
     readonly userId: string
 }
 
 /**
  * Request parameters for resetPasswordTenantUserAsync operation in UsersApi.
- * @export
- * @interface UsersApiResetPasswordTenantUserAsyncRequest
  */
 export interface UsersApiResetPasswordTenantUserAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiResetPasswordTenantUserAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiResetPasswordTenantUserAsync
      */
     readonly userId: string
 
     /**
      * 
-     * @type {IdentityApiUserV1ResetPasswordRequest}
-     * @memberof UsersApiResetPasswordTenantUserAsync
      */
     readonly identityApiUserV1ResetPasswordRequest?: IdentityApiUserV1ResetPasswordRequest
 }
 
 /**
  * Request parameters for searchTenantUsers operation in UsersApi.
- * @export
- * @interface UsersApiSearchTenantUsersRequest
  */
 export interface UsersApiSearchTenantUsersRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiSearchTenantUsers
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersApiSearchTenantUsers
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersApiSearchTenantUsers
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiSearchTenantUsers
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiSearchTenantUsers
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for searchUserLicenses operation in UsersApi.
- * @export
- * @interface UsersApiSearchUserLicensesRequest
  */
 export interface UsersApiSearchUserLicensesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiSearchUserLicenses
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiSearchUserLicenses
      */
     readonly userId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersApiSearchUserLicenses
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersApiSearchUserLicenses
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiSearchUserLicenses
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiSearchUserLicenses
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for searchUserLicensesBulk operation in UsersApi.
- * @export
- * @interface UsersApiSearchUserLicensesBulkRequest
  */
 export interface UsersApiSearchUserLicensesBulkRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiSearchUserLicensesBulk
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {Array<string>}
-     * @memberof UsersApiSearchUserLicensesBulk
      */
     readonly userId?: Array<string>
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersApiSearchUserLicensesBulk
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersApiSearchUserLicensesBulk
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiSearchUserLicensesBulk
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiSearchUserLicensesBulk
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for updateTenantUserAsync operation in UsersApi.
- * @export
- * @interface UsersApiUpdateTenantUserAsyncRequest
  */
 export interface UsersApiUpdateTenantUserAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiUpdateTenantUserAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersApiUpdateTenantUserAsync
      */
     readonly userId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateTenantUserRequest}
-     * @memberof UsersApiUpdateTenantUserAsync
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateTenantUserRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateTenantUserRequest
 }
 
 /**
  * UsersApi - object-oriented interface
- * @export
- * @class UsersApi
- * @extends {BaseAPI}
  */
 export class UsersApi extends BaseAPI {
     /**
@@ -1897,7 +1706,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiActivateTenantUserAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public activateTenantUserAsync(requestParameters: UsersApiActivateTenantUserAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).activateTenantUserAsync(requestParameters.tenantId, requestParameters.userId, requestParameters.identityApiUserV1ActivateUserRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1909,7 +1717,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiCreateTenantLocalUserAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public createTenantLocalUserAsync(requestParameters: UsersApiCreateTenantLocalUserAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).createTenantLocalUserAsync(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1921,7 +1728,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiDeactivateTenantUserAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public deactivateTenantUserAsync(requestParameters: UsersApiDeactivateTenantUserAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).deactivateTenantUserAsync(requestParameters.tenantId, requestParameters.userId, requestParameters.identityApiUserV1DeactivateUserRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1933,7 +1739,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiDeleteTenantUserAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public deleteTenantUserAsync(requestParameters: UsersApiDeleteTenantUserAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).deleteTenantUserAsync(requestParameters.tenantId, requestParameters.userId, options).then((request) => request(this.axios, this.basePath));
@@ -1945,7 +1750,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiGetAllFormUsersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public getAllFormUsers(requestParameters: UsersApiGetAllFormUsersRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).getAllFormUsers(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1957,7 +1761,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiGetAllTenantUsersAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public getAllTenantUsersAsync(requestParameters: UsersApiGetAllTenantUsersAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).getAllTenantUsersAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1969,7 +1772,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiGetAllUsersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public getAllUsers(requestParameters: UsersApiGetAllUsersRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).getAllUsers(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1981,7 +1783,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiGetTenantUserRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public getTenantUser(requestParameters: UsersApiGetTenantUserRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).getTenantUser(requestParameters.tenantId, requestParameters.userId, options).then((request) => request(this.axios, this.basePath));
@@ -1993,7 +1794,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiGetTenantUserProfileByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public getTenantUserProfileByIdAsync(requestParameters: UsersApiGetTenantUserProfileByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).getTenantUserProfileByIdAsync(requestParameters.tenantId, requestParameters.userId, options).then((request) => request(this.axios, this.basePath));
@@ -2005,7 +1805,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiGetUserTenantRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public getUserTenant(requestParameters: UsersApiGetUserTenantRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).getUserTenant(requestParameters.tenantId, requestParameters.userId, options).then((request) => request(this.axios, this.basePath));
@@ -2017,7 +1816,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiGetUserTenantStatusProfileRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public getUserTenantStatusProfile(requestParameters: UsersApiGetUserTenantStatusProfileRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).getUserTenantStatusProfile(requestParameters.tenantId, requestParameters.email, options).then((request) => request(this.axios, this.basePath));
@@ -2029,7 +1827,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiResetMfaStatusAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public resetMfaStatusAsync(requestParameters: UsersApiResetMfaStatusAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).resetMfaStatusAsync(requestParameters.tenantId, requestParameters.userId, options).then((request) => request(this.axios, this.basePath));
@@ -2041,7 +1838,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiResetPasswordTenantUserAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public resetPasswordTenantUserAsync(requestParameters: UsersApiResetPasswordTenantUserAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).resetPasswordTenantUserAsync(requestParameters.tenantId, requestParameters.userId, requestParameters.identityApiUserV1ResetPasswordRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2053,7 +1849,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiSearchTenantUsersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public searchTenantUsers(requestParameters: UsersApiSearchTenantUsersRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).searchTenantUsers(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -2065,7 +1860,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiSearchUserLicensesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public searchUserLicenses(requestParameters: UsersApiSearchUserLicensesRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).searchUserLicenses(requestParameters.tenantId, requestParameters.userId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -2077,7 +1871,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiSearchUserLicensesBulkRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public searchUserLicensesBulk(requestParameters: UsersApiSearchUserLicensesBulkRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).searchUserLicensesBulk(requestParameters.tenantId, requestParameters.userId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -2089,7 +1882,6 @@ export class UsersApi extends BaseAPI {
      * @param {UsersApiUpdateTenantUserAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public updateTenantUserAsync(requestParameters: UsersApiUpdateTenantUserAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).updateTenantUserAsync(requestParameters.tenantId, requestParameters.userId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateTenantUserRequest, options).then((request) => request(this.axios, this.basePath));

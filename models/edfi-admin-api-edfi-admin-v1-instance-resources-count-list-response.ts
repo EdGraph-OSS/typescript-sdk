@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1InstanceResourcesCountListResponse
- */
 export interface EdfiAdminApiEdfiAdminV1InstanceResourcesCountListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceResourcesCountListResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceResourcesCountListResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceResourcesCountListResponse
-     */
     'year'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceResourcesCountListResponse
-     */
     'instanceApplicationId'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceResourcesCountListResponse
-     */
     'apiClientId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceResourcesCountListResponse
-     */
     'resourceName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceResourcesCountListResponse
-     */
     'resourceCount'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceResourcesCountListResponse
-     */
     'resourceDependencyOrder'?: string | null;
 }
 

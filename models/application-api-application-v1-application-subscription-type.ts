@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ApplicationApiApplicationV1ApplicationSubscriptionType = {
     Auto: 'Auto',
     Manual: 'Manual',
-    None: 'None'
+    None: 'None',
 } as const;
 
 export type ApplicationApiApplicationV1ApplicationSubscriptionType = typeof ApplicationApiApplicationV1ApplicationSubscriptionType[keyof typeof ApplicationApiApplicationV1ApplicationSubscriptionType];

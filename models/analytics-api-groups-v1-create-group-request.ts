@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiGroupsV1CreateGroupRequest
- */
 export interface AnalyticsApiGroupsV1CreateGroupRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiGroupsV1CreateGroupRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiGroupsV1CreateGroupRequest
-     */
     'groupName'?: string | null;
 }
 

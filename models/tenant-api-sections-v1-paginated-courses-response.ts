@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { TenantApiSectionsV1CourseListResponse } from './tenant-api-sections-v1-course-list-response';
 
-/**
- * 
- * @export
- * @interface TenantApiSectionsV1PaginatedCoursesResponse
- */
 export interface TenantApiSectionsV1PaginatedCoursesResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedCoursesResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedCoursesResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedCoursesResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<TenantApiSectionsV1CourseListResponse>}
-     * @memberof TenantApiSectionsV1PaginatedCoursesResponse
-     */
     'data'?: Array<TenantApiSectionsV1CourseListResponse> | null;
 }
 

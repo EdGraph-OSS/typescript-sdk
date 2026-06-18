@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiInstructionalInsightsV1ScheduleMessage
- */
 export interface IdentityApiInstructionalInsightsV1ScheduleMessage {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiInstructionalInsightsV1ScheduleMessage
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1ScheduleMessage
-     */
     'beginDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1ScheduleMessage
-     */
     'endDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1ScheduleMessage
-     */
     'cronExpression'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1ScheduleMessage
-     */
     'timeZone'?: string | null;
 }
 

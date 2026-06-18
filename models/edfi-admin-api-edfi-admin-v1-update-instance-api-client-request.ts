@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1UpdateInstanceApiClientRequest
- */
 export interface EdfiAdminApiEdfiAdminV1UpdateInstanceApiClientRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceApiClientRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceApiClientRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceApiClientRequest
-     */
     'instanceApplicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceApiClientRequest
-     */
     'apiClientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceApiClientRequest
-     */
     'key'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceApiClientRequest
-     */
     'secret'?: string | null;
 }
 

@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest
-     */
     'formId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest
-     */
     'currentStep'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest
-     */
     'data'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest
-     */
     'observationId'?: string | null;
 }
 

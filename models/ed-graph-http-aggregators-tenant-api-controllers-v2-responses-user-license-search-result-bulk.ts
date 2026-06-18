@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResult } from './ed-graph-http-aggregators-tenant-api-controllers-v2-responses-user-license-search-result';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResultBulk
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResultBulk {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResultBulk
-     */
     'userId'?: string;
-    /**
-     * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResult}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResultBulk
-     */
     'licenses'?: EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResult;
 }
 

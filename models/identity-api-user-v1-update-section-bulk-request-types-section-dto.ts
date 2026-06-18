@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1UpdateSectionBulkRequestTypesSectionDto
- */
 export interface IdentityApiUserV1UpdateSectionBulkRequestTypesSectionDto {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionBulkRequestTypesSectionDto
-     */
     'userSectionId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1UpdateSectionBulkRequestTypesSectionDto
-     */
     'educationOrganizationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionBulkRequestTypesSectionDto
-     */
     'sectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionBulkRequestTypesSectionDto
-     */
     'staffUniqueId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionBulkRequestTypesSectionDto
-     */
     'classroomPositionDescriptor'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionBulkRequestTypesSectionDto
-     */
     'beginDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionBulkRequestTypesSectionDto
-     */
     'endDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionBulkRequestTypesSectionDto
-     */
     'source'?: string | null;
 }
 

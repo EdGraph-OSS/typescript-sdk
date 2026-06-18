@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -51,7 +51,6 @@ import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 import type { TenantApiTenantV1OrganizationGetPaginatedItemsResponse } from '../models';
 /**
  * ObservationSettingsApi - axios parameter creator
- * @export
  */
 export const ObservationSettingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -67,7 +66,7 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('addAvailablePersona', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/settings/personas`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -83,9 +82,8 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -108,7 +106,7 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getApplicationSettings', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/settings/application`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -124,8 +122,8 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -150,7 +148,7 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getPaginatedForms', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/forms`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -182,8 +180,8 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -204,7 +202,7 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getPaginatedPersonas', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/settings/personas`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -220,8 +218,8 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -246,7 +244,7 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getPaginatedStaffClassifications', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/settings/available-staffclassifications`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -278,8 +276,8 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -300,7 +298,7 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getStaffClassificationsSettings', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/settings/staffclassifications`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -316,8 +314,8 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -343,7 +341,7 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getTEATenantOrganizations', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/tenantorganizations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -379,8 +377,8 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -402,7 +400,7 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('setApplicationSettings', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/settings/application`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -418,9 +416,8 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -444,7 +441,7 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('setRolePersonasSettings', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/settings/rolepersonas`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -460,9 +457,8 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -485,7 +481,7 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('verifySysAdminCredentials', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/settings/verify-credentials`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -501,8 +497,8 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -517,7 +513,6 @@ export const ObservationSettingsApiAxiosParamCreator = function (configuration?:
 
 /**
  * ObservationSettingsApi - functional programming interface
- * @export
  */
 export const ObservationSettingsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ObservationSettingsApiAxiosParamCreator(configuration)
@@ -673,7 +668,6 @@ export const ObservationSettingsApiFp = function(configuration?: Configuration) 
 
 /**
  * ObservationSettingsApi - factory interface
- * @export
  */
 export const ObservationSettingsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ObservationSettingsApiFp(configuration)
@@ -783,261 +777,186 @@ export const ObservationSettingsApiFactory = function (configuration?: Configura
 
 /**
  * Request parameters for addAvailablePersona operation in ObservationSettingsApi.
- * @export
- * @interface ObservationSettingsApiAddAvailablePersonaRequest
  */
 export interface ObservationSettingsApiAddAvailablePersonaRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiAddAvailablePersona
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaRequest}
-     * @memberof ObservationSettingsApiAddAvailablePersona
      */
     readonly edGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaRequest
 }
 
 /**
  * Request parameters for getApplicationSettings operation in ObservationSettingsApi.
- * @export
- * @interface ObservationSettingsApiGetApplicationSettingsRequest
  */
 export interface ObservationSettingsApiGetApplicationSettingsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiGetApplicationSettings
      */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for getPaginatedForms operation in ObservationSettingsApi.
- * @export
- * @interface ObservationSettingsApiGetPaginatedFormsRequest
  */
 export interface ObservationSettingsApiGetPaginatedFormsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiGetPaginatedForms
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationSettingsApiGetPaginatedForms
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationSettingsApiGetPaginatedForms
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiGetPaginatedForms
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiGetPaginatedForms
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getPaginatedPersonas operation in ObservationSettingsApi.
- * @export
- * @interface ObservationSettingsApiGetPaginatedPersonasRequest
  */
 export interface ObservationSettingsApiGetPaginatedPersonasRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiGetPaginatedPersonas
      */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for getPaginatedStaffClassifications operation in ObservationSettingsApi.
- * @export
- * @interface ObservationSettingsApiGetPaginatedStaffClassificationsRequest
  */
 export interface ObservationSettingsApiGetPaginatedStaffClassificationsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiGetPaginatedStaffClassifications
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationSettingsApiGetPaginatedStaffClassifications
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationSettingsApiGetPaginatedStaffClassifications
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiGetPaginatedStaffClassifications
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiGetPaginatedStaffClassifications
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getStaffClassificationsSettings operation in ObservationSettingsApi.
- * @export
- * @interface ObservationSettingsApiGetStaffClassificationsSettingsRequest
  */
 export interface ObservationSettingsApiGetStaffClassificationsSettingsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiGetStaffClassificationsSettings
      */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for getTEATenantOrganizations operation in ObservationSettingsApi.
- * @export
- * @interface ObservationSettingsApiGetTEATenantOrganizationsRequest
  */
 export interface ObservationSettingsApiGetTEATenantOrganizationsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiGetTEATenantOrganizations
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiGetTEATenantOrganizations
      */
     readonly teaTenantId?: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationSettingsApiGetTEATenantOrganizations
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationSettingsApiGetTEATenantOrganizations
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiGetTEATenantOrganizations
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiGetTEATenantOrganizations
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for setApplicationSettings operation in ObservationSettingsApi.
- * @export
- * @interface ObservationSettingsApiSetApplicationSettingsRequest
  */
 export interface ObservationSettingsApiSetApplicationSettingsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiSetApplicationSettings
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest}
-     * @memberof ObservationSettingsApiSetApplicationSettings
      */
     readonly edGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest
 }
 
 /**
  * Request parameters for setRolePersonasSettings operation in ObservationSettingsApi.
- * @export
- * @interface ObservationSettingsApiSetRolePersonasSettingsRequest
  */
 export interface ObservationSettingsApiSetRolePersonasSettingsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiSetRolePersonasSettings
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest}
-     * @memberof ObservationSettingsApiSetRolePersonasSettings
      */
     readonly edGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest
 }
 
 /**
  * Request parameters for verifySysAdminCredentials operation in ObservationSettingsApi.
- * @export
- * @interface ObservationSettingsApiVerifySysAdminCredentialsRequest
  */
 export interface ObservationSettingsApiVerifySysAdminCredentialsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationSettingsApiVerifySysAdminCredentials
      */
     readonly tenantId: string
 }
 
 /**
  * ObservationSettingsApi - object-oriented interface
- * @export
- * @class ObservationSettingsApi
- * @extends {BaseAPI}
  */
 export class ObservationSettingsApi extends BaseAPI {
     /**
@@ -1046,7 +965,6 @@ export class ObservationSettingsApi extends BaseAPI {
      * @param {ObservationSettingsApiAddAvailablePersonaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationSettingsApi
      */
     public addAvailablePersona(requestParameters: ObservationSettingsApiAddAvailablePersonaRequest, options?: RawAxiosRequestConfig) {
         return ObservationSettingsApiFp(this.configuration).addAvailablePersona(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1058,7 +976,6 @@ export class ObservationSettingsApi extends BaseAPI {
      * @param {ObservationSettingsApiGetApplicationSettingsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationSettingsApi
      */
     public getApplicationSettings(requestParameters: ObservationSettingsApiGetApplicationSettingsRequest, options?: RawAxiosRequestConfig) {
         return ObservationSettingsApiFp(this.configuration).getApplicationSettings(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -1070,7 +987,6 @@ export class ObservationSettingsApi extends BaseAPI {
      * @param {ObservationSettingsApiGetPaginatedFormsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationSettingsApi
      */
     public getPaginatedForms(requestParameters: ObservationSettingsApiGetPaginatedFormsRequest, options?: RawAxiosRequestConfig) {
         return ObservationSettingsApiFp(this.configuration).getPaginatedForms(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1082,7 +998,6 @@ export class ObservationSettingsApi extends BaseAPI {
      * @param {ObservationSettingsApiGetPaginatedPersonasRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationSettingsApi
      */
     public getPaginatedPersonas(requestParameters: ObservationSettingsApiGetPaginatedPersonasRequest, options?: RawAxiosRequestConfig) {
         return ObservationSettingsApiFp(this.configuration).getPaginatedPersonas(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -1094,7 +1009,6 @@ export class ObservationSettingsApi extends BaseAPI {
      * @param {ObservationSettingsApiGetPaginatedStaffClassificationsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationSettingsApi
      */
     public getPaginatedStaffClassifications(requestParameters: ObservationSettingsApiGetPaginatedStaffClassificationsRequest, options?: RawAxiosRequestConfig) {
         return ObservationSettingsApiFp(this.configuration).getPaginatedStaffClassifications(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1106,7 +1020,6 @@ export class ObservationSettingsApi extends BaseAPI {
      * @param {ObservationSettingsApiGetStaffClassificationsSettingsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationSettingsApi
      */
     public getStaffClassificationsSettings(requestParameters: ObservationSettingsApiGetStaffClassificationsSettingsRequest, options?: RawAxiosRequestConfig) {
         return ObservationSettingsApiFp(this.configuration).getStaffClassificationsSettings(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -1118,7 +1031,6 @@ export class ObservationSettingsApi extends BaseAPI {
      * @param {ObservationSettingsApiGetTEATenantOrganizationsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationSettingsApi
      */
     public getTEATenantOrganizations(requestParameters: ObservationSettingsApiGetTEATenantOrganizationsRequest, options?: RawAxiosRequestConfig) {
         return ObservationSettingsApiFp(this.configuration).getTEATenantOrganizations(requestParameters.tenantId, requestParameters.teaTenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1130,7 +1042,6 @@ export class ObservationSettingsApi extends BaseAPI {
      * @param {ObservationSettingsApiSetApplicationSettingsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationSettingsApi
      */
     public setApplicationSettings(requestParameters: ObservationSettingsApiSetApplicationSettingsRequest, options?: RawAxiosRequestConfig) {
         return ObservationSettingsApiFp(this.configuration).setApplicationSettings(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1142,7 +1053,6 @@ export class ObservationSettingsApi extends BaseAPI {
      * @param {ObservationSettingsApiSetRolePersonasSettingsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationSettingsApi
      */
     public setRolePersonasSettings(requestParameters: ObservationSettingsApiSetRolePersonasSettingsRequest, options?: RawAxiosRequestConfig) {
         return ObservationSettingsApiFp(this.configuration).setRolePersonasSettings(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1154,7 +1064,6 @@ export class ObservationSettingsApi extends BaseAPI {
      * @param {ObservationSettingsApiVerifySysAdminCredentialsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationSettingsApi
      */
     public verifySysAdminCredentials(requestParameters: ObservationSettingsApiVerifySysAdminCredentialsRequest, options?: RawAxiosRequestConfig) {
         return ObservationSettingsApiFp(this.configuration).verifySysAdminCredentials(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));

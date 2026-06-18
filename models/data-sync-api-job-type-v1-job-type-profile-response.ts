@@ -20,107 +20,22 @@ import type { DataSyncApiJobTypeV1JobMetadataField } from './data-sync-api-job-t
 // @ts-ignore
 import type { DataSyncApiJobTypeV1Profile } from './data-sync-api-job-type-v1-profile';
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobTypeV1JobTypeProfileResponse
- */
 export interface DataSyncApiJobTypeV1JobTypeProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'jobTypeId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'jobPoints'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'hasChildJobs'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'childJobField'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'sourceConnectionTypeId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'destinationConnectionTypeId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'sourceConnectionRequired'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'destinationConnectionRequired'?: boolean;
-    /**
-     * 
-     * @type {Array<DataSyncApiJobTypeV1JobMetadataField>}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'jobMetadataFields'?: Array<DataSyncApiJobTypeV1JobMetadataField> | null;
-    /**
-     * 
-     * @type {Array<DataSyncApiJobTypeV1Profile>}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'profiles'?: Array<DataSyncApiJobTypeV1Profile> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobTypeV1JobTypeProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
 }
 

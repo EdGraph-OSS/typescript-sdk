@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { AnalyticsApiGroupsV1GroupResponse } from './analytics-api-groups-v1-group-response';
 
-/**
- * 
- * @export
- * @interface AnalyticsApiGroupsV1GroupsResponse
- */
 export interface AnalyticsApiGroupsV1GroupsResponse {
-    /**
-     * 
-     * @type {Array<AnalyticsApiGroupsV1GroupResponse>}
-     * @memberof AnalyticsApiGroupsV1GroupsResponse
-     */
     'groups'?: Array<AnalyticsApiGroupsV1GroupResponse> | null;
 }
 

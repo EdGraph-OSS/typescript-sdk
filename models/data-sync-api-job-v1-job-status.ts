@@ -14,18 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const DataSyncApiJobV1JobStatus = {
     Unknown: 'Unknown',
     Active: 'Active',
     Deactivated: 'Deactivated',
     QueuedForDelete: 'QueuedForDelete',
-    QueuedForScheduleRestart: 'QueuedForScheduleRestart'
+    QueuedForScheduleRestart: 'QueuedForScheduleRestart',
 } as const;
 
 export type DataSyncApiJobV1JobStatus = typeof DataSyncApiJobV1JobStatus[keyof typeof DataSyncApiJobV1JobStatus];

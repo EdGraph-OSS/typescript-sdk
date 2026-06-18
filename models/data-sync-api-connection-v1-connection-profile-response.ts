@@ -17,83 +17,18 @@
 // @ts-ignore
 import type { DataSyncApiConnectionV1ConnectionMetadata } from './data-sync-api-connection-v1-connection-metadata';
 
-/**
- * 
- * @export
- * @interface DataSyncApiConnectionV1ConnectionProfileResponse
- */
 export interface DataSyncApiConnectionV1ConnectionProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionProfileResponse
-     */
     'connectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionProfileResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {Array<DataSyncApiConnectionV1ConnectionMetadata>}
-     * @memberof DataSyncApiConnectionV1ConnectionProfileResponse
-     */
     'connectionMetadata'?: Array<DataSyncApiConnectionV1ConnectionMetadata> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionProfileResponse
-     */
     'providerId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionProfileResponse
-     */
     'providerName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionProfileResponse
-     */
     'connectionTypeId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionProfileResponse
-     */
     'connectionTypeName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
 }
 

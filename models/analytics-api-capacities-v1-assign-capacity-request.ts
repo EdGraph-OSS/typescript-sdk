@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiCapacitiesV1AssignCapacityRequest
- */
 export interface AnalyticsApiCapacitiesV1AssignCapacityRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiCapacitiesV1AssignCapacityRequest
-     */
     'groupId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiCapacitiesV1AssignCapacityRequest
-     */
     'capacityId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiCapacitiesV1AssignCapacityRequest
-     */
     'tenantId'?: string | null;
 }
 

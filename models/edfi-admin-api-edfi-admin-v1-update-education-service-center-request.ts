@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest
- */
 export interface EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest
-     */
     'educationServiceCenterId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest
-     */
     'nameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest
-     */
     'educationOrganizationCategoryDescriptors'?: Array<string> | null;
 }
 

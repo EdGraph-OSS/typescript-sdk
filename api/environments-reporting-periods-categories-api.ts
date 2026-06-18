@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { EdGraphServicesStateReportingV1PaginatedSubCategories } from '../m
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * EnvironmentsReportingPeriodsCategoriesApi - axios parameter creator
- * @export
  */
 export const EnvironmentsReportingPeriodsCategoriesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -55,9 +54,9 @@ export const EnvironmentsReportingPeriodsCategoriesApiAxiosParamCreator = functi
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('searchStateReportingPeriodCategories', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/environments/{environmentId}/reportingperiods/{reportingPeriodId}/categories`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"environmentId"}}`, encodeURIComponent(String(environmentId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{environmentId}', encodeURIComponent(String(environmentId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -85,8 +84,8 @@ export const EnvironmentsReportingPeriodsCategoriesApiAxiosParamCreator = functi
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -119,10 +118,10 @@ export const EnvironmentsReportingPeriodsCategoriesApiAxiosParamCreator = functi
             // verify required parameter 'categoryId' is not null or undefined
             assertParamExists('searchStateReportingPeriodSubCategories', 'categoryId', categoryId)
             const localVarPath = `/tenants/{tenantId}/statereporting/environments/{environmentId}/reportingperiods/{reportingPeriodId}/categories/{categoryId}/subcategories`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"environmentId"}}`, encodeURIComponent(String(environmentId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"categoryId"}}`, encodeURIComponent(String(categoryId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{environmentId}', encodeURIComponent(String(environmentId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{categoryId}', encodeURIComponent(String(categoryId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -150,8 +149,8 @@ export const EnvironmentsReportingPeriodsCategoriesApiAxiosParamCreator = functi
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -166,7 +165,6 @@ export const EnvironmentsReportingPeriodsCategoriesApiAxiosParamCreator = functi
 
 /**
  * EnvironmentsReportingPeriodsCategoriesApi - functional programming interface
- * @export
  */
 export const EnvironmentsReportingPeriodsCategoriesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EnvironmentsReportingPeriodsCategoriesApiAxiosParamCreator(configuration)
@@ -213,7 +211,6 @@ export const EnvironmentsReportingPeriodsCategoriesApiFp = function(configuratio
 
 /**
  * EnvironmentsReportingPeriodsCategoriesApi - factory interface
- * @export
  */
 export const EnvironmentsReportingPeriodsCategoriesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EnvironmentsReportingPeriodsCategoriesApiFp(configuration)
@@ -243,114 +240,81 @@ export const EnvironmentsReportingPeriodsCategoriesApiFactory = function (config
 
 /**
  * Request parameters for searchStateReportingPeriodCategories operation in EnvironmentsReportingPeriodsCategoriesApi.
- * @export
- * @interface EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodCategoriesRequest
  */
 export interface EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodCategoriesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodCategories
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodCategories
      */
     readonly environmentId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodCategories
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodCategories
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodCategories
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodCategories
      */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for searchStateReportingPeriodSubCategories operation in EnvironmentsReportingPeriodsCategoriesApi.
- * @export
- * @interface EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodSubCategoriesRequest
  */
 export interface EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodSubCategoriesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodSubCategories
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodSubCategories
      */
     readonly environmentId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodSubCategories
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodSubCategories
      */
     readonly categoryId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodSubCategories
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodSubCategories
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodSubCategories
      */
     readonly orderBy?: string
 }
 
 /**
  * EnvironmentsReportingPeriodsCategoriesApi - object-oriented interface
- * @export
- * @class EnvironmentsReportingPeriodsCategoriesApi
- * @extends {BaseAPI}
  */
 export class EnvironmentsReportingPeriodsCategoriesApi extends BaseAPI {
     /**
@@ -359,7 +323,6 @@ export class EnvironmentsReportingPeriodsCategoriesApi extends BaseAPI {
      * @param {EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodCategoriesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApi
      */
     public searchStateReportingPeriodCategories(requestParameters: EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodCategoriesRequest, options?: RawAxiosRequestConfig) {
         return EnvironmentsReportingPeriodsCategoriesApiFp(this.configuration).searchStateReportingPeriodCategories(requestParameters.tenantId, requestParameters.environmentId, requestParameters.reportingPeriodId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -371,7 +334,6 @@ export class EnvironmentsReportingPeriodsCategoriesApi extends BaseAPI {
      * @param {EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodSubCategoriesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EnvironmentsReportingPeriodsCategoriesApi
      */
     public searchStateReportingPeriodSubCategories(requestParameters: EnvironmentsReportingPeriodsCategoriesApiSearchStateReportingPeriodSubCategoriesRequest, options?: RawAxiosRequestConfig) {
         return EnvironmentsReportingPeriodsCategoriesApiFp(this.configuration).searchStateReportingPeriodSubCategories(requestParameters.tenantId, requestParameters.environmentId, requestParameters.reportingPeriodId, requestParameters.categoryId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));

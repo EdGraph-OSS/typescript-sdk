@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1StudentEconomicSituationRepresentation } from './edfi-admin-api-edfi-admin-v1-student-economic-situation-representation';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse
- */
 export interface EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse
-     */
     'localEducationAgencyId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse
-     */
     'localEducationAgencyName'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse
-     */
     'totalStudentCount'?: number;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1StudentEconomicSituationRepresentation>}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse
-     */
     'studentEconomicSituationRepresentation'?: Array<EdfiAdminApiEdfiAdminV1StudentEconomicSituationRepresentation> | null;
 }
 

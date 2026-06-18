@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiCapacitiesV1SuspendCapacityRequest
- */
 export interface AnalyticsApiCapacitiesV1SuspendCapacityRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiCapacitiesV1SuspendCapacityRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiCapacitiesV1SuspendCapacityRequest
-     */
     'dedicatedCapacityName'?: string | null;
 }
 

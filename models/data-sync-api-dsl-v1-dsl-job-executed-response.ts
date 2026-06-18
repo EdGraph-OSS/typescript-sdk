@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiDslV1DslJobExecutedResponse
- */
 export interface DataSyncApiDslV1DslJobExecutedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1DslJobExecutedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1DslJobExecutedResponse
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiDslV1DslJobExecutedResponse
-     */
     'jobExecutionId'?: string | null;
 }
 

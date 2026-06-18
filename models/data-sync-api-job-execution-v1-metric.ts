@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobExecutionV1Metric
- */
 export interface DataSyncApiJobExecutionV1Metric {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobExecutionV1Metric
-     */
     'entity'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiJobExecutionV1Metric
-     */
     'processed'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiJobExecutionV1Metric
-     */
     'success'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiJobExecutionV1Metric
-     */
     'errors'?: number;
 }
 

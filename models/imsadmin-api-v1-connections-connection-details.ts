@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { IMSAdminApiV1ConnectionsConnectionDetailsMetadata } from './imsadmin-api-v1-connections-connection-details-metadata';
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ConnectionsConnectionDetails
- */
 export interface IMSAdminApiV1ConnectionsConnectionDetails {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ConnectionsConnectionDetails
-     */
     'type'?: string | null;
-    /**
-     * 
-     * @type {Array<IMSAdminApiV1ConnectionsConnectionDetailsMetadata>}
-     * @memberof IMSAdminApiV1ConnectionsConnectionDetails
-     */
     'metadata'?: Array<IMSAdminApiV1ConnectionsConnectionDetailsMetadata> | null;
 }
 

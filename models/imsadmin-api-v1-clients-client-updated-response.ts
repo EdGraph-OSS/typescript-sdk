@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ClientsClientUpdatedResponse
- */
 export interface IMSAdminApiV1ClientsClientUpdatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientUpdatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientUpdatedResponse
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientUpdatedResponse
-     */
     'clientId'?: string | null;
 }
 

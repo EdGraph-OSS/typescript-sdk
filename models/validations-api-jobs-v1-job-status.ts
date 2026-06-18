@@ -14,18 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ValidationsApiJobsV1JobStatus = {
     Unknown: 'Unknown',
     Active: 'Active',
     Deactivated: 'Deactivated',
     QueuedForDelete: 'QueuedForDelete',
-    QueuedForScheduleRestart: 'QueuedForScheduleRestart'
+    QueuedForScheduleRestart: 'QueuedForScheduleRestart',
 } as const;
 
 export type ValidationsApiJobsV1JobStatus = typeof ValidationsApiJobsV1JobStatus[keyof typeof ValidationsApiJobsV1JobStatus];

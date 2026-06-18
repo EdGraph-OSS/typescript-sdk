@@ -14,17 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const FormApiFormsV1FormStatus = {
     Unknown: 'Unknown',
     Draft: 'Draft',
     Published: 'Published',
-    Closed: 'Closed'
+    Closed: 'Closed',
 } as const;
 
 export type FormApiFormsV1FormStatus = typeof FormApiFormsV1FormStatus[keyof typeof FormApiFormsV1FormStatus];

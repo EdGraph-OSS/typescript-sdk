@@ -16,33 +16,14 @@
 
 /**
  * Common Objects
- * @export
- * @interface EdfiAdminApiEdfiAdminV1Vendor
  */
 export interface EdfiAdminApiEdfiAdminV1Vendor {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1Vendor
-     */
     'vendorId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1Vendor
-     */
     'vendorName'?: string | null;
     /**
      * TODO: Changed from application object to applicationId\'s to remove cyclic structure
-     * @type {Array<number>}
-     * @memberof EdfiAdminApiEdfiAdminV1Vendor
      */
     'applications'?: Array<number> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdfiAdminApiEdfiAdminV1Vendor
-     */
     'namespacePrefixes'?: Array<string> | null;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV2UserLicenseRole
- */
 export interface IdentityApiUserV2UserLicenseRole {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserLicenseRole
-     */
     'roleName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserLicenseRole
-     */
     'displayName'?: string | null;
 }
 

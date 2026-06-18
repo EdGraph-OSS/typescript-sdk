@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1ContainerDtoTypesTagDto
- */
 export interface ValidationsApiContainersV1ContainerDtoTypesTagDto {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1ContainerDtoTypesTagDto
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1ContainerDtoTypesTagDto
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1ContainerDtoTypesTagDto
-     */
     'description'?: string | null;
 }
 

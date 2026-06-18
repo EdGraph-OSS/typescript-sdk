@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi } from './ed-graph-http-aggregators-tenant-api-services-onboarding-steps-ed-fi-api';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult
-     */
     'isSuccess'?: boolean;
-    /**
-     * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult
-     */
     'value'?: EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult
-     */
     'error'?: string | null;
 }
 

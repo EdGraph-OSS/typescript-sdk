@@ -17,65 +17,15 @@
 // @ts-ignore
 import type { DataSyncApiProviderV1ConnectionType } from './data-sync-api-provider-v1-connection-type';
 
-/**
- * 
- * @export
- * @interface DataSyncApiProviderV1ProviderListResponse
- */
 export interface DataSyncApiProviderV1ProviderListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ProviderListResponse
-     */
     'providerId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ProviderListResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ProviderListResponse
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ProviderListResponse
-     */
     'iconUri'?: string | null;
-    /**
-     * 
-     * @type {Array<DataSyncApiProviderV1ConnectionType>}
-     * @memberof DataSyncApiProviderV1ProviderListResponse
-     */
     'connectionTypes'?: Array<DataSyncApiProviderV1ConnectionType> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ProviderListResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ProviderListResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ProviderListResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ProviderListResponse
-     */
     'lastModifiedDateTime'?: string | null;
 }
 

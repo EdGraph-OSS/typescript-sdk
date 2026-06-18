@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { TenantApiSectionsV1TermListResponse } from './tenant-api-sections-v1-term-list-response';
 
-/**
- * 
- * @export
- * @interface TenantApiSectionsV1PaginatedTermsResponse
- */
 export interface TenantApiSectionsV1PaginatedTermsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedTermsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedTermsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiSectionsV1PaginatedTermsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<TenantApiSectionsV1TermListResponse>}
-     * @memberof TenantApiSectionsV1PaginatedTermsResponse
-     */
     'data'?: Array<TenantApiSectionsV1TermListResponse> | null;
 }
 

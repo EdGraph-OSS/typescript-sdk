@@ -20,35 +20,10 @@ import type { EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResp
 // @ts-ignore
 import type { EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicense } from './ed-graph-platform-http-aggregators-tenant-api-controllers-v1-view-models-responses-user-tenant-license';
 
-/**
- * 
- * @export
- * @interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant
- */
 export interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant
-     */
     'status'?: EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant
-     */
     'roles'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicense>}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant
-     */
     'licenses'?: Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicense> | null;
 }
 

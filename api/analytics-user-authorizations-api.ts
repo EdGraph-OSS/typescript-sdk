@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 /**
  * AnalyticsUserAuthorizationsApi - axios parameter creator
- * @export
  */
 export const AnalyticsUserAuthorizationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -50,7 +49,7 @@ export const AnalyticsUserAuthorizationsApiAxiosParamCreator = function (configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getPaginatedUserAuthorizations', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/userauthorizations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -82,8 +81,8 @@ export const AnalyticsUserAuthorizationsApiAxiosParamCreator = function (configu
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -107,8 +106,8 @@ export const AnalyticsUserAuthorizationsApiAxiosParamCreator = function (configu
             // verify required parameter 'userAuthorizationId' is not null or undefined
             assertParamExists('softDeleteUserAuthorization', 'userAuthorizationId', userAuthorizationId)
             const localVarPath = `/tenants/{tenantId}/analytics/userauthorizations/{userAuthorizationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userAuthorizationId"}}`, encodeURIComponent(String(userAuthorizationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userAuthorizationId}', encodeURIComponent(String(userAuthorizationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -124,8 +123,8 @@ export const AnalyticsUserAuthorizationsApiAxiosParamCreator = function (configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -140,7 +139,6 @@ export const AnalyticsUserAuthorizationsApiAxiosParamCreator = function (configu
 
 /**
  * AnalyticsUserAuthorizationsApi - functional programming interface
- * @export
  */
 export const AnalyticsUserAuthorizationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AnalyticsUserAuthorizationsApiAxiosParamCreator(configuration)
@@ -181,7 +179,6 @@ export const AnalyticsUserAuthorizationsApiFp = function(configuration?: Configu
 
 /**
  * AnalyticsUserAuthorizationsApi - factory interface
- * @export
  */
 export const AnalyticsUserAuthorizationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = AnalyticsUserAuthorizationsApiFp(configuration)
@@ -211,72 +208,51 @@ export const AnalyticsUserAuthorizationsApiFactory = function (configuration?: C
 
 /**
  * Request parameters for getPaginatedUserAuthorizations operation in AnalyticsUserAuthorizationsApi.
- * @export
- * @interface AnalyticsUserAuthorizationsApiGetPaginatedUserAuthorizationsRequest
  */
 export interface AnalyticsUserAuthorizationsApiGetPaginatedUserAuthorizationsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsUserAuthorizationsApiGetPaginatedUserAuthorizations
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof AnalyticsUserAuthorizationsApiGetPaginatedUserAuthorizations
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof AnalyticsUserAuthorizationsApiGetPaginatedUserAuthorizations
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsUserAuthorizationsApiGetPaginatedUserAuthorizations
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsUserAuthorizationsApiGetPaginatedUserAuthorizations
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for softDeleteUserAuthorization operation in AnalyticsUserAuthorizationsApi.
- * @export
- * @interface AnalyticsUserAuthorizationsApiSoftDeleteUserAuthorizationRequest
  */
 export interface AnalyticsUserAuthorizationsApiSoftDeleteUserAuthorizationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsUserAuthorizationsApiSoftDeleteUserAuthorization
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof AnalyticsUserAuthorizationsApiSoftDeleteUserAuthorization
      */
     readonly userAuthorizationId: string
 }
 
 /**
  * AnalyticsUserAuthorizationsApi - object-oriented interface
- * @export
- * @class AnalyticsUserAuthorizationsApi
- * @extends {BaseAPI}
  */
 export class AnalyticsUserAuthorizationsApi extends BaseAPI {
     /**
@@ -285,7 +261,6 @@ export class AnalyticsUserAuthorizationsApi extends BaseAPI {
      * @param {AnalyticsUserAuthorizationsApiGetPaginatedUserAuthorizationsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsUserAuthorizationsApi
      */
     public getPaginatedUserAuthorizations(requestParameters: AnalyticsUserAuthorizationsApiGetPaginatedUserAuthorizationsRequest, options?: RawAxiosRequestConfig) {
         return AnalyticsUserAuthorizationsApiFp(this.configuration).getPaginatedUserAuthorizations(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -297,7 +272,6 @@ export class AnalyticsUserAuthorizationsApi extends BaseAPI {
      * @param {AnalyticsUserAuthorizationsApiSoftDeleteUserAuthorizationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsUserAuthorizationsApi
      */
     public softDeleteUserAuthorization(requestParameters: AnalyticsUserAuthorizationsApiSoftDeleteUserAuthorizationRequest, options?: RawAxiosRequestConfig) {
         return AnalyticsUserAuthorizationsApiFp(this.configuration).softDeleteUserAuthorization(requestParameters.tenantId, requestParameters.userAuthorizationId, options).then((request) => request(this.axios, this.basePath));

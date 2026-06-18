@@ -14,77 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1SectionResponse
- */
 export interface IdentityApiUserV1SectionResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1SectionResponse
-     */
     'educationOrganizationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionResponse
-     */
     'educationOrganizationName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionResponse
-     */
     'sectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionResponse
-     */
     'sectionIdentifier'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionResponse
-     */
     'sectionName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionResponse
-     */
     'staffUniqueId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionResponse
-     */
     'classroomPositionDescriptor'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionResponse
-     */
     'beginDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionResponse
-     */
     'endDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionResponse
-     */
     'source'?: string | null;
 }
 

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResp
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * ConnectionsEdFiApi - axios parameter creator
- * @export
  */
 export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -47,8 +46,8 @@ export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('getTenantDataSyncConnectionEdFiDistricts', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/datasync/connections/{connectionId}/edfi/districts`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -64,8 +63,8 @@ export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -89,8 +88,8 @@ export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('getTenantDataSyncConnectionEdFiEducationOrganizationIdDescriptors', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/datasync/connections/{connectionId}/edfi/educationorganizationidentificationsystemdescriptors`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -106,8 +105,8 @@ export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -131,8 +130,8 @@ export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('getTenantDataSyncConnectionEdFiSchoolYears', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/datasync/connections/{connectionId}/edfi/schoolyears`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -148,8 +147,8 @@ export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -173,8 +172,8 @@ export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('getTenantDataSyncConnectionEdFiStaffIdDescriptors', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/datasync/connections/{connectionId}/edfi/staffidentificationsystemdescriptors`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -190,8 +189,8 @@ export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -215,8 +214,8 @@ export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('getTenantDataSyncConnectionEdFiStudentIdDescriptors', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/datasync/connections/{connectionId}/edfi/studentidentificationsystemdescriptors`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -232,8 +231,8 @@ export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -257,8 +256,8 @@ export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('getTenantDataSyncConnectionEdFiTermDescriptors', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/datasync/connections/{connectionId}/edfi/termdescriptors`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -274,8 +273,8 @@ export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -290,7 +289,6 @@ export const ConnectionsEdFiApiAxiosParamCreator = function (configuration?: Con
 
 /**
  * ConnectionsEdFiApi - functional programming interface
- * @export
  */
 export const ConnectionsEdFiApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ConnectionsEdFiApiAxiosParamCreator(configuration)
@@ -384,7 +382,6 @@ export const ConnectionsEdFiApiFp = function(configuration?: Configuration) {
 
 /**
  * ConnectionsEdFiApi - factory interface
- * @export
  */
 export const ConnectionsEdFiApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ConnectionsEdFiApiFp(configuration)
@@ -454,135 +451,96 @@ export const ConnectionsEdFiApiFactory = function (configuration?: Configuration
 
 /**
  * Request parameters for getTenantDataSyncConnectionEdFiDistricts operation in ConnectionsEdFiApi.
- * @export
- * @interface ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiDistrictsRequest
  */
 export interface ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiDistrictsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiDistricts
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiDistricts
      */
     readonly connectionId: string
 }
 
 /**
  * Request parameters for getTenantDataSyncConnectionEdFiEducationOrganizationIdDescriptors operation in ConnectionsEdFiApi.
- * @export
- * @interface ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiEducationOrganizationIdDescriptorsRequest
  */
 export interface ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiEducationOrganizationIdDescriptorsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiEducationOrganizationIdDescriptors
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiEducationOrganizationIdDescriptors
      */
     readonly connectionId: string
 }
 
 /**
  * Request parameters for getTenantDataSyncConnectionEdFiSchoolYears operation in ConnectionsEdFiApi.
- * @export
- * @interface ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiSchoolYearsRequest
  */
 export interface ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiSchoolYearsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiSchoolYears
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiSchoolYears
      */
     readonly connectionId: string
 }
 
 /**
  * Request parameters for getTenantDataSyncConnectionEdFiStaffIdDescriptors operation in ConnectionsEdFiApi.
- * @export
- * @interface ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiStaffIdDescriptorsRequest
  */
 export interface ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiStaffIdDescriptorsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiStaffIdDescriptors
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiStaffIdDescriptors
      */
     readonly connectionId: string
 }
 
 /**
  * Request parameters for getTenantDataSyncConnectionEdFiStudentIdDescriptors operation in ConnectionsEdFiApi.
- * @export
- * @interface ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiStudentIdDescriptorsRequest
  */
 export interface ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiStudentIdDescriptorsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiStudentIdDescriptors
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiStudentIdDescriptors
      */
     readonly connectionId: string
 }
 
 /**
  * Request parameters for getTenantDataSyncConnectionEdFiTermDescriptors operation in ConnectionsEdFiApi.
- * @export
- * @interface ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiTermDescriptorsRequest
  */
 export interface ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiTermDescriptorsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiTermDescriptors
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiTermDescriptors
      */
     readonly connectionId: string
 }
 
 /**
  * ConnectionsEdFiApi - object-oriented interface
- * @export
- * @class ConnectionsEdFiApi
- * @extends {BaseAPI}
  */
 export class ConnectionsEdFiApi extends BaseAPI {
     /**
@@ -591,7 +549,6 @@ export class ConnectionsEdFiApi extends BaseAPI {
      * @param {ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiDistrictsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectionsEdFiApi
      */
     public getTenantDataSyncConnectionEdFiDistricts(requestParameters: ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiDistrictsRequest, options?: RawAxiosRequestConfig) {
         return ConnectionsEdFiApiFp(this.configuration).getTenantDataSyncConnectionEdFiDistricts(requestParameters.tenantId, requestParameters.connectionId, options).then((request) => request(this.axios, this.basePath));
@@ -603,7 +560,6 @@ export class ConnectionsEdFiApi extends BaseAPI {
      * @param {ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiEducationOrganizationIdDescriptorsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectionsEdFiApi
      */
     public getTenantDataSyncConnectionEdFiEducationOrganizationIdDescriptors(requestParameters: ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiEducationOrganizationIdDescriptorsRequest, options?: RawAxiosRequestConfig) {
         return ConnectionsEdFiApiFp(this.configuration).getTenantDataSyncConnectionEdFiEducationOrganizationIdDescriptors(requestParameters.tenantId, requestParameters.connectionId, options).then((request) => request(this.axios, this.basePath));
@@ -615,7 +571,6 @@ export class ConnectionsEdFiApi extends BaseAPI {
      * @param {ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiSchoolYearsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectionsEdFiApi
      */
     public getTenantDataSyncConnectionEdFiSchoolYears(requestParameters: ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiSchoolYearsRequest, options?: RawAxiosRequestConfig) {
         return ConnectionsEdFiApiFp(this.configuration).getTenantDataSyncConnectionEdFiSchoolYears(requestParameters.tenantId, requestParameters.connectionId, options).then((request) => request(this.axios, this.basePath));
@@ -627,7 +582,6 @@ export class ConnectionsEdFiApi extends BaseAPI {
      * @param {ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiStaffIdDescriptorsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectionsEdFiApi
      */
     public getTenantDataSyncConnectionEdFiStaffIdDescriptors(requestParameters: ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiStaffIdDescriptorsRequest, options?: RawAxiosRequestConfig) {
         return ConnectionsEdFiApiFp(this.configuration).getTenantDataSyncConnectionEdFiStaffIdDescriptors(requestParameters.tenantId, requestParameters.connectionId, options).then((request) => request(this.axios, this.basePath));
@@ -639,7 +593,6 @@ export class ConnectionsEdFiApi extends BaseAPI {
      * @param {ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiStudentIdDescriptorsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectionsEdFiApi
      */
     public getTenantDataSyncConnectionEdFiStudentIdDescriptors(requestParameters: ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiStudentIdDescriptorsRequest, options?: RawAxiosRequestConfig) {
         return ConnectionsEdFiApiFp(this.configuration).getTenantDataSyncConnectionEdFiStudentIdDescriptors(requestParameters.tenantId, requestParameters.connectionId, options).then((request) => request(this.axios, this.basePath));
@@ -651,7 +604,6 @@ export class ConnectionsEdFiApi extends BaseAPI {
      * @param {ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiTermDescriptorsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectionsEdFiApi
      */
     public getTenantDataSyncConnectionEdFiTermDescriptors(requestParameters: ConnectionsEdFiApiGetTenantDataSyncConnectionEdFiTermDescriptorsRequest, options?: RawAxiosRequestConfig) {
         return ConnectionsEdFiApiFp(this.configuration).getTenantDataSyncConnectionEdFiTermDescriptors(requestParameters.tenantId, requestParameters.connectionId, options).then((request) => request(this.axios, this.basePath));

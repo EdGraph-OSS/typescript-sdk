@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ClientsClaim
- */
 export interface IMSAdminApiV1ClientsClaim {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClaim
-     */
     'type'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClaim
-     */
     'value'?: string | null;
 }
 

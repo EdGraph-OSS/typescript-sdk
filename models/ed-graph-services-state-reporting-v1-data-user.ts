@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1DataUser
- */
 export interface EdGraphServicesStateReportingV1DataUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1DataUser
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1DataUser
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1DataUser
-     */
     'firstName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1DataUser
-     */
     'lastName'?: string | null;
 }
 

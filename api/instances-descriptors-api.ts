@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -37,7 +37,6 @@ import type { EdfiAdminApiEdfiAdminV1DescriptorsPaginatedItemsResponse } from '.
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * InstancesDescriptorsApi - axios parameter creator
- * @export
  */
 export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -59,9 +58,9 @@ export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?
             // verify required parameter 'year' is not null or undefined
             assertParamExists('createDescriptorAsync', 'year', year)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptors`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -77,9 +76,8 @@ export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -111,10 +109,10 @@ export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?
             // verify required parameter 'descriptorId' is not null or undefined
             assertParamExists('deleteDescriptorAsync', 'descriptorId', descriptorId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptors/{descriptorId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"descriptorId"}}`, encodeURIComponent(String(descriptorId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{descriptorId}', encodeURIComponent(String(descriptorId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -130,8 +128,8 @@ export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -161,10 +159,10 @@ export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?
             // verify required parameter 'descriptorId' is not null or undefined
             assertParamExists('getDescriptorByIdAsync', 'descriptorId', descriptorId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptors/{descriptorId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"descriptorId"}}`, encodeURIComponent(String(descriptorId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{descriptorId}', encodeURIComponent(String(descriptorId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -180,8 +178,8 @@ export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -210,9 +208,9 @@ export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?
             // verify required parameter 'year' is not null or undefined
             assertParamExists('getDescriptorNamespacesAsync', 'year', year)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/namespaces`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -236,8 +234,8 @@ export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?
                 localVarQueryParameter['pageIndex'] = pageIndex;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -268,9 +266,9 @@ export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?
             // verify required parameter 'year' is not null or undefined
             assertParamExists('getDescriptorsAsync', 'year', year)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptors`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -302,8 +300,8 @@ export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -334,10 +332,10 @@ export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?
             // verify required parameter 'descriptorId' is not null or undefined
             assertParamExists('updateDescriptorAsync', 'descriptorId', descriptorId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptors/{descriptorId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"descriptorId"}}`, encodeURIComponent(String(descriptorId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{descriptorId}', encodeURIComponent(String(descriptorId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -353,9 +351,8 @@ export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -372,7 +369,6 @@ export const InstancesDescriptorsApiAxiosParamCreator = function (configuration?
 
 /**
  * InstancesDescriptorsApi - functional programming interface
- * @export
  */
 export const InstancesDescriptorsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InstancesDescriptorsApiAxiosParamCreator(configuration)
@@ -483,7 +479,6 @@ export const InstancesDescriptorsApiFp = function(configuration?: Configuration)
 
 /**
  * InstancesDescriptorsApi - factory interface
- * @export
  */
 export const InstancesDescriptorsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InstancesDescriptorsApiFp(configuration)
@@ -553,254 +548,181 @@ export const InstancesDescriptorsApiFactory = function (configuration?: Configur
 
 /**
  * Request parameters for createDescriptorAsync operation in InstancesDescriptorsApi.
- * @export
- * @interface InstancesDescriptorsApiCreateDescriptorAsyncRequest
  */
 export interface InstancesDescriptorsApiCreateDescriptorAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiCreateDescriptorAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiCreateDescriptorAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorsApiCreateDescriptorAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1DescriptorType}
-     * @memberof InstancesDescriptorsApiCreateDescriptorAsync
      */
     readonly edfiAdminApiEdfiAdminV1DescriptorType?: EdfiAdminApiEdfiAdminV1DescriptorType
 }
 
 /**
  * Request parameters for deleteDescriptorAsync operation in InstancesDescriptorsApi.
- * @export
- * @interface InstancesDescriptorsApiDeleteDescriptorAsyncRequest
  */
 export interface InstancesDescriptorsApiDeleteDescriptorAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiDeleteDescriptorAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiDeleteDescriptorAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorsApiDeleteDescriptorAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorsApiDeleteDescriptorAsync
      */
     readonly descriptorId: number
 }
 
 /**
  * Request parameters for getDescriptorByIdAsync operation in InstancesDescriptorsApi.
- * @export
- * @interface InstancesDescriptorsApiGetDescriptorByIdAsyncRequest
  */
 export interface InstancesDescriptorsApiGetDescriptorByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiGetDescriptorByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiGetDescriptorByIdAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorsApiGetDescriptorByIdAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorsApiGetDescriptorByIdAsync
      */
     readonly descriptorId: number
 }
 
 /**
  * Request parameters for getDescriptorNamespacesAsync operation in InstancesDescriptorsApi.
- * @export
- * @interface InstancesDescriptorsApiGetDescriptorNamespacesAsyncRequest
  */
 export interface InstancesDescriptorsApiGetDescriptorNamespacesAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiGetDescriptorNamespacesAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiGetDescriptorNamespacesAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorsApiGetDescriptorNamespacesAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorsApiGetDescriptorNamespacesAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorsApiGetDescriptorNamespacesAsync
      */
     readonly pageIndex?: number
 }
 
 /**
  * Request parameters for getDescriptorsAsync operation in InstancesDescriptorsApi.
- * @export
- * @interface InstancesDescriptorsApiGetDescriptorsAsyncRequest
  */
 export interface InstancesDescriptorsApiGetDescriptorsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiGetDescriptorsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiGetDescriptorsAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorsApiGetDescriptorsAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorsApiGetDescriptorsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorsApiGetDescriptorsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiGetDescriptorsAsync
      */
     readonly filter?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiGetDescriptorsAsync
      */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for updateDescriptorAsync operation in InstancesDescriptorsApi.
- * @export
- * @interface InstancesDescriptorsApiUpdateDescriptorAsyncRequest
  */
 export interface InstancesDescriptorsApiUpdateDescriptorAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiUpdateDescriptorAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorsApiUpdateDescriptorAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorsApiUpdateDescriptorAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorsApiUpdateDescriptorAsync
      */
     readonly descriptorId: number
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1DescriptorType}
-     * @memberof InstancesDescriptorsApiUpdateDescriptorAsync
      */
     readonly edfiAdminApiEdfiAdminV1DescriptorType?: EdfiAdminApiEdfiAdminV1DescriptorType
 }
 
 /**
  * InstancesDescriptorsApi - object-oriented interface
- * @export
- * @class InstancesDescriptorsApi
- * @extends {BaseAPI}
  */
 export class InstancesDescriptorsApi extends BaseAPI {
     /**
@@ -809,7 +731,6 @@ export class InstancesDescriptorsApi extends BaseAPI {
      * @param {InstancesDescriptorsApiCreateDescriptorAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesDescriptorsApi
      */
     public createDescriptorAsync(requestParameters: InstancesDescriptorsApiCreateDescriptorAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesDescriptorsApiFp(this.configuration).createDescriptorAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.edfiAdminApiEdfiAdminV1DescriptorType, options).then((request) => request(this.axios, this.basePath));
@@ -821,7 +742,6 @@ export class InstancesDescriptorsApi extends BaseAPI {
      * @param {InstancesDescriptorsApiDeleteDescriptorAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesDescriptorsApi
      */
     public deleteDescriptorAsync(requestParameters: InstancesDescriptorsApiDeleteDescriptorAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesDescriptorsApiFp(this.configuration).deleteDescriptorAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.descriptorId, options).then((request) => request(this.axios, this.basePath));
@@ -833,7 +753,6 @@ export class InstancesDescriptorsApi extends BaseAPI {
      * @param {InstancesDescriptorsApiGetDescriptorByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesDescriptorsApi
      */
     public getDescriptorByIdAsync(requestParameters: InstancesDescriptorsApiGetDescriptorByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesDescriptorsApiFp(this.configuration).getDescriptorByIdAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.descriptorId, options).then((request) => request(this.axios, this.basePath));
@@ -845,7 +764,6 @@ export class InstancesDescriptorsApi extends BaseAPI {
      * @param {InstancesDescriptorsApiGetDescriptorNamespacesAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesDescriptorsApi
      */
     public getDescriptorNamespacesAsync(requestParameters: InstancesDescriptorsApiGetDescriptorNamespacesAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesDescriptorsApiFp(this.configuration).getDescriptorNamespacesAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.pageSize, requestParameters.pageIndex, options).then((request) => request(this.axios, this.basePath));
@@ -857,7 +775,6 @@ export class InstancesDescriptorsApi extends BaseAPI {
      * @param {InstancesDescriptorsApiGetDescriptorsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesDescriptorsApi
      */
     public getDescriptorsAsync(requestParameters: InstancesDescriptorsApiGetDescriptorsAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesDescriptorsApiFp(this.configuration).getDescriptorsAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -869,7 +786,6 @@ export class InstancesDescriptorsApi extends BaseAPI {
      * @param {InstancesDescriptorsApiUpdateDescriptorAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesDescriptorsApi
      */
     public updateDescriptorAsync(requestParameters: InstancesDescriptorsApiUpdateDescriptorAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesDescriptorsApiFp(this.configuration).updateDescriptorAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.descriptorId, requestParameters.edfiAdminApiEdfiAdminV1DescriptorType, options).then((request) => request(this.axios, this.basePath));

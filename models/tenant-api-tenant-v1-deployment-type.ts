@@ -14,11 +14,6 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const TenantApiTenantV1DeploymentType = {
     Unknown: 'Unknown',
@@ -27,7 +22,7 @@ export const TenantApiTenantV1DeploymentType = {
     Qa: 'QA',
     Development: 'Development',
     Sandbox: 'Sandbox',
-    Testing: 'Testing'
+    Testing: 'Testing',
 } as const;
 
 export type TenantApiTenantV1DeploymentType = typeof TenantApiTenantV1DeploymentType[keyof typeof TenantApiTenantV1DeploymentType];

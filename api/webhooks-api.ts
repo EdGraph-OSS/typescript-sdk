@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -32,6 +32,10 @@ import type { TenantApiWebhookV1PaginatedItemsResponse } from '../models';
 // @ts-ignore
 import type { TenantApiWebhookV1PaginatedWebhookEventItemsResponse } from '../models';
 // @ts-ignore
+import type { TenantApiWebhookV1ReRunRequestedResponse } from '../models';
+// @ts-ignore
+import type { TenantApiWebhookV1RequestReRunRequest } from '../models';
+// @ts-ignore
 import type { TenantApiWebhookV1UpdateWebhookRequest } from '../models';
 // @ts-ignore
 import type { TenantApiWebhookV1WebhookIdResponse } from '../models';
@@ -39,7 +43,6 @@ import type { TenantApiWebhookV1WebhookIdResponse } from '../models';
 import type { TenantApiWebhookV1WebhookResponse } from '../models';
 /**
  * WebhooksApi - axios parameter creator
- * @export
  */
 export const WebhooksApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -55,7 +58,7 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createWebhookAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/webhooks`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -71,9 +74,8 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -99,8 +101,8 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'webhookId' is not null or undefined
             assertParamExists('deleteWebhookAsync', 'webhookId', webhookId)
             const localVarPath = `/tenants/{tenantId}/webhooks/{webhookId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"webhookId"}}`, encodeURIComponent(String(webhookId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{webhookId}', encodeURIComponent(String(webhookId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -116,8 +118,8 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -141,7 +143,7 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllWebhookSubscriptionsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/webhooks/events`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -173,8 +175,8 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -199,7 +201,7 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllWebhooksAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/webhooks`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -231,8 +233,8 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -256,8 +258,8 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'webhookId' is not null or undefined
             assertParamExists('getWebhookByIdAsync', 'webhookId', webhookId)
             const localVarPath = `/tenants/{tenantId}/webhooks/{webhookId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"webhookId"}}`, encodeURIComponent(String(webhookId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{webhookId}', encodeURIComponent(String(webhookId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -273,11 +275,59 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} tenantId 
+         * @param {string} webhookId 
+         * @param {string} dispatchId 
+         * @param {TenantApiWebhookV1RequestReRunRequest} [tenantApiWebhookV1RequestReRunRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestWebhookReRun: async (tenantId: string, webhookId: string, dispatchId: string, tenantApiWebhookV1RequestReRunRequest?: TenantApiWebhookV1RequestReRunRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('requestWebhookReRun', 'tenantId', tenantId)
+            // verify required parameter 'webhookId' is not null or undefined
+            assertParamExists('requestWebhookReRun', 'webhookId', webhookId)
+            // verify required parameter 'dispatchId' is not null or undefined
+            assertParamExists('requestWebhookReRun', 'dispatchId', dispatchId)
+            const localVarPath = `/tenants/{tenantId}/webhooks/{webhookId}/dispatches/{dispatchId}/rerun`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{webhookId}', encodeURIComponent(String(webhookId)))
+                .replace('{dispatchId}', encodeURIComponent(String(dispatchId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(tenantApiWebhookV1RequestReRunRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -299,8 +349,8 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'webhookId' is not null or undefined
             assertParamExists('updateWebhookAsync', 'webhookId', webhookId)
             const localVarPath = `/tenants/{tenantId}/webhooks/{webhookId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"webhookId"}}`, encodeURIComponent(String(webhookId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{webhookId}', encodeURIComponent(String(webhookId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -316,9 +366,8 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -335,7 +384,6 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * WebhooksApi - functional programming interface
- * @export
  */
 export const WebhooksApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = WebhooksApiAxiosParamCreator(configuration)
@@ -417,6 +465,21 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} tenantId 
+         * @param {string} webhookId 
+         * @param {string} dispatchId 
+         * @param {TenantApiWebhookV1RequestReRunRequest} [tenantApiWebhookV1RequestReRunRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async requestWebhookReRun(tenantId: string, webhookId: string, dispatchId: string, tenantApiWebhookV1RequestReRunRequest?: TenantApiWebhookV1RequestReRunRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiWebhookV1ReRunRequestedResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.requestWebhookReRun(tenantId, webhookId, dispatchId, tenantApiWebhookV1RequestReRunRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['WebhooksApi.requestWebhookReRun']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Updates a webhook
          * @param {string} tenantId 
          * @param {string} webhookId 
@@ -435,7 +498,6 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
 
 /**
  * WebhooksApi - factory interface
- * @export
  */
 export const WebhooksApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = WebhooksApiFp(configuration)
@@ -491,6 +553,15 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
         },
         /**
          * 
+         * @param {WebhooksApiRequestWebhookReRunRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestWebhookReRun(requestParameters: WebhooksApiRequestWebhookReRunRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiWebhookV1ReRunRequestedResponse> {
+            return localVarFp.requestWebhookReRun(requestParameters.tenantId, requestParameters.webhookId, requestParameters.dispatchId, requestParameters.tenantApiWebhookV1RequestReRunRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Updates a webhook
          * @param {WebhooksApiUpdateWebhookAsyncRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -504,184 +575,129 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * Request parameters for createWebhookAsync operation in WebhooksApi.
- * @export
- * @interface WebhooksApiCreateWebhookAsyncRequest
  */
 export interface WebhooksApiCreateWebhookAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof WebhooksApiCreateWebhookAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {TenantApiWebhookV1CreateWebhookRequest}
-     * @memberof WebhooksApiCreateWebhookAsync
      */
     readonly tenantApiWebhookV1CreateWebhookRequest?: TenantApiWebhookV1CreateWebhookRequest
 }
 
 /**
  * Request parameters for deleteWebhookAsync operation in WebhooksApi.
- * @export
- * @interface WebhooksApiDeleteWebhookAsyncRequest
  */
 export interface WebhooksApiDeleteWebhookAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof WebhooksApiDeleteWebhookAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof WebhooksApiDeleteWebhookAsync
      */
     readonly webhookId: string
 }
 
 /**
  * Request parameters for getAllWebhookSubscriptionsAsync operation in WebhooksApi.
- * @export
- * @interface WebhooksApiGetAllWebhookSubscriptionsAsyncRequest
  */
 export interface WebhooksApiGetAllWebhookSubscriptionsAsyncRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof WebhooksApiGetAllWebhookSubscriptionsAsync
-     */
     readonly tenantId: string
 
-    /**
-     * 
-     * @type {number}
-     * @memberof WebhooksApiGetAllWebhookSubscriptionsAsync
-     */
     readonly pageSize?: number
 
-    /**
-     * 
-     * @type {number}
-     * @memberof WebhooksApiGetAllWebhookSubscriptionsAsync
-     */
     readonly pageIndex?: number
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WebhooksApiGetAllWebhookSubscriptionsAsync
-     */
     readonly orderBy?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WebhooksApiGetAllWebhookSubscriptionsAsync
-     */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getAllWebhooksAsync operation in WebhooksApi.
- * @export
- * @interface WebhooksApiGetAllWebhooksAsyncRequest
  */
 export interface WebhooksApiGetAllWebhooksAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof WebhooksApiGetAllWebhooksAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof WebhooksApiGetAllWebhooksAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof WebhooksApiGetAllWebhooksAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof WebhooksApiGetAllWebhooksAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof WebhooksApiGetAllWebhooksAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getWebhookByIdAsync operation in WebhooksApi.
- * @export
- * @interface WebhooksApiGetWebhookByIdAsyncRequest
  */
 export interface WebhooksApiGetWebhookByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof WebhooksApiGetWebhookByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof WebhooksApiGetWebhookByIdAsync
      */
     readonly webhookId: string
 }
 
 /**
+ * Request parameters for requestWebhookReRun operation in WebhooksApi.
+ */
+export interface WebhooksApiRequestWebhookReRunRequest {
+    readonly tenantId: string
+
+    readonly webhookId: string
+
+    readonly dispatchId: string
+
+    readonly tenantApiWebhookV1RequestReRunRequest?: TenantApiWebhookV1RequestReRunRequest
+}
+
+/**
  * Request parameters for updateWebhookAsync operation in WebhooksApi.
- * @export
- * @interface WebhooksApiUpdateWebhookAsyncRequest
  */
 export interface WebhooksApiUpdateWebhookAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof WebhooksApiUpdateWebhookAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof WebhooksApiUpdateWebhookAsync
      */
     readonly webhookId: string
 
     /**
      * 
-     * @type {TenantApiWebhookV1UpdateWebhookRequest}
-     * @memberof WebhooksApiUpdateWebhookAsync
      */
     readonly tenantApiWebhookV1UpdateWebhookRequest?: TenantApiWebhookV1UpdateWebhookRequest
 }
 
 /**
  * WebhooksApi - object-oriented interface
- * @export
- * @class WebhooksApi
- * @extends {BaseAPI}
  */
 export class WebhooksApi extends BaseAPI {
     /**
@@ -690,7 +706,6 @@ export class WebhooksApi extends BaseAPI {
      * @param {WebhooksApiCreateWebhookAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhooksApi
      */
     public createWebhookAsync(requestParameters: WebhooksApiCreateWebhookAsyncRequest, options?: RawAxiosRequestConfig) {
         return WebhooksApiFp(this.configuration).createWebhookAsync(requestParameters.tenantId, requestParameters.tenantApiWebhookV1CreateWebhookRequest, options).then((request) => request(this.axios, this.basePath));
@@ -702,7 +717,6 @@ export class WebhooksApi extends BaseAPI {
      * @param {WebhooksApiDeleteWebhookAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhooksApi
      */
     public deleteWebhookAsync(requestParameters: WebhooksApiDeleteWebhookAsyncRequest, options?: RawAxiosRequestConfig) {
         return WebhooksApiFp(this.configuration).deleteWebhookAsync(requestParameters.tenantId, requestParameters.webhookId, options).then((request) => request(this.axios, this.basePath));
@@ -713,7 +727,6 @@ export class WebhooksApi extends BaseAPI {
      * @param {WebhooksApiGetAllWebhookSubscriptionsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhooksApi
      */
     public getAllWebhookSubscriptionsAsync(requestParameters: WebhooksApiGetAllWebhookSubscriptionsAsyncRequest, options?: RawAxiosRequestConfig) {
         return WebhooksApiFp(this.configuration).getAllWebhookSubscriptionsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -725,7 +738,6 @@ export class WebhooksApi extends BaseAPI {
      * @param {WebhooksApiGetAllWebhooksAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhooksApi
      */
     public getAllWebhooksAsync(requestParameters: WebhooksApiGetAllWebhooksAsyncRequest, options?: RawAxiosRequestConfig) {
         return WebhooksApiFp(this.configuration).getAllWebhooksAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -737,10 +749,19 @@ export class WebhooksApi extends BaseAPI {
      * @param {WebhooksApiGetWebhookByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhooksApi
      */
     public getWebhookByIdAsync(requestParameters: WebhooksApiGetWebhookByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return WebhooksApiFp(this.configuration).getWebhookByIdAsync(requestParameters.tenantId, requestParameters.webhookId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {WebhooksApiRequestWebhookReRunRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public requestWebhookReRun(requestParameters: WebhooksApiRequestWebhookReRunRequest, options?: RawAxiosRequestConfig) {
+        return WebhooksApiFp(this.configuration).requestWebhookReRun(requestParameters.tenantId, requestParameters.webhookId, requestParameters.dispatchId, requestParameters.tenantApiWebhookV1RequestReRunRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -749,7 +770,6 @@ export class WebhooksApi extends BaseAPI {
      * @param {WebhooksApiUpdateWebhookAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhooksApi
      */
     public updateWebhookAsync(requestParameters: WebhooksApiUpdateWebhookAsyncRequest, options?: RawAxiosRequestConfig) {
         return WebhooksApiFp(this.configuration).updateWebhookAsync(requestParameters.tenantId, requestParameters.webhookId, requestParameters.tenantApiWebhookV1UpdateWebhookRequest, options).then((request) => request(this.axios, this.basePath));

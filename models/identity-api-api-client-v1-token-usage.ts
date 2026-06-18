@@ -14,15 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const IdentityApiApiClientV1TokenUsage = {
     ReUse: 'ReUse',
-    OneTimeOnly: 'OneTimeOnly'
+    OneTimeOnly: 'OneTimeOnly',
 } as const;
 
 export type IdentityApiApiClientV1TokenUsage = typeof IdentityApiApiClientV1TokenUsage[keyof typeof IdentityApiApiClientV1TokenUsage];

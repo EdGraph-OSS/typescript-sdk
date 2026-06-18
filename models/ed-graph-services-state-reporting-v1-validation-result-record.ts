@@ -14,83 +14,18 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1ValidationResultRecord
- */
 export interface EdGraphServicesStateReportingV1ValidationResultRecord {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ValidationResultRecord
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ValidationResultRecord
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ValidationResultRecord
-     */
     'dbEnvironmentId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ValidationResultRecord
-     */
     'collectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ValidationResultRecord
-     */
     'containerId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ValidationResultRecord
-     */
     'ruleId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ValidationResultRecord
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ValidationResultRecord
-     */
     'jobExecutionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ValidationResultRecord
-     */
     'runId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphServicesStateReportingV1ValidationResultRecord
-     */
     'excludeFromPost'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ValidationResultRecord
-     */
     'details'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ValidationResultRecord
-     */
     'detailsSchema'?: string | null;
 }
 

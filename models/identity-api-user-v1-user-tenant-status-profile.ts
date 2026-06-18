@@ -14,41 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1UserTenantStatusProfile
- */
 export interface IdentityApiUserV1UserTenantStatusProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantStatusProfile
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantStatusProfile
-     */
     'username'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantStatusProfile
-     */
     'firstName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantStatusProfile
-     */
     'lastName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantStatusProfile
-     */
     'status'?: string | null;
+    'platformRole'?: string | null;
 }
 

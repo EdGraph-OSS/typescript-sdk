@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1Url } from './validations-api-containers-v1-url';
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1UpdateContainerRequest
- */
 export interface ValidationsApiContainersV1UpdateContainerRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1UpdateContainerRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1UpdateContainerRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1UpdateContainerRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1UpdateContainerRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ValidationsApiContainersV1UpdateContainerRequest
-     */
     'tags'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiContainersV1Url>}
-     * @memberof ValidationsApiContainersV1UpdateContainerRequest
-     */
     'urls'?: Array<ValidationsApiContainersV1Url> | null;
 }
 

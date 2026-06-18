@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface FormApiSectionsV1UpdateSectionRequest
- */
 export interface FormApiSectionsV1UpdateSectionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1UpdateSectionRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1UpdateSectionRequest
-     */
     'formId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1UpdateSectionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1UpdateSectionRequest
-     */
     'title'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1UpdateSectionRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof FormApiSectionsV1UpdateSectionRequest
-     */
     'order'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1UpdateSectionRequest
-     */
     'subHeading'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1UpdateSectionRequest
-     */
     'customId'?: string | null;
 }
 

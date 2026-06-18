@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiDbEnvironmentsV1SqlServerConnection
- */
 export interface ValidationsApiDbEnvironmentsV1SqlServerConnection {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1SqlServerConnection
-     */
     'server'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1SqlServerConnection
-     */
     'database'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1SqlServerConnection
-     */
     'username'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1SqlServerConnection
-     */
     'password'?: string | null;
 }
 

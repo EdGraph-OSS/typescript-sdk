@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { IdentityApiStaffClassificationV1StaffClassificationLicenseRequest } from './identity-api-staff-classification-v1-staff-classification-license-request';
 
-/**
- * 
- * @export
- * @interface IdentityApiStaffClassificationV1UpdateStaffClassificationRequest
- */
 export interface IdentityApiStaffClassificationV1UpdateStaffClassificationRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1UpdateStaffClassificationRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1UpdateStaffClassificationRequest
-     */
     'namespace'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1UpdateStaffClassificationRequest
-     */
     'codeValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1UpdateStaffClassificationRequest
-     */
     'shortDescription'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiStaffClassificationV1UpdateStaffClassificationRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {Array<IdentityApiStaffClassificationV1StaffClassificationLicenseRequest>}
-     * @memberof IdentityApiStaffClassificationV1UpdateStaffClassificationRequest
-     */
     'licenses'?: Array<IdentityApiStaffClassificationV1StaffClassificationLicenseRequest> | null;
 }
 

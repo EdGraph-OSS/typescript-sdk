@@ -17,53 +17,13 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs } from './edfi-admin-api-edfi-admin-v1-instance-database-jobs';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1InstanceOdsDatabase
- */
 export interface EdfiAdminApiEdfiAdminV1InstanceOdsDatabase {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceOdsDatabase
-     */
     'selectedTierId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceOdsDatabase
-     */
     'selectedTierName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceOdsDatabase
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceOdsDatabase
-     */
     'jobs'?: EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceOdsDatabase
-     */
     'year'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceOdsDatabase
-     */
     'odsBackupCode'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceOdsDatabase
-     */
     'odsBackupDescription'?: string | null;
 }
 

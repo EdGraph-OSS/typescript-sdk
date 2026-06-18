@@ -23,70 +23,39 @@ import type { IdentityApiUserV1Preference } from './identity-api-user-v1-prefere
 // @ts-ignore
 import type { IdentityApiUserV1UserExtension } from './identity-api-user-v1-user-extension';
 
-/**
- * 
- * @export
- * @interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse
- */
 export interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse {
     /**
      * The user name for this user.
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse
      */
     'userName'?: string | null;
     /**
      * The email address for this user.
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse
      */
     'email'?: string | null;
     /**
      * The first name for this user.
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse
      */
     'firstName'?: string | null;
     /**
      * The last name for this user.
-     * @type {string}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse
      */
     'lastName'?: string | null;
     /**
      * List of preferences associated with this user
-     * @type {Array<IdentityApiUserV1Preference>}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse
      */
     'preferences'?: Array<IdentityApiUserV1Preference> | null;
     /**
      * List of tenants associated with this user
-     * @type {Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse>}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse
      */
     'tenants'?: Array<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse> | null;
     /**
      * Flag to indicate if the debug mode for user is enabled
-     * @type {boolean}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse
      */
     'browserDebugEnabled'?: boolean;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV1UserExtension>}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse
-     */
     'extensions'?: Array<IdentityApiUserV1UserExtension> | null;
-    /**
-     * 
-     * @type {EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse
-     */
     'selectedTenant'?: EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantResponse;
     /**
      * The total count of active tenants associated with this user
-     * @type {number}
-     * @memberof EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse
      */
     'tenantsTotalCount'?: number;
 }

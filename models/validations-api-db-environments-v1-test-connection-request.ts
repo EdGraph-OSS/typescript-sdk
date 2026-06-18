@@ -20,35 +20,10 @@ import type { ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection 
 // @ts-ignore
 import type { ValidationsApiDbEnvironmentsV1SqlServerConnection } from './validations-api-db-environments-v1-sql-server-connection';
 
-/**
- * 
- * @export
- * @interface ValidationsApiDbEnvironmentsV1TestConnectionRequest
- */
 export interface ValidationsApiDbEnvironmentsV1TestConnectionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1TestConnectionRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1TestConnectionRequest
-     */
     'connectionType'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiDbEnvironmentsV1SqlServerConnection}
-     * @memberof ValidationsApiDbEnvironmentsV1TestConnectionRequest
-     */
     'sqlServerConnection'?: ValidationsApiDbEnvironmentsV1SqlServerConnection;
-    /**
-     * 
-     * @type {ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection}
-     * @memberof ValidationsApiDbEnvironmentsV1TestConnectionRequest
-     */
     'azureSynapseSqlServerlessConnection'?: ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection;
 }
 

@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1StudentProgramRepresentation } from './edfi-admin-api-edfi-admin-v1-student-program-representation';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1StudentsByProgramReportResponse
- */
 export interface EdfiAdminApiEdfiAdminV1StudentsByProgramReportResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentsByProgramReportResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentsByProgramReportResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentsByProgramReportResponse
-     */
     'localEducationAgencyId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentsByProgramReportResponse
-     */
     'localEducationAgencyName'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentsByProgramReportResponse
-     */
     'totalStudentCount'?: number;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1StudentProgramRepresentation>}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentsByProgramReportResponse
-     */
     'studentProgramRepresentations'?: Array<EdfiAdminApiEdfiAdminV1StudentProgramRepresentation> | null;
 }
 

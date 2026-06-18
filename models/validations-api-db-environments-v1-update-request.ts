@@ -26,89 +26,28 @@ import type { ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection 
 // @ts-ignore
 import type { ValidationsApiDbEnvironmentsV1SqlServerConnection } from './validations-api-db-environments-v1-sql-server-connection';
 
-/**
- * 
- * @export
- * @interface ValidationsApiDbEnvironmentsV1UpdateRequest
- */
 export interface ValidationsApiDbEnvironmentsV1UpdateRequest {
     /**
      * Details
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1UpdateRequest
      */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1UpdateRequest
-     */
     'name'?: string | null;
     /**
      * Connection
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1UpdateRequest
      */
     'connectionType'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiDbEnvironmentsV1SqlServerConnection}
-     * @memberof ValidationsApiDbEnvironmentsV1UpdateRequest
-     */
     'sqlServerConnection'?: ValidationsApiDbEnvironmentsV1SqlServerConnection;
-    /**
-     * 
-     * @type {ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection}
-     * @memberof ValidationsApiDbEnvironmentsV1UpdateRequest
-     */
     'azureSynapseSqlServerlessConnection'?: ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection;
     /**
      * Metadata
-     * @type {number}
-     * @memberof ValidationsApiDbEnvironmentsV1UpdateRequest
      */
     'maxNumberResults'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiDbEnvironmentsV1UpdateRequest
-     */
     'timeoutInMinutes'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiDbEnvironmentsV1UpdateRequest
-     */
     'version'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1UpdateRequest
-     */
     'mapTables'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiCoreV1InstanceType}
-     * @memberof ValidationsApiDbEnvironmentsV1UpdateRequest
-     */
     'instanceType'?: ValidationsApiCoreV1InstanceType;
-    /**
-     * 
-     * @type {ValidationsApiCoreV1Provider}
-     * @memberof ValidationsApiDbEnvironmentsV1UpdateRequest
-     */
     'provider'?: ValidationsApiCoreV1Provider;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiDbEnvironmentsV1UpdateRequest
-     */
     'isDefault'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1UpdateRequest
-     */
     'metadataJson'?: string | null;
 }
 

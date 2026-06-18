@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EvaluationApiEvaluationsV1EvaluationCountResponse
- */
 export interface EvaluationApiEvaluationsV1EvaluationCountResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof EvaluationApiEvaluationsV1EvaluationCountResponse
-     */
     'evaluationCount'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EvaluationApiEvaluationsV1EvaluationCountResponse
-     */
     'appraiserCount'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EvaluationApiEvaluationsV1EvaluationCountResponse
-     */
     'staffCount'?: number;
 }
 

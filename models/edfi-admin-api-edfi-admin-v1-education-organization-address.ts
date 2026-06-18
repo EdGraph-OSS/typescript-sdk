@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1EducationOrganizationAddress
- */
 export interface EdfiAdminApiEdfiAdminV1EducationOrganizationAddress {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationAddress
-     */
     'addressTypeDescriptor'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationAddress
-     */
     'stateAbbreviationDescriptor'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationAddress
-     */
     'city'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationAddress
-     */
     'postalCode'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationAddress
-     */
     'streetNumberName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationAddress
-     */
     'localeDescriptor'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationAddress
-     */
     'buildingSiteNumber'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationAddress
-     */
     'nameOfCounty'?: string | null;
 }
 

@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 /**
  * CacheApi - axios parameter creator
- * @export
  */
 export const CacheApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -52,8 +51,8 @@ export const CacheApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -68,7 +67,6 @@ export const CacheApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * CacheApi - functional programming interface
- * @export
  */
 export const CacheApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CacheApiAxiosParamCreator(configuration)
@@ -90,7 +88,6 @@ export const CacheApiFp = function(configuration?: Configuration) {
 
 /**
  * CacheApi - factory interface
- * @export
  */
 export const CacheApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CacheApiFp(configuration)
@@ -109,9 +106,6 @@ export const CacheApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * CacheApi - object-oriented interface
- * @export
- * @class CacheApi
- * @extends {BaseAPI}
  */
 export class CacheApi extends BaseAPI {
     /**
@@ -119,7 +113,6 @@ export class CacheApi extends BaseAPI {
      * @summary Refreshes the user\'s profile cache.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CacheApi
      */
     public refreshUserProfileCache(options?: RawAxiosRequestConfig) {
         return CacheApiFp(this.configuration).refreshUserProfileCache(options).then((request) => request(this.axios, this.basePath));

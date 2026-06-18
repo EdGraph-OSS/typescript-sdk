@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1AddSubmissionMetricsRequest
- */
 export interface ValidationsApiReportingPeriodsV1AddSubmissionMetricsRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1AddSubmissionMetricsRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1AddSubmissionMetricsRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1AddSubmissionMetricsRequest
-     */
     'submissionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1AddSubmissionMetricsRequest
-     */
     'edFiResource'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1AddSubmissionMetricsRequest
-     */
     'succeededCount'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1AddSubmissionMetricsRequest
-     */
     'failedCount'?: number;
 }
 

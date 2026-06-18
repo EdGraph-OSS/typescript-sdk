@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * ApplicationsApi - axios parameter creator
- * @export
  */
 export const ApplicationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -49,8 +48,8 @@ export const ApplicationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'applicationId' is not null or undefined
             assertParamExists('getTenantApplicationProfileByIdAsync', 'applicationId', applicationId)
             const localVarPath = `/tenants/{tenantId}/applications/{applicationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"applicationId"}}`, encodeURIComponent(String(applicationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{applicationId}', encodeURIComponent(String(applicationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -66,8 +65,8 @@ export const ApplicationsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -92,7 +91,7 @@ export const ApplicationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getTenantApplicationsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/applications`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -124,8 +123,8 @@ export const ApplicationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -140,7 +139,6 @@ export const ApplicationsApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * ApplicationsApi - functional programming interface
- * @export
  */
 export const ApplicationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ApplicationsApiAxiosParamCreator(configuration)
@@ -181,7 +179,6 @@ export const ApplicationsApiFp = function(configuration?: Configuration) {
 
 /**
  * ApplicationsApi - factory interface
- * @export
  */
 export const ApplicationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ApplicationsApiFp(configuration)
@@ -211,72 +208,51 @@ export const ApplicationsApiFactory = function (configuration?: Configuration, b
 
 /**
  * Request parameters for getTenantApplicationProfileByIdAsync operation in ApplicationsApi.
- * @export
- * @interface ApplicationsApiGetTenantApplicationProfileByIdAsyncRequest
  */
 export interface ApplicationsApiGetTenantApplicationProfileByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsApiGetTenantApplicationProfileByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsApiGetTenantApplicationProfileByIdAsync
      */
     readonly applicationId: string
 }
 
 /**
  * Request parameters for getTenantApplicationsAsync operation in ApplicationsApi.
- * @export
- * @interface ApplicationsApiGetTenantApplicationsAsyncRequest
  */
 export interface ApplicationsApiGetTenantApplicationsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsApiGetTenantApplicationsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ApplicationsApiGetTenantApplicationsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ApplicationsApiGetTenantApplicationsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsApiGetTenantApplicationsAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsApiGetTenantApplicationsAsync
      */
     readonly filter?: string
 }
 
 /**
  * ApplicationsApi - object-oriented interface
- * @export
- * @class ApplicationsApi
- * @extends {BaseAPI}
  */
 export class ApplicationsApi extends BaseAPI {
     /**
@@ -285,7 +261,6 @@ export class ApplicationsApi extends BaseAPI {
      * @param {ApplicationsApiGetTenantApplicationProfileByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApplicationsApi
      */
     public getTenantApplicationProfileByIdAsync(requestParameters: ApplicationsApiGetTenantApplicationProfileByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return ApplicationsApiFp(this.configuration).getTenantApplicationProfileByIdAsync(requestParameters.tenantId, requestParameters.applicationId, options).then((request) => request(this.axios, this.basePath));
@@ -297,7 +272,6 @@ export class ApplicationsApi extends BaseAPI {
      * @param {ApplicationsApiGetTenantApplicationsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApplicationsApi
      */
     public getTenantApplicationsAsync(requestParameters: ApplicationsApiGetTenantApplicationsAsyncRequest, options?: RawAxiosRequestConfig) {
         return ApplicationsApiFp(this.configuration).getTenantApplicationsAsync(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));

@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1UpdateCollectionRequest
- */
 export interface ValidationsApiContainersV1UpdateCollectionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1UpdateCollectionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1UpdateCollectionRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1UpdateCollectionRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1UpdateCollectionRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1UpdateCollectionRequest
-     */
     'environmentType'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ValidationsApiContainersV1UpdateCollectionRequest
-     */
     'tags'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1UpdateCollectionRequest
-     */
     'state'?: string | null;
 }
 

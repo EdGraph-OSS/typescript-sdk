@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface FormApiQuestionsV1QuestionVisibilityRule
- */
 export interface FormApiQuestionsV1QuestionVisibilityRule {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiQuestionsV1QuestionVisibilityRule
-     */
     'fieldId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiQuestionsV1QuestionVisibilityRule
-     */
     'operator'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiQuestionsV1QuestionVisibilityRule
-     */
     'value'?: string | null;
 }
 

@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiLakehousesV1LakehouseRecord
- */
 export interface AnalyticsApiLakehousesV1LakehouseRecord {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiLakehousesV1LakehouseRecord
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsApiLakehousesV1LakehouseRecord
-     */
     'schoolYear'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiLakehousesV1LakehouseRecord
-     */
     'dataStandardName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiLakehousesV1LakehouseRecord
-     */
     'dataStandardVersion'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiLakehousesV1LakehouseRecord
-     */
     'entityName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiLakehousesV1LakehouseRecord
-     */
     'resourceKeyHash'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiLakehousesV1LakehouseRecord
-     */
     'jsonPayload'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiLakehousesV1LakehouseRecord
-     */
     'lastModifiedDateTime'?: string | null;
 }
 

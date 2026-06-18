@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -81,7 +81,6 @@ import type { ValidationsApiReportingPeriodsV1ValidationSummary } from '../model
 import type { ValidationsApiReportingPeriodsV1ValidationSummaryByCategoryId } from '../models';
 /**
  * ReportingPeriodsApi - axios parameter creator
- * @export
  */
 export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -103,9 +102,9 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'submissionId' is not null or undefined
             assertParamExists('addReportingPeriodSubmissionMetrics', 'submissionId', submissionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/submissions/{submissionId}/metrics`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"submissionId"}}`, encodeURIComponent(String(submissionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{submissionId}', encodeURIComponent(String(submissionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -121,9 +120,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -153,9 +151,9 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'submissionId' is not null or undefined
             assertParamExists('addReportingPeriodSubmissionMetricsBulk', 'submissionId', submissionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/submissions/{submissionId}/metrics/bulk`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"submissionId"}}`, encodeURIComponent(String(submissionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{submissionId}', encodeURIComponent(String(submissionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -171,9 +169,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -202,9 +199,9 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'submissionId' is not null or undefined
             assertParamExists('cancelReportingPeriodSubmission', 'submissionId', submissionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/submissions/{submissionId}/cancel`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"submissionId"}}`, encodeURIComponent(String(submissionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{submissionId}', encodeURIComponent(String(submissionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -220,8 +217,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -245,8 +242,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('closeReportingPeriodAsync', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/close`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -262,8 +259,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -287,8 +284,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('deleteReportingPeriodRules', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/rules`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -304,8 +301,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -329,8 +326,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('getReportingPeriodCertificationStatus', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/certificationstatus`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -346,8 +343,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -374,8 +371,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('getReportingPeriodRecords', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/records`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -403,8 +400,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['excludedFromPost'] = excludedFromPost;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -433,9 +430,9 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'ruleId' is not null or undefined
             assertParamExists('getReportingPeriodRuleRecords', 'ruleId', ruleId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/rules/{ruleId}/records`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"ruleId"}}`, encodeURIComponent(String(ruleId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{ruleId}', encodeURIComponent(String(ruleId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -459,8 +456,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['pageSize'] = pageSize;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -487,9 +484,9 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'submissionId' is not null or undefined
             assertParamExists('getReportingPeriodSubmission', 'submissionId', submissionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/submissions/{submissionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"submissionId"}}`, encodeURIComponent(String(submissionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{submissionId}', encodeURIComponent(String(submissionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -505,8 +502,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -530,8 +527,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('getReportingPeriodSubmissionLatest', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/submissions/latest`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -547,8 +544,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -579,9 +576,9 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'submissionId' is not null or undefined
             assertParamExists('getReportingPeriodSubmissionLogs', 'submissionId', submissionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/submissions/{submissionId}/logs`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"submissionId"}}`, encodeURIComponent(String(submissionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{submissionId}', encodeURIComponent(String(submissionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -613,8 +610,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -641,9 +638,9 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'submissionId' is not null or undefined
             assertParamExists('getReportingPeriodSubmissionMetrics', 'submissionId', submissionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/submissions/{submissionId}/metrics`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"submissionId"}}`, encodeURIComponent(String(submissionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{submissionId}', encodeURIComponent(String(submissionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -659,8 +656,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -688,8 +685,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('getReportingPeriodSubmissions', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/submissions`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -721,8 +718,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -746,8 +743,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('getReportingPeriodValidationSummary', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/validationsummary`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -763,8 +760,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -791,9 +788,9 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'categoryId' is not null or undefined
             assertParamExists('getReportingPeriodValidationSummaryByCategoryId', 'categoryId', categoryId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/validationsummary/categories/{categoryId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"categoryId"}}`, encodeURIComponent(String(categoryId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{categoryId}', encodeURIComponent(String(categoryId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -809,8 +806,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -835,7 +832,7 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getReportingPeriods', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -867,8 +864,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -893,8 +890,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('postReportingPeriod', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/post`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -910,9 +907,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -939,8 +935,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('runReportingPeriodValidations', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/run`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -960,8 +956,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['categoryId'] = categoryId;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -989,9 +985,9 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'ruleId' is not null or undefined
             assertParamExists('setReportingPeriodRuleRecordExcludeFromPostFlagBulk', 'ruleId', ruleId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/rules/{ruleId}/records/excludefrompost`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"ruleId"}}`, encodeURIComponent(String(ruleId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{ruleId}', encodeURIComponent(String(ruleId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1007,9 +1003,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1039,9 +1034,9 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'submissionId' is not null or undefined
             assertParamExists('setReportingPeriodSubmissionStatus', 'submissionId', submissionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/submissions/{submissionId}/status`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"submissionId"}}`, encodeURIComponent(String(submissionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{submissionId}', encodeURIComponent(String(submissionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1057,9 +1052,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1086,8 +1080,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('toggleReportingPeriodSelection', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/toggle`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1103,9 +1097,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1129,7 +1122,7 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('updateReportingPeriodBulk', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1145,9 +1138,8 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1164,7 +1156,6 @@ export const ReportingPeriodsApiAxiosParamCreator = function (configuration?: Co
 
 /**
  * ReportingPeriodsApi - functional programming interface
- * @export
  */
 export const ReportingPeriodsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ReportingPeriodsApiAxiosParamCreator(configuration)
@@ -1515,7 +1506,6 @@ export const ReportingPeriodsApiFp = function(configuration?: Configuration) {
 
 /**
  * ReportingPeriodsApi - factory interface
- * @export
  */
 export const ReportingPeriodsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ReportingPeriodsApiFp(configuration)
@@ -1745,702 +1735,501 @@ export const ReportingPeriodsApiFactory = function (configuration?: Configuratio
 
 /**
  * Request parameters for addReportingPeriodSubmissionMetrics operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiAddReportingPeriodSubmissionMetricsRequest
  */
 export interface ReportingPeriodsApiAddReportingPeriodSubmissionMetricsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiAddReportingPeriodSubmissionMetrics
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiAddReportingPeriodSubmissionMetrics
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiAddReportingPeriodSubmissionMetrics
      */
     readonly submissionId: string
 
     /**
      * 
-     * @type {ValidationsApiReportingPeriodsV1AddSubmissionMetricsRequest}
-     * @memberof ReportingPeriodsApiAddReportingPeriodSubmissionMetrics
      */
     readonly validationsApiReportingPeriodsV1AddSubmissionMetricsRequest?: ValidationsApiReportingPeriodsV1AddSubmissionMetricsRequest
 }
 
 /**
  * Request parameters for addReportingPeriodSubmissionMetricsBulk operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiAddReportingPeriodSubmissionMetricsBulkRequest
  */
 export interface ReportingPeriodsApiAddReportingPeriodSubmissionMetricsBulkRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiAddReportingPeriodSubmissionMetricsBulk
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiAddReportingPeriodSubmissionMetricsBulk
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiAddReportingPeriodSubmissionMetricsBulk
      */
     readonly submissionId: string
 
     /**
      * 
-     * @type {ValidationsApiReportingPeriodsV1AddSubmissionMetricsBulkRequest}
-     * @memberof ReportingPeriodsApiAddReportingPeriodSubmissionMetricsBulk
      */
     readonly validationsApiReportingPeriodsV1AddSubmissionMetricsBulkRequest?: ValidationsApiReportingPeriodsV1AddSubmissionMetricsBulkRequest
 }
 
 /**
  * Request parameters for cancelReportingPeriodSubmission operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiCancelReportingPeriodSubmissionRequest
  */
 export interface ReportingPeriodsApiCancelReportingPeriodSubmissionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiCancelReportingPeriodSubmission
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiCancelReportingPeriodSubmission
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiCancelReportingPeriodSubmission
      */
     readonly submissionId: string
 }
 
 /**
  * Request parameters for closeReportingPeriodAsync operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiCloseReportingPeriodAsyncRequest
  */
 export interface ReportingPeriodsApiCloseReportingPeriodAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiCloseReportingPeriodAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiCloseReportingPeriodAsync
      */
     readonly reportingPeriodId: string
 }
 
 /**
  * Request parameters for deleteReportingPeriodRules operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiDeleteReportingPeriodRulesRequest
  */
 export interface ReportingPeriodsApiDeleteReportingPeriodRulesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiDeleteReportingPeriodRules
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiDeleteReportingPeriodRules
      */
     readonly reportingPeriodId: string
 }
 
 /**
  * Request parameters for getReportingPeriodCertificationStatus operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiGetReportingPeriodCertificationStatusRequest
  */
 export interface ReportingPeriodsApiGetReportingPeriodCertificationStatusRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodCertificationStatus
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodCertificationStatus
      */
     readonly reportingPeriodId: string
 }
 
 /**
  * Request parameters for getReportingPeriodRecords operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiGetReportingPeriodRecordsRequest
  */
 export interface ReportingPeriodsApiGetReportingPeriodRecordsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodRecords
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodRecords
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ReportingPeriodsApiGetReportingPeriodRecords
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ReportingPeriodsApiGetReportingPeriodRecords
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {boolean}
-     * @memberof ReportingPeriodsApiGetReportingPeriodRecords
      */
     readonly excludedFromPost?: boolean
 }
 
 /**
  * Request parameters for getReportingPeriodRuleRecords operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiGetReportingPeriodRuleRecordsRequest
  */
 export interface ReportingPeriodsApiGetReportingPeriodRuleRecordsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodRuleRecords
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodRuleRecords
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodRuleRecords
      */
     readonly ruleId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ReportingPeriodsApiGetReportingPeriodRuleRecords
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ReportingPeriodsApiGetReportingPeriodRuleRecords
      */
     readonly pageSize?: number
 }
 
 /**
  * Request parameters for getReportingPeriodSubmission operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiGetReportingPeriodSubmissionRequest
  */
 export interface ReportingPeriodsApiGetReportingPeriodSubmissionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmission
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmission
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmission
      */
     readonly submissionId: string
 }
 
 /**
  * Request parameters for getReportingPeriodSubmissionLatest operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiGetReportingPeriodSubmissionLatestRequest
  */
 export interface ReportingPeriodsApiGetReportingPeriodSubmissionLatestRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissionLatest
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissionLatest
      */
     readonly reportingPeriodId: string
 }
 
 /**
  * Request parameters for getReportingPeriodSubmissionLogs operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiGetReportingPeriodSubmissionLogsRequest
  */
 export interface ReportingPeriodsApiGetReportingPeriodSubmissionLogsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissionLogs
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissionLogs
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissionLogs
      */
     readonly submissionId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissionLogs
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissionLogs
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissionLogs
      */
     readonly filter?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissionLogs
      */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for getReportingPeriodSubmissionMetrics operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiGetReportingPeriodSubmissionMetricsRequest
  */
 export interface ReportingPeriodsApiGetReportingPeriodSubmissionMetricsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissionMetrics
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissionMetrics
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissionMetrics
      */
     readonly submissionId: string
 }
 
 /**
  * Request parameters for getReportingPeriodSubmissions operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiGetReportingPeriodSubmissionsRequest
  */
 export interface ReportingPeriodsApiGetReportingPeriodSubmissionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissions
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissions
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissions
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissions
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissions
      */
     readonly filter?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodSubmissions
      */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for getReportingPeriodValidationSummary operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiGetReportingPeriodValidationSummaryRequest
  */
 export interface ReportingPeriodsApiGetReportingPeriodValidationSummaryRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodValidationSummary
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodValidationSummary
      */
     readonly reportingPeriodId: string
 }
 
 /**
  * Request parameters for getReportingPeriodValidationSummaryByCategoryId operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiGetReportingPeriodValidationSummaryByCategoryIdRequest
  */
 export interface ReportingPeriodsApiGetReportingPeriodValidationSummaryByCategoryIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodValidationSummaryByCategoryId
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodValidationSummaryByCategoryId
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriodValidationSummaryByCategoryId
      */
     readonly categoryId: string
 }
 
 /**
  * Request parameters for getReportingPeriods operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiGetReportingPeriodsRequest
  */
 export interface ReportingPeriodsApiGetReportingPeriodsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriods
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ReportingPeriodsApiGetReportingPeriods
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ReportingPeriodsApiGetReportingPeriods
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriods
      */
     readonly filter?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiGetReportingPeriods
      */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for postReportingPeriod operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiPostReportingPeriodRequest
  */
 export interface ReportingPeriodsApiPostReportingPeriodRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiPostReportingPeriod
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiPostReportingPeriod
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {ValidationsApiReportingPeriodsV1PostRequest}
-     * @memberof ReportingPeriodsApiPostReportingPeriod
      */
     readonly validationsApiReportingPeriodsV1PostRequest?: ValidationsApiReportingPeriodsV1PostRequest
 }
 
 /**
  * Request parameters for runReportingPeriodValidations operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiRunReportingPeriodValidationsRequest
  */
 export interface ReportingPeriodsApiRunReportingPeriodValidationsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiRunReportingPeriodValidations
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiRunReportingPeriodValidations
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiRunReportingPeriodValidations
      */
     readonly categoryId?: string
 }
 
 /**
  * Request parameters for setReportingPeriodRuleRecordExcludeFromPostFlagBulk operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiSetReportingPeriodRuleRecordExcludeFromPostFlagBulkRequest
  */
 export interface ReportingPeriodsApiSetReportingPeriodRuleRecordExcludeFromPostFlagBulkRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiSetReportingPeriodRuleRecordExcludeFromPostFlagBulk
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiSetReportingPeriodRuleRecordExcludeFromPostFlagBulk
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiSetReportingPeriodRuleRecordExcludeFromPostFlagBulk
      */
     readonly ruleId: string
 
     /**
      * 
-     * @type {ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequest}
-     * @memberof ReportingPeriodsApiSetReportingPeriodRuleRecordExcludeFromPostFlagBulk
      */
     readonly validationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequest?: ValidationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequest
 }
 
 /**
  * Request parameters for setReportingPeriodSubmissionStatus operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiSetReportingPeriodSubmissionStatusRequest
  */
 export interface ReportingPeriodsApiSetReportingPeriodSubmissionStatusRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiSetReportingPeriodSubmissionStatus
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiSetReportingPeriodSubmissionStatus
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiSetReportingPeriodSubmissionStatus
      */
     readonly submissionId: string
 
     /**
      * 
-     * @type {ValidationsApiReportingPeriodsV1SetSubmissionStatusRequest}
-     * @memberof ReportingPeriodsApiSetReportingPeriodSubmissionStatus
      */
     readonly validationsApiReportingPeriodsV1SetSubmissionStatusRequest?: ValidationsApiReportingPeriodsV1SetSubmissionStatusRequest
 }
 
 /**
  * Request parameters for toggleReportingPeriodSelection operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiToggleReportingPeriodSelectionRequest
  */
 export interface ReportingPeriodsApiToggleReportingPeriodSelectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiToggleReportingPeriodSelection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiToggleReportingPeriodSelection
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {ValidationsApiReportingPeriodsV1ToggleSelectedRequest}
-     * @memberof ReportingPeriodsApiToggleReportingPeriodSelection
      */
     readonly validationsApiReportingPeriodsV1ToggleSelectedRequest?: ValidationsApiReportingPeriodsV1ToggleSelectedRequest
 }
 
 /**
  * Request parameters for updateReportingPeriodBulk operation in ReportingPeriodsApi.
- * @export
- * @interface ReportingPeriodsApiUpdateReportingPeriodBulkRequest
  */
 export interface ReportingPeriodsApiUpdateReportingPeriodBulkRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportingPeriodsApiUpdateReportingPeriodBulk
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {ValidationsApiReportingPeriodsV1UpdateBulkRequest}
-     * @memberof ReportingPeriodsApiUpdateReportingPeriodBulk
      */
     readonly validationsApiReportingPeriodsV1UpdateBulkRequest?: ValidationsApiReportingPeriodsV1UpdateBulkRequest
 }
 
 /**
  * ReportingPeriodsApi - object-oriented interface
- * @export
- * @class ReportingPeriodsApi
- * @extends {BaseAPI}
  */
 export class ReportingPeriodsApi extends BaseAPI {
     /**
@@ -2449,7 +2238,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiAddReportingPeriodSubmissionMetricsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public addReportingPeriodSubmissionMetrics(requestParameters: ReportingPeriodsApiAddReportingPeriodSubmissionMetricsRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).addReportingPeriodSubmissionMetrics(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.submissionId, requestParameters.validationsApiReportingPeriodsV1AddSubmissionMetricsRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2461,7 +2249,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiAddReportingPeriodSubmissionMetricsBulkRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public addReportingPeriodSubmissionMetricsBulk(requestParameters: ReportingPeriodsApiAddReportingPeriodSubmissionMetricsBulkRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).addReportingPeriodSubmissionMetricsBulk(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.submissionId, requestParameters.validationsApiReportingPeriodsV1AddSubmissionMetricsBulkRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2473,7 +2260,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiCancelReportingPeriodSubmissionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public cancelReportingPeriodSubmission(requestParameters: ReportingPeriodsApiCancelReportingPeriodSubmissionRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).cancelReportingPeriodSubmission(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.submissionId, options).then((request) => request(this.axios, this.basePath));
@@ -2485,7 +2271,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiCloseReportingPeriodAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public closeReportingPeriodAsync(requestParameters: ReportingPeriodsApiCloseReportingPeriodAsyncRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).closeReportingPeriodAsync(requestParameters.tenantId, requestParameters.reportingPeriodId, options).then((request) => request(this.axios, this.basePath));
@@ -2497,7 +2282,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiDeleteReportingPeriodRulesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public deleteReportingPeriodRules(requestParameters: ReportingPeriodsApiDeleteReportingPeriodRulesRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).deleteReportingPeriodRules(requestParameters.tenantId, requestParameters.reportingPeriodId, options).then((request) => request(this.axios, this.basePath));
@@ -2509,7 +2293,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiGetReportingPeriodCertificationStatusRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public getReportingPeriodCertificationStatus(requestParameters: ReportingPeriodsApiGetReportingPeriodCertificationStatusRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).getReportingPeriodCertificationStatus(requestParameters.tenantId, requestParameters.reportingPeriodId, options).then((request) => request(this.axios, this.basePath));
@@ -2521,7 +2304,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiGetReportingPeriodRecordsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public getReportingPeriodRecords(requestParameters: ReportingPeriodsApiGetReportingPeriodRecordsRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).getReportingPeriodRecords(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.excludedFromPost, options).then((request) => request(this.axios, this.basePath));
@@ -2533,7 +2315,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiGetReportingPeriodRuleRecordsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public getReportingPeriodRuleRecords(requestParameters: ReportingPeriodsApiGetReportingPeriodRuleRecordsRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).getReportingPeriodRuleRecords(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.ruleId, requestParameters.pageIndex, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
@@ -2545,7 +2326,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiGetReportingPeriodSubmissionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public getReportingPeriodSubmission(requestParameters: ReportingPeriodsApiGetReportingPeriodSubmissionRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).getReportingPeriodSubmission(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.submissionId, options).then((request) => request(this.axios, this.basePath));
@@ -2557,7 +2337,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiGetReportingPeriodSubmissionLatestRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public getReportingPeriodSubmissionLatest(requestParameters: ReportingPeriodsApiGetReportingPeriodSubmissionLatestRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).getReportingPeriodSubmissionLatest(requestParameters.tenantId, requestParameters.reportingPeriodId, options).then((request) => request(this.axios, this.basePath));
@@ -2569,7 +2348,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiGetReportingPeriodSubmissionLogsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public getReportingPeriodSubmissionLogs(requestParameters: ReportingPeriodsApiGetReportingPeriodSubmissionLogsRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).getReportingPeriodSubmissionLogs(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.submissionId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -2581,7 +2359,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiGetReportingPeriodSubmissionMetricsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public getReportingPeriodSubmissionMetrics(requestParameters: ReportingPeriodsApiGetReportingPeriodSubmissionMetricsRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).getReportingPeriodSubmissionMetrics(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.submissionId, options).then((request) => request(this.axios, this.basePath));
@@ -2593,7 +2370,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiGetReportingPeriodSubmissionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public getReportingPeriodSubmissions(requestParameters: ReportingPeriodsApiGetReportingPeriodSubmissionsRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).getReportingPeriodSubmissions(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -2605,7 +2381,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiGetReportingPeriodValidationSummaryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public getReportingPeriodValidationSummary(requestParameters: ReportingPeriodsApiGetReportingPeriodValidationSummaryRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).getReportingPeriodValidationSummary(requestParameters.tenantId, requestParameters.reportingPeriodId, options).then((request) => request(this.axios, this.basePath));
@@ -2617,7 +2392,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiGetReportingPeriodValidationSummaryByCategoryIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public getReportingPeriodValidationSummaryByCategoryId(requestParameters: ReportingPeriodsApiGetReportingPeriodValidationSummaryByCategoryIdRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).getReportingPeriodValidationSummaryByCategoryId(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.categoryId, options).then((request) => request(this.axios, this.basePath));
@@ -2629,7 +2403,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiGetReportingPeriodsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public getReportingPeriods(requestParameters: ReportingPeriodsApiGetReportingPeriodsRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).getReportingPeriods(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -2641,7 +2414,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiPostReportingPeriodRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public postReportingPeriod(requestParameters: ReportingPeriodsApiPostReportingPeriodRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).postReportingPeriod(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.validationsApiReportingPeriodsV1PostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2653,7 +2425,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiRunReportingPeriodValidationsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public runReportingPeriodValidations(requestParameters: ReportingPeriodsApiRunReportingPeriodValidationsRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).runReportingPeriodValidations(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.categoryId, options).then((request) => request(this.axios, this.basePath));
@@ -2665,7 +2436,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiSetReportingPeriodRuleRecordExcludeFromPostFlagBulkRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public setReportingPeriodRuleRecordExcludeFromPostFlagBulk(requestParameters: ReportingPeriodsApiSetReportingPeriodRuleRecordExcludeFromPostFlagBulkRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).setReportingPeriodRuleRecordExcludeFromPostFlagBulk(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.ruleId, requestParameters.validationsApiReportingPeriodsV1SetRuleRecordPostFlagBulkRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2677,7 +2447,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiSetReportingPeriodSubmissionStatusRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public setReportingPeriodSubmissionStatus(requestParameters: ReportingPeriodsApiSetReportingPeriodSubmissionStatusRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).setReportingPeriodSubmissionStatus(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.submissionId, requestParameters.validationsApiReportingPeriodsV1SetSubmissionStatusRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2689,7 +2458,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiToggleReportingPeriodSelectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public toggleReportingPeriodSelection(requestParameters: ReportingPeriodsApiToggleReportingPeriodSelectionRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).toggleReportingPeriodSelection(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.validationsApiReportingPeriodsV1ToggleSelectedRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2701,7 +2469,6 @@ export class ReportingPeriodsApi extends BaseAPI {
      * @param {ReportingPeriodsApiUpdateReportingPeriodBulkRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportingPeriodsApi
      */
     public updateReportingPeriodBulk(requestParameters: ReportingPeriodsApiUpdateReportingPeriodBulkRequest, options?: RawAxiosRequestConfig) {
         return ReportingPeriodsApiFp(this.configuration).updateReportingPeriodBulk(requestParameters.tenantId, requestParameters.validationsApiReportingPeriodsV1UpdateBulkRequest, options).then((request) => request(this.axios, this.basePath));

@@ -14,11 +14,6 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ValidationsApiCoreV1Provider = {
     Unknown: 'Unknown',
@@ -26,7 +21,7 @@ export const ValidationsApiCoreV1Provider = {
     TexasEducationExchange: 'TexasEducationExchange',
     TexasEducationAgency: 'TexasEducationAgency',
     OpenEducationAnalytics: 'OpenEducationAnalytics',
-    External: 'External'
+    External: 'External',
 } as const;
 
 export type ValidationsApiCoreV1Provider = typeof ValidationsApiCoreV1Provider[keyof typeof ValidationsApiCoreV1Provider];

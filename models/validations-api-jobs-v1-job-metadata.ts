@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiJobsV1JobMetadata
- */
 export interface ValidationsApiJobsV1JobMetadata {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobMetadata
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobMetadata
-     */
     'value'?: string | null;
 }
 

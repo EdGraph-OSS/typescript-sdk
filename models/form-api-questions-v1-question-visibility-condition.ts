@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { FormApiQuestionsV1QuestionVisibilityRule } from './form-api-questions-v1-question-visibility-rule';
 
-/**
- * 
- * @export
- * @interface FormApiQuestionsV1QuestionVisibilityCondition
- */
 export interface FormApiQuestionsV1QuestionVisibilityCondition {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiQuestionsV1QuestionVisibilityCondition
-     */
     'logic'?: string | null;
-    /**
-     * 
-     * @type {Array<FormApiQuestionsV1QuestionVisibilityRule>}
-     * @memberof FormApiQuestionsV1QuestionVisibilityCondition
-     */
     'rules'?: Array<FormApiQuestionsV1QuestionVisibilityRule> | null;
 }
 

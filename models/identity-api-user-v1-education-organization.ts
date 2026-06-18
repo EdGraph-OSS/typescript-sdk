@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1EducationOrganization
- */
 export interface IdentityApiUserV1EducationOrganization {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1EducationOrganization
-     */
     'educationOrganizationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1EducationOrganization
-     */
     'shortNameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1EducationOrganization
-     */
     'nameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiUserV1EducationOrganization
-     */
     'staffClassifications'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1EducationOrganization
-     */
     'source'?: string | null;
 }
 

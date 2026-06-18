@@ -14,17 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const DataSyncApiJobExecutionLogV1MessageType = {
     Information: 'Information',
     Warning: 'Warning',
     SyncError: 'SyncError',
-    FatalError: 'FatalError'
+    FatalError: 'FatalError',
 } as const;
 
 export type DataSyncApiJobExecutionLogV1MessageType = typeof DataSyncApiJobExecutionLogV1MessageType[keyof typeof DataSyncApiJobExecutionLogV1MessageType];

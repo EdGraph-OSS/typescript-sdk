@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiRulesV1RuleDto } from './validations-api-rules-v1-rule-dto';
 
-/**
- * 
- * @export
- * @interface ValidationsApiRulesV1PaginatedRules
- */
 export interface ValidationsApiRulesV1PaginatedRules {
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiRulesV1PaginatedRules
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiRulesV1PaginatedRules
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiRulesV1PaginatedRules
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<ValidationsApiRulesV1RuleDto>}
-     * @memberof ValidationsApiRulesV1PaginatedRules
-     */
     'data'?: Array<ValidationsApiRulesV1RuleDto> | null;
 }
 

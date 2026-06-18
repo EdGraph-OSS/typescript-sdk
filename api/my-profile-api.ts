@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { IdentityApiUserV2TenantMeProfile } from '../models';
 import type { IdentityApiUserV2UserMeProfile } from '../models';
 /**
  * MyProfileApi - axios parameter creator
- * @export
  */
 export const MyProfileApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -58,8 +57,8 @@ export const MyProfileApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -80,7 +79,7 @@ export const MyProfileApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getMyTenant', 'tenantId', tenantId)
             const localVarPath = `/v2/me/tenants/{tenantId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -96,8 +95,8 @@ export const MyProfileApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -135,8 +134,8 @@ export const MyProfileApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['numberOfTenants'] = numberOfTenants;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -151,7 +150,6 @@ export const MyProfileApiAxiosParamCreator = function (configuration?: Configura
 
 /**
  * MyProfileApi - functional programming interface
- * @export
  */
 export const MyProfileApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MyProfileApiAxiosParamCreator(configuration)
@@ -199,7 +197,6 @@ export const MyProfileApiFp = function(configuration?: Configuration) {
 
 /**
  * MyProfileApi - factory interface
- * @export
  */
 export const MyProfileApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MyProfileApiFp(configuration)
@@ -238,37 +235,20 @@ export const MyProfileApiFactory = function (configuration?: Configuration, base
 
 /**
  * Request parameters for getMyTenant operation in MyProfileApi.
- * @export
- * @interface MyProfileApiGetMyTenantRequest
  */
 export interface MyProfileApiGetMyTenantRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof MyProfileApiGetMyTenant
-     */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for getUserCacheAsync operation in MyProfileApi.
- * @export
- * @interface MyProfileApiGetUserCacheAsyncRequest
  */
 export interface MyProfileApiGetUserCacheAsyncRequest {
-    /**
-     * 
-     * @type {number}
-     * @memberof MyProfileApiGetUserCacheAsync
-     */
     readonly numberOfTenants?: number
 }
 
 /**
  * MyProfileApi - object-oriented interface
- * @export
- * @class MyProfileApi
- * @extends {BaseAPI}
  */
 export class MyProfileApi extends BaseAPI {
     /**
@@ -276,7 +256,6 @@ export class MyProfileApi extends BaseAPI {
      * @summary Get the profile of the user that is currently logged in.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MyProfileApi
      */
     public getMyProfile(options?: RawAxiosRequestConfig) {
         return MyProfileApiFp(this.configuration).getMyProfile(options).then((request) => request(this.axios, this.basePath));
@@ -288,7 +267,6 @@ export class MyProfileApi extends BaseAPI {
      * @param {MyProfileApiGetMyTenantRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MyProfileApi
      */
     public getMyTenant(requestParameters: MyProfileApiGetMyTenantRequest, options?: RawAxiosRequestConfig) {
         return MyProfileApiFp(this.configuration).getMyTenant(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -300,7 +278,6 @@ export class MyProfileApi extends BaseAPI {
      * @param {MyProfileApiGetUserCacheAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MyProfileApi
      */
     public getUserCacheAsync(requestParameters: MyProfileApiGetUserCacheAsyncRequest = {}, options?: RawAxiosRequestConfig) {
         return MyProfileApiFp(this.configuration).getUserCacheAsync(requestParameters.numberOfTenants, options).then((request) => request(this.axios, this.basePath));

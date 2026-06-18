@@ -29,239 +29,44 @@ import type { IMSAdminApiV1ClientsTokenExpiration } from './imsadmin-api-v1-clie
 // @ts-ignore
 import type { IMSAdminApiV1ClientsTokenUsage } from './imsadmin-api-v1-clients-token-usage';
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ClientsClientProfileResponse
- */
 export interface IMSAdminApiV1ClientsClientProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'clientName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'clientUri'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'logoUri'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {IMSAdminApiV1ClientsAccessTokenType}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'accessTokenType'?: IMSAdminApiV1ClientsAccessTokenType;
-    /**
-     * 
-     * @type {IMSAdminApiV1ClientsTokenUsage}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'tokenUsage'?: IMSAdminApiV1ClientsTokenUsage;
-    /**
-     * 
-     * @type {IMSAdminApiV1ClientsTokenExpiration}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'refreshTokenExpiration'?: IMSAdminApiV1ClientsTokenExpiration;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'enableLocalLogin'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'allowOfflineAccess'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'allowAccessTokensViaBrowser'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'updateAccessTokenClaimsOnRefresh'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'alwaysIncludeUserClaimsInIdToken'?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'identityTokenLifetime'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'accessTokenLifetime'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'authorizationCodeLifetime'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'absoluteRefreshTokenLifetime'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'slidingRefreshTokenLifetime'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'requireClientSecret'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'requireConsent'?: boolean;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'allowedScopes'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'allowedCorsOrigins'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'allowedGrantTypes'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'identityProviderRestrictions'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'redirectUris'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'postLogoutRedirectUris'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<IMSAdminApiV1ClientsSecret>}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'clientSecrets'?: Array<IMSAdminApiV1ClientsSecret> | null;
-    /**
-     * 
-     * @type {Array<IMSAdminApiV1ClientsClaim>}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'claims'?: Array<IMSAdminApiV1ClientsClaim> | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'requirePkce'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ClientsClientProfileResponse
-     */
     'selectedScope'?: boolean;
 }
 

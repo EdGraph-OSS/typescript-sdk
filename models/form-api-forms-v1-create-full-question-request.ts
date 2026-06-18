@@ -23,89 +23,19 @@ import type { FormApiQuestionsV1QuestionType } from './form-api-questions-v1-que
 // @ts-ignore
 import type { FormApiQuestionsV1QuestionVisibilityCondition } from './form-api-questions-v1-question-visibility-condition';
 
-/**
- * 
- * @export
- * @interface FormApiFormsV1CreateFullQuestionRequest
- */
 export interface FormApiFormsV1CreateFullQuestionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullQuestionRequest
-     */
     'title'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullQuestionRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {FormApiQuestionsV1QuestionType}
-     * @memberof FormApiFormsV1CreateFullQuestionRequest
-     */
     'type'?: FormApiQuestionsV1QuestionType;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FormApiFormsV1CreateFullQuestionRequest
-     */
     'required'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullQuestionRequest
-     */
     'defaultValue'?: string | null;
-    /**
-     * 
-     * @type {FormApiFormsV1CreateFullQuestionValidationRequest}
-     * @memberof FormApiFormsV1CreateFullQuestionRequest
-     */
     'validation'?: FormApiFormsV1CreateFullQuestionValidationRequest;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof FormApiFormsV1CreateFullQuestionRequest
-     */
     'options'?: Array<string> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof FormApiFormsV1CreateFullQuestionRequest
-     */
     'order'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullQuestionRequest
-     */
     'component'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullQuestionRequest
-     */
     'customId'?: string | null;
-    /**
-     * 
-     * @type {FormApiQuestionsV1QuestionVisibilityCondition}
-     * @memberof FormApiFormsV1CreateFullQuestionRequest
-     */
     'visibilityCondition'?: FormApiQuestionsV1QuestionVisibilityCondition;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullQuestionRequest
-     */
     'originalQuestionId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FormApiFormsV1CreateFullQuestionRequest
-     */
     'multiline'?: boolean | null;
 }
 

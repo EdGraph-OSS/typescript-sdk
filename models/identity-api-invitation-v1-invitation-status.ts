@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const IdentityApiInvitationV1InvitationStatus = {
     Unknown: 'Unknown',
     Invited: 'Invited',
-    Accepted: 'Accepted'
+    Accepted: 'Accepted',
 } as const;
 
 export type IdentityApiInvitationV1InvitationStatus = typeof IdentityApiInvitationV1InvitationStatus[keyof typeof IdentityApiInvitationV1InvitationStatus];

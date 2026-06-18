@@ -14,77 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiProviderV1ConnectionMetadataField
- */
 export interface DataSyncApiProviderV1ConnectionMetadataField {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionMetadataField
-     */
     'tab'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionMetadataField
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionMetadataField
-     */
     'label'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionMetadataField
-     */
     'validation'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionMetadataField
-     */
     'order'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiProviderV1ConnectionMetadataField
-     */
     'display'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionMetadataField
-     */
     'defaultValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionMetadataField
-     */
     'type'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionMetadataField
-     */
     'values'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionMetadataField
-     */
     'api'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiProviderV1ConnectionMetadataField
-     */
     'isSecret'?: boolean;
 }
 

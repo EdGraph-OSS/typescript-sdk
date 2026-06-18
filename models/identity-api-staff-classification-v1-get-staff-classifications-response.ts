@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IdentityApiStaffClassificationV1StaffClassificationResponse } from './identity-api-staff-classification-v1-staff-classification-response';
 
-/**
- * 
- * @export
- * @interface IdentityApiStaffClassificationV1GetStaffClassificationsResponse
- */
 export interface IdentityApiStaffClassificationV1GetStaffClassificationsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiStaffClassificationV1GetStaffClassificationsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiStaffClassificationV1GetStaffClassificationsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiStaffClassificationV1GetStaffClassificationsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<IdentityApiStaffClassificationV1StaffClassificationResponse>}
-     * @memberof IdentityApiStaffClassificationV1GetStaffClassificationsResponse
-     */
     'data'?: Array<IdentityApiStaffClassificationV1StaffClassificationResponse> | null;
 }
 

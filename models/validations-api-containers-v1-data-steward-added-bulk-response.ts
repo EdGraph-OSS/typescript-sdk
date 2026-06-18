@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1DataStewardAddedBulkResponse Types Collection } from './validations-api-containers-v1-data-steward-added-bulk-response types collection';
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1DataStewardAddedBulkResponse
- */
 export interface ValidationsApiContainersV1DataStewardAddedBulkResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1DataStewardAddedBulkResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiContainersV1DataStewardAddedBulkResponse Types Collection>}
-     * @memberof ValidationsApiContainersV1DataStewardAddedBulkResponse
-     */
     'collections'?: Array<ValidationsApiContainersV1DataStewardAddedBulkResponse Types Collection> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1DataStewardAddedBulkResponse
-     */
     'reportingPeriodId'?: string | null;
 }
 

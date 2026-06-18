@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { TenantApiTenantV1TenantSettingTypesListResponse } from './tenant-api-tenant-v1-tenant-setting-types-list-response';
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModel
- */
 export interface TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<TenantApiTenantV1TenantSettingTypesListResponse>}
-     * @memberof TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModel
-     */
     'data'?: Array<TenantApiTenantV1TenantSettingTypesListResponse> | null;
 }
 

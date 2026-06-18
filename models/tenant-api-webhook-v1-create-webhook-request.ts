@@ -20,65 +20,15 @@ import type { TenantApiWebhookV1WebhookSchema } from './tenant-api-webhook-v1-we
 // @ts-ignore
 import type { TenantApiWebhookV1WebhookSubscriberResponse } from './tenant-api-webhook-v1-webhook-subscriber-response';
 
-/**
- * 
- * @export
- * @interface TenantApiWebhookV1CreateWebhookRequest
- */
 export interface TenantApiWebhookV1CreateWebhookRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1CreateWebhookRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1CreateWebhookRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1CreateWebhookRequest
-     */
     'url'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1CreateWebhookRequest
-     */
     'secretHeader'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1CreateWebhookRequest
-     */
     'secretValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1CreateWebhookRequest
-     */
     'contentType'?: string | null;
-    /**
-     * 
-     * @type {Array<TenantApiWebhookV1WebhookSubscriberResponse>}
-     * @memberof TenantApiWebhookV1CreateWebhookRequest
-     */
     'eventSubscriptions'?: Array<TenantApiWebhookV1WebhookSubscriberResponse> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof TenantApiWebhookV1CreateWebhookRequest
-     */
     'subscriptions'?: Array<string> | null;
-    /**
-     * 
-     * @type {TenantApiWebhookV1WebhookSchema}
-     * @memberof TenantApiWebhookV1CreateWebhookRequest
-     */
     'webhookSchema'?: TenantApiWebhookV1WebhookSchema;
 }
 

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { TenantApiTenantV1OnboardingStep } from './tenant-api-tenant-v1-onboarding-step';
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1OnboardingStepsReponse
- */
 export interface TenantApiTenantV1OnboardingStepsReponse {
-    /**
-     * 
-     * @type {Array<TenantApiTenantV1OnboardingStep>}
-     * @memberof TenantApiTenantV1OnboardingStepsReponse
-     */
     'steps'?: Array<TenantApiTenantV1OnboardingStep> | null;
 }
 

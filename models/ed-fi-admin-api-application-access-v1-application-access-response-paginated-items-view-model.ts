@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdFiAdminApiApplicationAccessV1ApplicationAccessResponse } from './ed-fi-admin-api-application-access-v1-application-access-response';
 
-/**
- * 
- * @export
- * @interface EdFiAdminApiApplicationAccessV1ApplicationAccessResponsePaginatedItemsViewModel
- */
 export interface EdFiAdminApiApplicationAccessV1ApplicationAccessResponsePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdFiAdminApiApplicationAccessV1ApplicationAccessResponsePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdFiAdminApiApplicationAccessV1ApplicationAccessResponsePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdFiAdminApiApplicationAccessV1ApplicationAccessResponsePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdFiAdminApiApplicationAccessV1ApplicationAccessResponse>}
-     * @memberof EdFiAdminApiApplicationAccessV1ApplicationAccessResponsePaginatedItemsViewModel
-     */
     'data'?: Array<EdFiAdminApiApplicationAccessV1ApplicationAccessResponse> | null;
 }
 

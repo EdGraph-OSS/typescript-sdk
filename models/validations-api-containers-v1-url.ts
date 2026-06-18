@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1Url
- */
 export interface ValidationsApiContainersV1Url {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1Url
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1Url
-     */
     'label'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1Url
-     */
     'value'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiContainersV1Url
-     */
     'openInNewTab'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiContainersV1Url
-     */
     'systemDefined'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiContainersV1Url
-     */
     'readonly'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1Url
-     */
     'urlType'?: string | null;
 }
 

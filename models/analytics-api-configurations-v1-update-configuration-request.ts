@@ -23,83 +23,18 @@ import type { AnalyticsApiConfigurationsV1AnalyticsPowerBi } from './analytics-a
 // @ts-ignore
 import type { AnalyticsApiConfigurationsV1AnalyticsTriggerOption } from './analytics-api-configurations-v1-analytics-trigger-option';
 
-/**
- * 
- * @export
- * @interface AnalyticsApiConfigurationsV1UpdateConfigurationRequest
- */
 export interface AnalyticsApiConfigurationsV1UpdateConfigurationRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1UpdateConfigurationRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1UpdateConfigurationRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1UpdateConfigurationRequest
-     */
     'sqlConnectionString'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1UpdateConfigurationRequest
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AnalyticsApiConfigurationsV1UpdateConfigurationRequest
-     */
     'useEdGraphPowerBi'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AnalyticsApiConfigurationsV1UpdateConfigurationRequest
-     */
     'isGlobalConfiguration'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AnalyticsApiConfigurationsV1UpdateConfigurationRequest
-     */
     'isDefaultTenantConfiguration'?: boolean | null;
-    /**
-     * 
-     * @type {AnalyticsApiConfigurationsV1AnalyticsAzureAd}
-     * @memberof AnalyticsApiConfigurationsV1UpdateConfigurationRequest
-     */
     'azureAd'?: AnalyticsApiConfigurationsV1AnalyticsAzureAd;
-    /**
-     * 
-     * @type {AnalyticsApiConfigurationsV1AnalyticsPowerBi}
-     * @memberof AnalyticsApiConfigurationsV1UpdateConfigurationRequest
-     */
     'powerBi'?: AnalyticsApiConfigurationsV1AnalyticsPowerBi;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1UpdateConfigurationRequest
-     */
     'selectedEdFiConnectionId'?: string | null;
-    /**
-     * 
-     * @type {Array<AnalyticsApiConfigurationsV1AnalyticsTriggerOption>}
-     * @memberof AnalyticsApiConfigurationsV1UpdateConfigurationRequest
-     */
     'triggerOptions'?: Array<AnalyticsApiConfigurationsV1AnalyticsTriggerOption> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof AnalyticsApiConfigurationsV1UpdateConfigurationRequest
-     */
     'schoolYears'?: Array<string> | null;
 }
 

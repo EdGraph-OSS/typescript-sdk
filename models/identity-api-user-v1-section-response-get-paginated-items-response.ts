@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IdentityApiUserV1SectionResponse } from './identity-api-user-v1-section-response';
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1SectionResponseGetPaginatedItemsResponse
- */
 export interface IdentityApiUserV1SectionResponseGetPaginatedItemsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1SectionResponseGetPaginatedItemsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1SectionResponseGetPaginatedItemsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV1SectionResponse>}
-     * @memberof IdentityApiUserV1SectionResponseGetPaginatedItemsResponse
-     */
     'data'?: Array<IdentityApiUserV1SectionResponse> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1SectionResponseGetPaginatedItemsResponse
-     */
     'count'?: number;
 }
 

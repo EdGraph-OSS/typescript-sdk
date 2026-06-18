@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -35,7 +35,6 @@ import type { IdentityApiInvitationV1InvitationSentResponse } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * InvitationsApi - axios parameter creator
- * @export
  */
 export const InvitationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -53,8 +52,8 @@ export const InvitationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'invitationId' is not null or undefined
             assertParamExists('deleteTenantInvitationAsync', 'invitationId', invitationId)
             const localVarPath = `/tenants/{tenantId}/invitations/{invitationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"invitationId"}}`, encodeURIComponent(String(invitationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{invitationId}', encodeURIComponent(String(invitationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -70,8 +69,8 @@ export const InvitationsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -96,7 +95,7 @@ export const InvitationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllTenantInvitationsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/invitations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -128,8 +127,8 @@ export const InvitationsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -153,8 +152,8 @@ export const InvitationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'invitationId' is not null or undefined
             assertParamExists('getTenantInvitationByIdAsync', 'invitationId', invitationId)
             const localVarPath = `/tenants/{tenantId}/invitations/{invitationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"invitationId"}}`, encodeURIComponent(String(invitationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{invitationId}', encodeURIComponent(String(invitationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -170,8 +169,8 @@ export const InvitationsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -193,7 +192,7 @@ export const InvitationsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('sendTenantInvitationAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/invitations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -209,9 +208,8 @@ export const InvitationsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -228,7 +226,6 @@ export const InvitationsApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * InvitationsApi - functional programming interface
- * @export
  */
 export const InvitationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InvitationsApiAxiosParamCreator(configuration)
@@ -297,7 +294,6 @@ export const InvitationsApiFp = function(configuration?: Configuration) {
 
 /**
  * InvitationsApi - factory interface
- * @export
  */
 export const InvitationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InvitationsApiFp(configuration)
@@ -347,114 +343,81 @@ export const InvitationsApiFactory = function (configuration?: Configuration, ba
 
 /**
  * Request parameters for deleteTenantInvitationAsync operation in InvitationsApi.
- * @export
- * @interface InvitationsApiDeleteTenantInvitationAsyncRequest
  */
 export interface InvitationsApiDeleteTenantInvitationAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InvitationsApiDeleteTenantInvitationAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InvitationsApiDeleteTenantInvitationAsync
      */
     readonly invitationId: string
 }
 
 /**
  * Request parameters for getAllTenantInvitationsAsync operation in InvitationsApi.
- * @export
- * @interface InvitationsApiGetAllTenantInvitationsAsyncRequest
  */
 export interface InvitationsApiGetAllTenantInvitationsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InvitationsApiGetAllTenantInvitationsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InvitationsApiGetAllTenantInvitationsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InvitationsApiGetAllTenantInvitationsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InvitationsApiGetAllTenantInvitationsAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InvitationsApiGetAllTenantInvitationsAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getTenantInvitationByIdAsync operation in InvitationsApi.
- * @export
- * @interface InvitationsApiGetTenantInvitationByIdAsyncRequest
  */
 export interface InvitationsApiGetTenantInvitationByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InvitationsApiGetTenantInvitationByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InvitationsApiGetTenantInvitationByIdAsync
      */
     readonly invitationId: string
 }
 
 /**
  * Request parameters for sendTenantInvitationAsync operation in InvitationsApi.
- * @export
- * @interface InvitationsApiSendTenantInvitationAsyncRequest
  */
 export interface InvitationsApiSendTenantInvitationAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InvitationsApiSendTenantInvitationAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest}
-     * @memberof InvitationsApiSendTenantInvitationAsync
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
 }
 
 /**
  * InvitationsApi - object-oriented interface
- * @export
- * @class InvitationsApi
- * @extends {BaseAPI}
  */
 export class InvitationsApi extends BaseAPI {
     /**
@@ -463,7 +426,6 @@ export class InvitationsApi extends BaseAPI {
      * @param {InvitationsApiDeleteTenantInvitationAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InvitationsApi
      */
     public deleteTenantInvitationAsync(requestParameters: InvitationsApiDeleteTenantInvitationAsyncRequest, options?: RawAxiosRequestConfig) {
         return InvitationsApiFp(this.configuration).deleteTenantInvitationAsync(requestParameters.tenantId, requestParameters.invitationId, options).then((request) => request(this.axios, this.basePath));
@@ -475,7 +437,6 @@ export class InvitationsApi extends BaseAPI {
      * @param {InvitationsApiGetAllTenantInvitationsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InvitationsApi
      */
     public getAllTenantInvitationsAsync(requestParameters: InvitationsApiGetAllTenantInvitationsAsyncRequest, options?: RawAxiosRequestConfig) {
         return InvitationsApiFp(this.configuration).getAllTenantInvitationsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -487,7 +448,6 @@ export class InvitationsApi extends BaseAPI {
      * @param {InvitationsApiGetTenantInvitationByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InvitationsApi
      */
     public getTenantInvitationByIdAsync(requestParameters: InvitationsApiGetTenantInvitationByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return InvitationsApiFp(this.configuration).getTenantInvitationByIdAsync(requestParameters.tenantId, requestParameters.invitationId, options).then((request) => request(this.axios, this.basePath));
@@ -499,7 +459,6 @@ export class InvitationsApi extends BaseAPI {
      * @param {InvitationsApiSendTenantInvitationAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InvitationsApi
      */
     public sendTenantInvitationAsync(requestParameters: InvitationsApiSendTenantInvitationAsyncRequest, options?: RawAxiosRequestConfig) {
         return InvitationsApiFp(this.configuration).sendTenantInvitationAsync(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest, options).then((request) => request(this.axios, this.basePath));

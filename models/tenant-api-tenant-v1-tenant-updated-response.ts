@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1TenantUpdatedResponse
- */
 export interface TenantApiTenantV1TenantUpdatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantUpdatedResponse
-     */
     'tenantId'?: string | null;
 }
 

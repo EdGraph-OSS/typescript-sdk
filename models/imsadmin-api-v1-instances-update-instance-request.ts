@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1InstancesUpdateInstanceRequest
- */
 export interface IMSAdminApiV1InstancesUpdateInstanceRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesUpdateInstanceRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesUpdateInstanceRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesUpdateInstanceRequest
-     */
     'description'?: string | null;
 }
 

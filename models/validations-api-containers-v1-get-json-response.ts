@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1GetJsonResponse
- */
 export interface ValidationsApiContainersV1GetJsonResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1GetJsonResponse
-     */
     'collectionJson'?: string | null;
 }
 

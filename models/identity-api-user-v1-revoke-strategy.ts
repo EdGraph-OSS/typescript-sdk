@@ -14,17 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const IdentityApiUserV1RevokeStrategy = {
     Unknown: 'Unknown',
     RevokeImplicit: 'RevokeImplicit',
     RevokeExplicit: 'RevokeExplicit',
-    UndoExplicitRevoke: 'UndoExplicitRevoke'
+    UndoExplicitRevoke: 'UndoExplicitRevoke',
 } as const;
 
 export type IdentityApiUserV1RevokeStrategy = typeof IdentityApiUserV1RevokeStrategy[keyof typeof IdentityApiUserV1RevokeStrategy];

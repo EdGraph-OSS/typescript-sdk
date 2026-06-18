@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV2UserTenantProfileResponse
- */
 export interface IdentityApiUserV2UserTenantProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserTenantProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserTenantProfileResponse
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserTenantProfileResponse
-     */
     'source'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiUserV2UserTenantProfileResponse
-     */
     'roles'?: Array<string> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2UserTenantProfileResponse
-     */
     'licenseCount'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2UserTenantProfileResponse
-     */
     'organizationName'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2UserTenantProfileResponse
-     */
     'seoaaCount'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2UserTenantProfileResponse
-     */
     'sectionCount'?: number | null;
 }
 

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -49,7 +49,6 @@ import type { ValidationsApiContainersV1UploadCollectionRequest } from '../model
 import type { ValidationsApiCoreV1CreatedResponse } from '../models';
 /**
  * CollectionsApi - axios parameter creator
- * @export
  */
 export const CollectionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -65,7 +64,7 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createCollection', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/validations/collections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -81,9 +80,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -110,8 +108,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'collectionId' is not null or undefined
             assertParamExists('createContainer', 'collectionId', collectionId)
             const localVarPath = `/tenants/{tenantId}/validations/collections/{collectionId}/containers`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"collectionId"}}`, encodeURIComponent(String(collectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{collectionId}', encodeURIComponent(String(collectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -127,9 +125,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -155,8 +152,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'collectionId' is not null or undefined
             assertParamExists('deleteCollection', 'collectionId', collectionId)
             const localVarPath = `/tenants/{tenantId}/validations/collections/{collectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"collectionId"}}`, encodeURIComponent(String(collectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{collectionId}', encodeURIComponent(String(collectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -172,8 +169,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -200,9 +197,9 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'containerId' is not null or undefined
             assertParamExists('deleteContainer', 'containerId', containerId)
             const localVarPath = `/tenants/{tenantId}/validations/collections/{collectionId}/containers/{containerId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"collectionId"}}`, encodeURIComponent(String(collectionId)))
-                .replace(`{${"containerId"}}`, encodeURIComponent(String(containerId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{collectionId}', encodeURIComponent(String(collectionId)))
+                .replace('{containerId}', encodeURIComponent(String(containerId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -218,8 +215,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -243,8 +240,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'collectionId' is not null or undefined
             assertParamExists('getCollectionById', 'collectionId', collectionId)
             const localVarPath = `/tenants/{tenantId}/validations/collections/{collectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"collectionId"}}`, encodeURIComponent(String(collectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{collectionId}', encodeURIComponent(String(collectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -260,8 +257,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -285,8 +282,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'collectionId' is not null or undefined
             assertParamExists('getCollectionJson', 'collectionId', collectionId)
             const localVarPath = `/tenants/{tenantId}/validations/collections/{collectionId}/export`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"collectionId"}}`, encodeURIComponent(String(collectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{collectionId}', encodeURIComponent(String(collectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -302,8 +299,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -328,7 +325,7 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getCollections', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/validations/collections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -360,8 +357,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -389,7 +386,7 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getCollectionsTree', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/validations/categories/tree`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -433,8 +430,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['subCategoryName'] = subCategoryName;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -461,9 +458,9 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'containerId' is not null or undefined
             assertParamExists('getContainerById', 'containerId', containerId)
             const localVarPath = `/tenants/{tenantId}/validations/collections/{collectionId}/containers/{containerId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"collectionId"}}`, encodeURIComponent(String(collectionId)))
-                .replace(`{${"containerId"}}`, encodeURIComponent(String(containerId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{collectionId}', encodeURIComponent(String(collectionId)))
+                .replace('{containerId}', encodeURIComponent(String(containerId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -479,8 +476,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -508,8 +505,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'collectionId' is not null or undefined
             assertParamExists('getContainers', 'collectionId', collectionId)
             const localVarPath = `/tenants/{tenantId}/validations/collections/{collectionId}/containers`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"collectionId"}}`, encodeURIComponent(String(collectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{collectionId}', encodeURIComponent(String(collectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -541,8 +538,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -567,8 +564,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'collectionId' is not null or undefined
             assertParamExists('updateCollection', 'collectionId', collectionId)
             const localVarPath = `/tenants/{tenantId}/validations/collections/{collectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"collectionId"}}`, encodeURIComponent(String(collectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{collectionId}', encodeURIComponent(String(collectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -584,9 +581,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -616,9 +612,9 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'containerId' is not null or undefined
             assertParamExists('updateContainer', 'containerId', containerId)
             const localVarPath = `/tenants/{tenantId}/validations/collections/{collectionId}/containers/{containerId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"collectionId"}}`, encodeURIComponent(String(collectionId)))
-                .replace(`{${"containerId"}}`, encodeURIComponent(String(containerId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{collectionId}', encodeURIComponent(String(collectionId)))
+                .replace('{containerId}', encodeURIComponent(String(containerId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -634,9 +630,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -660,7 +655,7 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('uploadCollectionJson', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/validations/collections/import`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -676,9 +671,8 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -695,7 +689,6 @@ export const CollectionsApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * CollectionsApi - functional programming interface
- * @export
  */
 export const CollectionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CollectionsApiAxiosParamCreator(configuration)
@@ -906,7 +899,6 @@ export const CollectionsApiFp = function(configuration?: Configuration) {
 
 /**
  * CollectionsApi - factory interface
- * @export
  */
 export const CollectionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CollectionsApiFp(configuration)
@@ -1046,415 +1038,296 @@ export const CollectionsApiFactory = function (configuration?: Configuration, ba
 
 /**
  * Request parameters for createCollection operation in CollectionsApi.
- * @export
- * @interface CollectionsApiCreateCollectionRequest
  */
 export interface CollectionsApiCreateCollectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiCreateCollection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {ValidationsApiContainersV1CreateCollectionRequest}
-     * @memberof CollectionsApiCreateCollection
      */
     readonly validationsApiContainersV1CreateCollectionRequest?: ValidationsApiContainersV1CreateCollectionRequest
 }
 
 /**
  * Request parameters for createContainer operation in CollectionsApi.
- * @export
- * @interface CollectionsApiCreateContainerRequest
  */
 export interface CollectionsApiCreateContainerRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiCreateContainer
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiCreateContainer
      */
     readonly collectionId: string
 
     /**
      * 
-     * @type {ValidationsApiContainersV1CreateContainerRequest}
-     * @memberof CollectionsApiCreateContainer
      */
     readonly validationsApiContainersV1CreateContainerRequest?: ValidationsApiContainersV1CreateContainerRequest
 }
 
 /**
  * Request parameters for deleteCollection operation in CollectionsApi.
- * @export
- * @interface CollectionsApiDeleteCollectionRequest
  */
 export interface CollectionsApiDeleteCollectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiDeleteCollection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiDeleteCollection
      */
     readonly collectionId: string
 }
 
 /**
  * Request parameters for deleteContainer operation in CollectionsApi.
- * @export
- * @interface CollectionsApiDeleteContainerRequest
  */
 export interface CollectionsApiDeleteContainerRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiDeleteContainer
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiDeleteContainer
      */
     readonly collectionId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiDeleteContainer
      */
     readonly containerId: string
 }
 
 /**
  * Request parameters for getCollectionById operation in CollectionsApi.
- * @export
- * @interface CollectionsApiGetCollectionByIdRequest
  */
 export interface CollectionsApiGetCollectionByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetCollectionById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetCollectionById
      */
     readonly collectionId: string
 }
 
 /**
  * Request parameters for getCollectionJson operation in CollectionsApi.
- * @export
- * @interface CollectionsApiGetCollectionJsonRequest
  */
 export interface CollectionsApiGetCollectionJsonRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetCollectionJson
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetCollectionJson
      */
     readonly collectionId: string
 }
 
 /**
  * Request parameters for getCollections operation in CollectionsApi.
- * @export
- * @interface CollectionsApiGetCollectionsRequest
  */
 export interface CollectionsApiGetCollectionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetCollections
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof CollectionsApiGetCollections
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof CollectionsApiGetCollections
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetCollections
      */
     readonly filter?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetCollections
      */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for getCollectionsTree operation in CollectionsApi.
- * @export
- * @interface CollectionsApiGetCollectionsTreeRequest
  */
 export interface CollectionsApiGetCollectionsTreeRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetCollectionsTree
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof CollectionsApiGetCollectionsTree
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof CollectionsApiGetCollectionsTree
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetCollectionsTree
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetCollectionsTree
      */
     readonly categoryId?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetCollectionsTree
      */
     readonly categoryName?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetCollectionsTree
      */
     readonly subCategoryId?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetCollectionsTree
      */
     readonly subCategoryName?: string
 }
 
 /**
  * Request parameters for getContainerById operation in CollectionsApi.
- * @export
- * @interface CollectionsApiGetContainerByIdRequest
  */
 export interface CollectionsApiGetContainerByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetContainerById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetContainerById
      */
     readonly collectionId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetContainerById
      */
     readonly containerId: string
 }
 
 /**
  * Request parameters for getContainers operation in CollectionsApi.
- * @export
- * @interface CollectionsApiGetContainersRequest
  */
 export interface CollectionsApiGetContainersRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetContainers
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetContainers
      */
     readonly collectionId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof CollectionsApiGetContainers
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof CollectionsApiGetContainers
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetContainers
      */
     readonly filter?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiGetContainers
      */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for updateCollection operation in CollectionsApi.
- * @export
- * @interface CollectionsApiUpdateCollectionRequest
  */
 export interface CollectionsApiUpdateCollectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiUpdateCollection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiUpdateCollection
      */
     readonly collectionId: string
 
     /**
      * 
-     * @type {ValidationsApiContainersV1UpdateCollectionRequest}
-     * @memberof CollectionsApiUpdateCollection
      */
     readonly validationsApiContainersV1UpdateCollectionRequest?: ValidationsApiContainersV1UpdateCollectionRequest
 }
 
 /**
  * Request parameters for updateContainer operation in CollectionsApi.
- * @export
- * @interface CollectionsApiUpdateContainerRequest
  */
 export interface CollectionsApiUpdateContainerRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiUpdateContainer
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiUpdateContainer
      */
     readonly collectionId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiUpdateContainer
      */
     readonly containerId: string
 
     /**
      * 
-     * @type {ValidationsApiContainersV1UpdateContainerRequest}
-     * @memberof CollectionsApiUpdateContainer
      */
     readonly validationsApiContainersV1UpdateContainerRequest?: ValidationsApiContainersV1UpdateContainerRequest
 }
 
 /**
  * Request parameters for uploadCollectionJson operation in CollectionsApi.
- * @export
- * @interface CollectionsApiUploadCollectionJsonRequest
  */
 export interface CollectionsApiUploadCollectionJsonRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CollectionsApiUploadCollectionJson
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {ValidationsApiContainersV1UploadCollectionRequest}
-     * @memberof CollectionsApiUploadCollectionJson
      */
     readonly validationsApiContainersV1UploadCollectionRequest?: ValidationsApiContainersV1UploadCollectionRequest
 }
 
 /**
  * CollectionsApi - object-oriented interface
- * @export
- * @class CollectionsApi
- * @extends {BaseAPI}
  */
 export class CollectionsApi extends BaseAPI {
     /**
@@ -1463,7 +1336,6 @@ export class CollectionsApi extends BaseAPI {
      * @param {CollectionsApiCreateCollectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CollectionsApi
      */
     public createCollection(requestParameters: CollectionsApiCreateCollectionRequest, options?: RawAxiosRequestConfig) {
         return CollectionsApiFp(this.configuration).createCollection(requestParameters.tenantId, requestParameters.validationsApiContainersV1CreateCollectionRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1475,7 +1347,6 @@ export class CollectionsApi extends BaseAPI {
      * @param {CollectionsApiCreateContainerRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CollectionsApi
      */
     public createContainer(requestParameters: CollectionsApiCreateContainerRequest, options?: RawAxiosRequestConfig) {
         return CollectionsApiFp(this.configuration).createContainer(requestParameters.tenantId, requestParameters.collectionId, requestParameters.validationsApiContainersV1CreateContainerRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1487,7 +1358,6 @@ export class CollectionsApi extends BaseAPI {
      * @param {CollectionsApiDeleteCollectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CollectionsApi
      */
     public deleteCollection(requestParameters: CollectionsApiDeleteCollectionRequest, options?: RawAxiosRequestConfig) {
         return CollectionsApiFp(this.configuration).deleteCollection(requestParameters.tenantId, requestParameters.collectionId, options).then((request) => request(this.axios, this.basePath));
@@ -1499,7 +1369,6 @@ export class CollectionsApi extends BaseAPI {
      * @param {CollectionsApiDeleteContainerRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CollectionsApi
      */
     public deleteContainer(requestParameters: CollectionsApiDeleteContainerRequest, options?: RawAxiosRequestConfig) {
         return CollectionsApiFp(this.configuration).deleteContainer(requestParameters.tenantId, requestParameters.collectionId, requestParameters.containerId, options).then((request) => request(this.axios, this.basePath));
@@ -1511,7 +1380,6 @@ export class CollectionsApi extends BaseAPI {
      * @param {CollectionsApiGetCollectionByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CollectionsApi
      */
     public getCollectionById(requestParameters: CollectionsApiGetCollectionByIdRequest, options?: RawAxiosRequestConfig) {
         return CollectionsApiFp(this.configuration).getCollectionById(requestParameters.tenantId, requestParameters.collectionId, options).then((request) => request(this.axios, this.basePath));
@@ -1523,7 +1391,6 @@ export class CollectionsApi extends BaseAPI {
      * @param {CollectionsApiGetCollectionJsonRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CollectionsApi
      */
     public getCollectionJson(requestParameters: CollectionsApiGetCollectionJsonRequest, options?: RawAxiosRequestConfig) {
         return CollectionsApiFp(this.configuration).getCollectionJson(requestParameters.tenantId, requestParameters.collectionId, options).then((request) => request(this.axios, this.basePath));
@@ -1535,7 +1402,6 @@ export class CollectionsApi extends BaseAPI {
      * @param {CollectionsApiGetCollectionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CollectionsApi
      */
     public getCollections(requestParameters: CollectionsApiGetCollectionsRequest, options?: RawAxiosRequestConfig) {
         return CollectionsApiFp(this.configuration).getCollections(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -1547,7 +1413,6 @@ export class CollectionsApi extends BaseAPI {
      * @param {CollectionsApiGetCollectionsTreeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CollectionsApi
      */
     public getCollectionsTree(requestParameters: CollectionsApiGetCollectionsTreeRequest, options?: RawAxiosRequestConfig) {
         return CollectionsApiFp(this.configuration).getCollectionsTree(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.categoryId, requestParameters.categoryName, requestParameters.subCategoryId, requestParameters.subCategoryName, options).then((request) => request(this.axios, this.basePath));
@@ -1559,7 +1424,6 @@ export class CollectionsApi extends BaseAPI {
      * @param {CollectionsApiGetContainerByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CollectionsApi
      */
     public getContainerById(requestParameters: CollectionsApiGetContainerByIdRequest, options?: RawAxiosRequestConfig) {
         return CollectionsApiFp(this.configuration).getContainerById(requestParameters.tenantId, requestParameters.collectionId, requestParameters.containerId, options).then((request) => request(this.axios, this.basePath));
@@ -1571,7 +1435,6 @@ export class CollectionsApi extends BaseAPI {
      * @param {CollectionsApiGetContainersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CollectionsApi
      */
     public getContainers(requestParameters: CollectionsApiGetContainersRequest, options?: RawAxiosRequestConfig) {
         return CollectionsApiFp(this.configuration).getContainers(requestParameters.tenantId, requestParameters.collectionId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -1583,7 +1446,6 @@ export class CollectionsApi extends BaseAPI {
      * @param {CollectionsApiUpdateCollectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CollectionsApi
      */
     public updateCollection(requestParameters: CollectionsApiUpdateCollectionRequest, options?: RawAxiosRequestConfig) {
         return CollectionsApiFp(this.configuration).updateCollection(requestParameters.tenantId, requestParameters.collectionId, requestParameters.validationsApiContainersV1UpdateCollectionRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1595,7 +1457,6 @@ export class CollectionsApi extends BaseAPI {
      * @param {CollectionsApiUpdateContainerRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CollectionsApi
      */
     public updateContainer(requestParameters: CollectionsApiUpdateContainerRequest, options?: RawAxiosRequestConfig) {
         return CollectionsApiFp(this.configuration).updateContainer(requestParameters.tenantId, requestParameters.collectionId, requestParameters.containerId, requestParameters.validationsApiContainersV1UpdateContainerRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1607,7 +1468,6 @@ export class CollectionsApi extends BaseAPI {
      * @param {CollectionsApiUploadCollectionJsonRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CollectionsApi
      */
     public uploadCollectionJson(requestParameters: CollectionsApiUploadCollectionJsonRequest, options?: RawAxiosRequestConfig) {
         return CollectionsApiFp(this.configuration).uploadCollectionJson(requestParameters.tenantId, requestParameters.validationsApiContainersV1UploadCollectionRequest, options).then((request) => request(this.axios, this.basePath));

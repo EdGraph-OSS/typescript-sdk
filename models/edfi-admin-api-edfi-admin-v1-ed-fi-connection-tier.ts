@@ -20,35 +20,11 @@ import type { EdfiAdminApiEdfiAdminV1TierOdsApiConnection } from './edfi-admin-a
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1TierSqlConnection } from './edfi-admin-api-edfi-admin-v1-tier-sql-connection';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1EdFiConnectionTier
- */
 export interface EdfiAdminApiEdfiAdminV1EdFiConnectionTier {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionTier
-     */
     'tierId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionTier
-     */
     'tierName'?: string | null;
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1TierOdsApiConnection}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionTier
-     */
     'odsApiConnection'?: EdfiAdminApiEdfiAdminV1TierOdsApiConnection;
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1TierSqlConnection}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionTier
-     */
     'sqlConnection'?: EdfiAdminApiEdfiAdminV1TierSqlConnection;
+    'adminApiUrl'?: string | null;
 }
 

@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1CollectionUser
- */
 export interface ValidationsApiContainersV1CollectionUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CollectionUser
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CollectionUser
-     */
     'firstName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CollectionUser
-     */
     'lastName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CollectionUser
-     */
     'userId'?: string | null;
 }
 

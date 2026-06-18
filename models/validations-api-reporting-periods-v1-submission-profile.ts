@@ -17,65 +17,15 @@
 // @ts-ignore
 import type { ValidationsApiReportingPeriodsV1PipelineRun } from './validations-api-reporting-periods-v1-pipeline-run';
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1SubmissionProfile
- */
 export interface ValidationsApiReportingPeriodsV1SubmissionProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionProfile
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionProfile
-     */
     'createdAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionProfile
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionProfile
-     */
     'updatedAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionProfile
-     */
     'updatedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionProfile
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionProfile
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiReportingPeriodsV1PipelineRun}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionProfile
-     */
     'pipelineRun'?: ValidationsApiReportingPeriodsV1PipelineRun;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionProfile
-     */
     'status'?: string | null;
 }
 

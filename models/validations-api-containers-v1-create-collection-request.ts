@@ -17,59 +17,14 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1Url } from './validations-api-containers-v1-url';
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1CreateCollectionRequest
- */
 export interface ValidationsApiContainersV1CreateCollectionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CreateCollectionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CreateCollectionRequest
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CreateCollectionRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CreateCollectionRequest
-     */
     'environmentType'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ValidationsApiContainersV1CreateCollectionRequest
-     */
     'tags'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CreateCollectionRequest
-     */
     'environmentId'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiContainersV1Url>}
-     * @memberof ValidationsApiContainersV1CreateCollectionRequest
-     */
     'urls'?: Array<ValidationsApiContainersV1Url> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1CreateCollectionRequest
-     */
     'state'?: string | null;
 }
 

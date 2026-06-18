@@ -14,14 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const GoogleProtobufWellKnownTypesNullValue = {
-    NullValue: 'NullValue'
+    NullValue: 'NullValue',
 } as const;
 
 export type GoogleProtobufWellKnownTypesNullValue = typeof GoogleProtobufWellKnownTypesNullValue[keyof typeof GoogleProtobufWellKnownTypesNullValue];

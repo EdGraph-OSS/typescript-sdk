@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1LocalEducationAgency } from './edfi-admin-api-edfi-admin-v1-local-education-agency';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1GetLocalEducationAgencyProfileResponse
- */
 export interface EdfiAdminApiEdfiAdminV1GetLocalEducationAgencyProfileResponse {
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1LocalEducationAgency}
-     * @memberof EdfiAdminApiEdfiAdminV1GetLocalEducationAgencyProfileResponse
-     */
     'localEducationAgency'?: EdfiAdminApiEdfiAdminV1LocalEducationAgency;
 }
 

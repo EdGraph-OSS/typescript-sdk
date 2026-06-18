@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const TenantApiWebhookV1WebhookSchema = {
     Unknown: 'Unknown',
     Edgraph: 'Edgraph',
-    Cloudeventsv1: 'Cloudeventsv1'
+    Cloudeventsv1: 'Cloudeventsv1',
 } as const;
 
 export type TenantApiWebhookV1WebhookSchema = typeof TenantApiWebhookV1WebhookSchema[keyof typeof TenantApiWebhookV1WebhookSchema];

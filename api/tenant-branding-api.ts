@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 import type { TenantApiTenantV1TenantUpdatedResponse } from '../models';
 /**
  * TenantBrandingApi - axios parameter creator
- * @export
  */
 export const TenantBrandingApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const TenantBrandingApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('updateTenantBranding', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/branding`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,22 +68,21 @@ export const TenantBrandingApiAxiosParamCreator = function (configuration?: Conf
             if (logoFile !== undefined) { 
                 localVarFormParams.append('LogoFile', logoFile as any);
             }
-    
+
             if (backgroundFile !== undefined) { 
                 localVarFormParams.append('BackgroundFile', backgroundFile as any);
             }
-    
+
             if (brandName !== undefined) { 
                 localVarFormParams.append('BrandName', brandName as any);
             }
-    
+
             if (enabled !== undefined) { 
                 localVarFormParams.append('Enabled', String(enabled) as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -100,7 +98,6 @@ export const TenantBrandingApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * TenantBrandingApi - functional programming interface
- * @export
  */
 export const TenantBrandingApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TenantBrandingApiAxiosParamCreator(configuration)
@@ -127,7 +124,6 @@ export const TenantBrandingApiFp = function(configuration?: Configuration) {
 
 /**
  * TenantBrandingApi - factory interface
- * @export
  */
 export const TenantBrandingApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TenantBrandingApiFp(configuration)
@@ -147,51 +143,24 @@ export const TenantBrandingApiFactory = function (configuration?: Configuration,
 
 /**
  * Request parameters for updateTenantBranding operation in TenantBrandingApi.
- * @export
- * @interface TenantBrandingApiUpdateTenantBrandingRequest
  */
 export interface TenantBrandingApiUpdateTenantBrandingRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TenantBrandingApiUpdateTenantBranding
      */
     readonly tenantId: string
 
-    /**
-     * 
-     * @type {File}
-     * @memberof TenantBrandingApiUpdateTenantBranding
-     */
     readonly logoFile?: File
 
-    /**
-     * 
-     * @type {File}
-     * @memberof TenantBrandingApiUpdateTenantBranding
-     */
     readonly backgroundFile?: File
 
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantBrandingApiUpdateTenantBranding
-     */
     readonly brandName?: string
 
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantBrandingApiUpdateTenantBranding
-     */
     readonly enabled?: boolean
 }
 
 /**
  * TenantBrandingApi - object-oriented interface
- * @export
- * @class TenantBrandingApi
- * @extends {BaseAPI}
  */
 export class TenantBrandingApi extends BaseAPI {
     /**
@@ -200,7 +169,6 @@ export class TenantBrandingApi extends BaseAPI {
      * @param {TenantBrandingApiUpdateTenantBrandingRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantBrandingApi
      */
     public updateTenantBranding(requestParameters: TenantBrandingApiUpdateTenantBrandingRequest, options?: RawAxiosRequestConfig) {
         return TenantBrandingApiFp(this.configuration).updateTenantBranding(requestParameters.tenantId, requestParameters.logoFile, requestParameters.backgroundFile, requestParameters.brandName, requestParameters.enabled, options).then((request) => request(this.axios, this.basePath));

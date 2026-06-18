@@ -17,64 +17,17 @@
 // @ts-ignore
 import type { TenantApiTenantV1LicenseType } from './tenant-api-tenant-v1-license-type';
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1UpdateSubscriptionRequest
- */
 export interface TenantApiTenantV1UpdateSubscriptionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1UpdateSubscriptionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1UpdateSubscriptionRequest
-     */
     'subscriptionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1UpdateSubscriptionRequest
-     */
     'startDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1UpdateSubscriptionRequest
-     */
     'endDateTime'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1UpdateSubscriptionRequest
-     */
     'gracePeriod'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1UpdateSubscriptionRequest
-     */
     'numberOfLicenses'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1UpdateSubscriptionRequest
-     */
     'assignedLicenses'?: number;
-    /**
-     * 
-     * @type {TenantApiTenantV1LicenseType}
-     * @memberof TenantApiTenantV1UpdateSubscriptionRequest
-     */
     'licenseType'?: TenantApiTenantV1LicenseType;
     /**
      * SubscriptionStatus SubscriptionStatus = 10;
-     * @type {boolean}
-     * @memberof TenantApiTenantV1UpdateSubscriptionRequest
      */
     'autoAssign'?: boolean;
 }

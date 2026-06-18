@@ -17,71 +17,16 @@
 // @ts-ignore
 import type { TenantApiTenantV1TenantBrandingResponse } from './tenant-api-tenant-v1-tenant-branding-response';
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV2TenantMeProfile
- */
 export interface IdentityApiUserV2TenantMeProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2TenantMeProfile
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiUserV2TenantMeProfile
-     */
     'tenantTypes'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2TenantMeProfile
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2TenantMeProfile
-     */
     'organizationIdentifier'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV2TenantMeProfile
-     */
     'organizationName'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdentityApiUserV2TenantMeProfile
-     */
     'roles'?: Array<string> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2TenantMeProfile
-     */
     'licenseCount'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2TenantMeProfile
-     */
     'seoaaCount'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV2TenantMeProfile
-     */
     'sectionCount'?: number | null;
-    /**
-     * 
-     * @type {TenantApiTenantV1TenantBrandingResponse}
-     * @memberof IdentityApiUserV2TenantMeProfile
-     */
     'branding'?: TenantApiTenantV1TenantBrandingResponse;
 }
 

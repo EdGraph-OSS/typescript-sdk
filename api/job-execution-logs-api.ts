@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 /**
  * JobExecutionLogsApi - axios parameter creator
- * @export
  */
 export const JobExecutionLogsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -55,9 +54,9 @@ export const JobExecutionLogsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'jobExecutionId' is not null or undefined
             assertParamExists('getAllTenantDataSyncJobExecutionLogs', 'jobExecutionId', jobExecutionId)
             const localVarPath = `/tenants/{tenantId}/datasync/jobs/{jobId}/executions/{jobExecutionId}/logs`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)))
-                .replace(`{${"jobExecutionId"}}`, encodeURIComponent(String(jobExecutionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)))
+                .replace('{jobExecutionId}', encodeURIComponent(String(jobExecutionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -93,8 +92,8 @@ export const JobExecutionLogsApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['search'] = search;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -109,7 +108,6 @@ export const JobExecutionLogsApiAxiosParamCreator = function (configuration?: Co
 
 /**
  * JobExecutionLogsApi - functional programming interface
- * @export
  */
 export const JobExecutionLogsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = JobExecutionLogsApiAxiosParamCreator(configuration)
@@ -139,7 +137,6 @@ export const JobExecutionLogsApiFp = function(configuration?: Configuration) {
 
 /**
  * JobExecutionLogsApi - factory interface
- * @export
  */
 export const JobExecutionLogsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = JobExecutionLogsApiFp(configuration)
@@ -159,72 +156,51 @@ export const JobExecutionLogsApiFactory = function (configuration?: Configuratio
 
 /**
  * Request parameters for getAllTenantDataSyncJobExecutionLogs operation in JobExecutionLogsApi.
- * @export
- * @interface JobExecutionLogsApiGetAllTenantDataSyncJobExecutionLogsRequest
  */
 export interface JobExecutionLogsApiGetAllTenantDataSyncJobExecutionLogsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobExecutionLogsApiGetAllTenantDataSyncJobExecutionLogs
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobExecutionLogsApiGetAllTenantDataSyncJobExecutionLogs
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobExecutionLogsApiGetAllTenantDataSyncJobExecutionLogs
      */
     readonly jobExecutionId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof JobExecutionLogsApiGetAllTenantDataSyncJobExecutionLogs
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof JobExecutionLogsApiGetAllTenantDataSyncJobExecutionLogs
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof JobExecutionLogsApiGetAllTenantDataSyncJobExecutionLogs
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobExecutionLogsApiGetAllTenantDataSyncJobExecutionLogs
      */
     readonly filter?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobExecutionLogsApiGetAllTenantDataSyncJobExecutionLogs
      */
     readonly search?: string
 }
 
 /**
  * JobExecutionLogsApi - object-oriented interface
- * @export
- * @class JobExecutionLogsApi
- * @extends {BaseAPI}
  */
 export class JobExecutionLogsApi extends BaseAPI {
     /**
@@ -233,7 +209,6 @@ export class JobExecutionLogsApi extends BaseAPI {
      * @param {JobExecutionLogsApiGetAllTenantDataSyncJobExecutionLogsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobExecutionLogsApi
      */
     public getAllTenantDataSyncJobExecutionLogs(requestParameters: JobExecutionLogsApiGetAllTenantDataSyncJobExecutionLogsRequest, options?: RawAxiosRequestConfig) {
         return JobExecutionLogsApiFp(this.configuration).getAllTenantDataSyncJobExecutionLogs(requestParameters.tenantId, requestParameters.jobId, requestParameters.jobExecutionId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, requestParameters.search, options).then((request) => request(this.axios, this.basePath));

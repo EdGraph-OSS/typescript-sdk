@@ -17,65 +17,15 @@
 // @ts-ignore
 import type { IMSAdminApiV1ClientsClaim } from './imsadmin-api-v1-clients-claim';
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ClientsUpdateClientRequest
- */
 export interface IMSAdminApiV1ClientsUpdateClientRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsUpdateClientRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsUpdateClientRequest
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsUpdateClientRequest
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsUpdateClientRequest
-     */
     'clientName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsUpdateClientRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1ClientsUpdateClientRequest
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IMSAdminApiV1ClientsUpdateClientRequest
-     */
     'allowedScopes'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<IMSAdminApiV1ClientsClaim>}
-     * @memberof IMSAdminApiV1ClientsUpdateClientRequest
-     */
     'claims'?: Array<IMSAdminApiV1ClientsClaim> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsUpdateClientRequest
-     */
     'instanceId'?: string | null;
 }
 

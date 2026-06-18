@@ -16,91 +16,26 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1InstanceType } from './edfi-admin-api-edfi-admin-v1-instance-type';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { EdfiAdminApiEdfiAdminV1OdsApiDiscoveryApi } from './edfi-admin-api-edfi-admin-v1-ods-api-discovery-api';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
- */
 export interface EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
-     */
     'connectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
-     */
     'connectionName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
-     */
     'edFiVersion'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
-     */
     'edFiExtension'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
-     */
     'metadataUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
-     */
     'clientSecret'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
-     */
     'tokenUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
-     */
     'resourcesUrl'?: string | null;
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1InstanceType}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
-     */
     'instanceType'?: EdfiAdminApiEdfiAdminV1InstanceType;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
-     */
     'discoveryUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
-     */
     'metadataJson'?: string | null;
+    'discoveryDocument'?: EdfiAdminApiEdfiAdminV1OdsApiDiscoveryApi;
+    'adminApiUrl'?: string | null;
 }
 
 

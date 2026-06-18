@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -37,7 +37,6 @@ import type { MicrosoftAspNetCoreMvcNoContentResult } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * EdFiSyncApi - axios parameter creator
- * @export
  */
 export const EdFiSyncApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -53,7 +52,7 @@ export const EdFiSyncApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createEdFiSync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/jobs/edfisync`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,9 +68,8 @@ export const EdFiSyncApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -94,7 +92,7 @@ export const EdFiSyncApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('executeEdFiSyncJob', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/jobs/edfisync/execute`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -110,8 +108,8 @@ export const EdFiSyncApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -132,7 +130,7 @@ export const EdFiSyncApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getEdFiSyncData', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/jobs/edfisync`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -148,8 +146,8 @@ export const EdFiSyncApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -171,7 +169,7 @@ export const EdFiSyncApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('updateEdFiSync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/jobs/edfisync`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -187,9 +185,8 @@ export const EdFiSyncApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -206,7 +203,6 @@ export const EdFiSyncApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * EdFiSyncApi - functional programming interface
- * @export
  */
 export const EdFiSyncApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EdFiSyncApiAxiosParamCreator(configuration)
@@ -270,7 +266,6 @@ export const EdFiSyncApiFp = function(configuration?: Configuration) {
 
 /**
  * EdFiSyncApi - factory interface
- * @export
  */
 export const EdFiSyncApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EdFiSyncApiFp(configuration)
@@ -320,79 +315,56 @@ export const EdFiSyncApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * Request parameters for createEdFiSync operation in EdFiSyncApi.
- * @export
- * @interface EdFiSyncApiCreateEdFiSyncRequest
  */
 export interface EdFiSyncApiCreateEdFiSyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EdFiSyncApiCreateEdFiSync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJobRequestDto}
-     * @memberof EdFiSyncApiCreateEdFiSync
      */
     readonly edGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJobRequestDto?: EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJobRequestDto
 }
 
 /**
  * Request parameters for executeEdFiSyncJob operation in EdFiSyncApi.
- * @export
- * @interface EdFiSyncApiExecuteEdFiSyncJobRequest
  */
 export interface EdFiSyncApiExecuteEdFiSyncJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EdFiSyncApiExecuteEdFiSyncJob
      */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for getEdFiSyncData operation in EdFiSyncApi.
- * @export
- * @interface EdFiSyncApiGetEdFiSyncDataRequest
  */
 export interface EdFiSyncApiGetEdFiSyncDataRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EdFiSyncApiGetEdFiSyncData
      */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for updateEdFiSync operation in EdFiSyncApi.
- * @export
- * @interface EdFiSyncApiUpdateEdFiSyncRequest
  */
 export interface EdFiSyncApiUpdateEdFiSyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EdFiSyncApiUpdateEdFiSync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {any}
-     * @memberof EdFiSyncApiUpdateEdFiSync
      */
     readonly body?: any
 }
 
 /**
  * EdFiSyncApi - object-oriented interface
- * @export
- * @class EdFiSyncApi
- * @extends {BaseAPI}
  */
 export class EdFiSyncApi extends BaseAPI {
     /**
@@ -401,7 +373,6 @@ export class EdFiSyncApi extends BaseAPI {
      * @param {EdFiSyncApiCreateEdFiSyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EdFiSyncApi
      */
     public createEdFiSync(requestParameters: EdFiSyncApiCreateEdFiSyncRequest, options?: RawAxiosRequestConfig) {
         return EdFiSyncApiFp(this.configuration).createEdFiSync(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJobRequestDto, options).then((request) => request(this.axios, this.basePath));
@@ -413,7 +384,6 @@ export class EdFiSyncApi extends BaseAPI {
      * @param {EdFiSyncApiExecuteEdFiSyncJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EdFiSyncApi
      */
     public executeEdFiSyncJob(requestParameters: EdFiSyncApiExecuteEdFiSyncJobRequest, options?: RawAxiosRequestConfig) {
         return EdFiSyncApiFp(this.configuration).executeEdFiSyncJob(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -425,7 +395,6 @@ export class EdFiSyncApi extends BaseAPI {
      * @param {EdFiSyncApiGetEdFiSyncDataRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EdFiSyncApi
      */
     public getEdFiSyncData(requestParameters: EdFiSyncApiGetEdFiSyncDataRequest, options?: RawAxiosRequestConfig) {
         return EdFiSyncApiFp(this.configuration).getEdFiSyncData(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -437,7 +406,6 @@ export class EdFiSyncApi extends BaseAPI {
      * @param {EdFiSyncApiUpdateEdFiSyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EdFiSyncApi
      */
     public updateEdFiSync(requestParameters: EdFiSyncApiUpdateEdFiSyncRequest, options?: RawAxiosRequestConfig) {
         return EdFiSyncApiFp(this.configuration).updateEdFiSync(requestParameters.tenantId, requestParameters.body, options).then((request) => request(this.axios, this.basePath));

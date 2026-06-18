@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1SubmissionListResponse } from './ed-graph-services-state-reporting-v1-submission-list-response';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1PaginatedSubmissions
- */
 export interface EdGraphServicesStateReportingV1PaginatedSubmissions {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedSubmissions
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedSubmissions
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedSubmissions
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1SubmissionListResponse>}
-     * @memberof EdGraphServicesStateReportingV1PaginatedSubmissions
-     */
     'data'?: Array<EdGraphServicesStateReportingV1SubmissionListResponse> | null;
 }
 

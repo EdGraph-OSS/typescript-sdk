@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -41,7 +41,6 @@ import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 /**
  * ReportsApi - axios parameter creator
- * @export
  */
 export const ReportsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -66,7 +65,7 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createReportAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/reports`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -87,46 +86,45 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             if (file !== undefined) { 
                 localVarFormParams.append('File', file as any);
             }
-    
+
             if (name !== undefined) { 
                 localVarFormParams.append('Name', name as any);
             }
-    
+
             if (shortDescription !== undefined) { 
                 localVarFormParams.append('ShortDescription', shortDescription as any);
             }
-    
+
             if (description !== undefined) { 
                 localVarFormParams.append('Description', description as any);
             }
-    
+
             if (tags !== undefined) { 
                 localVarFormParams.append('Tags', tags as any);
             }
-    
+
             if (isVisible !== undefined) { 
                 localVarFormParams.append('IsVisible', String(isVisible) as any);
             }
-    
+
             if (version !== undefined) { 
                 localVarFormParams.append('Version', version as any);
             }
-    
+
             if (identityRequired !== undefined) { 
                 localVarFormParams.append('IdentityRequired', String(identityRequired) as any);
             }
-    
+
             if (rolesRequired !== undefined) { 
                 localVarFormParams.append('RolesRequired', String(rolesRequired) as any);
             }
-    
+
             if (state !== undefined) { 
                 localVarFormParams.append('State', state as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -151,8 +149,8 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'reportId' is not null or undefined
             assertParamExists('deleteReportAsync', 'reportId', reportId)
             const localVarPath = `/tenants/{tenantId}/analytics/reports/{reportId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportId"}}`, encodeURIComponent(String(reportId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportId}', encodeURIComponent(String(reportId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -168,8 +166,8 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -196,9 +194,9 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('downloadReportAsync', 'groupId', groupId)
             const localVarPath = `/tenants/{tenantId}/analytics/reports/download/{reportId}/{groupId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportId"}}`, encodeURIComponent(String(reportId)))
-                .replace(`{${"groupId"}}`, encodeURIComponent(String(groupId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportId}', encodeURIComponent(String(reportId)))
+                .replace('{groupId}', encodeURIComponent(String(groupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -214,8 +212,8 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -240,7 +238,7 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllTenantAnalyticsWorkspaceReportsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/reports`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -272,8 +270,8 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -297,8 +295,8 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'reportId' is not null or undefined
             assertParamExists('getReportByIdAsync', 'reportId', reportId)
             const localVarPath = `/tenants/{tenantId}/analytics/reports/{reportId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportId"}}`, encodeURIComponent(String(reportId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportId}', encodeURIComponent(String(reportId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -314,8 +312,8 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -337,7 +335,7 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('syncLatestVersion', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/reports/synclatestversion`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -353,9 +351,8 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -379,7 +376,7 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('syncWorkspacesAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/analytics/reports/sync`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -395,9 +392,8 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -434,8 +430,8 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'reportId' is not null or undefined
             assertParamExists('updateReportAsync', 'reportId', reportId)
             const localVarPath = `/tenants/{tenantId}/analytics/reports/{reportId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportId"}}`, encodeURIComponent(String(reportId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportId}', encodeURIComponent(String(reportId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -456,50 +452,49 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             if (file !== undefined) { 
                 localVarFormParams.append('File', file as any);
             }
-    
+
             if (id !== undefined) { 
                 localVarFormParams.append('Id', id as any);
             }
-    
+
             if (name !== undefined) { 
                 localVarFormParams.append('Name', name as any);
             }
-    
+
             if (shortDescription !== undefined) { 
                 localVarFormParams.append('ShortDescription', shortDescription as any);
             }
-    
+
             if (description !== undefined) { 
                 localVarFormParams.append('Description', description as any);
             }
-    
+
             if (tags !== undefined) { 
                 localVarFormParams.append('Tags', tags as any);
             }
-    
+
             if (isVisible !== undefined) { 
                 localVarFormParams.append('IsVisible', String(isVisible) as any);
             }
-    
+
             if (version !== undefined) { 
                 localVarFormParams.append('Version', version as any);
             }
-    
+
             if (rolesRequired !== undefined) { 
                 localVarFormParams.append('RolesRequired', String(rolesRequired) as any);
             }
-    
+
             if (identityRequired !== undefined) { 
                 localVarFormParams.append('IdentityRequired', String(identityRequired) as any);
             }
-    
+
             if (state !== undefined) { 
                 localVarFormParams.append('State', state as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -515,7 +510,6 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * ReportsApi - functional programming interface
- * @export
  */
 export const ReportsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ReportsApiAxiosParamCreator(configuration)
@@ -661,7 +655,6 @@ export const ReportsApiFp = function(configuration?: Configuration) {
 
 /**
  * ReportsApi - factory interface
- * @export
  */
 export const ReportsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ReportsApiFp(configuration)
@@ -751,345 +744,180 @@ export const ReportsApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * Request parameters for createReportAsync operation in ReportsApi.
- * @export
- * @interface ReportsApiCreateReportAsyncRequest
  */
 export interface ReportsApiCreateReportAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiCreateReportAsync
      */
     readonly tenantId: string
 
-    /**
-     * 
-     * @type {File}
-     * @memberof ReportsApiCreateReportAsync
-     */
     readonly file?: File
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiCreateReportAsync
-     */
     readonly name?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiCreateReportAsync
-     */
     readonly shortDescription?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiCreateReportAsync
-     */
     readonly description?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiCreateReportAsync
-     */
     readonly tags?: string
 
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ReportsApiCreateReportAsync
-     */
     readonly isVisible?: boolean
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiCreateReportAsync
-     */
     readonly version?: string
 
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ReportsApiCreateReportAsync
-     */
     readonly identityRequired?: boolean
 
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ReportsApiCreateReportAsync
-     */
     readonly rolesRequired?: boolean
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiCreateReportAsync
-     */
     readonly state?: string
 }
 
 /**
  * Request parameters for deleteReportAsync operation in ReportsApi.
- * @export
- * @interface ReportsApiDeleteReportAsyncRequest
  */
 export interface ReportsApiDeleteReportAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiDeleteReportAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiDeleteReportAsync
      */
     readonly reportId: string
 }
 
 /**
  * Request parameters for downloadReportAsync operation in ReportsApi.
- * @export
- * @interface ReportsApiDownloadReportAsyncRequest
  */
 export interface ReportsApiDownloadReportAsyncRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiDownloadReportAsync
-     */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiDownloadReportAsync
      */
     readonly reportId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiDownloadReportAsync
      */
     readonly groupId: string
 }
 
 /**
  * Request parameters for getAllTenantAnalyticsWorkspaceReportsAsync operation in ReportsApi.
- * @export
- * @interface ReportsApiGetAllTenantAnalyticsWorkspaceReportsAsyncRequest
  */
 export interface ReportsApiGetAllTenantAnalyticsWorkspaceReportsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiGetAllTenantAnalyticsWorkspaceReportsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ReportsApiGetAllTenantAnalyticsWorkspaceReportsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ReportsApiGetAllTenantAnalyticsWorkspaceReportsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiGetAllTenantAnalyticsWorkspaceReportsAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiGetAllTenantAnalyticsWorkspaceReportsAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getReportByIdAsync operation in ReportsApi.
- * @export
- * @interface ReportsApiGetReportByIdAsyncRequest
  */
 export interface ReportsApiGetReportByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiGetReportByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiGetReportByIdAsync
      */
     readonly reportId: string
 }
 
 /**
  * Request parameters for syncLatestVersion operation in ReportsApi.
- * @export
- * @interface ReportsApiSyncLatestVersionRequest
  */
 export interface ReportsApiSyncLatestVersionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiSyncLatestVersion
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {AnalyticsApiReportsV1SyncLatestVersionRequest}
-     * @memberof ReportsApiSyncLatestVersion
      */
     readonly analyticsApiReportsV1SyncLatestVersionRequest?: AnalyticsApiReportsV1SyncLatestVersionRequest
 }
 
 /**
  * Request parameters for syncWorkspacesAsync operation in ReportsApi.
- * @export
- * @interface ReportsApiSyncWorkspacesAsyncRequest
  */
 export interface ReportsApiSyncWorkspacesAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiSyncWorkspacesAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {AnalyticsApiReportsV1SyncWorkspacesRequest}
-     * @memberof ReportsApiSyncWorkspacesAsync
      */
     readonly analyticsApiReportsV1SyncWorkspacesRequest?: AnalyticsApiReportsV1SyncWorkspacesRequest
 }
 
 /**
  * Request parameters for updateReportAsync operation in ReportsApi.
- * @export
- * @interface ReportsApiUpdateReportAsyncRequest
  */
 export interface ReportsApiUpdateReportAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiUpdateReportAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ReportsApiUpdateReportAsync
      */
     readonly reportId: string
 
-    /**
-     * 
-     * @type {File}
-     * @memberof ReportsApiUpdateReportAsync
-     */
     readonly file?: File
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiUpdateReportAsync
-     */
     readonly id?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiUpdateReportAsync
-     */
     readonly name?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiUpdateReportAsync
-     */
     readonly shortDescription?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiUpdateReportAsync
-     */
     readonly description?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiUpdateReportAsync
-     */
     readonly tags?: string
 
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ReportsApiUpdateReportAsync
-     */
     readonly isVisible?: boolean
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiUpdateReportAsync
-     */
     readonly version?: string
 
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ReportsApiUpdateReportAsync
-     */
     readonly rolesRequired?: boolean
 
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ReportsApiUpdateReportAsync
-     */
     readonly identityRequired?: boolean
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReportsApiUpdateReportAsync
-     */
     readonly state?: string
 }
 
 /**
  * ReportsApi - object-oriented interface
- * @export
- * @class ReportsApi
- * @extends {BaseAPI}
  */
 export class ReportsApi extends BaseAPI {
     /**
@@ -1098,7 +926,6 @@ export class ReportsApi extends BaseAPI {
      * @param {ReportsApiCreateReportAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportsApi
      */
     public createReportAsync(requestParameters: ReportsApiCreateReportAsyncRequest, options?: RawAxiosRequestConfig) {
         return ReportsApiFp(this.configuration).createReportAsync(requestParameters.tenantId, requestParameters.file, requestParameters.name, requestParameters.shortDescription, requestParameters.description, requestParameters.tags, requestParameters.isVisible, requestParameters.version, requestParameters.identityRequired, requestParameters.rolesRequired, requestParameters.state, options).then((request) => request(this.axios, this.basePath));
@@ -1110,7 +937,6 @@ export class ReportsApi extends BaseAPI {
      * @param {ReportsApiDeleteReportAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportsApi
      */
     public deleteReportAsync(requestParameters: ReportsApiDeleteReportAsyncRequest, options?: RawAxiosRequestConfig) {
         return ReportsApiFp(this.configuration).deleteReportAsync(requestParameters.tenantId, requestParameters.reportId, options).then((request) => request(this.axios, this.basePath));
@@ -1122,7 +948,6 @@ export class ReportsApi extends BaseAPI {
      * @param {ReportsApiDownloadReportAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportsApi
      */
     public downloadReportAsync(requestParameters: ReportsApiDownloadReportAsyncRequest, options?: RawAxiosRequestConfig) {
         return ReportsApiFp(this.configuration).downloadReportAsync(requestParameters.tenantId, requestParameters.reportId, requestParameters.groupId, options).then((request) => request(this.axios, this.basePath));
@@ -1134,7 +959,6 @@ export class ReportsApi extends BaseAPI {
      * @param {ReportsApiGetAllTenantAnalyticsWorkspaceReportsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportsApi
      */
     public getAllTenantAnalyticsWorkspaceReportsAsync(requestParameters: ReportsApiGetAllTenantAnalyticsWorkspaceReportsAsyncRequest, options?: RawAxiosRequestConfig) {
         return ReportsApiFp(this.configuration).getAllTenantAnalyticsWorkspaceReportsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1146,7 +970,6 @@ export class ReportsApi extends BaseAPI {
      * @param {ReportsApiGetReportByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportsApi
      */
     public getReportByIdAsync(requestParameters: ReportsApiGetReportByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return ReportsApiFp(this.configuration).getReportByIdAsync(requestParameters.tenantId, requestParameters.reportId, options).then((request) => request(this.axios, this.basePath));
@@ -1158,7 +981,6 @@ export class ReportsApi extends BaseAPI {
      * @param {ReportsApiSyncLatestVersionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportsApi
      */
     public syncLatestVersion(requestParameters: ReportsApiSyncLatestVersionRequest, options?: RawAxiosRequestConfig) {
         return ReportsApiFp(this.configuration).syncLatestVersion(requestParameters.tenantId, requestParameters.analyticsApiReportsV1SyncLatestVersionRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1170,7 +992,6 @@ export class ReportsApi extends BaseAPI {
      * @param {ReportsApiSyncWorkspacesAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportsApi
      */
     public syncWorkspacesAsync(requestParameters: ReportsApiSyncWorkspacesAsyncRequest, options?: RawAxiosRequestConfig) {
         return ReportsApiFp(this.configuration).syncWorkspacesAsync(requestParameters.tenantId, requestParameters.analyticsApiReportsV1SyncWorkspacesRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1182,7 +1003,6 @@ export class ReportsApi extends BaseAPI {
      * @param {ReportsApiUpdateReportAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReportsApi
      */
     public updateReportAsync(requestParameters: ReportsApiUpdateReportAsyncRequest, options?: RawAxiosRequestConfig) {
         return ReportsApiFp(this.configuration).updateReportAsync(requestParameters.tenantId, requestParameters.reportId, requestParameters.file, requestParameters.id, requestParameters.name, requestParameters.shortDescription, requestParameters.description, requestParameters.tags, requestParameters.isVisible, requestParameters.version, requestParameters.rolesRequired, requestParameters.identityRequired, requestParameters.state, options).then((request) => request(this.axios, this.basePath));

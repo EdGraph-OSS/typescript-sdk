@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1CollectionUploadedResponseTypesUploadResult
- */
 export interface ValidationsApiContainersV1CollectionUploadedResponseTypesUploadResult {
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiContainersV1CollectionUploadedResponseTypesUploadResult
-     */
     'createdCount'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiContainersV1CollectionUploadedResponseTypesUploadResult
-     */
     'updatedCount'?: number;
 }
 

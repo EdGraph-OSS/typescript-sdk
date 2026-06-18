@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -43,7 +43,6 @@ import type { TenantApiTenantV1UpdateDomainRequest } from '../models';
 import type { TenantApiTenantV1VerifyDomainRequest } from '../models';
 /**
  * DomainsApi - axios parameter creator
- * @export
  */
 export const DomainsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -59,7 +58,7 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createTenantDomainAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/domains`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -75,9 +74,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -103,8 +101,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'domainName' is not null or undefined
             assertParamExists('deleteTenantDomainAsync', 'domainName', domainName)
             const localVarPath = `/tenants/{tenantId}/domains/{domainName}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"domainName"}}`, encodeURIComponent(String(domainName)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{domainName}', encodeURIComponent(String(domainName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -120,8 +118,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -146,7 +144,7 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllTenantDomainsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/domains`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -178,8 +176,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -203,8 +201,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'domainName' is not null or undefined
             assertParamExists('getTenantDomainProfileByNameAsync', 'domainName', domainName)
             const localVarPath = `/tenants/{tenantId}/domains/{domainName}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"domainName"}}`, encodeURIComponent(String(domainName)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{domainName}', encodeURIComponent(String(domainName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -220,8 +218,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -246,8 +244,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'domainName' is not null or undefined
             assertParamExists('updateTenantDomainAsync', 'domainName', domainName)
             const localVarPath = `/tenants/{tenantId}/domains/{domainName}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"domainName"}}`, encodeURIComponent(String(domainName)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{domainName}', encodeURIComponent(String(domainName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -263,9 +261,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -292,8 +289,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'domainName' is not null or undefined
             assertParamExists('verifyTenantDomainAsync', 'domainName', domainName)
             const localVarPath = `/tenants/{tenantId}/domains/{domainName}/verify`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"domainName"}}`, encodeURIComponent(String(domainName)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{domainName}', encodeURIComponent(String(domainName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -309,9 +306,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -328,7 +324,6 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * DomainsApi - functional programming interface
- * @export
  */
 export const DomainsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = DomainsApiAxiosParamCreator(configuration)
@@ -427,7 +422,6 @@ export const DomainsApiFp = function(configuration?: Configuration) {
 
 /**
  * DomainsApi - factory interface
- * @export
  */
 export const DomainsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = DomainsApiFp(configuration)
@@ -497,170 +491,121 @@ export const DomainsApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * Request parameters for createTenantDomainAsync operation in DomainsApi.
- * @export
- * @interface DomainsApiCreateTenantDomainAsyncRequest
  */
 export interface DomainsApiCreateTenantDomainAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof DomainsApiCreateTenantDomainAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {TenantApiTenantV1CreateDomainRequest}
-     * @memberof DomainsApiCreateTenantDomainAsync
      */
     readonly tenantApiTenantV1CreateDomainRequest?: TenantApiTenantV1CreateDomainRequest
 }
 
 /**
  * Request parameters for deleteTenantDomainAsync operation in DomainsApi.
- * @export
- * @interface DomainsApiDeleteTenantDomainAsyncRequest
  */
 export interface DomainsApiDeleteTenantDomainAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof DomainsApiDeleteTenantDomainAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof DomainsApiDeleteTenantDomainAsync
      */
     readonly domainName: string
 }
 
 /**
  * Request parameters for getAllTenantDomainsAsync operation in DomainsApi.
- * @export
- * @interface DomainsApiGetAllTenantDomainsAsyncRequest
  */
 export interface DomainsApiGetAllTenantDomainsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof DomainsApiGetAllTenantDomainsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof DomainsApiGetAllTenantDomainsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof DomainsApiGetAllTenantDomainsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof DomainsApiGetAllTenantDomainsAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof DomainsApiGetAllTenantDomainsAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getTenantDomainProfileByNameAsync operation in DomainsApi.
- * @export
- * @interface DomainsApiGetTenantDomainProfileByNameAsyncRequest
  */
 export interface DomainsApiGetTenantDomainProfileByNameAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof DomainsApiGetTenantDomainProfileByNameAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof DomainsApiGetTenantDomainProfileByNameAsync
      */
     readonly domainName: string
 }
 
 /**
  * Request parameters for updateTenantDomainAsync operation in DomainsApi.
- * @export
- * @interface DomainsApiUpdateTenantDomainAsyncRequest
  */
 export interface DomainsApiUpdateTenantDomainAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof DomainsApiUpdateTenantDomainAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof DomainsApiUpdateTenantDomainAsync
      */
     readonly domainName: string
 
     /**
      * 
-     * @type {TenantApiTenantV1UpdateDomainRequest}
-     * @memberof DomainsApiUpdateTenantDomainAsync
      */
     readonly tenantApiTenantV1UpdateDomainRequest?: TenantApiTenantV1UpdateDomainRequest
 }
 
 /**
  * Request parameters for verifyTenantDomainAsync operation in DomainsApi.
- * @export
- * @interface DomainsApiVerifyTenantDomainAsyncRequest
  */
 export interface DomainsApiVerifyTenantDomainAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof DomainsApiVerifyTenantDomainAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof DomainsApiVerifyTenantDomainAsync
      */
     readonly domainName: string
 
     /**
      * 
-     * @type {TenantApiTenantV1VerifyDomainRequest}
-     * @memberof DomainsApiVerifyTenantDomainAsync
      */
     readonly tenantApiTenantV1VerifyDomainRequest?: TenantApiTenantV1VerifyDomainRequest
 }
 
 /**
  * DomainsApi - object-oriented interface
- * @export
- * @class DomainsApi
- * @extends {BaseAPI}
  */
 export class DomainsApi extends BaseAPI {
     /**
@@ -669,7 +614,6 @@ export class DomainsApi extends BaseAPI {
      * @param {DomainsApiCreateTenantDomainAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public createTenantDomainAsync(requestParameters: DomainsApiCreateTenantDomainAsyncRequest, options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).createTenantDomainAsync(requestParameters.tenantId, requestParameters.tenantApiTenantV1CreateDomainRequest, options).then((request) => request(this.axios, this.basePath));
@@ -681,7 +625,6 @@ export class DomainsApi extends BaseAPI {
      * @param {DomainsApiDeleteTenantDomainAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public deleteTenantDomainAsync(requestParameters: DomainsApiDeleteTenantDomainAsyncRequest, options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).deleteTenantDomainAsync(requestParameters.tenantId, requestParameters.domainName, options).then((request) => request(this.axios, this.basePath));
@@ -693,7 +636,6 @@ export class DomainsApi extends BaseAPI {
      * @param {DomainsApiGetAllTenantDomainsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public getAllTenantDomainsAsync(requestParameters: DomainsApiGetAllTenantDomainsAsyncRequest, options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).getAllTenantDomainsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -705,7 +647,6 @@ export class DomainsApi extends BaseAPI {
      * @param {DomainsApiGetTenantDomainProfileByNameAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public getTenantDomainProfileByNameAsync(requestParameters: DomainsApiGetTenantDomainProfileByNameAsyncRequest, options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).getTenantDomainProfileByNameAsync(requestParameters.tenantId, requestParameters.domainName, options).then((request) => request(this.axios, this.basePath));
@@ -717,7 +658,6 @@ export class DomainsApi extends BaseAPI {
      * @param {DomainsApiUpdateTenantDomainAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public updateTenantDomainAsync(requestParameters: DomainsApiUpdateTenantDomainAsyncRequest, options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).updateTenantDomainAsync(requestParameters.tenantId, requestParameters.domainName, requestParameters.tenantApiTenantV1UpdateDomainRequest, options).then((request) => request(this.axios, this.basePath));
@@ -729,7 +669,6 @@ export class DomainsApi extends BaseAPI {
      * @param {DomainsApiVerifyTenantDomainAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public verifyTenantDomainAsync(requestParameters: DomainsApiVerifyTenantDomainAsyncRequest, options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).verifyTenantDomainAsync(requestParameters.tenantId, requestParameters.domainName, requestParameters.tenantApiTenantV1VerifyDomainRequest, options).then((request) => request(this.axios, this.basePath));

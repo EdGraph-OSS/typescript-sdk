@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -39,7 +39,6 @@ import type { EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest } from '../m
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * InstancesDescriptorMappingsApi - axios parameter creator
- * @export
  */
 export const InstancesDescriptorMappingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -61,9 +60,9 @@ export const InstancesDescriptorMappingsApiAxiosParamCreator = function (configu
             // verify required parameter 'year' is not null or undefined
             assertParamExists('createDescriptorMapping', 'year', year)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -79,9 +78,8 @@ export const InstancesDescriptorMappingsApiAxiosParamCreator = function (configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -113,10 +111,10 @@ export const InstancesDescriptorMappingsApiAxiosParamCreator = function (configu
             // verify required parameter 'descriptorMappingId' is not null or undefined
             assertParamExists('deleteDescriptorMapping', 'descriptorMappingId', descriptorMappingId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/{descriptorMappingId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"descriptorMappingId"}}`, encodeURIComponent(String(descriptorMappingId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{descriptorMappingId}', encodeURIComponent(String(descriptorMappingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -132,8 +130,59 @@ export const InstancesDescriptorMappingsApiAxiosParamCreator = function (configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Exports all Descriptor Mappings as a JSON file.
+         * @param {string} tenantId 
+         * @param {string} instanceId 
+         * @param {number} year 
+         * @param {string} [namespace] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        exportDescriptorMappings: async (tenantId: string, instanceId: string, year: number, namespace?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('exportDescriptorMappings', 'tenantId', tenantId)
+            // verify required parameter 'instanceId' is not null or undefined
+            assertParamExists('exportDescriptorMappings', 'instanceId', instanceId)
+            // verify required parameter 'year' is not null or undefined
+            assertParamExists('exportDescriptorMappings', 'year', year)
+            const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/export`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            if (namespace !== undefined) {
+                localVarQueryParameter['namespace'] = namespace;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -163,10 +212,10 @@ export const InstancesDescriptorMappingsApiAxiosParamCreator = function (configu
             // verify required parameter 'descriptorMappingId' is not null or undefined
             assertParamExists('getDescriptorMappingById', 'descriptorMappingId', descriptorMappingId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/{descriptorMappingId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"descriptorMappingId"}}`, encodeURIComponent(String(descriptorMappingId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{descriptorMappingId}', encodeURIComponent(String(descriptorMappingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -182,8 +231,8 @@ export const InstancesDescriptorMappingsApiAxiosParamCreator = function (configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -213,9 +262,9 @@ export const InstancesDescriptorMappingsApiAxiosParamCreator = function (configu
             // verify required parameter 'year' is not null or undefined
             assertParamExists('getDescriptorMappings', 'year', year)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -243,11 +292,65 @@ export const InstancesDescriptorMappingsApiAxiosParamCreator = function (configu
                 localVarQueryParameter['namespace'] = namespace;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Imports Descriptor Mappings from a JSON file.
+         * @param {string} tenantId 
+         * @param {string} instanceId 
+         * @param {number} year 
+         * @param {File} [file] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        importDescriptorMappings: async (tenantId: string, instanceId: string, year: number, file?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('importDescriptorMappings', 'tenantId', tenantId)
+            // verify required parameter 'instanceId' is not null or undefined
+            assertParamExists('importDescriptorMappings', 'instanceId', instanceId)
+            // verify required parameter 'year' is not null or undefined
+            assertParamExists('importDescriptorMappings', 'year', year)
+            const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/import`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = localVarFormParams;
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -275,10 +378,10 @@ export const InstancesDescriptorMappingsApiAxiosParamCreator = function (configu
             // verify required parameter 'descriptorMappingId' is not null or undefined
             assertParamExists('updateDescriptorMapping', 'descriptorMappingId', descriptorMappingId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/{descriptorMappingId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"descriptorMappingId"}}`, encodeURIComponent(String(descriptorMappingId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{descriptorMappingId}', encodeURIComponent(String(descriptorMappingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -294,9 +397,8 @@ export const InstancesDescriptorMappingsApiAxiosParamCreator = function (configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -313,7 +415,6 @@ export const InstancesDescriptorMappingsApiAxiosParamCreator = function (configu
 
 /**
  * InstancesDescriptorMappingsApi - functional programming interface
- * @export
  */
 export const InstancesDescriptorMappingsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InstancesDescriptorMappingsApiAxiosParamCreator(configuration)
@@ -352,6 +453,22 @@ export const InstancesDescriptorMappingsApiFp = function(configuration?: Configu
         },
         /**
          * 
+         * @summary Exports all Descriptor Mappings as a JSON file.
+         * @param {string} tenantId 
+         * @param {string} instanceId 
+         * @param {number} year 
+         * @param {string} [namespace] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async exportDescriptorMappings(tenantId: string, instanceId: string, year: number, namespace?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportDescriptorMappings(tenantId, instanceId, year, namespace, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InstancesDescriptorMappingsApi.exportDescriptorMappings']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Retrieves a Descriptor Mapping by ID.
          * @param {string} tenantId 
          * @param {string} instanceId 
@@ -386,6 +503,22 @@ export const InstancesDescriptorMappingsApiFp = function(configuration?: Configu
         },
         /**
          * 
+         * @summary Imports Descriptor Mappings from a JSON file.
+         * @param {string} tenantId 
+         * @param {string} instanceId 
+         * @param {number} year 
+         * @param {File} [file] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async importDescriptorMappings(tenantId: string, instanceId: string, year: number, file?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importDescriptorMappings(tenantId, instanceId, year, file, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InstancesDescriptorMappingsApi.importDescriptorMappings']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Updates a Descriptor Mapping.
          * @param {string} tenantId 
          * @param {string} instanceId 
@@ -406,7 +539,6 @@ export const InstancesDescriptorMappingsApiFp = function(configuration?: Configu
 
 /**
  * InstancesDescriptorMappingsApi - factory interface
- * @export
  */
 export const InstancesDescriptorMappingsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InstancesDescriptorMappingsApiFp(configuration)
@@ -433,6 +565,16 @@ export const InstancesDescriptorMappingsApiFactory = function (configuration?: C
         },
         /**
          * 
+         * @summary Exports all Descriptor Mappings as a JSON file.
+         * @param {InstancesDescriptorMappingsApiExportDescriptorMappingsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        exportDescriptorMappings(requestParameters: InstancesDescriptorMappingsApiExportDescriptorMappingsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.exportDescriptorMappings(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.namespace, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Retrieves a Descriptor Mapping by ID.
          * @param {InstancesDescriptorMappingsApiGetDescriptorMappingByIdRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -453,6 +595,16 @@ export const InstancesDescriptorMappingsApiFactory = function (configuration?: C
         },
         /**
          * 
+         * @summary Imports Descriptor Mappings from a JSON file.
+         * @param {InstancesDescriptorMappingsApiImportDescriptorMappingsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        importDescriptorMappings(requestParameters: InstancesDescriptorMappingsApiImportDescriptorMappingsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.importDescriptorMappings(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.file, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Updates a Descriptor Mapping.
          * @param {InstancesDescriptorMappingsApiUpdateDescriptorMappingRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -466,205 +618,193 @@ export const InstancesDescriptorMappingsApiFactory = function (configuration?: C
 
 /**
  * Request parameters for createDescriptorMapping operation in InstancesDescriptorMappingsApi.
- * @export
- * @interface InstancesDescriptorMappingsApiCreateDescriptorMappingRequest
  */
 export interface InstancesDescriptorMappingsApiCreateDescriptorMappingRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiCreateDescriptorMapping
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiCreateDescriptorMapping
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorMappingsApiCreateDescriptorMapping
      */
     readonly year: number
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest}
-     * @memberof InstancesDescriptorMappingsApiCreateDescriptorMapping
      */
     readonly edfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest?: EdfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest
 }
 
 /**
  * Request parameters for deleteDescriptorMapping operation in InstancesDescriptorMappingsApi.
- * @export
- * @interface InstancesDescriptorMappingsApiDeleteDescriptorMappingRequest
  */
 export interface InstancesDescriptorMappingsApiDeleteDescriptorMappingRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiDeleteDescriptorMapping
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiDeleteDescriptorMapping
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorMappingsApiDeleteDescriptorMapping
      */
     readonly year: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiDeleteDescriptorMapping
      */
     readonly descriptorMappingId: string
 }
 
 /**
- * Request parameters for getDescriptorMappingById operation in InstancesDescriptorMappingsApi.
- * @export
- * @interface InstancesDescriptorMappingsApiGetDescriptorMappingByIdRequest
+ * Request parameters for exportDescriptorMappings operation in InstancesDescriptorMappingsApi.
  */
-export interface InstancesDescriptorMappingsApiGetDescriptorMappingByIdRequest {
+export interface InstancesDescriptorMappingsApiExportDescriptorMappingsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiGetDescriptorMappingById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiGetDescriptorMappingById
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorMappingsApiGetDescriptorMappingById
      */
     readonly year: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiGetDescriptorMappingById
+     */
+    readonly namespace?: string
+}
+
+/**
+ * Request parameters for getDescriptorMappingById operation in InstancesDescriptorMappingsApi.
+ */
+export interface InstancesDescriptorMappingsApiGetDescriptorMappingByIdRequest {
+    /**
+     * 
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     */
+    readonly instanceId: string
+
+    /**
+     * 
+     */
+    readonly year: number
+
+    /**
+     * 
      */
     readonly descriptorMappingId: string
 }
 
 /**
  * Request parameters for getDescriptorMappings operation in InstancesDescriptorMappingsApi.
- * @export
- * @interface InstancesDescriptorMappingsApiGetDescriptorMappingsRequest
  */
 export interface InstancesDescriptorMappingsApiGetDescriptorMappingsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiGetDescriptorMappings
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiGetDescriptorMappings
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorMappingsApiGetDescriptorMappings
      */
     readonly year: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorMappingsApiGetDescriptorMappings
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorMappingsApiGetDescriptorMappings
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiGetDescriptorMappings
      */
     readonly namespace?: string
 }
 
 /**
- * Request parameters for updateDescriptorMapping operation in InstancesDescriptorMappingsApi.
- * @export
- * @interface InstancesDescriptorMappingsApiUpdateDescriptorMappingRequest
+ * Request parameters for importDescriptorMappings operation in InstancesDescriptorMappingsApi.
  */
-export interface InstancesDescriptorMappingsApiUpdateDescriptorMappingRequest {
+export interface InstancesDescriptorMappingsApiImportDescriptorMappingsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiUpdateDescriptorMapping
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiUpdateDescriptorMapping
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesDescriptorMappingsApiUpdateDescriptorMapping
+     */
+    readonly year: number
+
+    readonly file?: File
+}
+
+/**
+ * Request parameters for updateDescriptorMapping operation in InstancesDescriptorMappingsApi.
+ */
+export interface InstancesDescriptorMappingsApiUpdateDescriptorMappingRequest {
+    /**
+     * 
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     */
+    readonly instanceId: string
+
+    /**
+     * 
      */
     readonly year: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesDescriptorMappingsApiUpdateDescriptorMapping
      */
     readonly descriptorMappingId: string
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest}
-     * @memberof InstancesDescriptorMappingsApiUpdateDescriptorMapping
      */
     readonly edfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest?: EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest
 }
 
 /**
  * InstancesDescriptorMappingsApi - object-oriented interface
- * @export
- * @class InstancesDescriptorMappingsApi
- * @extends {BaseAPI}
  */
 export class InstancesDescriptorMappingsApi extends BaseAPI {
     /**
@@ -673,7 +813,6 @@ export class InstancesDescriptorMappingsApi extends BaseAPI {
      * @param {InstancesDescriptorMappingsApiCreateDescriptorMappingRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesDescriptorMappingsApi
      */
     public createDescriptorMapping(requestParameters: InstancesDescriptorMappingsApiCreateDescriptorMappingRequest, options?: RawAxiosRequestConfig) {
         return InstancesDescriptorMappingsApiFp(this.configuration).createDescriptorMapping(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.edfiAdminApiEdfiAdminV1CreateDescriptorMappingRequest, options).then((request) => request(this.axios, this.basePath));
@@ -685,10 +824,20 @@ export class InstancesDescriptorMappingsApi extends BaseAPI {
      * @param {InstancesDescriptorMappingsApiDeleteDescriptorMappingRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesDescriptorMappingsApi
      */
     public deleteDescriptorMapping(requestParameters: InstancesDescriptorMappingsApiDeleteDescriptorMappingRequest, options?: RawAxiosRequestConfig) {
         return InstancesDescriptorMappingsApiFp(this.configuration).deleteDescriptorMapping(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.descriptorMappingId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Exports all Descriptor Mappings as a JSON file.
+     * @param {InstancesDescriptorMappingsApiExportDescriptorMappingsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportDescriptorMappings(requestParameters: InstancesDescriptorMappingsApiExportDescriptorMappingsRequest, options?: RawAxiosRequestConfig) {
+        return InstancesDescriptorMappingsApiFp(this.configuration).exportDescriptorMappings(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.namespace, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -697,7 +846,6 @@ export class InstancesDescriptorMappingsApi extends BaseAPI {
      * @param {InstancesDescriptorMappingsApiGetDescriptorMappingByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesDescriptorMappingsApi
      */
     public getDescriptorMappingById(requestParameters: InstancesDescriptorMappingsApiGetDescriptorMappingByIdRequest, options?: RawAxiosRequestConfig) {
         return InstancesDescriptorMappingsApiFp(this.configuration).getDescriptorMappingById(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.descriptorMappingId, options).then((request) => request(this.axios, this.basePath));
@@ -709,10 +857,20 @@ export class InstancesDescriptorMappingsApi extends BaseAPI {
      * @param {InstancesDescriptorMappingsApiGetDescriptorMappingsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesDescriptorMappingsApi
      */
     public getDescriptorMappings(requestParameters: InstancesDescriptorMappingsApiGetDescriptorMappingsRequest, options?: RawAxiosRequestConfig) {
         return InstancesDescriptorMappingsApiFp(this.configuration).getDescriptorMappings(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.namespace, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Imports Descriptor Mappings from a JSON file.
+     * @param {InstancesDescriptorMappingsApiImportDescriptorMappingsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importDescriptorMappings(requestParameters: InstancesDescriptorMappingsApiImportDescriptorMappingsRequest, options?: RawAxiosRequestConfig) {
+        return InstancesDescriptorMappingsApiFp(this.configuration).importDescriptorMappings(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -721,7 +879,6 @@ export class InstancesDescriptorMappingsApi extends BaseAPI {
      * @param {InstancesDescriptorMappingsApiUpdateDescriptorMappingRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesDescriptorMappingsApi
      */
     public updateDescriptorMapping(requestParameters: InstancesDescriptorMappingsApiUpdateDescriptorMappingRequest, options?: RawAxiosRequestConfig) {
         return InstancesDescriptorMappingsApiFp(this.configuration).updateDescriptorMapping(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.descriptorMappingId, requestParameters.edfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest, options).then((request) => request(this.axios, this.basePath));

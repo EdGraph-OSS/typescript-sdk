@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiReportsV1SyncWorkspacesRequest
- */
 export interface AnalyticsApiReportsV1SyncWorkspacesRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1SyncWorkspacesRequest
-     */
     'configurationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1SyncWorkspacesRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AnalyticsApiReportsV1SyncWorkspacesRequest
-     */
     'resetInstance'?: boolean | null;
 }
 

@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1TotalEnrollmentsReportResponse
- */
 export interface EdfiAdminApiEdfiAdminV1TotalEnrollmentsReportResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1TotalEnrollmentsReportResponse
-     */
     'enrollmentCount'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1TotalEnrollmentsReportResponse
-     */
     'educationOrganizationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TotalEnrollmentsReportResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TotalEnrollmentsReportResponse
-     */
     'nameOfInstitution'?: string | null;
 }
 

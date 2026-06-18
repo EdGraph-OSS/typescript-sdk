@@ -14,49 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface MicrosoftAspNetCoreMvcValidationProblemDetails
- */
 export interface MicrosoftAspNetCoreMvcValidationProblemDetails {
     [key: string]: any;
 
-    /**
-     * 
-     * @type {{ [key: string]: Array<string>; }}
-     * @memberof MicrosoftAspNetCoreMvcValidationProblemDetails
-     */
     'errors'?: { [key: string]: Array<string>; } | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof MicrosoftAspNetCoreMvcValidationProblemDetails
-     */
     'type'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof MicrosoftAspNetCoreMvcValidationProblemDetails
-     */
     'title'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof MicrosoftAspNetCoreMvcValidationProblemDetails
-     */
     'status'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof MicrosoftAspNetCoreMvcValidationProblemDetails
-     */
     'detail'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof MicrosoftAspNetCoreMvcValidationProblemDetails
-     */
     'instance'?: string | null;
 }
 

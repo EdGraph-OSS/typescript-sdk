@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -41,7 +41,6 @@ import type { TenantApiTenantV1OrganizationUpdatedResponse } from '../models';
 import type { TenantApiTenantV1UpdateOrganizationRequest } from '../models';
 /**
  * OrganizationsApi - axios parameter creator
- * @export
  */
 export const OrganizationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -57,7 +56,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createOrganizationAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/organizations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -73,9 +72,8 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -101,8 +99,8 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'organizationIdentifier' is not null or undefined
             assertParamExists('deleteOrganizationAsync', 'organizationIdentifier', organizationIdentifier)
             const localVarPath = `/tenants/{tenantId}/organizations/{organizationIdentifier}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"organizationIdentifier"}}`, encodeURIComponent(String(organizationIdentifier)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{organizationIdentifier}', encodeURIComponent(String(organizationIdentifier)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -118,8 +116,8 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -143,8 +141,8 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'organizationIdentifier' is not null or undefined
             assertParamExists('getOrganizationByIdAsync', 'organizationIdentifier', organizationIdentifier)
             const localVarPath = `/tenants/{tenantId}/organizations/{organizationIdentifier}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"organizationIdentifier"}}`, encodeURIComponent(String(organizationIdentifier)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{organizationIdentifier}', encodeURIComponent(String(organizationIdentifier)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -160,8 +158,8 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -186,7 +184,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getOrganizationsAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/organizations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -218,8 +216,8 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -244,8 +242,8 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'organizationIdentifier' is not null or undefined
             assertParamExists('updateOrganizationAsync', 'organizationIdentifier', organizationIdentifier)
             const localVarPath = `/tenants/{tenantId}/organizations/{organizationIdentifier}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"organizationIdentifier"}}`, encodeURIComponent(String(organizationIdentifier)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{organizationIdentifier}', encodeURIComponent(String(organizationIdentifier)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -261,9 +259,8 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -280,7 +277,6 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * OrganizationsApi - functional programming interface
- * @export
  */
 export const OrganizationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = OrganizationsApiAxiosParamCreator(configuration)
@@ -364,7 +360,6 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
 
 /**
  * OrganizationsApi - factory interface
- * @export
  */
 export const OrganizationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = OrganizationsApiFp(configuration)
@@ -424,142 +419,101 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
 
 /**
  * Request parameters for createOrganizationAsync operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiCreateOrganizationAsyncRequest
  */
 export interface OrganizationsApiCreateOrganizationAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof OrganizationsApiCreateOrganizationAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {TenantApiTenantV1CreateOrganizationRequest}
-     * @memberof OrganizationsApiCreateOrganizationAsync
      */
     readonly tenantApiTenantV1CreateOrganizationRequest?: TenantApiTenantV1CreateOrganizationRequest
 }
 
 /**
  * Request parameters for deleteOrganizationAsync operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiDeleteOrganizationAsyncRequest
  */
 export interface OrganizationsApiDeleteOrganizationAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof OrganizationsApiDeleteOrganizationAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof OrganizationsApiDeleteOrganizationAsync
      */
     readonly organizationIdentifier: string
 }
 
 /**
  * Request parameters for getOrganizationByIdAsync operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiGetOrganizationByIdAsyncRequest
  */
 export interface OrganizationsApiGetOrganizationByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof OrganizationsApiGetOrganizationByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof OrganizationsApiGetOrganizationByIdAsync
      */
     readonly organizationIdentifier: string
 }
 
 /**
  * Request parameters for getOrganizationsAsync operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiGetOrganizationsAsyncRequest
  */
 export interface OrganizationsApiGetOrganizationsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof OrganizationsApiGetOrganizationsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizationsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizationsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof OrganizationsApiGetOrganizationsAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof OrganizationsApiGetOrganizationsAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for updateOrganizationAsync operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiUpdateOrganizationAsyncRequest
  */
 export interface OrganizationsApiUpdateOrganizationAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof OrganizationsApiUpdateOrganizationAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof OrganizationsApiUpdateOrganizationAsync
      */
     readonly organizationIdentifier: string
 
     /**
      * 
-     * @type {TenantApiTenantV1UpdateOrganizationRequest}
-     * @memberof OrganizationsApiUpdateOrganizationAsync
      */
     readonly tenantApiTenantV1UpdateOrganizationRequest?: TenantApiTenantV1UpdateOrganizationRequest
 }
 
 /**
  * OrganizationsApi - object-oriented interface
- * @export
- * @class OrganizationsApi
- * @extends {BaseAPI}
  */
 export class OrganizationsApi extends BaseAPI {
     /**
@@ -568,7 +522,6 @@ export class OrganizationsApi extends BaseAPI {
      * @param {OrganizationsApiCreateOrganizationAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof OrganizationsApi
      */
     public createOrganizationAsync(requestParameters: OrganizationsApiCreateOrganizationAsyncRequest, options?: RawAxiosRequestConfig) {
         return OrganizationsApiFp(this.configuration).createOrganizationAsync(requestParameters.tenantId, requestParameters.tenantApiTenantV1CreateOrganizationRequest, options).then((request) => request(this.axios, this.basePath));
@@ -580,7 +533,6 @@ export class OrganizationsApi extends BaseAPI {
      * @param {OrganizationsApiDeleteOrganizationAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof OrganizationsApi
      */
     public deleteOrganizationAsync(requestParameters: OrganizationsApiDeleteOrganizationAsyncRequest, options?: RawAxiosRequestConfig) {
         return OrganizationsApiFp(this.configuration).deleteOrganizationAsync(requestParameters.tenantId, requestParameters.organizationIdentifier, options).then((request) => request(this.axios, this.basePath));
@@ -592,7 +544,6 @@ export class OrganizationsApi extends BaseAPI {
      * @param {OrganizationsApiGetOrganizationByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof OrganizationsApi
      */
     public getOrganizationByIdAsync(requestParameters: OrganizationsApiGetOrganizationByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return OrganizationsApiFp(this.configuration).getOrganizationByIdAsync(requestParameters.tenantId, requestParameters.organizationIdentifier, options).then((request) => request(this.axios, this.basePath));
@@ -604,7 +555,6 @@ export class OrganizationsApi extends BaseAPI {
      * @param {OrganizationsApiGetOrganizationsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof OrganizationsApi
      */
     public getOrganizationsAsync(requestParameters: OrganizationsApiGetOrganizationsAsyncRequest, options?: RawAxiosRequestConfig) {
         return OrganizationsApiFp(this.configuration).getOrganizationsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -616,7 +566,6 @@ export class OrganizationsApi extends BaseAPI {
      * @param {OrganizationsApiUpdateOrganizationAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof OrganizationsApi
      */
     public updateOrganizationAsync(requestParameters: OrganizationsApiUpdateOrganizationAsyncRequest, options?: RawAxiosRequestConfig) {
         return OrganizationsApiFp(this.configuration).updateOrganizationAsync(requestParameters.tenantId, requestParameters.organizationIdentifier, requestParameters.tenantApiTenantV1UpdateOrganizationRequest, options).then((request) => request(this.axios, this.basePath));

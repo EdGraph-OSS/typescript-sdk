@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiConfigurationsV1HasValidConfigurationResponse
- */
 export interface AnalyticsApiConfigurationsV1HasValidConfigurationResponse {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AnalyticsApiConfigurationsV1HasValidConfigurationResponse
-     */
     'isConfigurationValid'?: boolean;
 }
 

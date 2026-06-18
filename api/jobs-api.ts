@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -55,7 +55,6 @@ import type { ValidationsApiJobsV1JobProfileResponse } from '../models';
 import type { ValidationsApiJobsV1PaginatedItemsResponse } from '../models';
 /**
  * JobsApi - axios parameter creator
- * @export
  */
 export const JobsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -74,8 +73,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('activateTenantDataSyncJob', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/datasync/jobs/{jobId}/activate`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -91,9 +90,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -119,8 +117,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('cancelJob', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/validations/jobs/{jobId}/cancel`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -136,8 +134,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -162,8 +160,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('cancelTenantDataSyncJob', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/datasync/jobs/{jobId}/cancel`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -179,9 +177,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -205,7 +202,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createJob', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/validations/jobs`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -221,9 +218,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -247,7 +243,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createTenantDataSyncJob', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/datasync/jobs`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -263,9 +259,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -292,8 +287,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('deactivateTenantDataSyncJob', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/datasync/jobs/{jobId}/deactivate`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -309,9 +304,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -337,8 +331,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('deleteJob', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/validations/jobs/{jobId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -354,8 +348,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -379,8 +373,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('deleteTenantDataSyncJob', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/datasync/jobs/{jobId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -396,8 +390,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -421,8 +415,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('executeJob', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/validations/jobs/{jobId}/execute`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -438,8 +432,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -464,8 +458,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('executeTenantDataSyncJob', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/datasync/jobs/{jobId}/execute`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -481,9 +475,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -510,7 +503,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllTenantDataSyncJobs', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/datasync/jobs`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -542,8 +535,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -567,8 +560,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('getJobById', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/validations/jobs/{jobId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -584,8 +577,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -610,7 +603,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getJobs', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/validations/jobs`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -642,8 +635,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -667,8 +660,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('getTenantDataSyncJobProfileById', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/datasync/jobs/{jobId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -684,8 +677,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -709,8 +702,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('restartJobSchedule', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/validations/jobs/{jobId}/restart`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -726,8 +719,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -752,8 +745,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('updateJob', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/validations/jobs/{jobId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -769,9 +762,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -798,8 +790,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // verify required parameter 'jobId' is not null or undefined
             assertParamExists('updateTenantDataSyncJob', 'jobId', jobId)
             const localVarPath = `/tenants/{tenantId}/datasync/jobs/{jobId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"jobId"}}`, encodeURIComponent(String(jobId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{jobId}', encodeURIComponent(String(jobId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -815,9 +807,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -834,7 +825,6 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
 
 /**
  * JobsApi - functional programming interface
- * @export
  */
 export const JobsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = JobsApiAxiosParamCreator(configuration)
@@ -1094,7 +1084,6 @@ export const JobsApiFp = function(configuration?: Configuration) {
 
 /**
  * JobsApi - factory interface
- * @export
  */
 export const JobsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = JobsApiFp(configuration)
@@ -1274,450 +1263,321 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
 
 /**
  * Request parameters for activateTenantDataSyncJob operation in JobsApi.
- * @export
- * @interface JobsApiActivateTenantDataSyncJobRequest
  */
 export interface JobsApiActivateTenantDataSyncJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiActivateTenantDataSyncJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiActivateTenantDataSyncJob
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {DataSyncApiJobV1ActivateJobRequest}
-     * @memberof JobsApiActivateTenantDataSyncJob
      */
     readonly dataSyncApiJobV1ActivateJobRequest?: DataSyncApiJobV1ActivateJobRequest
 }
 
 /**
  * Request parameters for cancelJob operation in JobsApi.
- * @export
- * @interface JobsApiCancelJobRequest
  */
 export interface JobsApiCancelJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiCancelJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiCancelJob
      */
     readonly jobId: string
 }
 
 /**
  * Request parameters for cancelTenantDataSyncJob operation in JobsApi.
- * @export
- * @interface JobsApiCancelTenantDataSyncJobRequest
  */
 export interface JobsApiCancelTenantDataSyncJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiCancelTenantDataSyncJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiCancelTenantDataSyncJob
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {DataSyncApiJobV1CancelJobRequest}
-     * @memberof JobsApiCancelTenantDataSyncJob
      */
     readonly dataSyncApiJobV1CancelJobRequest?: DataSyncApiJobV1CancelJobRequest
 }
 
 /**
  * Request parameters for createJob operation in JobsApi.
- * @export
- * @interface JobsApiCreateJobRequest
  */
 export interface JobsApiCreateJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiCreateJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsValidationsCreateValidationJobRequest}
-     * @memberof JobsApiCreateJob
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsValidationsCreateValidationJobRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsValidationsCreateValidationJobRequest
 }
 
 /**
  * Request parameters for createTenantDataSyncJob operation in JobsApi.
- * @export
- * @interface JobsApiCreateTenantDataSyncJobRequest
  */
 export interface JobsApiCreateTenantDataSyncJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiCreateTenantDataSyncJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest}
-     * @memberof JobsApiCreateTenantDataSyncJob
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest
 }
 
 /**
  * Request parameters for deactivateTenantDataSyncJob operation in JobsApi.
- * @export
- * @interface JobsApiDeactivateTenantDataSyncJobRequest
  */
 export interface JobsApiDeactivateTenantDataSyncJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiDeactivateTenantDataSyncJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiDeactivateTenantDataSyncJob
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {DataSyncApiJobV1DeactivateJobRequest}
-     * @memberof JobsApiDeactivateTenantDataSyncJob
      */
     readonly dataSyncApiJobV1DeactivateJobRequest?: DataSyncApiJobV1DeactivateJobRequest
 }
 
 /**
  * Request parameters for deleteJob operation in JobsApi.
- * @export
- * @interface JobsApiDeleteJobRequest
  */
 export interface JobsApiDeleteJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiDeleteJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiDeleteJob
      */
     readonly jobId: string
 }
 
 /**
  * Request parameters for deleteTenantDataSyncJob operation in JobsApi.
- * @export
- * @interface JobsApiDeleteTenantDataSyncJobRequest
  */
 export interface JobsApiDeleteTenantDataSyncJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiDeleteTenantDataSyncJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiDeleteTenantDataSyncJob
      */
     readonly jobId: string
 }
 
 /**
  * Request parameters for executeJob operation in JobsApi.
- * @export
- * @interface JobsApiExecuteJobRequest
  */
 export interface JobsApiExecuteJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiExecuteJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiExecuteJob
      */
     readonly jobId: string
 }
 
 /**
  * Request parameters for executeTenantDataSyncJob operation in JobsApi.
- * @export
- * @interface JobsApiExecuteTenantDataSyncJobRequest
  */
 export interface JobsApiExecuteTenantDataSyncJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiExecuteTenantDataSyncJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiExecuteTenantDataSyncJob
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {DataSyncApiJobV1ExecuteJobRequest}
-     * @memberof JobsApiExecuteTenantDataSyncJob
      */
     readonly dataSyncApiJobV1ExecuteJobRequest?: DataSyncApiJobV1ExecuteJobRequest
 }
 
 /**
  * Request parameters for getAllTenantDataSyncJobs operation in JobsApi.
- * @export
- * @interface JobsApiGetAllTenantDataSyncJobsRequest
  */
 export interface JobsApiGetAllTenantDataSyncJobsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiGetAllTenantDataSyncJobs
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof JobsApiGetAllTenantDataSyncJobs
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof JobsApiGetAllTenantDataSyncJobs
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiGetAllTenantDataSyncJobs
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiGetAllTenantDataSyncJobs
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getJobById operation in JobsApi.
- * @export
- * @interface JobsApiGetJobByIdRequest
  */
 export interface JobsApiGetJobByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiGetJobById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiGetJobById
      */
     readonly jobId: string
 }
 
 /**
  * Request parameters for getJobs operation in JobsApi.
- * @export
- * @interface JobsApiGetJobsRequest
  */
 export interface JobsApiGetJobsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiGetJobs
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof JobsApiGetJobs
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof JobsApiGetJobs
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiGetJobs
      */
     readonly filter?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiGetJobs
      */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for getTenantDataSyncJobProfileById operation in JobsApi.
- * @export
- * @interface JobsApiGetTenantDataSyncJobProfileByIdRequest
  */
 export interface JobsApiGetTenantDataSyncJobProfileByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiGetTenantDataSyncJobProfileById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiGetTenantDataSyncJobProfileById
      */
     readonly jobId: string
 }
 
 /**
  * Request parameters for restartJobSchedule operation in JobsApi.
- * @export
- * @interface JobsApiRestartJobScheduleRequest
  */
 export interface JobsApiRestartJobScheduleRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiRestartJobSchedule
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiRestartJobSchedule
      */
     readonly jobId: string
 }
 
 /**
  * Request parameters for updateJob operation in JobsApi.
- * @export
- * @interface JobsApiUpdateJobRequest
  */
 export interface JobsApiUpdateJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiUpdateJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiUpdateJob
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateValidationJobRequest}
-     * @memberof JobsApiUpdateJob
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateValidationJobRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateValidationJobRequest
 }
 
 /**
  * Request parameters for updateTenantDataSyncJob operation in JobsApi.
- * @export
- * @interface JobsApiUpdateTenantDataSyncJobRequest
  */
 export interface JobsApiUpdateTenantDataSyncJobRequest {
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiUpdateTenantDataSyncJob
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof JobsApiUpdateTenantDataSyncJob
      */
     readonly jobId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateJobRequest}
-     * @memberof JobsApiUpdateTenantDataSyncJob
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateJobRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateJobRequest
 }
 
 /**
  * JobsApi - object-oriented interface
- * @export
- * @class JobsApi
- * @extends {BaseAPI}
  */
 export class JobsApi extends BaseAPI {
     /**
@@ -1726,7 +1586,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiActivateTenantDataSyncJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public activateTenantDataSyncJob(requestParameters: JobsApiActivateTenantDataSyncJobRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).activateTenantDataSyncJob(requestParameters.tenantId, requestParameters.jobId, requestParameters.dataSyncApiJobV1ActivateJobRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1738,7 +1597,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiCancelJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public cancelJob(requestParameters: JobsApiCancelJobRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).cancelJob(requestParameters.tenantId, requestParameters.jobId, options).then((request) => request(this.axios, this.basePath));
@@ -1750,7 +1608,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiCancelTenantDataSyncJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public cancelTenantDataSyncJob(requestParameters: JobsApiCancelTenantDataSyncJobRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).cancelTenantDataSyncJob(requestParameters.tenantId, requestParameters.jobId, requestParameters.dataSyncApiJobV1CancelJobRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1762,7 +1619,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiCreateJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public createJob(requestParameters: JobsApiCreateJobRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).createJob(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsValidationsCreateValidationJobRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1774,7 +1630,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiCreateTenantDataSyncJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public createTenantDataSyncJob(requestParameters: JobsApiCreateTenantDataSyncJobRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).createTenantDataSyncJob(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsCreateJobRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1786,7 +1641,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiDeactivateTenantDataSyncJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public deactivateTenantDataSyncJob(requestParameters: JobsApiDeactivateTenantDataSyncJobRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).deactivateTenantDataSyncJob(requestParameters.tenantId, requestParameters.jobId, requestParameters.dataSyncApiJobV1DeactivateJobRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1798,7 +1652,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiDeleteJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public deleteJob(requestParameters: JobsApiDeleteJobRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).deleteJob(requestParameters.tenantId, requestParameters.jobId, options).then((request) => request(this.axios, this.basePath));
@@ -1810,7 +1663,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiDeleteTenantDataSyncJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public deleteTenantDataSyncJob(requestParameters: JobsApiDeleteTenantDataSyncJobRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).deleteTenantDataSyncJob(requestParameters.tenantId, requestParameters.jobId, options).then((request) => request(this.axios, this.basePath));
@@ -1822,7 +1674,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiExecuteJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public executeJob(requestParameters: JobsApiExecuteJobRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).executeJob(requestParameters.tenantId, requestParameters.jobId, options).then((request) => request(this.axios, this.basePath));
@@ -1834,7 +1685,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiExecuteTenantDataSyncJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public executeTenantDataSyncJob(requestParameters: JobsApiExecuteTenantDataSyncJobRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).executeTenantDataSyncJob(requestParameters.tenantId, requestParameters.jobId, requestParameters.dataSyncApiJobV1ExecuteJobRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1846,7 +1696,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiGetAllTenantDataSyncJobsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public getAllTenantDataSyncJobs(requestParameters: JobsApiGetAllTenantDataSyncJobsRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).getAllTenantDataSyncJobs(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1858,7 +1707,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiGetJobByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public getJobById(requestParameters: JobsApiGetJobByIdRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).getJobById(requestParameters.tenantId, requestParameters.jobId, options).then((request) => request(this.axios, this.basePath));
@@ -1870,7 +1718,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiGetJobsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public getJobs(requestParameters: JobsApiGetJobsRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).getJobs(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -1882,7 +1729,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiGetTenantDataSyncJobProfileByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public getTenantDataSyncJobProfileById(requestParameters: JobsApiGetTenantDataSyncJobProfileByIdRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).getTenantDataSyncJobProfileById(requestParameters.tenantId, requestParameters.jobId, options).then((request) => request(this.axios, this.basePath));
@@ -1894,7 +1740,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiRestartJobScheduleRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public restartJobSchedule(requestParameters: JobsApiRestartJobScheduleRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).restartJobSchedule(requestParameters.tenantId, requestParameters.jobId, options).then((request) => request(this.axios, this.basePath));
@@ -1906,7 +1751,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiUpdateJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public updateJob(requestParameters: JobsApiUpdateJobRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).updateJob(requestParameters.tenantId, requestParameters.jobId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateValidationJobRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1918,7 +1762,6 @@ export class JobsApi extends BaseAPI {
      * @param {JobsApiUpdateTenantDataSyncJobRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobsApi
      */
     public updateTenantDataSyncJob(requestParameters: JobsApiUpdateTenantDataSyncJobRequest, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).updateTenantDataSyncJob(requestParameters.tenantId, requestParameters.jobId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsUpdateJobRequest, options).then((request) => request(this.axios, this.basePath));

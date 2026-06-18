@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -59,7 +59,6 @@ import type { TenantApiSectionsV1PaginatedTermsResponse } from '../models';
 import type { TenantApiSectionsV1SectionProfileResponse } from '../models';
 /**
  * SectionsApi - axios parameter creator
- * @export
  */
 export const SectionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -78,8 +77,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('createSection', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/sections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -95,9 +94,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -126,9 +124,9 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'sectionId' is not null or undefined
             assertParamExists('deleteSection', 'sectionId', sectionId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/sections/{sectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
-                .replace(`{${"sectionId"}}`, encodeURIComponent(String(sectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)))
+                .replace('{sectionId}', encodeURIComponent(String(sectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -144,8 +142,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -172,9 +170,9 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'sectionId' is not null or undefined
             assertParamExists('getSection', 'sectionId', sectionId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/sections/{sectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
-                .replace(`{${"sectionId"}}`, encodeURIComponent(String(sectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)))
+                .replace('{sectionId}', encodeURIComponent(String(sectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -190,8 +188,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -216,7 +214,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getSectionAcademicSubjects', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/sections/academicSubjects`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -248,8 +246,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -273,8 +271,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'sectionId' is not null or undefined
             assertParamExists('getSectionById', 'sectionId', sectionId)
             const localVarPath = `/tenants/{tenantId}/sections/{sectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"sectionId"}}`, encodeURIComponent(String(sectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{sectionId}', encodeURIComponent(String(sectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -290,8 +288,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -316,7 +314,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getSectionCourses', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/sections/courses`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -348,8 +346,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -374,7 +372,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getSectionGradeLevels', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/sections/gradeLevels`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -406,8 +404,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -432,7 +430,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getSectionSchools', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/sections/schools`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -464,8 +462,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -490,7 +488,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getSectionSessions', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/sections/sessions`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -522,8 +520,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -548,7 +546,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getSectionTerms', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/sections/terms`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -580,8 +578,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -606,7 +604,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getSections', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/sections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -638,8 +636,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -667,8 +665,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('searchSections', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/sections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -700,8 +698,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -729,9 +727,9 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'sectionId' is not null or undefined
             assertParamExists('updateSection', 'sectionId', sectionId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/sections/{sectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
-                .replace(`{${"sectionId"}}`, encodeURIComponent(String(sectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)))
+                .replace('{sectionId}', encodeURIComponent(String(sectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -747,9 +745,8 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -766,7 +763,6 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * SectionsApi - functional programming interface
- * @export
  */
 export const SectionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SectionsApiAxiosParamCreator(configuration)
@@ -988,7 +984,6 @@ export const SectionsApiFp = function(configuration?: Configuration) {
 
 /**
  * SectionsApi - factory interface
- * @export
  */
 export const SectionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SectionsApiFp(configuration)
@@ -1128,492 +1123,351 @@ export const SectionsApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * Request parameters for createSection operation in SectionsApi.
- * @export
- * @interface SectionsApiCreateSectionRequest
  */
 export interface SectionsApiCreateSectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiCreateSection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiCreateSection
      */
     readonly formId: string
 
     /**
      * 
-     * @type {FormApiSectionsV1CreateSectionRequest}
-     * @memberof SectionsApiCreateSection
      */
     readonly formApiSectionsV1CreateSectionRequest?: FormApiSectionsV1CreateSectionRequest
 }
 
 /**
  * Request parameters for deleteSection operation in SectionsApi.
- * @export
- * @interface SectionsApiDeleteSectionRequest
  */
 export interface SectionsApiDeleteSectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiDeleteSection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiDeleteSection
      */
     readonly formId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiDeleteSection
      */
     readonly sectionId: string
 }
 
 /**
  * Request parameters for getSection operation in SectionsApi.
- * @export
- * @interface SectionsApiGetSectionRequest
  */
 export interface SectionsApiGetSectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSection
      */
     readonly formId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSection
      */
     readonly sectionId: string
 }
 
 /**
  * Request parameters for getSectionAcademicSubjects operation in SectionsApi.
- * @export
- * @interface SectionsApiGetSectionAcademicSubjectsRequest
  */
 export interface SectionsApiGetSectionAcademicSubjectsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionAcademicSubjects
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSectionAcademicSubjects
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSectionAcademicSubjects
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionAcademicSubjects
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionAcademicSubjects
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getSectionById operation in SectionsApi.
- * @export
- * @interface SectionsApiGetSectionByIdRequest
  */
 export interface SectionsApiGetSectionByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionById
      */
     readonly sectionId: string
 }
 
 /**
  * Request parameters for getSectionCourses operation in SectionsApi.
- * @export
- * @interface SectionsApiGetSectionCoursesRequest
  */
 export interface SectionsApiGetSectionCoursesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionCourses
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSectionCourses
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSectionCourses
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionCourses
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionCourses
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getSectionGradeLevels operation in SectionsApi.
- * @export
- * @interface SectionsApiGetSectionGradeLevelsRequest
  */
 export interface SectionsApiGetSectionGradeLevelsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionGradeLevels
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSectionGradeLevels
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSectionGradeLevels
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionGradeLevels
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionGradeLevels
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getSectionSchools operation in SectionsApi.
- * @export
- * @interface SectionsApiGetSectionSchoolsRequest
  */
 export interface SectionsApiGetSectionSchoolsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionSchools
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSectionSchools
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSectionSchools
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionSchools
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionSchools
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getSectionSessions operation in SectionsApi.
- * @export
- * @interface SectionsApiGetSectionSessionsRequest
  */
 export interface SectionsApiGetSectionSessionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionSessions
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSectionSessions
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSectionSessions
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionSessions
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionSessions
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getSectionTerms operation in SectionsApi.
- * @export
- * @interface SectionsApiGetSectionTermsRequest
  */
 export interface SectionsApiGetSectionTermsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionTerms
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSectionTerms
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSectionTerms
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionTerms
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSectionTerms
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getSections operation in SectionsApi.
- * @export
- * @interface SectionsApiGetSectionsRequest
  */
 export interface SectionsApiGetSectionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSections
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSections
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiGetSections
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSections
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiGetSections
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for searchSections operation in SectionsApi.
- * @export
- * @interface SectionsApiSearchSectionsRequest
  */
 export interface SectionsApiSearchSectionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiSearchSections
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiSearchSections
      */
     readonly formId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiSearchSections
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof SectionsApiSearchSections
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiSearchSections
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiSearchSections
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for updateSection operation in SectionsApi.
- * @export
- * @interface SectionsApiUpdateSectionRequest
  */
 export interface SectionsApiUpdateSectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiUpdateSection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiUpdateSection
      */
     readonly formId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SectionsApiUpdateSection
      */
     readonly sectionId: string
 
     /**
      * 
-     * @type {FormApiSectionsV1UpdateSectionRequest}
-     * @memberof SectionsApiUpdateSection
      */
     readonly formApiSectionsV1UpdateSectionRequest?: FormApiSectionsV1UpdateSectionRequest
 }
 
 /**
  * SectionsApi - object-oriented interface
- * @export
- * @class SectionsApi
- * @extends {BaseAPI}
  */
 export class SectionsApi extends BaseAPI {
     /**
@@ -1622,7 +1476,6 @@ export class SectionsApi extends BaseAPI {
      * @param {SectionsApiCreateSectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SectionsApi
      */
     public createSection(requestParameters: SectionsApiCreateSectionRequest, options?: RawAxiosRequestConfig) {
         return SectionsApiFp(this.configuration).createSection(requestParameters.tenantId, requestParameters.formId, requestParameters.formApiSectionsV1CreateSectionRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1634,7 +1487,6 @@ export class SectionsApi extends BaseAPI {
      * @param {SectionsApiDeleteSectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SectionsApi
      */
     public deleteSection(requestParameters: SectionsApiDeleteSectionRequest, options?: RawAxiosRequestConfig) {
         return SectionsApiFp(this.configuration).deleteSection(requestParameters.tenantId, requestParameters.formId, requestParameters.sectionId, options).then((request) => request(this.axios, this.basePath));
@@ -1646,7 +1498,6 @@ export class SectionsApi extends BaseAPI {
      * @param {SectionsApiGetSectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SectionsApi
      */
     public getSection(requestParameters: SectionsApiGetSectionRequest, options?: RawAxiosRequestConfig) {
         return SectionsApiFp(this.configuration).getSection(requestParameters.tenantId, requestParameters.formId, requestParameters.sectionId, options).then((request) => request(this.axios, this.basePath));
@@ -1658,7 +1509,6 @@ export class SectionsApi extends BaseAPI {
      * @param {SectionsApiGetSectionAcademicSubjectsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SectionsApi
      */
     public getSectionAcademicSubjects(requestParameters: SectionsApiGetSectionAcademicSubjectsRequest, options?: RawAxiosRequestConfig) {
         return SectionsApiFp(this.configuration).getSectionAcademicSubjects(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1670,7 +1520,6 @@ export class SectionsApi extends BaseAPI {
      * @param {SectionsApiGetSectionByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SectionsApi
      */
     public getSectionById(requestParameters: SectionsApiGetSectionByIdRequest, options?: RawAxiosRequestConfig) {
         return SectionsApiFp(this.configuration).getSectionById(requestParameters.tenantId, requestParameters.sectionId, options).then((request) => request(this.axios, this.basePath));
@@ -1682,7 +1531,6 @@ export class SectionsApi extends BaseAPI {
      * @param {SectionsApiGetSectionCoursesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SectionsApi
      */
     public getSectionCourses(requestParameters: SectionsApiGetSectionCoursesRequest, options?: RawAxiosRequestConfig) {
         return SectionsApiFp(this.configuration).getSectionCourses(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1694,7 +1542,6 @@ export class SectionsApi extends BaseAPI {
      * @param {SectionsApiGetSectionGradeLevelsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SectionsApi
      */
     public getSectionGradeLevels(requestParameters: SectionsApiGetSectionGradeLevelsRequest, options?: RawAxiosRequestConfig) {
         return SectionsApiFp(this.configuration).getSectionGradeLevels(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1706,7 +1553,6 @@ export class SectionsApi extends BaseAPI {
      * @param {SectionsApiGetSectionSchoolsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SectionsApi
      */
     public getSectionSchools(requestParameters: SectionsApiGetSectionSchoolsRequest, options?: RawAxiosRequestConfig) {
         return SectionsApiFp(this.configuration).getSectionSchools(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1718,7 +1564,6 @@ export class SectionsApi extends BaseAPI {
      * @param {SectionsApiGetSectionSessionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SectionsApi
      */
     public getSectionSessions(requestParameters: SectionsApiGetSectionSessionsRequest, options?: RawAxiosRequestConfig) {
         return SectionsApiFp(this.configuration).getSectionSessions(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1730,7 +1575,6 @@ export class SectionsApi extends BaseAPI {
      * @param {SectionsApiGetSectionTermsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SectionsApi
      */
     public getSectionTerms(requestParameters: SectionsApiGetSectionTermsRequest, options?: RawAxiosRequestConfig) {
         return SectionsApiFp(this.configuration).getSectionTerms(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1742,7 +1586,6 @@ export class SectionsApi extends BaseAPI {
      * @param {SectionsApiGetSectionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SectionsApi
      */
     public getSections(requestParameters: SectionsApiGetSectionsRequest, options?: RawAxiosRequestConfig) {
         return SectionsApiFp(this.configuration).getSections(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1754,7 +1597,6 @@ export class SectionsApi extends BaseAPI {
      * @param {SectionsApiSearchSectionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SectionsApi
      */
     public searchSections(requestParameters: SectionsApiSearchSectionsRequest, options?: RawAxiosRequestConfig) {
         return SectionsApiFp(this.configuration).searchSections(requestParameters.tenantId, requestParameters.formId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -1766,7 +1608,6 @@ export class SectionsApi extends BaseAPI {
      * @param {SectionsApiUpdateSectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SectionsApi
      */
     public updateSection(requestParameters: SectionsApiUpdateSectionRequest, options?: RawAxiosRequestConfig) {
         return SectionsApiFp(this.configuration).updateSection(requestParameters.tenantId, requestParameters.formId, requestParameters.sectionId, requestParameters.formApiSectionsV1UpdateSectionRequest, options).then((request) => request(this.axios, this.basePath));

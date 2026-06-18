@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1SubscriptionCreatedResponse
- */
 export interface TenantApiTenantV1SubscriptionCreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionCreatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionCreatedResponse
-     */
     'subscriptionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1SubscriptionCreatedResponse
-     */
     'applicationId'?: string | null;
 }
 

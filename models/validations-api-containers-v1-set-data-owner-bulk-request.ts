@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1SetDataOwnerBulkRequest Types Collection } from './validations-api-containers-v1-set-data-owner-bulk-request types collection';
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1SetDataOwnerBulkRequest
- */
 export interface ValidationsApiContainersV1SetDataOwnerBulkRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerBulkRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiContainersV1SetDataOwnerBulkRequest Types Collection>}
-     * @memberof ValidationsApiContainersV1SetDataOwnerBulkRequest
-     */
     'collections'?: Array<ValidationsApiContainersV1SetDataOwnerBulkRequest Types Collection> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerBulkRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerBulkRequest
-     */
     'environmentId'?: string | null;
 }
 

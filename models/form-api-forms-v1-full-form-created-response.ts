@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface FormApiFormsV1FullFormCreatedResponse
- */
 export interface FormApiFormsV1FullFormCreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1FullFormCreatedResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1FullFormCreatedResponse
-     */
     'tenantId'?: string | null;
 }
 

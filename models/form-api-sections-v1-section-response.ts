@@ -14,101 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface FormApiSectionsV1SectionResponse
- */
 export interface FormApiSectionsV1SectionResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'formId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'title'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'deletedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'deletedDateTime'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'isDeleted'?: boolean | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'order'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'subHeading'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionResponse
-     */
     'customId'?: string | null;
 }
 

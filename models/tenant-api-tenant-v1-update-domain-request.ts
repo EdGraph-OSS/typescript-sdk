@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { TenantApiTenantV1DomainStatus } from './tenant-api-tenant-v1-domain-status';
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1UpdateDomainRequest
- */
 export interface TenantApiTenantV1UpdateDomainRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1UpdateDomainRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1UpdateDomainRequest
-     */
     'oldDomainName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1UpdateDomainRequest
-     */
     'newDomainName'?: string | null;
-    /**
-     * 
-     * @type {TenantApiTenantV1DomainStatus}
-     * @memberof TenantApiTenantV1UpdateDomainRequest
-     */
     'domainStatus'?: TenantApiTenantV1DomainStatus;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiTenantV1UpdateDomainRequest
-     */
     'autoAssignUsers'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiTenantV1UpdateDomainRequest
-     */
     'manuallyVerified'?: boolean | null;
 }
 

@@ -23,101 +23,21 @@ import type { IMSAdminApiV1DbBackupCodesDbBackupCode } from './imsadmin-api-v1-d
 // @ts-ignore
 import type { IMSAdminApiV1TiersTier } from './imsadmin-api-v1-tiers-tier';
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1InstancesInstanceProfileResponse
- */
 export interface IMSAdminApiV1InstancesInstanceProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'useCustomId'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'customId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {IMSAdminApiV1ConnectionsConnectionProfileResponse}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'connection'?: IMSAdminApiV1ConnectionsConnectionProfileResponse;
-    /**
-     * 
-     * @type {IMSAdminApiV1TiersTier}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'tier'?: IMSAdminApiV1TiersTier;
-    /**
-     * 
-     * @type {IMSAdminApiV1DbBackupCodesDbBackupCode}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'backupCode'?: IMSAdminApiV1DbBackupCodesDbBackupCode;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1InstancesInstanceProfileResponse
-     */
     'schoolYear'?: number | null;
 }
 

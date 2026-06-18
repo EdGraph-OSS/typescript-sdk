@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1SetDataOwnerBulkRequestTypesCollection
- */
 export interface ValidationsApiContainersV1SetDataOwnerBulkRequestTypesCollection {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerBulkRequestTypesCollection
-     */
     'collectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerBulkRequestTypesCollection
-     */
     'email'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerBulkRequestTypesCollection
-     */
     'firstName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerBulkRequestTypesCollection
-     */
     'lastName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1SetDataOwnerBulkRequestTypesCollection
-     */
     'userId'?: string | null;
 }
 

@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiConfigurationsV1AnalyticsAzureAd
- */
 export interface AnalyticsApiConfigurationsV1AnalyticsAzureAd {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsAzureAd
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsAzureAd
-     */
     'azureTenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsAzureAd
-     */
     'clientSecret'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsAzureAd
-     */
     'scopes'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConfigurationsV1AnalyticsAzureAd
-     */
     'tenantId'?: string | null;
 }
 

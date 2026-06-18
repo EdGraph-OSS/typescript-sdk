@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs
- */
 export interface EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs
-     */
     'createJobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs
-     */
     'deleteJobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs
-     */
     'resetDeleteJobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs
-     */
     'resetCreateJobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs
-     */
     'generateReportsJobId'?: string | null;
 }
 

@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1PaginatedCategoryTreeResponse Types SubCategoryTree } from './validations-api-containers-v1-paginated-category-tree-response types sub-category-tree';
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1PaginatedCategoryTreeResponseTypesCategoryTree
- */
 export interface ValidationsApiContainersV1PaginatedCategoryTreeResponseTypesCategoryTree {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1PaginatedCategoryTreeResponseTypesCategoryTree
-     */
     'categoryId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1PaginatedCategoryTreeResponseTypesCategoryTree
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiContainersV1PaginatedCategoryTreeResponse Types SubCategoryTree>}
-     * @memberof ValidationsApiContainersV1PaginatedCategoryTreeResponseTypesCategoryTree
-     */
     'subCategories'?: Array<ValidationsApiContainersV1PaginatedCategoryTreeResponse Types SubCategoryTree> | null;
 }
 

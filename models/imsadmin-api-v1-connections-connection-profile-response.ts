@@ -23,71 +23,16 @@ import type { IMSAdminApiV1DbBackupCodesDbBackupCode } from './imsadmin-api-v1-d
 // @ts-ignore
 import type { IMSAdminApiV1TiersTier } from './imsadmin-api-v1-tiers-tier';
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ConnectionsConnectionProfileResponse
- */
 export interface IMSAdminApiV1ConnectionsConnectionProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ConnectionsConnectionProfileResponse
-     */
     'connectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ConnectionsConnectionProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ConnectionsConnectionProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ConnectionsConnectionProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ConnectionsConnectionProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IMSAdminApiV1ConnectionsConnectionProfileResponse
-     */
     'allowedTenants'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ConnectionsConnectionProfileResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {Array<IMSAdminApiV1ConnectionsConnectionDetails>}
-     * @memberof IMSAdminApiV1ConnectionsConnectionProfileResponse
-     */
     'details'?: Array<IMSAdminApiV1ConnectionsConnectionDetails> | null;
-    /**
-     * 
-     * @type {Array<IMSAdminApiV1TiersTier>}
-     * @memberof IMSAdminApiV1ConnectionsConnectionProfileResponse
-     */
     'tiers'?: Array<IMSAdminApiV1TiersTier> | null;
-    /**
-     * 
-     * @type {Array<IMSAdminApiV1DbBackupCodesDbBackupCode>}
-     * @memberof IMSAdminApiV1ConnectionsConnectionProfileResponse
-     */
     'backupCodes'?: Array<IMSAdminApiV1DbBackupCodesDbBackupCode> | null;
 }
 

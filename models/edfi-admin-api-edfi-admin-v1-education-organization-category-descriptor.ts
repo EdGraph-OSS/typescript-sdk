@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor
- */
 export interface EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor
-     */
     'educationOrganizationCategoryDescriptorId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor
-     */
     'codeValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor
-     */
     'namespace'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor
-     */
     'shortDescription'?: string | null;
 }
 

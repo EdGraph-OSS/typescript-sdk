@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiJobV1Schedule
- */
 export interface DataSyncApiJobV1Schedule {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiJobV1Schedule
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1Schedule
-     */
     'beginDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1Schedule
-     */
     'endDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1Schedule
-     */
     'cron'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiJobV1Schedule
-     */
     'timeZone'?: string | null;
 }
 

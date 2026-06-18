@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1TiersTier
- */
 export interface IMSAdminApiV1TiersTier {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1TiersTier
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1TiersTier
-     */
     'type'?: string | null;
 }
 

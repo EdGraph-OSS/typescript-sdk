@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { EdfiAdminApiEdfiAdminV1AuthorizationStrategiesResponse } from '../
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * InstancesAuthorizationStrategiesApi - axios parameter creator
- * @export
  */
 export const InstancesAuthorizationStrategiesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -51,8 +50,8 @@ export const InstancesAuthorizationStrategiesApiAxiosParamCreator = function (co
             // verify required parameter 'instanceId' is not null or undefined
             assertParamExists('getAuthorizationStrategiesAsync', 'instanceId', instanceId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/authorizationstrategies`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -84,8 +83,8 @@ export const InstancesAuthorizationStrategiesApiAxiosParamCreator = function (co
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -100,7 +99,6 @@ export const InstancesAuthorizationStrategiesApiAxiosParamCreator = function (co
 
 /**
  * InstancesAuthorizationStrategiesApi - functional programming interface
- * @export
  */
 export const InstancesAuthorizationStrategiesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InstancesAuthorizationStrategiesApiAxiosParamCreator(configuration)
@@ -128,7 +126,6 @@ export const InstancesAuthorizationStrategiesApiFp = function(configuration?: Co
 
 /**
  * InstancesAuthorizationStrategiesApi - factory interface
- * @export
  */
 export const InstancesAuthorizationStrategiesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InstancesAuthorizationStrategiesApiFp(configuration)
@@ -148,58 +145,41 @@ export const InstancesAuthorizationStrategiesApiFactory = function (configuratio
 
 /**
  * Request parameters for getAuthorizationStrategiesAsync operation in InstancesAuthorizationStrategiesApi.
- * @export
- * @interface InstancesAuthorizationStrategiesApiGetAuthorizationStrategiesAsyncRequest
  */
 export interface InstancesAuthorizationStrategiesApiGetAuthorizationStrategiesAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesAuthorizationStrategiesApiGetAuthorizationStrategiesAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesAuthorizationStrategiesApiGetAuthorizationStrategiesAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesAuthorizationStrategiesApiGetAuthorizationStrategiesAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesAuthorizationStrategiesApiGetAuthorizationStrategiesAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesAuthorizationStrategiesApiGetAuthorizationStrategiesAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesAuthorizationStrategiesApiGetAuthorizationStrategiesAsync
      */
     readonly filter?: string
 }
 
 /**
  * InstancesAuthorizationStrategiesApi - object-oriented interface
- * @export
- * @class InstancesAuthorizationStrategiesApi
- * @extends {BaseAPI}
  */
 export class InstancesAuthorizationStrategiesApi extends BaseAPI {
     /**
@@ -208,7 +188,6 @@ export class InstancesAuthorizationStrategiesApi extends BaseAPI {
      * @param {InstancesAuthorizationStrategiesApiGetAuthorizationStrategiesAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesAuthorizationStrategiesApi
      */
     public getAuthorizationStrategiesAsync(requestParameters: InstancesAuthorizationStrategiesApiGetAuthorizationStrategiesAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesAuthorizationStrategiesApiFp(this.configuration).getAuthorizationStrategiesAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));

@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { DataSyncApiConnectionV1ConnectionListResponse } from './data-sync-api-connection-v1-connection-list-response';
 
-/**
- * 
- * @export
- * @interface DataSyncApiConnectionV1ConnectionListResponsePaginatedItemsViewModel
- */
 export interface DataSyncApiConnectionV1ConnectionListResponsePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponsePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponsePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponsePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<DataSyncApiConnectionV1ConnectionListResponse>}
-     * @memberof DataSyncApiConnectionV1ConnectionListResponsePaginatedItemsViewModel
-     */
     'data'?: Array<DataSyncApiConnectionV1ConnectionListResponse> | null;
 }
 

@@ -23,101 +23,21 @@ import type { IMSAdminApiV1DbBackupCodesDbBackupCode } from './imsadmin-api-v1-d
 // @ts-ignore
 import type { IMSAdminApiV1TiersTier } from './imsadmin-api-v1-tiers-tier';
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1InstancesInstanceListResponse
- */
 export interface IMSAdminApiV1InstancesInstanceListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'useCustomId'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'customId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {IMSAdminApiV1ConnectionsConnectionListResponse}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'connection'?: IMSAdminApiV1ConnectionsConnectionListResponse;
-    /**
-     * 
-     * @type {IMSAdminApiV1TiersTier}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'tier'?: IMSAdminApiV1TiersTier;
-    /**
-     * 
-     * @type {IMSAdminApiV1DbBackupCodesDbBackupCode}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'backupCode'?: IMSAdminApiV1DbBackupCodesDbBackupCode;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1InstancesInstanceListResponse
-     */
     'schoolYear'?: number | null;
 }
 

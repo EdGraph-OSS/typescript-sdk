@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1ToggleReportingPeriodSelectedRequest
- */
 export interface EdGraphServicesStateReportingV1ToggleReportingPeriodSelectedRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ToggleReportingPeriodSelectedRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ToggleReportingPeriodSelectedRequest
-     */
     'environmentId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1ToggleReportingPeriodSelectedRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphServicesStateReportingV1ToggleReportingPeriodSelectedRequest
-     */
     'selected'?: boolean | null;
 }
 

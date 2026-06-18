@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { IdentityApiUserV1ReleaseUserLockoutResponse } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * V1Api - axios parameter creator
- * @export
  */
 export const V1ApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -46,8 +45,8 @@ export const V1ApiAxiosParamCreator = function (configuration?: Configuration) {
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('releaseUserLockout', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/releaselockout`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -63,8 +62,8 @@ export const V1ApiAxiosParamCreator = function (configuration?: Configuration) {
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -79,7 +78,6 @@ export const V1ApiAxiosParamCreator = function (configuration?: Configuration) {
 
 /**
  * V1Api - functional programming interface
- * @export
  */
 export const V1ApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = V1ApiAxiosParamCreator(configuration)
@@ -102,7 +100,6 @@ export const V1ApiFp = function(configuration?: Configuration) {
 
 /**
  * V1Api - factory interface
- * @export
  */
 export const V1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = V1ApiFp(configuration)
@@ -121,30 +118,15 @@ export const V1ApiFactory = function (configuration?: Configuration, basePath?: 
 
 /**
  * Request parameters for releaseUserLockout operation in V1Api.
- * @export
- * @interface V1ApiReleaseUserLockoutRequest
  */
 export interface V1ApiReleaseUserLockoutRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1ApiReleaseUserLockout
-     */
     readonly tenantId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof V1ApiReleaseUserLockout
-     */
     readonly userId: string
 }
 
 /**
  * V1Api - object-oriented interface
- * @export
- * @class V1Api
- * @extends {BaseAPI}
  */
 export class V1Api extends BaseAPI {
     /**
@@ -152,7 +134,6 @@ export class V1Api extends BaseAPI {
      * @param {V1ApiReleaseUserLockoutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof V1Api
      */
     public releaseUserLockout(requestParameters: V1ApiReleaseUserLockoutRequest, options?: RawAxiosRequestConfig) {
         return V1ApiFp(this.configuration).releaseUserLockout(requestParameters.tenantId, requestParameters.userId, options).then((request) => request(this.axios, this.basePath));

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiConnectorsV1ConnectorDeletedResponse
- */
 export interface AnalyticsApiConnectorsV1ConnectorDeletedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConnectorsV1ConnectorDeletedResponse
-     */
     'connectorId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiConnectorsV1ConnectorDeletedResponse
-     */
     'tenantId'?: string | null;
 }
 

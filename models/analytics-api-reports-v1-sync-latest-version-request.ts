@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiReportsV1SyncLatestVersionRequest
- */
 export interface AnalyticsApiReportsV1SyncLatestVersionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1SyncLatestVersionRequest
-     */
     'configurationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1SyncLatestVersionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1SyncLatestVersionRequest
-     */
     'reportId'?: string | null;
 }
 

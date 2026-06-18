@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1UserExtension
- */
 export interface IdentityApiUserV1UserExtension {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserExtension
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserExtension
-     */
     'data'?: string | null;
 }
 

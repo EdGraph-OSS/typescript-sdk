@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1EnvironmentListResponse } from './ed-graph-services-state-reporting-v1-environment-list-response';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1PaginatedEnvironmentsResponse
- */
 export interface EdGraphServicesStateReportingV1PaginatedEnvironmentsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedEnvironmentsResponse
-     */
     'pageIndex'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedEnvironmentsResponse
-     */
     'pageSize'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedEnvironmentsResponse
-     */
     'count'?: number | null;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1EnvironmentListResponse>}
-     * @memberof EdGraphServicesStateReportingV1PaginatedEnvironmentsResponse
-     */
     'data'?: Array<EdGraphServicesStateReportingV1EnvironmentListResponse> | null;
 }
 

@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface FormApiSectionsV1CreateSectionRequest
- */
 export interface FormApiSectionsV1CreateSectionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1CreateSectionRequest
-     */
     'formId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1CreateSectionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1CreateSectionRequest
-     */
     'title'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1CreateSectionRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof FormApiSectionsV1CreateSectionRequest
-     */
     'order'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1CreateSectionRequest
-     */
     'subHeading'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1CreateSectionRequest
-     */
     'customId'?: string | null;
 }
 

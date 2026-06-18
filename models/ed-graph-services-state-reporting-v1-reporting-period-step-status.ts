@@ -14,17 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const EdGraphServicesStateReportingV1ReportingPeriodStepStatus = {
     Unknown: 'Unknown',
     Pending: 'Pending',
     InProgress: 'InProgress',
-    Completed: 'Completed'
+    Completed: 'Completed',
 } as const;
 
 export type EdGraphServicesStateReportingV1ReportingPeriodStepStatus = typeof EdGraphServicesStateReportingV1ReportingPeriodStepStatus[keyof typeof EdGraphServicesStateReportingV1ReportingPeriodStepStatus];

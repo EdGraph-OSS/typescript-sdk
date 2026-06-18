@@ -17,65 +17,15 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1DataUser } from './ed-graph-services-state-reporting-v1-data-user';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1Category
- */
 export interface EdGraphServicesStateReportingV1Category {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1Category
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1Category
-     */
     'environmentId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1Category
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1Category
-     */
     'categoryId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1Category
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1Category
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1Category
-     */
     'certificationStatus'?: string | null;
-    /**
-     * 
-     * @type {EdGraphServicesStateReportingV1DataUser}
-     * @memberof EdGraphServicesStateReportingV1Category
-     */
     'dataOwner'?: EdGraphServicesStateReportingV1DataUser;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1DataUser>}
-     * @memberof EdGraphServicesStateReportingV1Category
-     */
     'dataStewards'?: Array<EdGraphServicesStateReportingV1DataUser> | null;
 }
 

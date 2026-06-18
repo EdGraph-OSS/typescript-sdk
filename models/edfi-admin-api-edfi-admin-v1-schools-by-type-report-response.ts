@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1SchoolCountRepresentation } from './edfi-admin-api-edfi-admin-v1-school-count-representation';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1SchoolsByTypeReportResponse
- */
 export interface EdfiAdminApiEdfiAdminV1SchoolsByTypeReportResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SchoolsByTypeReportResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SchoolsByTypeReportResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1SchoolCountRepresentation>}
-     * @memberof EdfiAdminApiEdfiAdminV1SchoolsByTypeReportResponse
-     */
     'schoolCountRepresentations'?: Array<EdfiAdminApiEdfiAdminV1SchoolCountRepresentation> | null;
 }
 

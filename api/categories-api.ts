@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -53,7 +53,6 @@ import type { ValidationsApiContainersV1SetDataOwnerBulkRequest } from '../model
 import type { ValidationsApiContainersV1SetDataOwnerRequest } from '../models';
 /**
  * CategoriesApi - axios parameter creator
- * @export
  */
 export const CategoriesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -75,9 +74,9 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('addCategoryDataSteward', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/categories/{categoryId}/stewards`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"categoryId"}}`, encodeURIComponent(String(categoryId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{categoryId}', encodeURIComponent(String(categoryId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -93,9 +92,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -122,8 +120,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('addCategoryDataStewardBulk', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/categories/stewards`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -139,9 +137,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -167,8 +164,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'categoryId' is not null or undefined
             assertParamExists('certifyCategory', 'categoryId', categoryId)
             const localVarPath = `/tenants/{tenantId}/statereporting/categories/{categoryId}/certify`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"categoryId"}}`, encodeURIComponent(String(categoryId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{categoryId}', encodeURIComponent(String(categoryId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -184,8 +181,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -209,8 +206,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('getDataUsersBulk', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/categories/datausers`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -226,8 +223,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -252,7 +249,7 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getStateReportingCategories', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/statereporting/categories`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -284,8 +281,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -312,9 +309,9 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'categoryId' is not null or undefined
             assertParamExists('removeCategoryDataOwner', 'categoryId', categoryId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/categories/{categoryId}/owner`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"categoryId"}}`, encodeURIComponent(String(categoryId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{categoryId}', encodeURIComponent(String(categoryId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -330,8 +327,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -361,10 +358,10 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'email' is not null or undefined
             assertParamExists('removeCategoryDataSteward', 'email', email)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/categories/{categoryId}/stewards/{email}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"categoryId"}}`, encodeURIComponent(String(categoryId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"email"}}`, encodeURIComponent(String(email)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{categoryId}', encodeURIComponent(String(categoryId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{email}', encodeURIComponent(String(email)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -380,8 +377,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -408,9 +405,9 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'categoryId' is not null or undefined
             assertParamExists('requestCategoryCertificationReminder', 'categoryId', categoryId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/categories/{categoryId}/certificationreminder`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)))
-                .replace(`{${"categoryId"}}`, encodeURIComponent(String(categoryId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)))
+                .replace('{categoryId}', encodeURIComponent(String(categoryId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -426,8 +423,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -455,9 +452,9 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('setCategoryDataOwner', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/categories/{categoryId}/owner`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"categoryId"}}`, encodeURIComponent(String(categoryId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{categoryId}', encodeURIComponent(String(categoryId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -473,9 +470,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -502,8 +498,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'reportingPeriodId' is not null or undefined
             assertParamExists('setCategoryDataOwnerBulk', 'reportingPeriodId', reportingPeriodId)
             const localVarPath = `/tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/categories/owner`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"reportingPeriodId"}}`, encodeURIComponent(String(reportingPeriodId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportingPeriodId}', encodeURIComponent(String(reportingPeriodId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -519,9 +515,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -550,7 +545,7 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('uploadStateReportingCategory', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/statereporting/categories/upload`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -571,30 +566,29 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             if (contentType !== undefined) { 
                 localVarFormParams.append('ContentType', contentType as any);
             }
-    
+
             if (contentDisposition !== undefined) { 
                 localVarFormParams.append('ContentDisposition', contentDisposition as any);
             }
-    
+
             if (headers !== undefined) { 
-                localVarFormParams.append('Headers', new Blob([JSON.stringify(headers)], { type: "application/json", }));
+                localVarFormParams.append('Headers', new Blob([JSON.stringify(headers, replaceWithSerializableTypeIfNeeded)], { type: "application/json", }));
             }
-    
+
             if (length !== undefined) { 
                 localVarFormParams.append('Length', length as any);
             }
-    
+
             if (name !== undefined) { 
                 localVarFormParams.append('Name', name as any);
             }
-    
+
             if (fileName !== undefined) { 
                 localVarFormParams.append('FileName', fileName as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -625,8 +619,8 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'environmentId' is not null or undefined
             assertParamExists('uploadStateReportingPeriodsFromCategoryJson', 'environmentId', environmentId)
             const localVarPath = `/tenants/{tenantId}/statereporting/environments/{environmentId}/reportingperiods/upload`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"environmentId"}}`, encodeURIComponent(String(environmentId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{environmentId}', encodeURIComponent(String(environmentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -647,30 +641,29 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
             if (contentType !== undefined) { 
                 localVarFormParams.append('ContentType', contentType as any);
             }
-    
+
             if (contentDisposition !== undefined) { 
                 localVarFormParams.append('ContentDisposition', contentDisposition as any);
             }
-    
+
             if (headers !== undefined) { 
-                localVarFormParams.append('Headers', new Blob([JSON.stringify(headers)], { type: "application/json", }));
+                localVarFormParams.append('Headers', new Blob([JSON.stringify(headers, replaceWithSerializableTypeIfNeeded)], { type: "application/json", }));
             }
-    
+
             if (length !== undefined) { 
                 localVarFormParams.append('Length', length as any);
             }
-    
+
             if (name !== undefined) { 
                 localVarFormParams.append('Name', name as any);
             }
-    
+
             if (fileName !== undefined) { 
                 localVarFormParams.append('FileName', fileName as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -686,7 +679,6 @@ export const CategoriesApiAxiosParamCreator = function (configuration?: Configur
 
 /**
  * CategoriesApi - functional programming interface
- * @export
  */
 export const CategoriesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CategoriesApiAxiosParamCreator(configuration)
@@ -888,7 +880,6 @@ export const CategoriesApiFp = function(configuration?: Configuration) {
 
 /**
  * CategoriesApi - factory interface
- * @export
  */
 export const CategoriesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CategoriesApiFp(configuration)
@@ -1018,429 +1009,270 @@ export const CategoriesApiFactory = function (configuration?: Configuration, bas
 
 /**
  * Request parameters for addCategoryDataSteward operation in CategoriesApi.
- * @export
- * @interface CategoriesApiAddCategoryDataStewardRequest
  */
 export interface CategoriesApiAddCategoryDataStewardRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiAddCategoryDataSteward
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiAddCategoryDataSteward
      */
     readonly categoryId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiAddCategoryDataSteward
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {ValidationsApiContainersV1AddDataStewardRequest}
-     * @memberof CategoriesApiAddCategoryDataSteward
      */
     readonly validationsApiContainersV1AddDataStewardRequest?: ValidationsApiContainersV1AddDataStewardRequest
 }
 
 /**
  * Request parameters for addCategoryDataStewardBulk operation in CategoriesApi.
- * @export
- * @interface CategoriesApiAddCategoryDataStewardBulkRequest
  */
 export interface CategoriesApiAddCategoryDataStewardBulkRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiAddCategoryDataStewardBulk
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiAddCategoryDataStewardBulk
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {ValidationsApiContainersV1AddDataStewardBulkRequest}
-     * @memberof CategoriesApiAddCategoryDataStewardBulk
      */
     readonly validationsApiContainersV1AddDataStewardBulkRequest?: ValidationsApiContainersV1AddDataStewardBulkRequest
 }
 
 /**
  * Request parameters for certifyCategory operation in CategoriesApi.
- * @export
- * @interface CategoriesApiCertifyCategoryRequest
  */
 export interface CategoriesApiCertifyCategoryRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiCertifyCategory
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiCertifyCategory
      */
     readonly categoryId: string
 }
 
 /**
  * Request parameters for getDataUsersBulk operation in CategoriesApi.
- * @export
- * @interface CategoriesApiGetDataUsersBulkRequest
  */
 export interface CategoriesApiGetDataUsersBulkRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiGetDataUsersBulk
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiGetDataUsersBulk
      */
     readonly reportingPeriodId: string
 }
 
 /**
  * Request parameters for getStateReportingCategories operation in CategoriesApi.
- * @export
- * @interface CategoriesApiGetStateReportingCategoriesRequest
  */
 export interface CategoriesApiGetStateReportingCategoriesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiGetStateReportingCategories
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof CategoriesApiGetStateReportingCategories
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof CategoriesApiGetStateReportingCategories
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiGetStateReportingCategories
      */
     readonly filter?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiGetStateReportingCategories
      */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for removeCategoryDataOwner operation in CategoriesApi.
- * @export
- * @interface CategoriesApiRemoveCategoryDataOwnerRequest
  */
 export interface CategoriesApiRemoveCategoryDataOwnerRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiRemoveCategoryDataOwner
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiRemoveCategoryDataOwner
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiRemoveCategoryDataOwner
      */
     readonly categoryId: string
 }
 
 /**
  * Request parameters for removeCategoryDataSteward operation in CategoriesApi.
- * @export
- * @interface CategoriesApiRemoveCategoryDataStewardRequest
  */
 export interface CategoriesApiRemoveCategoryDataStewardRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiRemoveCategoryDataSteward
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiRemoveCategoryDataSteward
      */
     readonly categoryId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiRemoveCategoryDataSteward
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiRemoveCategoryDataSteward
      */
     readonly email: string
 }
 
 /**
  * Request parameters for requestCategoryCertificationReminder operation in CategoriesApi.
- * @export
- * @interface CategoriesApiRequestCategoryCertificationReminderRequest
  */
 export interface CategoriesApiRequestCategoryCertificationReminderRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiRequestCategoryCertificationReminder
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiRequestCategoryCertificationReminder
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiRequestCategoryCertificationReminder
      */
     readonly categoryId: string
 }
 
 /**
  * Request parameters for setCategoryDataOwner operation in CategoriesApi.
- * @export
- * @interface CategoriesApiSetCategoryDataOwnerRequest
  */
 export interface CategoriesApiSetCategoryDataOwnerRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiSetCategoryDataOwner
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiSetCategoryDataOwner
      */
     readonly categoryId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiSetCategoryDataOwner
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {ValidationsApiContainersV1SetDataOwnerRequest}
-     * @memberof CategoriesApiSetCategoryDataOwner
      */
     readonly validationsApiContainersV1SetDataOwnerRequest?: ValidationsApiContainersV1SetDataOwnerRequest
 }
 
 /**
  * Request parameters for setCategoryDataOwnerBulk operation in CategoriesApi.
- * @export
- * @interface CategoriesApiSetCategoryDataOwnerBulkRequest
  */
 export interface CategoriesApiSetCategoryDataOwnerBulkRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiSetCategoryDataOwnerBulk
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiSetCategoryDataOwnerBulk
      */
     readonly reportingPeriodId: string
 
     /**
      * 
-     * @type {ValidationsApiContainersV1SetDataOwnerBulkRequest}
-     * @memberof CategoriesApiSetCategoryDataOwnerBulk
      */
     readonly validationsApiContainersV1SetDataOwnerBulkRequest?: ValidationsApiContainersV1SetDataOwnerBulkRequest
 }
 
 /**
  * Request parameters for uploadStateReportingCategory operation in CategoriesApi.
- * @export
- * @interface CategoriesApiUploadStateReportingCategoryRequest
  */
 export interface CategoriesApiUploadStateReportingCategoryRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiUploadStateReportingCategory
      */
     readonly tenantId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CategoriesApiUploadStateReportingCategory
-     */
     readonly contentType?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CategoriesApiUploadStateReportingCategory
-     */
     readonly contentDisposition?: string
 
-    /**
-     * 
-     * @type {{ [key: string]: Array<string>; }}
-     * @memberof CategoriesApiUploadStateReportingCategory
-     */
     readonly headers?: { [key: string]: Array<string>; }
 
-    /**
-     * 
-     * @type {number}
-     * @memberof CategoriesApiUploadStateReportingCategory
-     */
     readonly length?: number
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CategoriesApiUploadStateReportingCategory
-     */
     readonly name?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CategoriesApiUploadStateReportingCategory
-     */
     readonly fileName?: string
 }
 
 /**
  * Request parameters for uploadStateReportingPeriodsFromCategoryJson operation in CategoriesApi.
- * @export
- * @interface CategoriesApiUploadStateReportingPeriodsFromCategoryJsonRequest
  */
 export interface CategoriesApiUploadStateReportingPeriodsFromCategoryJsonRequest {
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiUploadStateReportingPeriodsFromCategoryJson
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof CategoriesApiUploadStateReportingPeriodsFromCategoryJson
      */
     readonly environmentId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CategoriesApiUploadStateReportingPeriodsFromCategoryJson
-     */
     readonly contentType?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CategoriesApiUploadStateReportingPeriodsFromCategoryJson
-     */
     readonly contentDisposition?: string
 
-    /**
-     * 
-     * @type {{ [key: string]: Array<string>; }}
-     * @memberof CategoriesApiUploadStateReportingPeriodsFromCategoryJson
-     */
     readonly headers?: { [key: string]: Array<string>; }
 
-    /**
-     * 
-     * @type {number}
-     * @memberof CategoriesApiUploadStateReportingPeriodsFromCategoryJson
-     */
     readonly length?: number
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CategoriesApiUploadStateReportingPeriodsFromCategoryJson
-     */
     readonly name?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CategoriesApiUploadStateReportingPeriodsFromCategoryJson
-     */
     readonly fileName?: string
 }
 
 /**
  * CategoriesApi - object-oriented interface
- * @export
- * @class CategoriesApi
- * @extends {BaseAPI}
  */
 export class CategoriesApi extends BaseAPI {
     /**
@@ -1449,7 +1281,6 @@ export class CategoriesApi extends BaseAPI {
      * @param {CategoriesApiAddCategoryDataStewardRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CategoriesApi
      */
     public addCategoryDataSteward(requestParameters: CategoriesApiAddCategoryDataStewardRequest, options?: RawAxiosRequestConfig) {
         return CategoriesApiFp(this.configuration).addCategoryDataSteward(requestParameters.tenantId, requestParameters.categoryId, requestParameters.reportingPeriodId, requestParameters.validationsApiContainersV1AddDataStewardRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1461,7 +1292,6 @@ export class CategoriesApi extends BaseAPI {
      * @param {CategoriesApiAddCategoryDataStewardBulkRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CategoriesApi
      */
     public addCategoryDataStewardBulk(requestParameters: CategoriesApiAddCategoryDataStewardBulkRequest, options?: RawAxiosRequestConfig) {
         return CategoriesApiFp(this.configuration).addCategoryDataStewardBulk(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.validationsApiContainersV1AddDataStewardBulkRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1473,7 +1303,6 @@ export class CategoriesApi extends BaseAPI {
      * @param {CategoriesApiCertifyCategoryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CategoriesApi
      */
     public certifyCategory(requestParameters: CategoriesApiCertifyCategoryRequest, options?: RawAxiosRequestConfig) {
         return CategoriesApiFp(this.configuration).certifyCategory(requestParameters.tenantId, requestParameters.categoryId, options).then((request) => request(this.axios, this.basePath));
@@ -1485,7 +1314,6 @@ export class CategoriesApi extends BaseAPI {
      * @param {CategoriesApiGetDataUsersBulkRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CategoriesApi
      */
     public getDataUsersBulk(requestParameters: CategoriesApiGetDataUsersBulkRequest, options?: RawAxiosRequestConfig) {
         return CategoriesApiFp(this.configuration).getDataUsersBulk(requestParameters.tenantId, requestParameters.reportingPeriodId, options).then((request) => request(this.axios, this.basePath));
@@ -1497,7 +1325,6 @@ export class CategoriesApi extends BaseAPI {
      * @param {CategoriesApiGetStateReportingCategoriesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CategoriesApi
      */
     public getStateReportingCategories(requestParameters: CategoriesApiGetStateReportingCategoriesRequest, options?: RawAxiosRequestConfig) {
         return CategoriesApiFp(this.configuration).getStateReportingCategories(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -1509,7 +1336,6 @@ export class CategoriesApi extends BaseAPI {
      * @param {CategoriesApiRemoveCategoryDataOwnerRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CategoriesApi
      */
     public removeCategoryDataOwner(requestParameters: CategoriesApiRemoveCategoryDataOwnerRequest, options?: RawAxiosRequestConfig) {
         return CategoriesApiFp(this.configuration).removeCategoryDataOwner(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.categoryId, options).then((request) => request(this.axios, this.basePath));
@@ -1521,7 +1347,6 @@ export class CategoriesApi extends BaseAPI {
      * @param {CategoriesApiRemoveCategoryDataStewardRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CategoriesApi
      */
     public removeCategoryDataSteward(requestParameters: CategoriesApiRemoveCategoryDataStewardRequest, options?: RawAxiosRequestConfig) {
         return CategoriesApiFp(this.configuration).removeCategoryDataSteward(requestParameters.tenantId, requestParameters.categoryId, requestParameters.reportingPeriodId, requestParameters.email, options).then((request) => request(this.axios, this.basePath));
@@ -1533,7 +1358,6 @@ export class CategoriesApi extends BaseAPI {
      * @param {CategoriesApiRequestCategoryCertificationReminderRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CategoriesApi
      */
     public requestCategoryCertificationReminder(requestParameters: CategoriesApiRequestCategoryCertificationReminderRequest, options?: RawAxiosRequestConfig) {
         return CategoriesApiFp(this.configuration).requestCategoryCertificationReminder(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.categoryId, options).then((request) => request(this.axios, this.basePath));
@@ -1545,7 +1369,6 @@ export class CategoriesApi extends BaseAPI {
      * @param {CategoriesApiSetCategoryDataOwnerRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CategoriesApi
      */
     public setCategoryDataOwner(requestParameters: CategoriesApiSetCategoryDataOwnerRequest, options?: RawAxiosRequestConfig) {
         return CategoriesApiFp(this.configuration).setCategoryDataOwner(requestParameters.tenantId, requestParameters.categoryId, requestParameters.reportingPeriodId, requestParameters.validationsApiContainersV1SetDataOwnerRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1557,7 +1380,6 @@ export class CategoriesApi extends BaseAPI {
      * @param {CategoriesApiSetCategoryDataOwnerBulkRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CategoriesApi
      */
     public setCategoryDataOwnerBulk(requestParameters: CategoriesApiSetCategoryDataOwnerBulkRequest, options?: RawAxiosRequestConfig) {
         return CategoriesApiFp(this.configuration).setCategoryDataOwnerBulk(requestParameters.tenantId, requestParameters.reportingPeriodId, requestParameters.validationsApiContainersV1SetDataOwnerBulkRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1569,7 +1391,6 @@ export class CategoriesApi extends BaseAPI {
      * @param {CategoriesApiUploadStateReportingCategoryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CategoriesApi
      */
     public uploadStateReportingCategory(requestParameters: CategoriesApiUploadStateReportingCategoryRequest, options?: RawAxiosRequestConfig) {
         return CategoriesApiFp(this.configuration).uploadStateReportingCategory(requestParameters.tenantId, requestParameters.contentType, requestParameters.contentDisposition, requestParameters.headers, requestParameters.length, requestParameters.name, requestParameters.fileName, options).then((request) => request(this.axios, this.basePath));
@@ -1581,7 +1402,6 @@ export class CategoriesApi extends BaseAPI {
      * @param {CategoriesApiUploadStateReportingPeriodsFromCategoryJsonRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CategoriesApi
      */
     public uploadStateReportingPeriodsFromCategoryJson(requestParameters: CategoriesApiUploadStateReportingPeriodsFromCategoryJsonRequest, options?: RawAxiosRequestConfig) {
         return CategoriesApiFp(this.configuration).uploadStateReportingPeriodsFromCategoryJson(requestParameters.tenantId, requestParameters.environmentId, requestParameters.contentType, requestParameters.contentDisposition, requestParameters.headers, requestParameters.length, requestParameters.name, requestParameters.fileName, options).then((request) => request(this.axios, this.basePath));

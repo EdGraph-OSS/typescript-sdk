@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IMSAdminApiV1ConnectionsConnectionDetailsMetadata } from './imsadmin-api-v1-connections-connection-details-metadata';
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ConnectionsTestConnectionDetailsRequest
- */
 export interface IMSAdminApiV1ConnectionsTestConnectionDetailsRequest {
-    /**
-     * 
-     * @type {Array<IMSAdminApiV1ConnectionsConnectionDetailsMetadata>}
-     * @memberof IMSAdminApiV1ConnectionsTestConnectionDetailsRequest
-     */
     'connectionMetadata'?: Array<IMSAdminApiV1ConnectionsConnectionDetailsMetadata> | null;
 }
 

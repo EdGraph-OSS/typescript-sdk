@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { TenantApiWebhookV1WebhookEventResponse } from './tenant-api-webhook-v1-webhook-event-response';
 
-/**
- * 
- * @export
- * @interface TenantApiWebhookV1PaginatedWebhookEventItemsResponse
- */
 export interface TenantApiWebhookV1PaginatedWebhookEventItemsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiWebhookV1PaginatedWebhookEventItemsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiWebhookV1PaginatedWebhookEventItemsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiWebhookV1PaginatedWebhookEventItemsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<TenantApiWebhookV1WebhookEventResponse>}
-     * @memberof TenantApiWebhookV1PaginatedWebhookEventItemsResponse
-     */
     'data'?: Array<TenantApiWebhookV1WebhookEventResponse> | null;
 }
 

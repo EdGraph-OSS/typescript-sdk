@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1CollectionUser } from './validations-api-containers-v1-collection-user';
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1AddDataStewardBulkRequestTypesCollection
- */
 export interface ValidationsApiContainersV1AddDataStewardBulkRequestTypesCollection {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1AddDataStewardBulkRequestTypesCollection
-     */
     'collectionId'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiContainersV1CollectionUser>}
-     * @memberof ValidationsApiContainersV1AddDataStewardBulkRequestTypesCollection
-     */
     'stewards'?: Array<ValidationsApiContainersV1CollectionUser> | null;
 }
 

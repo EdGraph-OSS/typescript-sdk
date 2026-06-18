@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1StateEducationAgency
- */
 export interface EdfiAdminApiEdfiAdminV1StateEducationAgency {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StateEducationAgency
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1StateEducationAgency
-     */
     'stateEducationAgencyId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StateEducationAgency
-     */
     'nameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdfiAdminApiEdfiAdminV1StateEducationAgency
-     */
     'educationOrganizationCategoryDescriptors'?: Array<string> | null;
 }
 

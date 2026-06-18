@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface FormApiSectionsV1SectionDeletedResponse
- */
 export interface FormApiSectionsV1SectionDeletedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionDeletedResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiSectionsV1SectionDeletedResponse
-     */
     'tenantId'?: string | null;
 }
 

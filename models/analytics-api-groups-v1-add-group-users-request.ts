@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { AnalyticsApiGroupsV1AnalyticsGroupUser } from './analytics-api-groups-v1-analytics-group-user';
 
-/**
- * 
- * @export
- * @interface AnalyticsApiGroupsV1AddGroupUsersRequest
- */
 export interface AnalyticsApiGroupsV1AddGroupUsersRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiGroupsV1AddGroupUsersRequest
-     */
     'groupId'?: string | null;
-    /**
-     * 
-     * @type {Array<AnalyticsApiGroupsV1AnalyticsGroupUser>}
-     * @memberof AnalyticsApiGroupsV1AddGroupUsersRequest
-     */
     'users'?: Array<AnalyticsApiGroupsV1AnalyticsGroupUser> | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AnalyticsApiGroupsV1AddGroupUsersRequest
-     */
     'addGlobalTenantUsers'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiGroupsV1AddGroupUsersRequest
-     */
     'tenantId'?: string | null;
 }
 

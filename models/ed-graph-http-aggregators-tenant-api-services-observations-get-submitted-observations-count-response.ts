@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse
-     */
     'campus'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse
-     */
     'evalueeId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse
-     */
     'count'?: number;
 }
 

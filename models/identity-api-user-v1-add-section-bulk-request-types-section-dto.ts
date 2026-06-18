@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1AddSectionBulkRequestTypesSectionDto
- */
 export interface IdentityApiUserV1AddSectionBulkRequestTypesSectionDto {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1AddSectionBulkRequestTypesSectionDto
-     */
     'educationOrganizationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionBulkRequestTypesSectionDto
-     */
     'sectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionBulkRequestTypesSectionDto
-     */
     'staffUniqueId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionBulkRequestTypesSectionDto
-     */
     'classroomPositionDescriptor'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionBulkRequestTypesSectionDto
-     */
     'beginDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionBulkRequestTypesSectionDto
-     */
     'endDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionBulkRequestTypesSectionDto
-     */
     'source'?: string | null;
 }
 

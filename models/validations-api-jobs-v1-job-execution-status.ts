@@ -14,11 +14,6 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ValidationsApiJobsV1JobExecutionStatus = {
     Unknown: 'Unknown',
@@ -28,7 +23,7 @@ export const ValidationsApiJobsV1JobExecutionStatus = {
     CompletedWithErrors: 'CompletedWithErrors',
     Cancelled: 'Cancelled',
     Error: 'Error',
-    QueuedForCancel: 'QueuedForCancel'
+    QueuedForCancel: 'QueuedForCancel',
 } as const;
 
 export type ValidationsApiJobsV1JobExecutionStatus = typeof ValidationsApiJobsV1JobExecutionStatus[keyof typeof ValidationsApiJobsV1JobExecutionStatus];

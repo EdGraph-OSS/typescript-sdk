@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiUserAuthorizationsV1SchoolYear
- */
 export interface AnalyticsApiUserAuthorizationsV1SchoolYear {
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsApiUserAuthorizationsV1SchoolYear
-     */
     'value'?: number | null;
 }
 

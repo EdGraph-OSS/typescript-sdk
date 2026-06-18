@@ -20,35 +20,10 @@ import type { TenantApiTenantV1TenantBrandingBackground } from './tenant-api-ten
 // @ts-ignore
 import type { TenantApiTenantV1TenantBrandingLogo } from './tenant-api-tenant-v1-tenant-branding-logo';
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1TenantBrandingResponse
- */
 export interface TenantApiTenantV1TenantBrandingResponse {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiTenantV1TenantBrandingResponse
-     */
     'enabled'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantBrandingResponse
-     */
     'brandName'?: string | null;
-    /**
-     * 
-     * @type {TenantApiTenantV1TenantBrandingLogo}
-     * @memberof TenantApiTenantV1TenantBrandingResponse
-     */
     'logo'?: TenantApiTenantV1TenantBrandingLogo;
-    /**
-     * 
-     * @type {TenantApiTenantV1TenantBrandingBackground}
-     * @memberof TenantApiTenantV1TenantBrandingResponse
-     */
     'background'?: TenantApiTenantV1TenantBrandingBackground;
 }
 

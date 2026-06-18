@@ -14,11 +14,6 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const GoogleProtobufWellKnownTypesValueKindOneofCase = {
     None: 'None',
@@ -27,7 +22,7 @@ export const GoogleProtobufWellKnownTypesValueKindOneofCase = {
     StringValue: 'StringValue',
     BoolValue: 'BoolValue',
     StructValue: 'StructValue',
-    ListValue: 'ListValue'
+    ListValue: 'ListValue',
 } as const;
 
 export type GoogleProtobufWellKnownTypesValueKindOneofCase = typeof GoogleProtobufWellKnownTypesValueKindOneofCase[keyof typeof GoogleProtobufWellKnownTypesValueKindOneofCase];

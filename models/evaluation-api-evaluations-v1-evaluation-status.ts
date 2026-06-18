@@ -14,17 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const EvaluationApiEvaluationsV1EvaluationStatus = {
     Unknown: 'Unknown',
     Completed: 'Completed',
     Scheduled: 'Scheduled',
-    Incomplete: 'Incomplete'
+    Incomplete: 'Incomplete',
 } as const;
 
 export type EvaluationApiEvaluationsV1EvaluationStatus = typeof EvaluationApiEvaluationsV1EvaluationStatus[keyof typeof EvaluationApiEvaluationsV1EvaluationStatus];

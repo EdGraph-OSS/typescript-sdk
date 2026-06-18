@@ -1,0 +1,28 @@
+# ValidationsApiContainersV1DataOwnerSetResponse
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**tenantId** | **string** |  | [optional] [default to undefined]
+**collectionId** | **string** |  | [optional] [default to undefined]
+**email** | **string** |  | [optional] [default to undefined]
+**userId** | **string** |  | [optional] [default to undefined]
+**reportingPeriodId** | **string** |  | [optional] [default to undefined]
+
+## Example
+
+```typescript
+import { ValidationsApiContainersV1DataOwnerSetResponse } from '@edgraph-oss/platform-client';
+
+const instance: ValidationsApiContainersV1DataOwnerSetResponse = {
+    tenantId,
+    collectionId,
+    email,
+    userId,
+    reportingPeriodId,
+};
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

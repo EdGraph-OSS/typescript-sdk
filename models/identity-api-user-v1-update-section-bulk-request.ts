@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { IdentityApiUserV1UpdateSectionBulkRequest Types SectionDto } from './identity-api-user-v1-update-section-bulk-request types section-dto';
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1UpdateSectionBulkRequest
- */
 export interface IdentityApiUserV1UpdateSectionBulkRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionBulkRequest
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UpdateSectionBulkRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV1UpdateSectionBulkRequest Types SectionDto>}
-     * @memberof IdentityApiUserV1UpdateSectionBulkRequest
-     */
     'sections'?: Array<IdentityApiUserV1UpdateSectionBulkRequest Types SectionDto> | null;
 }
 

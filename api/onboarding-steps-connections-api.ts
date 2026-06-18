@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,7 +33,6 @@ import type { EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionUp
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * OnboardingStepsConnectionsApi - axios parameter creator
- * @export
  */
 export const OnboardingStepsConnectionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -52,8 +51,8 @@ export const OnboardingStepsConnectionsApiAxiosParamCreator = function (configur
             // verify required parameter 'stepNumber' is not null or undefined
             assertParamExists('createOnboardingStepConnection', 'stepNumber', stepNumber)
             const localVarPath = `/tenants/{tenantId}/onboardingsteps/{stepNumber}/connections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"stepNumber"}}`, encodeURIComponent(String(stepNumber)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{stepNumber}', encodeURIComponent(String(stepNumber)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,9 +68,8 @@ export const OnboardingStepsConnectionsApiAxiosParamCreator = function (configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -100,9 +98,9 @@ export const OnboardingStepsConnectionsApiAxiosParamCreator = function (configur
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('getOnboardingStepConnectionById', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/onboardingsteps/{stepNumber}/connections/{connectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"stepNumber"}}`, encodeURIComponent(String(stepNumber)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{stepNumber}', encodeURIComponent(String(stepNumber)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -118,8 +116,8 @@ export const OnboardingStepsConnectionsApiAxiosParamCreator = function (configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -147,9 +145,9 @@ export const OnboardingStepsConnectionsApiAxiosParamCreator = function (configur
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('updateOnboardingStepConnection', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/onboardingsteps/{stepNumber}/connections/{connectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"stepNumber"}}`, encodeURIComponent(String(stepNumber)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{stepNumber}', encodeURIComponent(String(stepNumber)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -165,9 +163,8 @@ export const OnboardingStepsConnectionsApiAxiosParamCreator = function (configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -184,7 +181,6 @@ export const OnboardingStepsConnectionsApiAxiosParamCreator = function (configur
 
 /**
  * OnboardingStepsConnectionsApi - functional programming interface
- * @export
  */
 export const OnboardingStepsConnectionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = OnboardingStepsConnectionsApiAxiosParamCreator(configuration)
@@ -240,7 +236,6 @@ export const OnboardingStepsConnectionsApiFp = function(configuration?: Configur
 
 /**
  * OnboardingStepsConnectionsApi - factory interface
- * @export
  */
 export const OnboardingStepsConnectionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = OnboardingStepsConnectionsApiFp(configuration)
@@ -280,100 +275,71 @@ export const OnboardingStepsConnectionsApiFactory = function (configuration?: Co
 
 /**
  * Request parameters for createOnboardingStepConnection operation in OnboardingStepsConnectionsApi.
- * @export
- * @interface OnboardingStepsConnectionsApiCreateOnboardingStepConnectionRequest
  */
 export interface OnboardingStepsConnectionsApiCreateOnboardingStepConnectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof OnboardingStepsConnectionsApiCreateOnboardingStepConnection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof OnboardingStepsConnectionsApiCreateOnboardingStepConnection
      */
     readonly stepNumber: number
 
     /**
      * 
-     * @type {any}
-     * @memberof OnboardingStepsConnectionsApiCreateOnboardingStepConnection
      */
     readonly body?: any
 }
 
 /**
  * Request parameters for getOnboardingStepConnectionById operation in OnboardingStepsConnectionsApi.
- * @export
- * @interface OnboardingStepsConnectionsApiGetOnboardingStepConnectionByIdRequest
  */
 export interface OnboardingStepsConnectionsApiGetOnboardingStepConnectionByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof OnboardingStepsConnectionsApiGetOnboardingStepConnectionById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof OnboardingStepsConnectionsApiGetOnboardingStepConnectionById
      */
     readonly stepNumber: number
 
     /**
      * 
-     * @type {string}
-     * @memberof OnboardingStepsConnectionsApiGetOnboardingStepConnectionById
      */
     readonly connectionId: string
 }
 
 /**
  * Request parameters for updateOnboardingStepConnection operation in OnboardingStepsConnectionsApi.
- * @export
- * @interface OnboardingStepsConnectionsApiUpdateOnboardingStepConnectionRequest
  */
 export interface OnboardingStepsConnectionsApiUpdateOnboardingStepConnectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof OnboardingStepsConnectionsApiUpdateOnboardingStepConnection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof OnboardingStepsConnectionsApiUpdateOnboardingStepConnection
      */
     readonly stepNumber: number
 
     /**
      * 
-     * @type {string}
-     * @memberof OnboardingStepsConnectionsApiUpdateOnboardingStepConnection
      */
     readonly connectionId: string
 
     /**
      * 
-     * @type {any}
-     * @memberof OnboardingStepsConnectionsApiUpdateOnboardingStepConnection
      */
     readonly body?: any
 }
 
 /**
  * OnboardingStepsConnectionsApi - object-oriented interface
- * @export
- * @class OnboardingStepsConnectionsApi
- * @extends {BaseAPI}
  */
 export class OnboardingStepsConnectionsApi extends BaseAPI {
     /**
@@ -382,7 +348,6 @@ export class OnboardingStepsConnectionsApi extends BaseAPI {
      * @param {OnboardingStepsConnectionsApiCreateOnboardingStepConnectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof OnboardingStepsConnectionsApi
      */
     public createOnboardingStepConnection(requestParameters: OnboardingStepsConnectionsApiCreateOnboardingStepConnectionRequest, options?: RawAxiosRequestConfig) {
         return OnboardingStepsConnectionsApiFp(this.configuration).createOnboardingStepConnection(requestParameters.tenantId, requestParameters.stepNumber, requestParameters.body, options).then((request) => request(this.axios, this.basePath));
@@ -394,7 +359,6 @@ export class OnboardingStepsConnectionsApi extends BaseAPI {
      * @param {OnboardingStepsConnectionsApiGetOnboardingStepConnectionByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof OnboardingStepsConnectionsApi
      */
     public getOnboardingStepConnectionById(requestParameters: OnboardingStepsConnectionsApiGetOnboardingStepConnectionByIdRequest, options?: RawAxiosRequestConfig) {
         return OnboardingStepsConnectionsApiFp(this.configuration).getOnboardingStepConnectionById(requestParameters.tenantId, requestParameters.stepNumber, requestParameters.connectionId, options).then((request) => request(this.axios, this.basePath));
@@ -406,7 +370,6 @@ export class OnboardingStepsConnectionsApi extends BaseAPI {
      * @param {OnboardingStepsConnectionsApiUpdateOnboardingStepConnectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof OnboardingStepsConnectionsApi
      */
     public updateOnboardingStepConnection(requestParameters: OnboardingStepsConnectionsApiUpdateOnboardingStepConnectionRequest, options?: RawAxiosRequestConfig) {
         return OnboardingStepsConnectionsApiFp(this.configuration).updateOnboardingStepConnection(requestParameters.tenantId, requestParameters.stepNumber, requestParameters.connectionId, requestParameters.body, options).then((request) => request(this.axios, this.basePath));

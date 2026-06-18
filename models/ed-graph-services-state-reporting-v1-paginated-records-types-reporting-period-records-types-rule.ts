@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1PaginatedRecordsTypesReportingPeriodRecordsTypesRule
- */
 export interface EdGraphServicesStateReportingV1PaginatedRecordsTypesReportingPeriodRecordsTypesRule {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1PaginatedRecordsTypesReportingPeriodRecordsTypesRule
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1PaginatedRecordsTypesReportingPeriodRecordsTypesRule
-     */
     'identification'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1PaginatedRecordsTypesReportingPeriodRecordsTypesRule
-     */
     'name'?: string | null;
 }
 

@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiDbEnvironmentsV1DbEnvironmentDto } from './validations-api-db-environments-v1-db-environment-dto';
 
-/**
- * 
- * @export
- * @interface ValidationsApiDbEnvironmentsV1PaginatedDbEnvironments
- */
 export interface ValidationsApiDbEnvironmentsV1PaginatedDbEnvironments {
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiDbEnvironmentsV1PaginatedDbEnvironments
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiDbEnvironmentsV1PaginatedDbEnvironments
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiDbEnvironmentsV1PaginatedDbEnvironments
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<ValidationsApiDbEnvironmentsV1DbEnvironmentDto>}
-     * @memberof ValidationsApiDbEnvironmentsV1PaginatedDbEnvironments
-     */
     'data'?: Array<ValidationsApiDbEnvironmentsV1DbEnvironmentDto> | null;
 }
 

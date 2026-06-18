@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IMSAdminApiV1InstancesInstanceListResponse } from './imsadmin-api-v1-instances-instance-list-response';
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1InstancesPagedInstancesResponse
- */
 export interface IMSAdminApiV1InstancesPagedInstancesResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1InstancesPagedInstancesResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1InstancesPagedInstancesResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IMSAdminApiV1InstancesPagedInstancesResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<IMSAdminApiV1InstancesInstanceListResponse>}
-     * @memberof IMSAdminApiV1InstancesPagedInstancesResponse
-     */
     'data'?: Array<IMSAdminApiV1InstancesInstanceListResponse> | null;
 }
 

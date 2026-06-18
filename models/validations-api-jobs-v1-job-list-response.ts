@@ -29,149 +29,29 @@ import type { ValidationsApiJobsV1Metric } from './validations-api-jobs-v1-metri
 // @ts-ignore
 import type { ValidationsApiJobsV1Schedule } from './validations-api-jobs-v1-schedule';
 
-/**
- * 
- * @export
- * @interface ValidationsApiJobsV1JobListResponse
- */
 export interface ValidationsApiJobsV1JobListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'jobTypeId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'jobTypeName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'sourceConnectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'destinationConnectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'profileId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiJobsV1Schedule}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'schedule'?: ValidationsApiJobsV1Schedule;
-    /**
-     * 
-     * @type {ValidationsApiJobsV1JobStatus}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'jobStatus'?: ValidationsApiJobsV1JobStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'jobExecutionId'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiJobsV1JobExecutionStatus}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'jobExecutionStatus'?: ValidationsApiJobsV1JobExecutionStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'jobExecutionStartDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'jobExecutionEndDateTime'?: string | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiJobsV1Metric>}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'metrics'?: Array<ValidationsApiJobsV1Metric> | null;
-    /**
-     * 
-     * @type {Array<ValidationsApiJobsV1ChildJob>}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'childJobs'?: Array<ValidationsApiJobsV1ChildJob> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'collectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1JobListResponse
-     */
     'jobExecutionQueuedDateTime'?: string | null;
 }
 

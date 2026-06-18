@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiInstructionalInsightsV1RetryPolicyMessage
- */
 export interface IdentityApiInstructionalInsightsV1RetryPolicyMessage {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiInstructionalInsightsV1RetryPolicyMessage
-     */
     'backoffMultiplier'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1RetryPolicyMessage
-     */
     'initialDelay'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiInstructionalInsightsV1RetryPolicyMessage
-     */
     'maxAttempts'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1RetryPolicyMessage
-     */
     'maxBackoff'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1RetryPolicyMessage
-     */
     'timeout'?: string | null;
 }
 

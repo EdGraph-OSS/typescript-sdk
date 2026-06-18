@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1UserExtensionRemovedResponse
- */
 export interface IdentityApiUserV1UserExtensionRemovedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserExtensionRemovedResponse
-     */
     'userId'?: string | null;
 }
 

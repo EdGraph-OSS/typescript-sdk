@@ -17,53 +17,13 @@
 // @ts-ignore
 import type { FormApiFormsV1UpdateFullQuestionRequest } from './form-api-forms-v1-update-full-question-request';
 
-/**
- * 
- * @export
- * @interface FormApiFormsV1UpdateFullSectionRequest
- */
 export interface FormApiFormsV1UpdateFullSectionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFullSectionRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFullSectionRequest
-     */
     'title'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFullSectionRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {Array<FormApiFormsV1UpdateFullQuestionRequest>}
-     * @memberof FormApiFormsV1UpdateFullSectionRequest
-     */
     'questions'?: Array<FormApiFormsV1UpdateFullQuestionRequest> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof FormApiFormsV1UpdateFullSectionRequest
-     */
     'order'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFullSectionRequest
-     */
     'subHeading'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1UpdateFullSectionRequest
-     */
     'customId'?: string | null;
 }
 

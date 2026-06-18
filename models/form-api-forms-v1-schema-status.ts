@@ -14,18 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const FormApiFormsV1SchemaStatus = {
     Unknown: 'Unknown',
     CompleteSuccess: 'CompleteSuccess',
     OnlyJson: 'OnlyJson',
     OnlyUi: 'OnlyUi',
-    CompleteFailure: 'CompleteFailure'
+    CompleteFailure: 'CompleteFailure',
 } as const;
 
 export type FormApiFormsV1SchemaStatus = typeof FormApiFormsV1SchemaStatus[keyof typeof FormApiFormsV1SchemaStatus];

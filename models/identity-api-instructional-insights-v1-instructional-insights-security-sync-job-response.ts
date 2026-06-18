@@ -26,107 +26,22 @@ import type { IdentityApiInstructionalInsightsV1RetryPolicyMessage } from './ide
 // @ts-ignore
 import type { IdentityApiInstructionalInsightsV1ScheduleMessage } from './identity-api-instructional-insights-v1-schedule-message';
 
-/**
- * 
- * @export
- * @interface IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
- */
 export interface IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'isDeleted'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'jobTypeId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'jobTypeName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'input'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'active'?: boolean;
-    /**
-     * 
-     * @type {IdentityApiInstructionalInsightsV1ScheduleMessage}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'schedule'?: IdentityApiInstructionalInsightsV1ScheduleMessage;
-    /**
-     * 
-     * @type {IdentityApiInstructionalInsightsV1RetryPolicyMessage}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'retryPolicy'?: IdentityApiInstructionalInsightsV1RetryPolicyMessage;
-    /**
-     * 
-     * @type {Array<IdentityApiInstructionalInsightsV1CallbackNotificationMessage>}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'callbackNotifications'?: Array<IdentityApiInstructionalInsightsV1CallbackNotificationMessage> | null;
-    /**
-     * 
-     * @type {IdentityApiInstructionalInsightsV1JobExecutionMessage}
-     * @memberof IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse
-     */
     'lastExecution'?: IdentityApiInstructionalInsightsV1JobExecutionMessage;
 }
 

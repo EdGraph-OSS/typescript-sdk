@@ -14,11 +14,6 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const FormApiQuestionsV1QuestionType = {
     Unknown: 'Unknown',
@@ -29,7 +24,7 @@ export const FormApiQuestionsV1QuestionType = {
     CustomComponent: 'CustomComponent',
     Scoring: 'Scoring',
     Html: 'Html',
-    Image: 'Image'
+    Image: 'Image',
 } as const;
 
 export type FormApiQuestionsV1QuestionType = typeof FormApiQuestionsV1QuestionType[keyof typeof FormApiQuestionsV1QuestionType];

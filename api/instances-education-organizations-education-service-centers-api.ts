@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -35,7 +35,6 @@ import type { EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest } from 
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * InstancesEducationOrganizationsEducationServiceCentersApi - axios parameter creator
- * @export
  */
 export const InstancesEducationOrganizationsEducationServiceCentersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -57,9 +56,9 @@ export const InstancesEducationOrganizationsEducationServiceCentersApiAxiosParam
             // verify required parameter 'year' is not null or undefined
             assertParamExists('createEducationServiceCenterAsync', 'year', year)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/educationservicecenters`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -75,9 +74,8 @@ export const InstancesEducationOrganizationsEducationServiceCentersApiAxiosParam
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -109,10 +107,10 @@ export const InstancesEducationOrganizationsEducationServiceCentersApiAxiosParam
             // verify required parameter 'educationServiceCenterId' is not null or undefined
             assertParamExists('deleteEducationServiceCenterAsync', 'educationServiceCenterId', educationServiceCenterId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/educationservicecenters/{educationServiceCenterId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"educationServiceCenterId"}}`, encodeURIComponent(String(educationServiceCenterId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{educationServiceCenterId}', encodeURIComponent(String(educationServiceCenterId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -128,8 +126,8 @@ export const InstancesEducationOrganizationsEducationServiceCentersApiAxiosParam
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -159,10 +157,10 @@ export const InstancesEducationOrganizationsEducationServiceCentersApiAxiosParam
             // verify required parameter 'educationServiceCenterId' is not null or undefined
             assertParamExists('getEducationServiceCenterByIdAsync', 'educationServiceCenterId', educationServiceCenterId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/educationservicecenters/{educationServiceCenterId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"educationServiceCenterId"}}`, encodeURIComponent(String(educationServiceCenterId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{educationServiceCenterId}', encodeURIComponent(String(educationServiceCenterId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -178,8 +176,8 @@ export const InstancesEducationOrganizationsEducationServiceCentersApiAxiosParam
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -210,10 +208,10 @@ export const InstancesEducationOrganizationsEducationServiceCentersApiAxiosParam
             // verify required parameter 'educationServiceCenterId' is not null or undefined
             assertParamExists('updateEducationServiceCenterAsync', 'educationServiceCenterId', educationServiceCenterId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/educationservicecenters/{educationServiceCenterId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"year"}}`, encodeURIComponent(String(year)))
-                .replace(`{${"educationServiceCenterId"}}`, encodeURIComponent(String(educationServiceCenterId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{year}', encodeURIComponent(String(year)))
+                .replace('{educationServiceCenterId}', encodeURIComponent(String(educationServiceCenterId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -229,9 +227,8 @@ export const InstancesEducationOrganizationsEducationServiceCentersApiAxiosParam
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -248,7 +245,6 @@ export const InstancesEducationOrganizationsEducationServiceCentersApiAxiosParam
 
 /**
  * InstancesEducationOrganizationsEducationServiceCentersApi - functional programming interface
- * @export
  */
 export const InstancesEducationOrganizationsEducationServiceCentersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InstancesEducationOrganizationsEducationServiceCentersApiAxiosParamCreator(configuration)
@@ -323,7 +319,6 @@ export const InstancesEducationOrganizationsEducationServiceCentersApiFp = funct
 
 /**
  * InstancesEducationOrganizationsEducationServiceCentersApi - factory interface
- * @export
  */
 export const InstancesEducationOrganizationsEducationServiceCentersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InstancesEducationOrganizationsEducationServiceCentersApiFp(configuration)
@@ -373,156 +368,111 @@ export const InstancesEducationOrganizationsEducationServiceCentersApiFactory = 
 
 /**
  * Request parameters for createEducationServiceCenterAsync operation in InstancesEducationOrganizationsEducationServiceCentersApi.
- * @export
- * @interface InstancesEducationOrganizationsEducationServiceCentersApiCreateEducationServiceCenterAsyncRequest
  */
 export interface InstancesEducationOrganizationsEducationServiceCentersApiCreateEducationServiceCenterAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiCreateEducationServiceCenterAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiCreateEducationServiceCenterAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiCreateEducationServiceCenterAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1CreateEducationServiceCenterRequest}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiCreateEducationServiceCenterAsync
      */
     readonly edfiAdminApiEdfiAdminV1CreateEducationServiceCenterRequest?: EdfiAdminApiEdfiAdminV1CreateEducationServiceCenterRequest
 }
 
 /**
  * Request parameters for deleteEducationServiceCenterAsync operation in InstancesEducationOrganizationsEducationServiceCentersApi.
- * @export
- * @interface InstancesEducationOrganizationsEducationServiceCentersApiDeleteEducationServiceCenterAsyncRequest
  */
 export interface InstancesEducationOrganizationsEducationServiceCentersApiDeleteEducationServiceCenterAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiDeleteEducationServiceCenterAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiDeleteEducationServiceCenterAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiDeleteEducationServiceCenterAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiDeleteEducationServiceCenterAsync
      */
     readonly educationServiceCenterId: string
 }
 
 /**
  * Request parameters for getEducationServiceCenterByIdAsync operation in InstancesEducationOrganizationsEducationServiceCentersApi.
- * @export
- * @interface InstancesEducationOrganizationsEducationServiceCentersApiGetEducationServiceCenterByIdAsyncRequest
  */
 export interface InstancesEducationOrganizationsEducationServiceCentersApiGetEducationServiceCenterByIdAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiGetEducationServiceCenterByIdAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiGetEducationServiceCenterByIdAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiGetEducationServiceCenterByIdAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiGetEducationServiceCenterByIdAsync
      */
     readonly educationServiceCenterId: string
 }
 
 /**
  * Request parameters for updateEducationServiceCenterAsync operation in InstancesEducationOrganizationsEducationServiceCentersApi.
- * @export
- * @interface InstancesEducationOrganizationsEducationServiceCentersApiUpdateEducationServiceCenterAsyncRequest
  */
 export interface InstancesEducationOrganizationsEducationServiceCentersApiUpdateEducationServiceCenterAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiUpdateEducationServiceCenterAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiUpdateEducationServiceCenterAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiUpdateEducationServiceCenterAsync
      */
     readonly year: number
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiUpdateEducationServiceCenterAsync
      */
     readonly educationServiceCenterId: string
 
     /**
      * 
-     * @type {EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApiUpdateEducationServiceCenterAsync
      */
     readonly edfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest?: EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest
 }
 
 /**
  * InstancesEducationOrganizationsEducationServiceCentersApi - object-oriented interface
- * @export
- * @class InstancesEducationOrganizationsEducationServiceCentersApi
- * @extends {BaseAPI}
  */
 export class InstancesEducationOrganizationsEducationServiceCentersApi extends BaseAPI {
     /**
@@ -531,7 +481,6 @@ export class InstancesEducationOrganizationsEducationServiceCentersApi extends B
      * @param {InstancesEducationOrganizationsEducationServiceCentersApiCreateEducationServiceCenterAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApi
      */
     public createEducationServiceCenterAsync(requestParameters: InstancesEducationOrganizationsEducationServiceCentersApiCreateEducationServiceCenterAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesEducationOrganizationsEducationServiceCentersApiFp(this.configuration).createEducationServiceCenterAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.edfiAdminApiEdfiAdminV1CreateEducationServiceCenterRequest, options).then((request) => request(this.axios, this.basePath));
@@ -543,7 +492,6 @@ export class InstancesEducationOrganizationsEducationServiceCentersApi extends B
      * @param {InstancesEducationOrganizationsEducationServiceCentersApiDeleteEducationServiceCenterAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApi
      */
     public deleteEducationServiceCenterAsync(requestParameters: InstancesEducationOrganizationsEducationServiceCentersApiDeleteEducationServiceCenterAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesEducationOrganizationsEducationServiceCentersApiFp(this.configuration).deleteEducationServiceCenterAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.educationServiceCenterId, options).then((request) => request(this.axios, this.basePath));
@@ -555,7 +503,6 @@ export class InstancesEducationOrganizationsEducationServiceCentersApi extends B
      * @param {InstancesEducationOrganizationsEducationServiceCentersApiGetEducationServiceCenterByIdAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApi
      */
     public getEducationServiceCenterByIdAsync(requestParameters: InstancesEducationOrganizationsEducationServiceCentersApiGetEducationServiceCenterByIdAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesEducationOrganizationsEducationServiceCentersApiFp(this.configuration).getEducationServiceCenterByIdAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.educationServiceCenterId, options).then((request) => request(this.axios, this.basePath));
@@ -567,7 +514,6 @@ export class InstancesEducationOrganizationsEducationServiceCentersApi extends B
      * @param {InstancesEducationOrganizationsEducationServiceCentersApiUpdateEducationServiceCenterAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesEducationOrganizationsEducationServiceCentersApi
      */
     public updateEducationServiceCenterAsync(requestParameters: InstancesEducationOrganizationsEducationServiceCentersApiUpdateEducationServiceCenterAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesEducationOrganizationsEducationServiceCentersApiFp(this.configuration).updateEducationServiceCenterAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.year, requestParameters.educationServiceCenterId, requestParameters.edfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest, options).then((request) => request(this.axios, this.basePath));

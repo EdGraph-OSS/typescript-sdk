@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiReportingPeriodsV1SubmissionStatus } from './validations-api-reporting-periods-v1-submission-status';
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1SubmissionStatusSetResponse
- */
 export interface ValidationsApiReportingPeriodsV1SubmissionStatusSetResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionStatusSetResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionStatusSetResponse
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionStatusSetResponse
-     */
     'submissionId'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiReportingPeriodsV1SubmissionStatus}
-     * @memberof ValidationsApiReportingPeriodsV1SubmissionStatusSetResponse
-     */
     'status'?: ValidationsApiReportingPeriodsV1SubmissionStatus;
 }
 

@@ -20,23 +20,8 @@ import type { ValidationsApiReportingPeriodsV1PaginatedRecords Types ReportingPe
 // @ts-ignore
 import type { ValidationsApiReportingPeriodsV1ValidationResultRecord } from './validations-api-reporting-periods-v1-validation-result-record';
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1PaginatedRecordsTypesReportingPeriodRecords
- */
 export interface ValidationsApiReportingPeriodsV1PaginatedRecordsTypesReportingPeriodRecords {
-    /**
-     * 
-     * @type {ValidationsApiReportingPeriodsV1PaginatedRecords Types ReportingPeriodRecords Types Rule}
-     * @memberof ValidationsApiReportingPeriodsV1PaginatedRecordsTypesReportingPeriodRecords
-     */
     'rule'?: ValidationsApiReportingPeriodsV1PaginatedRecords Types ReportingPeriodRecords Types Rule;
-    /**
-     * 
-     * @type {Array<ValidationsApiReportingPeriodsV1ValidationResultRecord>}
-     * @memberof ValidationsApiReportingPeriodsV1PaginatedRecordsTypesReportingPeriodRecords
-     */
     'records'?: Array<ValidationsApiReportingPeriodsV1ValidationResultRecord> | null;
 }
 

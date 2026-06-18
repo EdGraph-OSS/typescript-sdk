@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ApplicationApiApplicationV1ApplicationListResponse } from './application-api-application-v1-application-list-response';
 
-/**
- * 
- * @export
- * @interface ApplicationApiApplicationV1PaginatedItemsResponse
- */
 export interface ApplicationApiApplicationV1PaginatedItemsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof ApplicationApiApplicationV1PaginatedItemsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ApplicationApiApplicationV1PaginatedItemsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ApplicationApiApplicationV1PaginatedItemsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<ApplicationApiApplicationV1ApplicationListResponse>}
-     * @memberof ApplicationApiApplicationV1PaginatedItemsResponse
-     */
     'data'?: Array<ApplicationApiApplicationV1ApplicationListResponse> | null;
 }
 

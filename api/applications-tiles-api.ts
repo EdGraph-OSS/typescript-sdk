@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResp
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * ApplicationsTilesApi - axios parameter creator
- * @export
  */
 export const ApplicationsTilesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const ApplicationsTilesApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getTenantApplicationTilesAsync', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/applicationtiles`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -80,8 +79,8 @@ export const ApplicationsTilesApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -96,7 +95,6 @@ export const ApplicationsTilesApiAxiosParamCreator = function (configuration?: C
 
 /**
  * ApplicationsTilesApi - functional programming interface
- * @export
  */
 export const ApplicationsTilesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ApplicationsTilesApiAxiosParamCreator(configuration)
@@ -123,7 +121,6 @@ export const ApplicationsTilesApiFp = function(configuration?: Configuration) {
 
 /**
  * ApplicationsTilesApi - factory interface
- * @export
  */
 export const ApplicationsTilesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ApplicationsTilesApiFp(configuration)
@@ -143,51 +140,36 @@ export const ApplicationsTilesApiFactory = function (configuration?: Configurati
 
 /**
  * Request parameters for getTenantApplicationTilesAsync operation in ApplicationsTilesApi.
- * @export
- * @interface ApplicationsTilesApiGetTenantApplicationTilesAsyncRequest
  */
 export interface ApplicationsTilesApiGetTenantApplicationTilesAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsTilesApiGetTenantApplicationTilesAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ApplicationsTilesApiGetTenantApplicationTilesAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ApplicationsTilesApiGetTenantApplicationTilesAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsTilesApiGetTenantApplicationTilesAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ApplicationsTilesApiGetTenantApplicationTilesAsync
      */
     readonly filter?: string
 }
 
 /**
  * ApplicationsTilesApi - object-oriented interface
- * @export
- * @class ApplicationsTilesApi
- * @extends {BaseAPI}
  */
 export class ApplicationsTilesApi extends BaseAPI {
     /**
@@ -196,7 +178,6 @@ export class ApplicationsTilesApi extends BaseAPI {
      * @param {ApplicationsTilesApiGetTenantApplicationTilesAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApplicationsTilesApi
      */
     public getTenantApplicationTilesAsync(requestParameters: ApplicationsTilesApiGetTenantApplicationTilesAsyncRequest, options?: RawAxiosRequestConfig) {
         return ApplicationsTilesApiFp(this.configuration).getTenantApplicationTilesAsync(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));

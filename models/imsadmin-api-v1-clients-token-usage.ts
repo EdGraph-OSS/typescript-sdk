@@ -14,15 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const IMSAdminApiV1ClientsTokenUsage = {
     ReUse: 'ReUse',
-    OneTimeOnly: 'OneTimeOnly'
+    OneTimeOnly: 'OneTimeOnly',
 } as const;
 
 export type IMSAdminApiV1ClientsTokenUsage = typeof IMSAdminApiV1ClientsTokenUsage[keyof typeof IMSAdminApiV1ClientsTokenUsage];

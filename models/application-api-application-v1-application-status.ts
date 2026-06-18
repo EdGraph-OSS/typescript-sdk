@@ -14,16 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ApplicationApiApplicationV1ApplicationStatus = {
     Unknown: 'Unknown',
     Draft: 'Draft',
-    Published: 'Published'
+    Published: 'Published',
 } as const;
 
 export type ApplicationApiApplicationV1ApplicationStatus = typeof ApplicationApiApplicationV1ApplicationStatus[keyof typeof ApplicationApiApplicationV1ApplicationStatus];

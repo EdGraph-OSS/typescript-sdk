@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncJobCreatedResult
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncJobCreatedResult {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncJobCreatedResult
-     */
     'tenantId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncJobCreatedResult
-     */
     'dataSyncConnectionId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncJobCreatedResult
-     */
     'dataSyncJobId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncJobCreatedResult
-     */
     'edFiInstanceId'?: string | null;
 }
 

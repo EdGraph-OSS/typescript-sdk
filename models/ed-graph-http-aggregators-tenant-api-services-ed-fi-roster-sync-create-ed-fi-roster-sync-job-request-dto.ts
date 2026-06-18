@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions } from './data-sync-api-ed-fi-roster-sync-v1-use-ssainstead-of-seoaaoptions';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJobRequestDto
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJobRequestDto {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJobRequestDto
-     */
     'mode'?: string | null;
-    /**
-     * 
-     * @type {DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJobRequestDto
-     */
     'use_SSA_InsteadOf_SEOAA'?: DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJobRequestDto
-     */
     'importSectionAndCourseData'?: boolean;
 }
 

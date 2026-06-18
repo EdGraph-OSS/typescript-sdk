@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiReportsV1ReportIdResponse
- */
 export interface AnalyticsApiReportsV1ReportIdResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1ReportIdResponse
-     */
     'id'?: string | null;
 }
 

@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1CollectionUploadedResponse Types UploadResult } from './validations-api-containers-v1-collection-uploaded-response types upload-result';
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1CollectionUploadedResponse
- */
 export interface ValidationsApiContainersV1CollectionUploadedResponse {
-    /**
-     * 
-     * @type {ValidationsApiContainersV1CollectionUploadedResponse Types UploadResult}
-     * @memberof ValidationsApiContainersV1CollectionUploadedResponse
-     */
     'categories'?: ValidationsApiContainersV1CollectionUploadedResponse Types UploadResult;
-    /**
-     * 
-     * @type {ValidationsApiContainersV1CollectionUploadedResponse Types UploadResult}
-     * @memberof ValidationsApiContainersV1CollectionUploadedResponse
-     */
     'subCategories'?: ValidationsApiContainersV1CollectionUploadedResponse Types UploadResult;
-    /**
-     * 
-     * @type {ValidationsApiContainersV1CollectionUploadedResponse Types UploadResult}
-     * @memberof ValidationsApiContainersV1CollectionUploadedResponse
-     */
     'rules'?: ValidationsApiContainersV1CollectionUploadedResponse Types UploadResult;
-    /**
-     * 
-     * @type {ValidationsApiContainersV1CollectionUploadedResponse Types UploadResult}
-     * @memberof ValidationsApiContainersV1CollectionUploadedResponse
-     */
     'tags'?: ValidationsApiContainersV1CollectionUploadedResponse Types UploadResult;
 }
 

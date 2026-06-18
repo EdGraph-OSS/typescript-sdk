@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ClientsSecret
- */
 export interface IMSAdminApiV1ClientsSecret {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsSecret
-     */
     'type'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsSecret
-     */
     'value'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsSecret
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsSecret
-     */
     'expiration'?: string | null;
 }
 

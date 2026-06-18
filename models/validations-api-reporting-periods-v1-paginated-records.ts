@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiReportingPeriodsV1PaginatedRecords Types ReportingPeriodRecords } from './validations-api-reporting-periods-v1-paginated-records types reporting-period-records';
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1PaginatedRecords
- */
 export interface ValidationsApiReportingPeriodsV1PaginatedRecords {
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1PaginatedRecords
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1PaginatedRecords
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1PaginatedRecords
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<ValidationsApiReportingPeriodsV1PaginatedRecords Types ReportingPeriodRecords>}
-     * @memberof ValidationsApiReportingPeriodsV1PaginatedRecords
-     */
     'data'?: Array<ValidationsApiReportingPeriodsV1PaginatedRecords Types ReportingPeriodRecords> | null;
 }
 

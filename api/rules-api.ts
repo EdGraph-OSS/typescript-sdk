@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -35,7 +35,6 @@ import type { ValidationsApiRulesV1RuleDto } from '../models';
 import type { ValidationsApiRulesV1UpdateRequest } from '../models';
 /**
  * RulesApi - axios parameter creator
- * @export
  */
 export const RulesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -51,7 +50,7 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createRule', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/validations/rules`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -67,9 +66,8 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -95,8 +93,8 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'ruleId' is not null or undefined
             assertParamExists('deleteRule', 'ruleId', ruleId)
             const localVarPath = `/tenants/{tenantId}/validations/rules/{ruleId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"ruleId"}}`, encodeURIComponent(String(ruleId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{ruleId}', encodeURIComponent(String(ruleId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -112,8 +110,8 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -137,8 +135,8 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'ruleId' is not null or undefined
             assertParamExists('getRuleById', 'ruleId', ruleId)
             const localVarPath = `/tenants/{tenantId}/validations/rules/{ruleId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"ruleId"}}`, encodeURIComponent(String(ruleId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{ruleId}', encodeURIComponent(String(ruleId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -154,8 +152,8 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -180,7 +178,7 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getRules', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/validations/rules`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -212,8 +210,8 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -238,8 +236,8 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'ruleId' is not null or undefined
             assertParamExists('updateRule', 'ruleId', ruleId)
             const localVarPath = `/tenants/{tenantId}/validations/rules/{ruleId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"ruleId"}}`, encodeURIComponent(String(ruleId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{ruleId}', encodeURIComponent(String(ruleId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -255,9 +253,8 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -274,7 +271,6 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * RulesApi - functional programming interface
- * @export
  */
 export const RulesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RulesApiAxiosParamCreator(configuration)
@@ -358,7 +354,6 @@ export const RulesApiFp = function(configuration?: Configuration) {
 
 /**
  * RulesApi - factory interface
- * @export
  */
 export const RulesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = RulesApiFp(configuration)
@@ -418,142 +413,101 @@ export const RulesApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * Request parameters for createRule operation in RulesApi.
- * @export
- * @interface RulesApiCreateRuleRequest
  */
 export interface RulesApiCreateRuleRequest {
     /**
      * 
-     * @type {string}
-     * @memberof RulesApiCreateRule
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {ValidationsApiRulesV1CreateRequest}
-     * @memberof RulesApiCreateRule
      */
     readonly validationsApiRulesV1CreateRequest?: ValidationsApiRulesV1CreateRequest
 }
 
 /**
  * Request parameters for deleteRule operation in RulesApi.
- * @export
- * @interface RulesApiDeleteRuleRequest
  */
 export interface RulesApiDeleteRuleRequest {
     /**
      * 
-     * @type {string}
-     * @memberof RulesApiDeleteRule
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof RulesApiDeleteRule
      */
     readonly ruleId: string
 }
 
 /**
  * Request parameters for getRuleById operation in RulesApi.
- * @export
- * @interface RulesApiGetRuleByIdRequest
  */
 export interface RulesApiGetRuleByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof RulesApiGetRuleById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof RulesApiGetRuleById
      */
     readonly ruleId: string
 }
 
 /**
  * Request parameters for getRules operation in RulesApi.
- * @export
- * @interface RulesApiGetRulesRequest
  */
 export interface RulesApiGetRulesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof RulesApiGetRules
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof RulesApiGetRules
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof RulesApiGetRules
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof RulesApiGetRules
      */
     readonly filter?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof RulesApiGetRules
      */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for updateRule operation in RulesApi.
- * @export
- * @interface RulesApiUpdateRuleRequest
  */
 export interface RulesApiUpdateRuleRequest {
     /**
      * 
-     * @type {string}
-     * @memberof RulesApiUpdateRule
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof RulesApiUpdateRule
      */
     readonly ruleId: string
 
     /**
      * 
-     * @type {ValidationsApiRulesV1UpdateRequest}
-     * @memberof RulesApiUpdateRule
      */
     readonly validationsApiRulesV1UpdateRequest?: ValidationsApiRulesV1UpdateRequest
 }
 
 /**
  * RulesApi - object-oriented interface
- * @export
- * @class RulesApi
- * @extends {BaseAPI}
  */
 export class RulesApi extends BaseAPI {
     /**
@@ -562,7 +516,6 @@ export class RulesApi extends BaseAPI {
      * @param {RulesApiCreateRuleRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RulesApi
      */
     public createRule(requestParameters: RulesApiCreateRuleRequest, options?: RawAxiosRequestConfig) {
         return RulesApiFp(this.configuration).createRule(requestParameters.tenantId, requestParameters.validationsApiRulesV1CreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -574,7 +527,6 @@ export class RulesApi extends BaseAPI {
      * @param {RulesApiDeleteRuleRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RulesApi
      */
     public deleteRule(requestParameters: RulesApiDeleteRuleRequest, options?: RawAxiosRequestConfig) {
         return RulesApiFp(this.configuration).deleteRule(requestParameters.tenantId, requestParameters.ruleId, options).then((request) => request(this.axios, this.basePath));
@@ -586,7 +538,6 @@ export class RulesApi extends BaseAPI {
      * @param {RulesApiGetRuleByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RulesApi
      */
     public getRuleById(requestParameters: RulesApiGetRuleByIdRequest, options?: RawAxiosRequestConfig) {
         return RulesApiFp(this.configuration).getRuleById(requestParameters.tenantId, requestParameters.ruleId, options).then((request) => request(this.axios, this.basePath));
@@ -598,7 +549,6 @@ export class RulesApi extends BaseAPI {
      * @param {RulesApiGetRulesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RulesApi
      */
     public getRules(requestParameters: RulesApiGetRulesRequest, options?: RawAxiosRequestConfig) {
         return RulesApiFp(this.configuration).getRules(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -610,7 +560,6 @@ export class RulesApi extends BaseAPI {
      * @param {RulesApiUpdateRuleRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RulesApi
      */
     public updateRule(requestParameters: RulesApiUpdateRuleRequest, options?: RawAxiosRequestConfig) {
         return RulesApiFp(this.configuration).updateRule(requestParameters.tenantId, requestParameters.ruleId, requestParameters.validationsApiRulesV1UpdateRequest, options).then((request) => request(this.axios, this.basePath));

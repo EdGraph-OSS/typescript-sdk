@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { DataSyncApiProviderV1ConnectionMetadataField } from './data-sync-api-provider-v1-connection-metadata-field';
 
-/**
- * 
- * @export
- * @interface DataSyncApiProviderV1ConnectionType
- */
 export interface DataSyncApiProviderV1ConnectionType {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionType
-     */
     'providerId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionType
-     */
     'connectionTypeId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionType
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionType
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiProviderV1ConnectionType
-     */
     'documentationUri'?: string | null;
-    /**
-     * 
-     * @type {Array<DataSyncApiProviderV1ConnectionMetadataField>}
-     * @memberof DataSyncApiProviderV1ConnectionType
-     */
     'connectionMetadataFields'?: Array<DataSyncApiProviderV1ConnectionMetadataField> | null;
 }
 

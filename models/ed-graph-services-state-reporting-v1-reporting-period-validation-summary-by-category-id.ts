@@ -23,29 +23,9 @@ import type { EdGraphServicesStateReportingV1ReportingPeriodListResponse } from 
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1ValidationSummarySubCategory } from './ed-graph-services-state-reporting-v1-validation-summary-sub-category';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1ReportingPeriodValidationSummaryByCategoryId
- */
 export interface EdGraphServicesStateReportingV1ReportingPeriodValidationSummaryByCategoryId {
-    /**
-     * 
-     * @type {EdGraphServicesStateReportingV1ReportingPeriodListResponse}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodValidationSummaryByCategoryId
-     */
     'reportingPeriod'?: EdGraphServicesStateReportingV1ReportingPeriodListResponse;
-    /**
-     * 
-     * @type {EdGraphServicesStateReportingV1Category}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodValidationSummaryByCategoryId
-     */
     'category'?: EdGraphServicesStateReportingV1Category;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1ValidationSummarySubCategory>}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodValidationSummaryByCategoryId
-     */
     'subCategories'?: Array<EdGraphServicesStateReportingV1ValidationSummarySubCategory> | null;
 }
 

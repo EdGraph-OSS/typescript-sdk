@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiReportsV1ReportPreferenceDetailsResponse
- */
 export interface AnalyticsApiReportsV1ReportPreferenceDetailsResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1ReportPreferenceDetailsResponse
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1ReportPreferenceDetailsResponse
-     */
     'value'?: string | null;
 }
 

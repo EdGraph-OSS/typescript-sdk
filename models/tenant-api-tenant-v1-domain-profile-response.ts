@@ -17,59 +17,14 @@
 // @ts-ignore
 import type { TenantApiTenantV1DomainStatus } from './tenant-api-tenant-v1-domain-status';
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1DomainProfileResponse
- */
 export interface TenantApiTenantV1DomainProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1DomainProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1DomainProfileResponse
-     */
     'domainName'?: string | null;
-    /**
-     * 
-     * @type {TenantApiTenantV1DomainStatus}
-     * @memberof TenantApiTenantV1DomainProfileResponse
-     */
     'domainStatus'?: TenantApiTenantV1DomainStatus;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiTenantV1DomainProfileResponse
-     */
     'autoAssignUsers'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1DomainProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1DomainProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1DomainProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1DomainProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
 }
 

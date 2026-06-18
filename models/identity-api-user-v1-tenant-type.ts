@@ -14,11 +14,6 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const IdentityApiUserV1TenantType = {
     Unknown: 'Unknown',
@@ -30,7 +25,7 @@ export const IdentityApiUserV1TenantType = {
     LocalEducationAgency: 'LocalEducationAgency',
     ManagedServiceProvider: 'ManagedServiceProvider',
     StateEducationAgency: 'StateEducationAgency',
-    AssessmentProvider: 'AssessmentProvider'
+    AssessmentProvider: 'AssessmentProvider',
 } as const;
 
 export type IdentityApiUserV1TenantType = typeof IdentityApiUserV1TenantType[keyof typeof IdentityApiUserV1TenantType];

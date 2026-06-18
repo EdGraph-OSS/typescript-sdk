@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1DeactivateUserRequest
- */
 export interface IdentityApiUserV1DeactivateUserRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1DeactivateUserRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1DeactivateUserRequest
-     */
     'userId'?: string | null;
 }
 

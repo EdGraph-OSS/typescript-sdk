@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1ResourceClaim } from './edfi-admin-api-edfi-admin-v1-resource-claim';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1GetResourceClaimsGridResponse
- */
 export interface EdfiAdminApiEdfiAdminV1GetResourceClaimsGridResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1GetResourceClaimsGridResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1GetResourceClaimsGridResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1ResourceClaim>}
-     * @memberof EdfiAdminApiEdfiAdminV1GetResourceClaimsGridResponse
-     */
     'resourceClaims'?: Array<EdfiAdminApiEdfiAdminV1ResourceClaim> | null;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1ApplicationEndpoint
- */
 export interface EdfiAdminApiEdfiAdminV1ApplicationEndpoint {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ApplicationEndpoint
-     */
     'accessType'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1ApplicationEndpoint
-     */
     'url'?: string | null;
 }
 

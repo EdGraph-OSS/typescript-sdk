@@ -14,17 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ValidationsApiJobsV1DataRefreshType = {
     Unknown: 'Unknown',
     Full: 'Full',
     Deltasincelastjobexecution: 'Deltasincelastjobexecution',
-    Deltasincespecificdatetime: 'Deltasincespecificdatetime'
+    Deltasincespecificdatetime: 'Deltasincespecificdatetime',
 } as const;
 
 export type ValidationsApiJobsV1DataRefreshType = typeof ValidationsApiJobsV1DataRefreshType[keyof typeof ValidationsApiJobsV1DataRefreshType];

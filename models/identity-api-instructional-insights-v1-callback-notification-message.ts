@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiInstructionalInsightsV1CallbackNotificationMessage
- */
 export interface IdentityApiInstructionalInsightsV1CallbackNotificationMessage {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1CallbackNotificationMessage
-     */
     'notificationType'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiInstructionalInsightsV1CallbackNotificationMessage
-     */
     'value'?: string | null;
 }
 

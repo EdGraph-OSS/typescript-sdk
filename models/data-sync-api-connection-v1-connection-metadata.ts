@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiConnectionV1ConnectionMetadata
- */
 export interface DataSyncApiConnectionV1ConnectionMetadata {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionMetadata
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiConnectionV1ConnectionMetadata
-     */
     'value'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiConnectionV1ConnectionMetadata
-     */
     'isSecret'?: boolean;
 }
 

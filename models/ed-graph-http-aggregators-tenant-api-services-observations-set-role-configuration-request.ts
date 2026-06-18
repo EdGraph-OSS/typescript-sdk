@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest
-     */
     'role'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest
-     */
     'assignedPersonaIdentifiers'?: Array<string> | null;
 }
 

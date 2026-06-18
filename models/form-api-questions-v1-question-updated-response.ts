@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface FormApiQuestionsV1QuestionUpdatedResponse
- */
 export interface FormApiQuestionsV1QuestionUpdatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiQuestionsV1QuestionUpdatedResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiQuestionsV1QuestionUpdatedResponse
-     */
     'formId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiQuestionsV1QuestionUpdatedResponse
-     */
     'sectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiQuestionsV1QuestionUpdatedResponse
-     */
     'tenantId'?: string | null;
 }
 

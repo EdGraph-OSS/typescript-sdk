@@ -20,29 +20,9 @@ import type { EdfiAdminApiEdfiAdminV1InstanceDatabase } from './edfi-admin-api-e
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1InstanceOdsDatabase } from './edfi-admin-api-edfi-admin-v1-instance-ods-database';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1InstanceDatabases
- */
 export interface EdfiAdminApiEdfiAdminV1InstanceDatabases {
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1InstanceDatabase}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceDatabases
-     */
     'admin'?: EdfiAdminApiEdfiAdminV1InstanceDatabase;
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1InstanceDatabase}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceDatabases
-     */
     'security'?: EdfiAdminApiEdfiAdminV1InstanceDatabase;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1InstanceOdsDatabase>}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceDatabases
-     */
     'ods'?: Array<EdfiAdminApiEdfiAdminV1InstanceOdsDatabase> | null;
 }
 

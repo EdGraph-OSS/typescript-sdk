@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequestEntry } from './edfi-admin-api-edfi-admin-v1-add-school-year-range-request-entry';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequest
- */
 export interface EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequestEntry>}
-     * @memberof EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequest
-     */
     'entries'?: Array<EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequestEntry> | null;
 }
 

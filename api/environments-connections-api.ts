@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -45,7 +45,6 @@ import type { EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConne
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * EnvironmentsConnectionsApi - axios parameter creator
- * @export
  */
 export const EnvironmentsConnectionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -64,8 +63,8 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
             // verify required parameter 'environmentId' is not null or undefined
             assertParamExists('createStateReportingConnection', 'environmentId', environmentId)
             const localVarPath = `/tenants/{tenantId}/statereporting/environments/{environmentId}/connections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"environmentId"}}`, encodeURIComponent(String(environmentId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{environmentId}', encodeURIComponent(String(environmentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -81,9 +80,8 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -112,9 +110,9 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('deleteStateReportingConnection', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/environments/{environmentId}/connections/{connectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"environmentId"}}`, encodeURIComponent(String(environmentId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{environmentId}', encodeURIComponent(String(environmentId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -130,8 +128,8 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -157,8 +155,8 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
             // verify required parameter 'environmentId' is not null or undefined
             assertParamExists('findStateReportingConnections', 'environmentId', environmentId)
             const localVarPath = `/tenants/{tenantId}/statereporting/environments/{environmentId}/connections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"environmentId"}}`, encodeURIComponent(String(environmentId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{environmentId}', encodeURIComponent(String(environmentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -182,8 +180,8 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
                 localVarQueryParameter['connectionType'] = connectionType;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -210,9 +208,9 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('getStateReportingConnection', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/environments/{environmentId}/connections/{connectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"environmentId"}}`, encodeURIComponent(String(environmentId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{environmentId}', encodeURIComponent(String(environmentId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -228,8 +226,8 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -256,9 +254,9 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('testStateReportingConnectionById', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/environments/{environmentId}/connections/{connectionId}/testconnection`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"environmentId"}}`, encodeURIComponent(String(environmentId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{environmentId}', encodeURIComponent(String(environmentId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -274,8 +272,8 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -300,8 +298,8 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
             // verify required parameter 'environmentId' is not null or undefined
             assertParamExists('testStateReportingConnectionByType', 'environmentId', environmentId)
             const localVarPath = `/tenants/{tenantId}/statereporting/environments/{environmentId}/connections/testconnection`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"environmentId"}}`, encodeURIComponent(String(environmentId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{environmentId}', encodeURIComponent(String(environmentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -317,9 +315,8 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -349,9 +346,9 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('updateStateReportingConnection', 'connectionId', connectionId)
             const localVarPath = `/tenants/{tenantId}/statereporting/environments/{environmentId}/connections/{connectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"environmentId"}}`, encodeURIComponent(String(environmentId)))
-                .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{environmentId}', encodeURIComponent(String(environmentId)))
+                .replace('{connectionId}', encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -367,9 +364,8 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -386,7 +382,6 @@ export const EnvironmentsConnectionsApiAxiosParamCreator = function (configurati
 
 /**
  * EnvironmentsConnectionsApi - functional programming interface
- * @export
  */
 export const EnvironmentsConnectionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EnvironmentsConnectionsApiAxiosParamCreator(configuration)
@@ -503,7 +498,6 @@ export const EnvironmentsConnectionsApiFp = function(configuration?: Configurati
 
 /**
  * EnvironmentsConnectionsApi - factory interface
- * @export
  */
 export const EnvironmentsConnectionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EnvironmentsConnectionsApiFp(configuration)
@@ -583,219 +577,156 @@ export const EnvironmentsConnectionsApiFactory = function (configuration?: Confi
 
 /**
  * Request parameters for createStateReportingConnection operation in EnvironmentsConnectionsApi.
- * @export
- * @interface EnvironmentsConnectionsApiCreateStateReportingConnectionRequest
  */
 export interface EnvironmentsConnectionsApiCreateStateReportingConnectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiCreateStateReportingConnection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiCreateStateReportingConnection
      */
     readonly environmentId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesStateReportingV1CreateConnectionRequest}
-     * @memberof EnvironmentsConnectionsApiCreateStateReportingConnection
      */
     readonly edGraphHttpAggregatorsTenantApiServicesStateReportingV1CreateConnectionRequest?: EdGraphHttpAggregatorsTenantApiServicesStateReportingV1CreateConnectionRequest
 }
 
 /**
  * Request parameters for deleteStateReportingConnection operation in EnvironmentsConnectionsApi.
- * @export
- * @interface EnvironmentsConnectionsApiDeleteStateReportingConnectionRequest
  */
 export interface EnvironmentsConnectionsApiDeleteStateReportingConnectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiDeleteStateReportingConnection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiDeleteStateReportingConnection
      */
     readonly environmentId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiDeleteStateReportingConnection
      */
     readonly connectionId: string
 }
 
 /**
  * Request parameters for findStateReportingConnections operation in EnvironmentsConnectionsApi.
- * @export
- * @interface EnvironmentsConnectionsApiFindStateReportingConnectionsRequest
  */
 export interface EnvironmentsConnectionsApiFindStateReportingConnectionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiFindStateReportingConnections
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiFindStateReportingConnections
      */
     readonly environmentId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiFindStateReportingConnections
      */
     readonly instanceType?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiFindStateReportingConnections
      */
     readonly connectionType?: string
 }
 
 /**
  * Request parameters for getStateReportingConnection operation in EnvironmentsConnectionsApi.
- * @export
- * @interface EnvironmentsConnectionsApiGetStateReportingConnectionRequest
  */
 export interface EnvironmentsConnectionsApiGetStateReportingConnectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiGetStateReportingConnection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiGetStateReportingConnection
      */
     readonly environmentId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiGetStateReportingConnection
      */
     readonly connectionId: string
 }
 
 /**
  * Request parameters for testStateReportingConnectionById operation in EnvironmentsConnectionsApi.
- * @export
- * @interface EnvironmentsConnectionsApiTestStateReportingConnectionByIdRequest
  */
 export interface EnvironmentsConnectionsApiTestStateReportingConnectionByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiTestStateReportingConnectionById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiTestStateReportingConnectionById
      */
     readonly environmentId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiTestStateReportingConnectionById
      */
     readonly connectionId: string
 }
 
 /**
  * Request parameters for testStateReportingConnectionByType operation in EnvironmentsConnectionsApi.
- * @export
- * @interface EnvironmentsConnectionsApiTestStateReportingConnectionByTypeRequest
  */
 export interface EnvironmentsConnectionsApiTestStateReportingConnectionByTypeRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiTestStateReportingConnectionByType
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiTestStateReportingConnectionByType
      */
     readonly environmentId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionByTypeRequest}
-     * @memberof EnvironmentsConnectionsApiTestStateReportingConnectionByType
      */
     readonly edGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionByTypeRequest?: EdGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionByTypeRequest
 }
 
 /**
  * Request parameters for updateStateReportingConnection operation in EnvironmentsConnectionsApi.
- * @export
- * @interface EnvironmentsConnectionsApiUpdateStateReportingConnectionRequest
  */
 export interface EnvironmentsConnectionsApiUpdateStateReportingConnectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiUpdateStateReportingConnection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiUpdateStateReportingConnection
      */
     readonly environmentId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof EnvironmentsConnectionsApiUpdateStateReportingConnection
      */
     readonly connectionId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest}
-     * @memberof EnvironmentsConnectionsApiUpdateStateReportingConnection
      */
     readonly edGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest?: EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
 }
 
 /**
  * EnvironmentsConnectionsApi - object-oriented interface
- * @export
- * @class EnvironmentsConnectionsApi
- * @extends {BaseAPI}
  */
 export class EnvironmentsConnectionsApi extends BaseAPI {
     /**
@@ -804,7 +735,6 @@ export class EnvironmentsConnectionsApi extends BaseAPI {
      * @param {EnvironmentsConnectionsApiCreateStateReportingConnectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EnvironmentsConnectionsApi
      */
     public createStateReportingConnection(requestParameters: EnvironmentsConnectionsApiCreateStateReportingConnectionRequest, options?: RawAxiosRequestConfig) {
         return EnvironmentsConnectionsApiFp(this.configuration).createStateReportingConnection(requestParameters.tenantId, requestParameters.environmentId, requestParameters.edGraphHttpAggregatorsTenantApiServicesStateReportingV1CreateConnectionRequest, options).then((request) => request(this.axios, this.basePath));
@@ -816,7 +746,6 @@ export class EnvironmentsConnectionsApi extends BaseAPI {
      * @param {EnvironmentsConnectionsApiDeleteStateReportingConnectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EnvironmentsConnectionsApi
      */
     public deleteStateReportingConnection(requestParameters: EnvironmentsConnectionsApiDeleteStateReportingConnectionRequest, options?: RawAxiosRequestConfig) {
         return EnvironmentsConnectionsApiFp(this.configuration).deleteStateReportingConnection(requestParameters.tenantId, requestParameters.environmentId, requestParameters.connectionId, options).then((request) => request(this.axios, this.basePath));
@@ -828,7 +757,6 @@ export class EnvironmentsConnectionsApi extends BaseAPI {
      * @param {EnvironmentsConnectionsApiFindStateReportingConnectionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EnvironmentsConnectionsApi
      */
     public findStateReportingConnections(requestParameters: EnvironmentsConnectionsApiFindStateReportingConnectionsRequest, options?: RawAxiosRequestConfig) {
         return EnvironmentsConnectionsApiFp(this.configuration).findStateReportingConnections(requestParameters.tenantId, requestParameters.environmentId, requestParameters.instanceType, requestParameters.connectionType, options).then((request) => request(this.axios, this.basePath));
@@ -840,7 +768,6 @@ export class EnvironmentsConnectionsApi extends BaseAPI {
      * @param {EnvironmentsConnectionsApiGetStateReportingConnectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EnvironmentsConnectionsApi
      */
     public getStateReportingConnection(requestParameters: EnvironmentsConnectionsApiGetStateReportingConnectionRequest, options?: RawAxiosRequestConfig) {
         return EnvironmentsConnectionsApiFp(this.configuration).getStateReportingConnection(requestParameters.tenantId, requestParameters.environmentId, requestParameters.connectionId, options).then((request) => request(this.axios, this.basePath));
@@ -852,7 +779,6 @@ export class EnvironmentsConnectionsApi extends BaseAPI {
      * @param {EnvironmentsConnectionsApiTestStateReportingConnectionByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EnvironmentsConnectionsApi
      */
     public testStateReportingConnectionById(requestParameters: EnvironmentsConnectionsApiTestStateReportingConnectionByIdRequest, options?: RawAxiosRequestConfig) {
         return EnvironmentsConnectionsApiFp(this.configuration).testStateReportingConnectionById(requestParameters.tenantId, requestParameters.environmentId, requestParameters.connectionId, options).then((request) => request(this.axios, this.basePath));
@@ -864,7 +790,6 @@ export class EnvironmentsConnectionsApi extends BaseAPI {
      * @param {EnvironmentsConnectionsApiTestStateReportingConnectionByTypeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EnvironmentsConnectionsApi
      */
     public testStateReportingConnectionByType(requestParameters: EnvironmentsConnectionsApiTestStateReportingConnectionByTypeRequest, options?: RawAxiosRequestConfig) {
         return EnvironmentsConnectionsApiFp(this.configuration).testStateReportingConnectionByType(requestParameters.tenantId, requestParameters.environmentId, requestParameters.edGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionByTypeRequest, options).then((request) => request(this.axios, this.basePath));
@@ -876,7 +801,6 @@ export class EnvironmentsConnectionsApi extends BaseAPI {
      * @param {EnvironmentsConnectionsApiUpdateStateReportingConnectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EnvironmentsConnectionsApi
      */
     public updateStateReportingConnection(requestParameters: EnvironmentsConnectionsApiUpdateStateReportingConnectionRequest, options?: RawAxiosRequestConfig) {
         return EnvironmentsConnectionsApiFp(this.configuration).updateStateReportingConnection(requestParameters.tenantId, requestParameters.environmentId, requestParameters.connectionId, requestParameters.edGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest, options).then((request) => request(this.axios, this.basePath));

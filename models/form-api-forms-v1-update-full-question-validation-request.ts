@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface FormApiFormsV1UpdateFullQuestionValidationRequest
- */
 export interface FormApiFormsV1UpdateFullQuestionValidationRequest {
-    /**
-     * 
-     * @type {number}
-     * @memberof FormApiFormsV1UpdateFullQuestionValidationRequest
-     */
     'minLength'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof FormApiFormsV1UpdateFullQuestionValidationRequest
-     */
     'maxLength'?: number | null;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface FormApiFormsV1FormDuplicatedResponse
- */
 export interface FormApiFormsV1FormDuplicatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1FormDuplicatedResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1FormDuplicatedResponse
-     */
     'tenantId'?: string | null;
 }
 

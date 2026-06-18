@@ -17,53 +17,13 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1CollectionUser } from './validations-api-containers-v1-collection-user';
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1DataUserResponse
- */
 export interface ValidationsApiContainersV1DataUserResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1DataUserResponse
-     */
     'collectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1DataUserResponse
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1DataUserResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {ValidationsApiContainersV1CollectionUser}
-     * @memberof ValidationsApiContainersV1DataUserResponse
-     */
     'dataOwner'?: ValidationsApiContainersV1CollectionUser;
-    /**
-     * 
-     * @type {Array<ValidationsApiContainersV1CollectionUser>}
-     * @memberof ValidationsApiContainersV1DataUserResponse
-     */
     'dataStewards'?: Array<ValidationsApiContainersV1CollectionUser> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1DataUserResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1DataUserResponse
-     */
     'environmentId'?: string | null;
 }
 

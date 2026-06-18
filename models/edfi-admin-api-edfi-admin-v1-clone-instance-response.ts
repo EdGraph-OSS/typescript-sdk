@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1CloneInstanceResponse
- */
 export interface EdfiAdminApiEdfiAdminV1CloneInstanceResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1CloneInstanceResponse
-     */
     'tenantId'?: string | null;
 }
 

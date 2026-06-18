@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1AuthorizationStrategiesResponse
- */
 export interface EdfiAdminApiEdfiAdminV1AuthorizationStrategiesResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1AuthorizationStrategiesResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1AuthorizationStrategiesResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1AuthorizationStrategiesResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdfiAdminApiEdfiAdminV1AuthorizationStrategiesResponse
-     */
     'data'?: Array<string> | null;
 }
 

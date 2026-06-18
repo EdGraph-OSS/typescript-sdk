@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { AnalyticsApiGroupsV1AnalyticsGroupUser } from './analytics-api-groups-v1-analytics-group-user';
 
-/**
- * 
- * @export
- * @interface AnalyticsApiGroupsV1GroupUsersResponse
- */
 export interface AnalyticsApiGroupsV1GroupUsersResponse {
-    /**
-     * 
-     * @type {Array<AnalyticsApiGroupsV1AnalyticsGroupUser>}
-     * @memberof AnalyticsApiGroupsV1GroupUsersResponse
-     */
     'groupUsers'?: Array<AnalyticsApiGroupsV1AnalyticsGroupUser> | null;
 }
 

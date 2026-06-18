@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequestEntry
- */
 export interface EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequestEntry {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequestEntry
-     */
     'year'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequestEntry
-     */
     'selectedTierId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequestEntry
-     */
     'odsBackupCode'?: string | null;
 }
 

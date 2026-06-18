@@ -17,41 +17,11 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1SyncEntry } from './edfi-admin-api-edfi-admin-v1-sync-entry';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1SyncVendorRequest
- */
 export interface EdfiAdminApiEdfiAdminV1SyncVendorRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SyncVendorRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SyncVendorRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1SyncVendorRequest
-     */
     'year'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1SyncVendorRequest
-     */
     'vendorId'?: number;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1SyncEntry>}
-     * @memberof EdfiAdminApiEdfiAdminV1SyncVendorRequest
-     */
     'entries'?: Array<EdfiAdminApiEdfiAdminV1SyncEntry> | null;
 }
 

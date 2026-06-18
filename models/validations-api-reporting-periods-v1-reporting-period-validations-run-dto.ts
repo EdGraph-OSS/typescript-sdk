@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1ReportingPeriodValidationsRunDto
- */
 export interface ValidationsApiReportingPeriodsV1ReportingPeriodValidationsRunDto {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ReportingPeriodValidationsRunDto
-     */
     'requestedAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ReportingPeriodValidationsRunDto
-     */
     'jobExecutionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ReportingPeriodValidationsRunDto
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ReportingPeriodValidationsRunDto
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ReportingPeriodValidationsRunDto
-     */
     'queuedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ReportingPeriodValidationsRunDto
-     */
     'startDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ReportingPeriodValidationsRunDto
-     */
     'endDateTime'?: string | null;
 }
 

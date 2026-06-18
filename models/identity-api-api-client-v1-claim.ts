@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiApiClientV1Claim
- */
 export interface IdentityApiApiClientV1Claim {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1Claim
-     */
     'type'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1Claim
-     */
     'value'?: string | null;
 }
 

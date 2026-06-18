@@ -20,23 +20,8 @@ import type { AnalyticsApiReportsV1AnalyticsEmbedToken } from './analytics-api-r
 // @ts-ignore
 import type { AnalyticsApiReportsV1AnalyticsReport } from './analytics-api-reports-v1-analytics-report';
 
-/**
- * 
- * @export
- * @interface AnalyticsApiReportsV1ReportResponse
- */
 export interface AnalyticsApiReportsV1ReportResponse {
-    /**
-     * 
-     * @type {AnalyticsApiReportsV1AnalyticsEmbedToken}
-     * @memberof AnalyticsApiReportsV1ReportResponse
-     */
     'embedToken'?: AnalyticsApiReportsV1AnalyticsEmbedToken;
-    /**
-     * 
-     * @type {AnalyticsApiReportsV1AnalyticsReport}
-     * @memberof AnalyticsApiReportsV1ReportResponse
-     */
     'report'?: AnalyticsApiReportsV1AnalyticsReport;
 }
 

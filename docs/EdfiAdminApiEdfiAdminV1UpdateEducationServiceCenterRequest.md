@@ -1,0 +1,30 @@
+# EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**tenantId** | **string** |  | [optional] [default to undefined]
+**instanceId** | **string** |  | [optional] [default to undefined]
+**id** | **string** |  | [optional] [default to undefined]
+**educationServiceCenterId** | **number** |  | [optional] [default to undefined]
+**nameOfInstitution** | **string** |  | [optional] [default to undefined]
+**educationOrganizationCategoryDescriptors** | **Array&lt;string&gt;** |  | [optional] [readonly] [default to undefined]
+
+## Example
+
+```typescript
+import { EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest } from '@edgraph-oss/platform-client';
+
+const instance: EdfiAdminApiEdfiAdminV1UpdateEducationServiceCenterRequest = {
+    tenantId,
+    instanceId,
+    id,
+    educationServiceCenterId,
+    nameOfInstitution,
+    educationOrganizationCategoryDescriptors,
+};
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

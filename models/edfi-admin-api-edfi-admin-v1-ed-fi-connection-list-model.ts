@@ -20,119 +20,24 @@ import type { EdfiAdminApiEdfiAdminV1EdFiConnectionTierListModel } from './edfi-
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1InstanceType } from './edfi-admin-api-edfi-admin-v1-instance-type';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
- */
 export interface EdfiAdminApiEdfiAdminV1EdFiConnectionListModel {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'connectionName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'databaseEngine'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'edFiVersion'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'edFiExtension'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'hostingProvider'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'allowedTenantIds'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1EdFiConnectionTierListModel>}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'tiers'?: Array<EdfiAdminApiEdfiAdminV1EdFiConnectionTierListModel> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'connectionType'?: string | null;
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1InstanceType}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'instanceType'?: EdfiAdminApiEdfiAdminV1InstanceType;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'deletedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'deletedDateTime'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'isDeleted'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionListModel
-     */
     'metadataJson'?: string | null;
 }
 

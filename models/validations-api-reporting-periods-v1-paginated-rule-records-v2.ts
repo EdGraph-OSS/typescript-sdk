@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiReportingPeriodsV1ValidationResultRecord } from './validations-api-reporting-periods-v1-validation-result-record';
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1PaginatedRuleRecordsV2
- */
 export interface ValidationsApiReportingPeriodsV1PaginatedRuleRecordsV2 {
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1PaginatedRuleRecordsV2
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1PaginatedRuleRecordsV2
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiReportingPeriodsV1PaginatedRuleRecordsV2
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<ValidationsApiReportingPeriodsV1ValidationResultRecord>}
-     * @memberof ValidationsApiReportingPeriodsV1PaginatedRuleRecordsV2
-     */
     'data'?: Array<ValidationsApiReportingPeriodsV1ValidationResultRecord> | null;
 }
 

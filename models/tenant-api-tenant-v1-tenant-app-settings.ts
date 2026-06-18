@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1TenantAppSettings
- */
 export interface TenantApiTenantV1TenantAppSettings {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantAppSettings
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantAppSettings
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantAppSettings
-     */
     'data'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantAppSettings
-     */
     'dataType'?: string | null;
 }
 

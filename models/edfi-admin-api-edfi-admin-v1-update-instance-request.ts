@@ -14,47 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1UpdateInstanceRequest
- */
 export interface EdfiAdminApiEdfiAdminV1UpdateInstanceRequest {
     /**
      * The Instance ID or Custom ID
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceRequest
      */
     'id'?: string | null;
     /**
      * Details
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceRequest
      */
     'instanceName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceRequest
-     */
     'description'?: string | null;
     /**
      * Metadata
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceRequest
      */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceRequest
-     */
     'provider'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateInstanceRequest
-     */
     'state'?: string | null;
 }
 

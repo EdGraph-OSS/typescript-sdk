@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -51,7 +51,6 @@ import type { IdentityApiUserV1UpdateSectionRequest } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * UsersSectionsApi - axios parameter creator
- * @export
  */
 export const UsersSectionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -70,8 +69,8 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('addUserSection', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/sections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -87,9 +86,8 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -116,8 +114,8 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('addUserSectionBulk', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/sections/bulk`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -133,9 +131,8 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -161,8 +158,8 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('getUserSections', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/sections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -178,8 +175,8 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -206,9 +203,9 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'userSectionId' is not null or undefined
             assertParamExists('removeUserSection', 'userSectionId', userSectionId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/sections/{userSectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)))
-                .replace(`{${"userSectionId"}}`, encodeURIComponent(String(userSectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)))
+                .replace('{userSectionId}', encodeURIComponent(String(userSectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -224,8 +221,8 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -250,8 +247,8 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('removeUserSectionBulk', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/sections/bulk`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -267,9 +264,8 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -299,9 +295,9 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'userSectionId' is not null or undefined
             assertParamExists('updateUserSection', 'userSectionId', userSectionId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/sections/{userSectionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)))
-                .replace(`{${"userSectionId"}}`, encodeURIComponent(String(userSectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)))
+                .replace('{userSectionId}', encodeURIComponent(String(userSectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -317,9 +313,8 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -346,8 +341,8 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('updateUserSectionBulk', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/sections/bulk`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -363,9 +358,8 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -382,7 +376,6 @@ export const UsersSectionsApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * UsersSectionsApi - functional programming interface
- * @export
  */
 export const UsersSectionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = UsersSectionsApiAxiosParamCreator(configuration)
@@ -497,7 +490,6 @@ export const UsersSectionsApiFp = function(configuration?: Configuration) {
 
 /**
  * UsersSectionsApi - factory interface
- * @export
  */
 export const UsersSectionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = UsersSectionsApiFp(configuration)
@@ -577,205 +569,146 @@ export const UsersSectionsApiFactory = function (configuration?: Configuration, 
 
 /**
  * Request parameters for addUserSection operation in UsersSectionsApi.
- * @export
- * @interface UsersSectionsApiAddUserSectionRequest
  */
 export interface UsersSectionsApiAddUserSectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiAddUserSection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiAddUserSection
      */
     readonly userId: string
 
     /**
      * 
-     * @type {IdentityApiUserV1AddSectionRequest}
-     * @memberof UsersSectionsApiAddUserSection
      */
     readonly identityApiUserV1AddSectionRequest?: IdentityApiUserV1AddSectionRequest
 }
 
 /**
  * Request parameters for addUserSectionBulk operation in UsersSectionsApi.
- * @export
- * @interface UsersSectionsApiAddUserSectionBulkRequest
  */
 export interface UsersSectionsApiAddUserSectionBulkRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiAddUserSectionBulk
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiAddUserSectionBulk
      */
     readonly userId: string
 
     /**
      * 
-     * @type {IdentityApiUserV1AddSectionBulkRequest}
-     * @memberof UsersSectionsApiAddUserSectionBulk
      */
     readonly identityApiUserV1AddSectionBulkRequest?: IdentityApiUserV1AddSectionBulkRequest
 }
 
 /**
  * Request parameters for getUserSections operation in UsersSectionsApi.
- * @export
- * @interface UsersSectionsApiGetUserSectionsRequest
  */
 export interface UsersSectionsApiGetUserSectionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiGetUserSections
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiGetUserSections
      */
     readonly userId: string
 }
 
 /**
  * Request parameters for removeUserSection operation in UsersSectionsApi.
- * @export
- * @interface UsersSectionsApiRemoveUserSectionRequest
  */
 export interface UsersSectionsApiRemoveUserSectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiRemoveUserSection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiRemoveUserSection
      */
     readonly userId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiRemoveUserSection
      */
     readonly userSectionId: string
 }
 
 /**
  * Request parameters for removeUserSectionBulk operation in UsersSectionsApi.
- * @export
- * @interface UsersSectionsApiRemoveUserSectionBulkRequest
  */
 export interface UsersSectionsApiRemoveUserSectionBulkRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiRemoveUserSectionBulk
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiRemoveUserSectionBulk
      */
     readonly userId: string
 
     /**
      * 
-     * @type {IdentityApiUserV1RemoveSectionBulkRequest}
-     * @memberof UsersSectionsApiRemoveUserSectionBulk
      */
     readonly identityApiUserV1RemoveSectionBulkRequest?: IdentityApiUserV1RemoveSectionBulkRequest
 }
 
 /**
  * Request parameters for updateUserSection operation in UsersSectionsApi.
- * @export
- * @interface UsersSectionsApiUpdateUserSectionRequest
  */
 export interface UsersSectionsApiUpdateUserSectionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiUpdateUserSection
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiUpdateUserSection
      */
     readonly userId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiUpdateUserSection
      */
     readonly userSectionId: string
 
     /**
      * 
-     * @type {IdentityApiUserV1UpdateSectionRequest}
-     * @memberof UsersSectionsApiUpdateUserSection
      */
     readonly identityApiUserV1UpdateSectionRequest?: IdentityApiUserV1UpdateSectionRequest
 }
 
 /**
  * Request parameters for updateUserSectionBulk operation in UsersSectionsApi.
- * @export
- * @interface UsersSectionsApiUpdateUserSectionBulkRequest
  */
 export interface UsersSectionsApiUpdateUserSectionBulkRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiUpdateUserSectionBulk
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersSectionsApiUpdateUserSectionBulk
      */
     readonly userId: string
 
     /**
      * 
-     * @type {IdentityApiUserV1UpdateSectionBulkRequest}
-     * @memberof UsersSectionsApiUpdateUserSectionBulk
      */
     readonly identityApiUserV1UpdateSectionBulkRequest?: IdentityApiUserV1UpdateSectionBulkRequest
 }
 
 /**
  * UsersSectionsApi - object-oriented interface
- * @export
- * @class UsersSectionsApi
- * @extends {BaseAPI}
  */
 export class UsersSectionsApi extends BaseAPI {
     /**
@@ -784,7 +717,6 @@ export class UsersSectionsApi extends BaseAPI {
      * @param {UsersSectionsApiAddUserSectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersSectionsApi
      */
     public addUserSection(requestParameters: UsersSectionsApiAddUserSectionRequest, options?: RawAxiosRequestConfig) {
         return UsersSectionsApiFp(this.configuration).addUserSection(requestParameters.tenantId, requestParameters.userId, requestParameters.identityApiUserV1AddSectionRequest, options).then((request) => request(this.axios, this.basePath));
@@ -796,7 +728,6 @@ export class UsersSectionsApi extends BaseAPI {
      * @param {UsersSectionsApiAddUserSectionBulkRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersSectionsApi
      */
     public addUserSectionBulk(requestParameters: UsersSectionsApiAddUserSectionBulkRequest, options?: RawAxiosRequestConfig) {
         return UsersSectionsApiFp(this.configuration).addUserSectionBulk(requestParameters.tenantId, requestParameters.userId, requestParameters.identityApiUserV1AddSectionBulkRequest, options).then((request) => request(this.axios, this.basePath));
@@ -808,7 +739,6 @@ export class UsersSectionsApi extends BaseAPI {
      * @param {UsersSectionsApiGetUserSectionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersSectionsApi
      */
     public getUserSections(requestParameters: UsersSectionsApiGetUserSectionsRequest, options?: RawAxiosRequestConfig) {
         return UsersSectionsApiFp(this.configuration).getUserSections(requestParameters.tenantId, requestParameters.userId, options).then((request) => request(this.axios, this.basePath));
@@ -820,7 +750,6 @@ export class UsersSectionsApi extends BaseAPI {
      * @param {UsersSectionsApiRemoveUserSectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersSectionsApi
      */
     public removeUserSection(requestParameters: UsersSectionsApiRemoveUserSectionRequest, options?: RawAxiosRequestConfig) {
         return UsersSectionsApiFp(this.configuration).removeUserSection(requestParameters.tenantId, requestParameters.userId, requestParameters.userSectionId, options).then((request) => request(this.axios, this.basePath));
@@ -832,7 +761,6 @@ export class UsersSectionsApi extends BaseAPI {
      * @param {UsersSectionsApiRemoveUserSectionBulkRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersSectionsApi
      */
     public removeUserSectionBulk(requestParameters: UsersSectionsApiRemoveUserSectionBulkRequest, options?: RawAxiosRequestConfig) {
         return UsersSectionsApiFp(this.configuration).removeUserSectionBulk(requestParameters.tenantId, requestParameters.userId, requestParameters.identityApiUserV1RemoveSectionBulkRequest, options).then((request) => request(this.axios, this.basePath));
@@ -844,7 +772,6 @@ export class UsersSectionsApi extends BaseAPI {
      * @param {UsersSectionsApiUpdateUserSectionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersSectionsApi
      */
     public updateUserSection(requestParameters: UsersSectionsApiUpdateUserSectionRequest, options?: RawAxiosRequestConfig) {
         return UsersSectionsApiFp(this.configuration).updateUserSection(requestParameters.tenantId, requestParameters.userId, requestParameters.userSectionId, requestParameters.identityApiUserV1UpdateSectionRequest, options).then((request) => request(this.axios, this.basePath));
@@ -856,7 +783,6 @@ export class UsersSectionsApi extends BaseAPI {
      * @param {UsersSectionsApiUpdateUserSectionBulkRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersSectionsApi
      */
     public updateUserSectionBulk(requestParameters: UsersSectionsApiUpdateUserSectionBulkRequest, options?: RawAxiosRequestConfig) {
         return UsersSectionsApiFp(this.configuration).updateUserSectionBulk(requestParameters.tenantId, requestParameters.userId, requestParameters.identityApiUserV1UpdateSectionBulkRequest, options).then((request) => request(this.axios, this.basePath));

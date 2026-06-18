@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -35,7 +35,6 @@ import type { TenantApiTenantV1OnboardingStepsReponse } from '../models';
 import type { TenantApiTenantV1TenantUpdatedResponse } from '../models';
 /**
  * OnboardingStepsApi - axios parameter creator
- * @export
  */
 export const OnboardingStepsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -51,7 +50,7 @@ export const OnboardingStepsApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createOnboardingStep', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/onboardingsteps`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -67,9 +66,8 @@ export const OnboardingStepsApiAxiosParamCreator = function (configuration?: Con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -92,7 +90,7 @@ export const OnboardingStepsApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getOnboardingSteps', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/onboardingsteps`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -108,8 +106,8 @@ export const OnboardingStepsApiAxiosParamCreator = function (configuration?: Con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -134,8 +132,8 @@ export const OnboardingStepsApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'stepNumber' is not null or undefined
             assertParamExists('updateOnboardingStep', 'stepNumber', stepNumber)
             const localVarPath = `/tenants/{tenantId}/onboardingsteps/{stepNumber}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"stepNumber"}}`, encodeURIComponent(String(stepNumber)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{stepNumber}', encodeURIComponent(String(stepNumber)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -151,9 +149,8 @@ export const OnboardingStepsApiAxiosParamCreator = function (configuration?: Con
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -170,7 +167,6 @@ export const OnboardingStepsApiAxiosParamCreator = function (configuration?: Con
 
 /**
  * OnboardingStepsApi - functional programming interface
- * @export
  */
 export const OnboardingStepsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = OnboardingStepsApiAxiosParamCreator(configuration)
@@ -222,7 +218,6 @@ export const OnboardingStepsApiFp = function(configuration?: Configuration) {
 
 /**
  * OnboardingStepsApi - factory interface
- * @export
  */
 export const OnboardingStepsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = OnboardingStepsApiFp(configuration)
@@ -262,72 +257,51 @@ export const OnboardingStepsApiFactory = function (configuration?: Configuration
 
 /**
  * Request parameters for createOnboardingStep operation in OnboardingStepsApi.
- * @export
- * @interface OnboardingStepsApiCreateOnboardingStepRequest
  */
 export interface OnboardingStepsApiCreateOnboardingStepRequest {
     /**
      * 
-     * @type {string}
-     * @memberof OnboardingStepsApiCreateOnboardingStep
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto}
-     * @memberof OnboardingStepsApiCreateOnboardingStep
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto
 }
 
 /**
  * Request parameters for getOnboardingSteps operation in OnboardingStepsApi.
- * @export
- * @interface OnboardingStepsApiGetOnboardingStepsRequest
  */
 export interface OnboardingStepsApiGetOnboardingStepsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof OnboardingStepsApiGetOnboardingSteps
      */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for updateOnboardingStep operation in OnboardingStepsApi.
- * @export
- * @interface OnboardingStepsApiUpdateOnboardingStepRequest
  */
 export interface OnboardingStepsApiUpdateOnboardingStepRequest {
     /**
      * 
-     * @type {string}
-     * @memberof OnboardingStepsApiUpdateOnboardingStep
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof OnboardingStepsApiUpdateOnboardingStep
      */
     readonly stepNumber: number
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto}
-     * @memberof OnboardingStepsApiUpdateOnboardingStep
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto
 }
 
 /**
  * OnboardingStepsApi - object-oriented interface
- * @export
- * @class OnboardingStepsApi
- * @extends {BaseAPI}
  */
 export class OnboardingStepsApi extends BaseAPI {
     /**
@@ -336,7 +310,6 @@ export class OnboardingStepsApi extends BaseAPI {
      * @param {OnboardingStepsApiCreateOnboardingStepRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof OnboardingStepsApi
      */
     public createOnboardingStep(requestParameters: OnboardingStepsApiCreateOnboardingStepRequest, options?: RawAxiosRequestConfig) {
         return OnboardingStepsApiFp(this.configuration).createOnboardingStep(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto, options).then((request) => request(this.axios, this.basePath));
@@ -348,7 +321,6 @@ export class OnboardingStepsApi extends BaseAPI {
      * @param {OnboardingStepsApiGetOnboardingStepsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof OnboardingStepsApi
      */
     public getOnboardingSteps(requestParameters: OnboardingStepsApiGetOnboardingStepsRequest, options?: RawAxiosRequestConfig) {
         return OnboardingStepsApiFp(this.configuration).getOnboardingSteps(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -360,7 +332,6 @@ export class OnboardingStepsApi extends BaseAPI {
      * @param {OnboardingStepsApiUpdateOnboardingStepRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof OnboardingStepsApi
      */
     public updateOnboardingStep(requestParameters: OnboardingStepsApiUpdateOnboardingStepRequest, options?: RawAxiosRequestConfig) {
         return OnboardingStepsApiFp(this.configuration).updateOnboardingStep(requestParameters.tenantId, requestParameters.stepNumber, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto, options).then((request) => request(this.axios, this.basePath));

@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions
- */
 export interface DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions
-     */
     'enabled'?: boolean | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions
-     */
     'ignoredStaffClassificationDescriptors'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions
-     */
     'searchedClassroomPositionDescriptor'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions
-     */
     'assignedStaffClassificationDescriptor'?: string | null;
 }
 

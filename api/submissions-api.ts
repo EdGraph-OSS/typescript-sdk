@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -47,7 +47,6 @@ import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * SubmissionsApi - axios parameter creator
- * @export
  */
 export const SubmissionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -66,8 +65,8 @@ export const SubmissionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('createSubmission', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/submissions`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -83,9 +82,8 @@ export const SubmissionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -114,9 +112,9 @@ export const SubmissionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'submissionId' is not null or undefined
             assertParamExists('deleteSubmission', 'submissionId', submissionId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/submissions/{submissionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
-                .replace(`{${"submissionId"}}`, encodeURIComponent(String(submissionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)))
+                .replace('{submissionId}', encodeURIComponent(String(submissionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -132,8 +130,8 @@ export const SubmissionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -158,8 +156,8 @@ export const SubmissionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('exportSubmissions', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/submissions/export`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -179,8 +177,8 @@ export const SubmissionsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['type'] = type;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -207,9 +205,9 @@ export const SubmissionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'submissionId' is not null or undefined
             assertParamExists('getSubmission', 'submissionId', submissionId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/submissions/{submissionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
-                .replace(`{${"submissionId"}}`, encodeURIComponent(String(submissionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)))
+                .replace('{submissionId}', encodeURIComponent(String(submissionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -225,8 +223,8 @@ export const SubmissionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -254,8 +252,8 @@ export const SubmissionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('searchSubmissions', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/submissions`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -287,8 +285,8 @@ export const SubmissionsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -316,9 +314,9 @@ export const SubmissionsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'submissionId' is not null or undefined
             assertParamExists('updateSubmission', 'submissionId', submissionId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/submissions/{submissionId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
-                .replace(`{${"submissionId"}}`, encodeURIComponent(String(submissionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)))
+                .replace('{submissionId}', encodeURIComponent(String(submissionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -334,9 +332,8 @@ export const SubmissionsApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -353,7 +350,6 @@ export const SubmissionsApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * SubmissionsApi - functional programming interface
- * @export
  */
 export const SubmissionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SubmissionsApiAxiosParamCreator(configuration)
@@ -457,7 +453,6 @@ export const SubmissionsApiFp = function(configuration?: Configuration) {
 
 /**
  * SubmissionsApi - factory interface
- * @export
  */
 export const SubmissionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SubmissionsApiFp(configuration)
@@ -527,205 +522,146 @@ export const SubmissionsApiFactory = function (configuration?: Configuration, ba
 
 /**
  * Request parameters for createSubmission operation in SubmissionsApi.
- * @export
- * @interface SubmissionsApiCreateSubmissionRequest
  */
 export interface SubmissionsApiCreateSubmissionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiCreateSubmission
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiCreateSubmission
      */
     readonly formId: string
 
     /**
      * 
-     * @type {FormApiSubmissionsV1CreateSubmissionRequest}
-     * @memberof SubmissionsApiCreateSubmission
      */
     readonly formApiSubmissionsV1CreateSubmissionRequest?: FormApiSubmissionsV1CreateSubmissionRequest
 }
 
 /**
  * Request parameters for deleteSubmission operation in SubmissionsApi.
- * @export
- * @interface SubmissionsApiDeleteSubmissionRequest
  */
 export interface SubmissionsApiDeleteSubmissionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiDeleteSubmission
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiDeleteSubmission
      */
     readonly formId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiDeleteSubmission
      */
     readonly submissionId: string
 }
 
 /**
  * Request parameters for exportSubmissions operation in SubmissionsApi.
- * @export
- * @interface SubmissionsApiExportSubmissionsRequest
  */
 export interface SubmissionsApiExportSubmissionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiExportSubmissions
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiExportSubmissions
      */
     readonly formId: string
 
     /**
      * 
-     * @type {FormApiSubmissionsV1ExportType}
-     * @memberof SubmissionsApiExportSubmissions
      */
     readonly type?: FormApiSubmissionsV1ExportType
 }
 
 /**
  * Request parameters for getSubmission operation in SubmissionsApi.
- * @export
- * @interface SubmissionsApiGetSubmissionRequest
  */
 export interface SubmissionsApiGetSubmissionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiGetSubmission
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiGetSubmission
      */
     readonly formId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiGetSubmission
      */
     readonly submissionId: string
 }
 
 /**
  * Request parameters for searchSubmissions operation in SubmissionsApi.
- * @export
- * @interface SubmissionsApiSearchSubmissionsRequest
  */
 export interface SubmissionsApiSearchSubmissionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiSearchSubmissions
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiSearchSubmissions
      */
     readonly formId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof SubmissionsApiSearchSubmissions
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof SubmissionsApiSearchSubmissions
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiSearchSubmissions
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiSearchSubmissions
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for updateSubmission operation in SubmissionsApi.
- * @export
- * @interface SubmissionsApiUpdateSubmissionRequest
  */
 export interface SubmissionsApiUpdateSubmissionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiUpdateSubmission
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiUpdateSubmission
      */
     readonly formId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof SubmissionsApiUpdateSubmission
      */
     readonly submissionId: string
 
     /**
      * 
-     * @type {FormApiSubmissionsV1UpdateSubmissionRequest}
-     * @memberof SubmissionsApiUpdateSubmission
      */
     readonly formApiSubmissionsV1UpdateSubmissionRequest?: FormApiSubmissionsV1UpdateSubmissionRequest
 }
 
 /**
  * SubmissionsApi - object-oriented interface
- * @export
- * @class SubmissionsApi
- * @extends {BaseAPI}
  */
 export class SubmissionsApi extends BaseAPI {
     /**
@@ -734,7 +670,6 @@ export class SubmissionsApi extends BaseAPI {
      * @param {SubmissionsApiCreateSubmissionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubmissionsApi
      */
     public createSubmission(requestParameters: SubmissionsApiCreateSubmissionRequest, options?: RawAxiosRequestConfig) {
         return SubmissionsApiFp(this.configuration).createSubmission(requestParameters.tenantId, requestParameters.formId, requestParameters.formApiSubmissionsV1CreateSubmissionRequest, options).then((request) => request(this.axios, this.basePath));
@@ -746,7 +681,6 @@ export class SubmissionsApi extends BaseAPI {
      * @param {SubmissionsApiDeleteSubmissionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubmissionsApi
      */
     public deleteSubmission(requestParameters: SubmissionsApiDeleteSubmissionRequest, options?: RawAxiosRequestConfig) {
         return SubmissionsApiFp(this.configuration).deleteSubmission(requestParameters.tenantId, requestParameters.formId, requestParameters.submissionId, options).then((request) => request(this.axios, this.basePath));
@@ -758,7 +692,6 @@ export class SubmissionsApi extends BaseAPI {
      * @param {SubmissionsApiExportSubmissionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubmissionsApi
      */
     public exportSubmissions(requestParameters: SubmissionsApiExportSubmissionsRequest, options?: RawAxiosRequestConfig) {
         return SubmissionsApiFp(this.configuration).exportSubmissions(requestParameters.tenantId, requestParameters.formId, requestParameters.type, options).then((request) => request(this.axios, this.basePath));
@@ -770,7 +703,6 @@ export class SubmissionsApi extends BaseAPI {
      * @param {SubmissionsApiGetSubmissionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubmissionsApi
      */
     public getSubmission(requestParameters: SubmissionsApiGetSubmissionRequest, options?: RawAxiosRequestConfig) {
         return SubmissionsApiFp(this.configuration).getSubmission(requestParameters.tenantId, requestParameters.formId, requestParameters.submissionId, options).then((request) => request(this.axios, this.basePath));
@@ -782,7 +714,6 @@ export class SubmissionsApi extends BaseAPI {
      * @param {SubmissionsApiSearchSubmissionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubmissionsApi
      */
     public searchSubmissions(requestParameters: SubmissionsApiSearchSubmissionsRequest, options?: RawAxiosRequestConfig) {
         return SubmissionsApiFp(this.configuration).searchSubmissions(requestParameters.tenantId, requestParameters.formId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -794,7 +725,6 @@ export class SubmissionsApi extends BaseAPI {
      * @param {SubmissionsApiUpdateSubmissionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubmissionsApi
      */
     public updateSubmission(requestParameters: SubmissionsApiUpdateSubmissionRequest, options?: RawAxiosRequestConfig) {
         return SubmissionsApiFp(this.configuration).updateSubmission(requestParameters.tenantId, requestParameters.formId, requestParameters.submissionId, requestParameters.formApiSubmissionsV1UpdateSubmissionRequest, options).then((request) => request(this.axios, this.basePath));

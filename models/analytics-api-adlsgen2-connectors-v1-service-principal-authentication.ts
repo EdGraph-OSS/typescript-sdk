@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiADLSGen2ConnectorsV1ServicePrincipalAuthentication
- */
 export interface AnalyticsApiADLSGen2ConnectorsV1ServicePrincipalAuthentication {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiADLSGen2ConnectorsV1ServicePrincipalAuthentication
-     */
     'azureTenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiADLSGen2ConnectorsV1ServicePrincipalAuthentication
-     */
     'client'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiADLSGen2ConnectorsV1ServicePrincipalAuthentication
-     */
     'secret'?: string | null;
 }
 

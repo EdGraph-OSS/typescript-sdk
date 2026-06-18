@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -37,7 +37,6 @@ import type { EvaluationApiEvaluationSettingsV1UsersSetResponse } from '../model
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * EvaluationSettingsApi - axios parameter creator
- * @export
  */
 export const EvaluationSettingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -52,7 +51,7 @@ export const EvaluationSettingsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getEvaluationSetting', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/evaluations/configuration`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -68,8 +67,8 @@ export const EvaluationSettingsApiAxiosParamCreator = function (configuration?: 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -91,7 +90,7 @@ export const EvaluationSettingsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('setEvaluationSettingApplicationSetting', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/evaluations/configuration/application`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -107,9 +106,8 @@ export const EvaluationSettingsApiAxiosParamCreator = function (configuration?: 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -133,7 +131,7 @@ export const EvaluationSettingsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('setEvaluationSettingUserSetting', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/evaluations/configuration/users`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -149,9 +147,8 @@ export const EvaluationSettingsApiAxiosParamCreator = function (configuration?: 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -168,7 +165,6 @@ export const EvaluationSettingsApiAxiosParamCreator = function (configuration?: 
 
 /**
  * EvaluationSettingsApi - functional programming interface
- * @export
  */
 export const EvaluationSettingsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EvaluationSettingsApiAxiosParamCreator(configuration)
@@ -219,7 +215,6 @@ export const EvaluationSettingsApiFp = function(configuration?: Configuration) {
 
 /**
  * EvaluationSettingsApi - factory interface
- * @export
  */
 export const EvaluationSettingsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EvaluationSettingsApiFp(configuration)
@@ -259,65 +254,46 @@ export const EvaluationSettingsApiFactory = function (configuration?: Configurat
 
 /**
  * Request parameters for getEvaluationSetting operation in EvaluationSettingsApi.
- * @export
- * @interface EvaluationSettingsApiGetEvaluationSettingRequest
  */
 export interface EvaluationSettingsApiGetEvaluationSettingRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationSettingsApiGetEvaluationSetting
      */
     readonly tenantId: string
 }
 
 /**
  * Request parameters for setEvaluationSettingApplicationSetting operation in EvaluationSettingsApi.
- * @export
- * @interface EvaluationSettingsApiSetEvaluationSettingApplicationSettingRequest
  */
 export interface EvaluationSettingsApiSetEvaluationSettingApplicationSettingRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationSettingsApiSetEvaluationSettingApplicationSetting
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EvaluationApiEvaluationSettingsV1SetApplicationRequest}
-     * @memberof EvaluationSettingsApiSetEvaluationSettingApplicationSetting
      */
     readonly evaluationApiEvaluationSettingsV1SetApplicationRequest?: EvaluationApiEvaluationSettingsV1SetApplicationRequest
 }
 
 /**
  * Request parameters for setEvaluationSettingUserSetting operation in EvaluationSettingsApi.
- * @export
- * @interface EvaluationSettingsApiSetEvaluationSettingUserSettingRequest
  */
 export interface EvaluationSettingsApiSetEvaluationSettingUserSettingRequest {
     /**
      * 
-     * @type {string}
-     * @memberof EvaluationSettingsApiSetEvaluationSettingUserSetting
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EvaluationApiEvaluationSettingsV1SetUsersRequest}
-     * @memberof EvaluationSettingsApiSetEvaluationSettingUserSetting
      */
     readonly evaluationApiEvaluationSettingsV1SetUsersRequest?: EvaluationApiEvaluationSettingsV1SetUsersRequest
 }
 
 /**
  * EvaluationSettingsApi - object-oriented interface
- * @export
- * @class EvaluationSettingsApi
- * @extends {BaseAPI}
  */
 export class EvaluationSettingsApi extends BaseAPI {
     /**
@@ -326,7 +302,6 @@ export class EvaluationSettingsApi extends BaseAPI {
      * @param {EvaluationSettingsApiGetEvaluationSettingRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvaluationSettingsApi
      */
     public getEvaluationSetting(requestParameters: EvaluationSettingsApiGetEvaluationSettingRequest, options?: RawAxiosRequestConfig) {
         return EvaluationSettingsApiFp(this.configuration).getEvaluationSetting(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
@@ -338,7 +313,6 @@ export class EvaluationSettingsApi extends BaseAPI {
      * @param {EvaluationSettingsApiSetEvaluationSettingApplicationSettingRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvaluationSettingsApi
      */
     public setEvaluationSettingApplicationSetting(requestParameters: EvaluationSettingsApiSetEvaluationSettingApplicationSettingRequest, options?: RawAxiosRequestConfig) {
         return EvaluationSettingsApiFp(this.configuration).setEvaluationSettingApplicationSetting(requestParameters.tenantId, requestParameters.evaluationApiEvaluationSettingsV1SetApplicationRequest, options).then((request) => request(this.axios, this.basePath));
@@ -350,7 +324,6 @@ export class EvaluationSettingsApi extends BaseAPI {
      * @param {EvaluationSettingsApiSetEvaluationSettingUserSettingRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvaluationSettingsApi
      */
     public setEvaluationSettingUserSetting(requestParameters: EvaluationSettingsApiSetEvaluationSettingUserSettingRequest, options?: RawAxiosRequestConfig) {
         return EvaluationSettingsApiFp(this.configuration).setEvaluationSettingUserSetting(requestParameters.tenantId, requestParameters.evaluationApiEvaluationSettingsV1SetUsersRequest, options).then((request) => request(this.axios, this.basePath));

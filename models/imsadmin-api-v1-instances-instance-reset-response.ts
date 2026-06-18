@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1InstancesInstanceResetResponse
- */
 export interface IMSAdminApiV1InstancesInstanceResetResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1InstancesInstanceResetResponse
-     */
     'instanceId'?: string | null;
 }
 

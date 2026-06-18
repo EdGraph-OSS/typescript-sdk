@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1SectionAddedResponse
- */
 export interface IdentityApiUserV1SectionAddedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionAddedResponse
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionAddedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1SectionAddedResponse
-     */
     'educationOrganizationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SectionAddedResponse
-     */
     'userSectionId'?: string | null;
 }
 

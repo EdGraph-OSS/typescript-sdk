@@ -23,95 +23,20 @@ import type { DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProvider } from './dat
 // @ts-ignore
 import type { DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions } from './data-sync-api-ed-fi-roster-sync-v1-use-ssainstead-of-seoaaoptions';
 
-/**
- * 
- * @export
- * @interface DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
- */
 export interface DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobMode}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'mode'?: DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobMode;
-    /**
-     * 
-     * @type {DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProvider}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'provider'?: DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProvider;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'connectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'jobId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'clientSecret'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'baseUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'authenticationUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'resourcesUrl'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'enabled'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'edFiInstanceId'?: string | null;
-    /**
-     * 
-     * @type {DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'useSSAInsteadOfSEOAA'?: DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
-     */
     'importSectionAndCourseData'?: boolean | null;
 }
 

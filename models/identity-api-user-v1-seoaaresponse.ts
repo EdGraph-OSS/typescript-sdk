@@ -14,65 +14,15 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1SEOAAResponse
- */
 export interface IdentityApiUserV1SEOAAResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SEOAAResponse
-     */
     'seoaaId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1SEOAAResponse
-     */
     'educationOrganizationId'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SEOAAResponse
-     */
     'nameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SEOAAResponse
-     */
     'shortNameOfInstitution'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SEOAAResponse
-     */
     'staffClassificationDescriptor'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SEOAAResponse
-     */
     'staffUniqueId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SEOAAResponse
-     */
     'beginDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SEOAAResponse
-     */
     'endDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1SEOAAResponse
-     */
     'source'?: string | null;
 }
 

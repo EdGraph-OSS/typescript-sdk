@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1RelatedInstance
- */
 export interface EdfiAdminApiEdfiAdminV1RelatedInstance {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1RelatedInstance
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1RelatedInstance
-     */
     'provider'?: string | null;
 }
 

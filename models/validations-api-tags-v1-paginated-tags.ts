@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { ValidationsApiTagsV1TagDto } from './validations-api-tags-v1-tag-dto';
 
-/**
- * 
- * @export
- * @interface ValidationsApiTagsV1PaginatedTags
- */
 export interface ValidationsApiTagsV1PaginatedTags {
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiTagsV1PaginatedTags
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiTagsV1PaginatedTags
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiTagsV1PaginatedTags
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<ValidationsApiTagsV1TagDto>}
-     * @memberof ValidationsApiTagsV1PaginatedTags
-     */
     'data'?: Array<ValidationsApiTagsV1TagDto> | null;
 }
 

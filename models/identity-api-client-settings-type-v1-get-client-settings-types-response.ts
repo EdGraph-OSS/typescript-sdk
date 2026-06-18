@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IdentityApiClientSettingsTypeV1ClientSettingsTypeResponse } from './identity-api-client-settings-type-v1-client-settings-type-response';
 
-/**
- * 
- * @export
- * @interface IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse
- */
 export interface IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<IdentityApiClientSettingsTypeV1ClientSettingsTypeResponse>}
-     * @memberof IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse
-     */
     'data'?: Array<IdentityApiClientSettingsTypeV1ClientSettingsTypeResponse> | null;
 }
 

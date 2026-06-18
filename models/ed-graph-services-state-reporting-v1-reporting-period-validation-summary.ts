@@ -20,23 +20,8 @@ import type { EdGraphServicesStateReportingV1ReportingPeriodListResponse } from 
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1ValidationSummaryCategory } from './ed-graph-services-state-reporting-v1-validation-summary-category';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1ReportingPeriodValidationSummary
- */
 export interface EdGraphServicesStateReportingV1ReportingPeriodValidationSummary {
-    /**
-     * 
-     * @type {EdGraphServicesStateReportingV1ReportingPeriodListResponse}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodValidationSummary
-     */
     'reportingPeriod'?: EdGraphServicesStateReportingV1ReportingPeriodListResponse;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1ValidationSummaryCategory>}
-     * @memberof EdGraphServicesStateReportingV1ReportingPeriodValidationSummary
-     */
     'categories'?: Array<EdGraphServicesStateReportingV1ValidationSummaryCategory> | null;
 }
 

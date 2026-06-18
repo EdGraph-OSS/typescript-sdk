@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1SyncEntry } from './edfi-admin-api-edfi-admin-v1-sync-entry';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1SyncApplicationRequest
- */
 export interface EdfiAdminApiEdfiAdminV1SyncApplicationRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SyncApplicationRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1SyncApplicationRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1SyncApplicationRequest
-     */
     'year'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1SyncApplicationRequest
-     */
     'applicationId'?: number;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1SyncEntry>}
-     * @memberof EdfiAdminApiEdfiAdminV1SyncApplicationRequest
-     */
     'entries'?: Array<EdfiAdminApiEdfiAdminV1SyncEntry> | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdfiAdminApiEdfiAdminV1SyncApplicationRequest
-     */
     'assignToExistingLeas'?: boolean;
 }
 

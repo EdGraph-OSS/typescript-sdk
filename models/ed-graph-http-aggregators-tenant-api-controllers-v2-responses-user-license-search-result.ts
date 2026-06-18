@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense } from './ed-graph-http-aggregators-tenant-api-controllers-v2-responses-user-license';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResult
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResult {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResult
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResult
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResult
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense>}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResult
-     */
     'data'?: Array<EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense> | null;
 }
 

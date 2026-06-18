@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { FormApiFormsV1CreateFullQuestionRequest } from './form-api-forms-v1-create-full-question-request';
 
-/**
- * 
- * @export
- * @interface FormApiFormsV1CreateFullSectionRequest
- */
 export interface FormApiFormsV1CreateFullSectionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullSectionRequest
-     */
     'title'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullSectionRequest
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {Array<FormApiFormsV1CreateFullQuestionRequest>}
-     * @memberof FormApiFormsV1CreateFullSectionRequest
-     */
     'questions'?: Array<FormApiFormsV1CreateFullQuestionRequest> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof FormApiFormsV1CreateFullSectionRequest
-     */
     'order'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullSectionRequest
-     */
     'subHeading'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FormApiFormsV1CreateFullSectionRequest
-     */
     'customId'?: string | null;
 }
 

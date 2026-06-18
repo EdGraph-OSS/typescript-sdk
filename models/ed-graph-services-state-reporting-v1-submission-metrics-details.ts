@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1SubmissionMetricsDetails
- */
 export interface EdGraphServicesStateReportingV1SubmissionMetricsDetails {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SubmissionMetricsDetails
-     */
     'edFiResource'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1SubmissionMetricsDetails
-     */
     'succeededCount'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1SubmissionMetricsDetails
-     */
     'failedCount'?: number;
 }
 

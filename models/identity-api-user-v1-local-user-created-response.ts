@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1LocalUserCreatedResponse
- */
 export interface IdentityApiUserV1LocalUserCreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1LocalUserCreatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1LocalUserCreatedResponse
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1LocalUserCreatedResponse
-     */
     'password'?: string | null;
 }
 

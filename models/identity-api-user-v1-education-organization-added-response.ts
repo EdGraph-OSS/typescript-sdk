@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1EducationOrganizationAddedResponse
- */
 export interface IdentityApiUserV1EducationOrganizationAddedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1EducationOrganizationAddedResponse
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1EducationOrganizationAddedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1EducationOrganizationAddedResponse
-     */
     'educationOrganizationId'?: number;
 }
 

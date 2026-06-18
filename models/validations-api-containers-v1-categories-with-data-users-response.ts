@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { ValidationsApiContainersV1DataUserResponse } from './validations-api-containers-v1-data-user-response';
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1CategoriesWithDataUsersResponse
- */
 export interface ValidationsApiContainersV1CategoriesWithDataUsersResponse {
-    /**
-     * 
-     * @type {Array<ValidationsApiContainersV1DataUserResponse>}
-     * @memberof ValidationsApiContainersV1CategoriesWithDataUsersResponse
-     */
     'data'?: Array<ValidationsApiContainersV1DataUserResponse> | null;
 }
 

@@ -14,65 +14,15 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1AddSectionRequest
- */
 export interface IdentityApiUserV1AddSectionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionRequest
-     */
     'userId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1AddSectionRequest
-     */
     'educationOrganizationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionRequest
-     */
     'sectionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionRequest
-     */
     'staffUniqueId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionRequest
-     */
     'classroomPositionDescriptor'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionRequest
-     */
     'beginDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionRequest
-     */
     'endDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1AddSectionRequest
-     */
     'source'?: string | null;
 }
 

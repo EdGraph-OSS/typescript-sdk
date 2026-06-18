@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ClientsClientSecretAddedResponse
- */
 export interface IMSAdminApiV1ClientsClientSecretAddedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientSecretAddedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientSecretAddedResponse
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientSecretAddedResponse
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientSecretAddedResponse
-     */
     'secretValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientSecretAddedResponse
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsClientSecretAddedResponse
-     */
     'expiration'?: string | null;
 }
 

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -45,7 +45,6 @@ import type { IdentityApiUserV1RevokeLicenseRequest } from '../models';
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * UsersLicensesApi - axios parameter creator
- * @export
  */
 export const UsersLicensesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -64,8 +63,8 @@ export const UsersLicensesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('assignLicenseTenantUserAsync', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/licenses/assign`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -81,9 +80,8 @@ export const UsersLicensesApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -110,8 +108,8 @@ export const UsersLicensesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('assignLicenseTenantUserBulkAsync', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/licenses/assignbulk`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -127,9 +125,8 @@ export const UsersLicensesApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -159,8 +156,8 @@ export const UsersLicensesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('getAllTenantUserApplicationLicensesAsync', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/licenses`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -192,8 +189,8 @@ export const UsersLicensesApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -218,8 +215,8 @@ export const UsersLicensesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('revokeLicenseTenantUserAsync', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/licenses/revoke`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -235,9 +232,8 @@ export const UsersLicensesApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -264,8 +260,8 @@ export const UsersLicensesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('revokeLicenseTenantUserBulkAsync', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/licenses/revokebulk`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -281,9 +277,8 @@ export const UsersLicensesApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -300,7 +295,6 @@ export const UsersLicensesApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * UsersLicensesApi - functional programming interface
- * @export
  */
 export const UsersLicensesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = UsersLicensesApiAxiosParamCreator(configuration)
@@ -388,7 +382,6 @@ export const UsersLicensesApiFp = function(configuration?: Configuration) {
 
 /**
  * UsersLicensesApi - factory interface
- * @export
  */
 export const UsersLicensesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = UsersLicensesApiFp(configuration)
@@ -448,170 +441,121 @@ export const UsersLicensesApiFactory = function (configuration?: Configuration, 
 
 /**
  * Request parameters for assignLicenseTenantUserAsync operation in UsersLicensesApi.
- * @export
- * @interface UsersLicensesApiAssignLicenseTenantUserAsyncRequest
  */
 export interface UsersLicensesApiAssignLicenseTenantUserAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersLicensesApiAssignLicenseTenantUserAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersLicensesApiAssignLicenseTenantUserAsync
      */
     readonly userId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest}
-     * @memberof UsersLicensesApiAssignLicenseTenantUserAsync
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest
 }
 
 /**
  * Request parameters for assignLicenseTenantUserBulkAsync operation in UsersLicensesApi.
- * @export
- * @interface UsersLicensesApiAssignLicenseTenantUserBulkAsyncRequest
  */
 export interface UsersLicensesApiAssignLicenseTenantUserBulkAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersLicensesApiAssignLicenseTenantUserBulkAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersLicensesApiAssignLicenseTenantUserBulkAsync
      */
     readonly userId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest}
-     * @memberof UsersLicensesApiAssignLicenseTenantUserBulkAsync
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest
 }
 
 /**
  * Request parameters for getAllTenantUserApplicationLicensesAsync operation in UsersLicensesApi.
- * @export
- * @interface UsersLicensesApiGetAllTenantUserApplicationLicensesAsyncRequest
  */
 export interface UsersLicensesApiGetAllTenantUserApplicationLicensesAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersLicensesApiGetAllTenantUserApplicationLicensesAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersLicensesApiGetAllTenantUserApplicationLicensesAsync
      */
     readonly userId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersLicensesApiGetAllTenantUserApplicationLicensesAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersLicensesApiGetAllTenantUserApplicationLicensesAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersLicensesApiGetAllTenantUserApplicationLicensesAsync
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersLicensesApiGetAllTenantUserApplicationLicensesAsync
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for revokeLicenseTenantUserAsync operation in UsersLicensesApi.
- * @export
- * @interface UsersLicensesApiRevokeLicenseTenantUserAsyncRequest
  */
 export interface UsersLicensesApiRevokeLicenseTenantUserAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersLicensesApiRevokeLicenseTenantUserAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersLicensesApiRevokeLicenseTenantUserAsync
      */
     readonly userId: string
 
     /**
      * 
-     * @type {IdentityApiUserV1RevokeLicenseRequest}
-     * @memberof UsersLicensesApiRevokeLicenseTenantUserAsync
      */
     readonly identityApiUserV1RevokeLicenseRequest?: IdentityApiUserV1RevokeLicenseRequest
 }
 
 /**
  * Request parameters for revokeLicenseTenantUserBulkAsync operation in UsersLicensesApi.
- * @export
- * @interface UsersLicensesApiRevokeLicenseTenantUserBulkAsyncRequest
  */
 export interface UsersLicensesApiRevokeLicenseTenantUserBulkAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersLicensesApiRevokeLicenseTenantUserBulkAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersLicensesApiRevokeLicenseTenantUserBulkAsync
      */
     readonly userId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest}
-     * @memberof UsersLicensesApiRevokeLicenseTenantUserBulkAsync
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest
 }
 
 /**
  * UsersLicensesApi - object-oriented interface
- * @export
- * @class UsersLicensesApi
- * @extends {BaseAPI}
  */
 export class UsersLicensesApi extends BaseAPI {
     /**
@@ -620,7 +564,6 @@ export class UsersLicensesApi extends BaseAPI {
      * @param {UsersLicensesApiAssignLicenseTenantUserAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersLicensesApi
      */
     public assignLicenseTenantUserAsync(requestParameters: UsersLicensesApiAssignLicenseTenantUserAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersLicensesApiFp(this.configuration).assignLicenseTenantUserAsync(requestParameters.tenantId, requestParameters.userId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest, options).then((request) => request(this.axios, this.basePath));
@@ -632,7 +575,6 @@ export class UsersLicensesApi extends BaseAPI {
      * @param {UsersLicensesApiAssignLicenseTenantUserBulkAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersLicensesApi
      */
     public assignLicenseTenantUserBulkAsync(requestParameters: UsersLicensesApiAssignLicenseTenantUserBulkAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersLicensesApiFp(this.configuration).assignLicenseTenantUserBulkAsync(requestParameters.tenantId, requestParameters.userId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest, options).then((request) => request(this.axios, this.basePath));
@@ -644,7 +586,6 @@ export class UsersLicensesApi extends BaseAPI {
      * @param {UsersLicensesApiGetAllTenantUserApplicationLicensesAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersLicensesApi
      */
     public getAllTenantUserApplicationLicensesAsync(requestParameters: UsersLicensesApiGetAllTenantUserApplicationLicensesAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersLicensesApiFp(this.configuration).getAllTenantUserApplicationLicensesAsync(requestParameters.tenantId, requestParameters.userId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -656,7 +597,6 @@ export class UsersLicensesApi extends BaseAPI {
      * @param {UsersLicensesApiRevokeLicenseTenantUserAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersLicensesApi
      */
     public revokeLicenseTenantUserAsync(requestParameters: UsersLicensesApiRevokeLicenseTenantUserAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersLicensesApiFp(this.configuration).revokeLicenseTenantUserAsync(requestParameters.tenantId, requestParameters.userId, requestParameters.identityApiUserV1RevokeLicenseRequest, options).then((request) => request(this.axios, this.basePath));
@@ -668,7 +608,6 @@ export class UsersLicensesApi extends BaseAPI {
      * @param {UsersLicensesApiRevokeLicenseTenantUserBulkAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersLicensesApi
      */
     public revokeLicenseTenantUserBulkAsync(requestParameters: UsersLicensesApiRevokeLicenseTenantUserBulkAsyncRequest, options?: RawAxiosRequestConfig) {
         return UsersLicensesApiFp(this.configuration).revokeLicenseTenantUserBulkAsync(requestParameters.tenantId, requestParameters.userId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest, options).then((request) => request(this.axios, this.basePath));

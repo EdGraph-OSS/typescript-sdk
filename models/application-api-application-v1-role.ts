@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface ApplicationApiApplicationV1Role
- */
 export interface ApplicationApiApplicationV1Role {
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1Role
-     */
     'roleName'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ApplicationApiApplicationV1Role
-     */
     'isDefault'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ApplicationApiApplicationV1Role
-     */
     'isAvailableForTenants'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1Role
-     */
     'displayName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ApplicationApiApplicationV1Role
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ApplicationApiApplicationV1Role
-     */
     'sortOrder'?: number;
 }
 

@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { TenantApiTenantV1Organization } from './tenant-api-tenant-v1-organization';
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1GetOrganizationsPaginatedResponse
- */
 export interface TenantApiTenantV1GetOrganizationsPaginatedResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1GetOrganizationsPaginatedResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1GetOrganizationsPaginatedResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1GetOrganizationsPaginatedResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<TenantApiTenantV1Organization>}
-     * @memberof TenantApiTenantV1GetOrganizationsPaginatedResponse
-     */
     'data'?: Array<TenantApiTenantV1Organization> | null;
 }
 

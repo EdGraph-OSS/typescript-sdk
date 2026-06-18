@@ -14,71 +14,16 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1EnvironmentProfileResponse
- */
 export interface EdGraphServicesStateReportingV1EnvironmentProfileResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentProfileResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentProfileResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentProfileResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentProfileResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentProfileResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentProfileResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentProfileResponse
-     */
     'year'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentProfileResponse
-     */
     'dbEnvironmentId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentProfileResponse
-     */
     'edFiInstanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentProfileResponse
-     */
     'mode'?: string | null;
 }
 

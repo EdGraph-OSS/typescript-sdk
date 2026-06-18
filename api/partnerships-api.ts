@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { TenantApiPartnershipV1PaginatedItemsResponse } from '../models';
 import type { TenantApiPartnershipV1PartnershipByIdResponse } from '../models';
 /**
  * PartnershipsApi - axios parameter creator
- * @export
  */
 export const PartnershipsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -52,7 +51,7 @@ export const PartnershipsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getAllPartnerships', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/partnerships`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -92,8 +91,8 @@ export const PartnershipsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['excludeSoftDeleted'] = excludeSoftDeleted;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -118,8 +117,8 @@ export const PartnershipsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'partnershipId' is not null or undefined
             assertParamExists('getPartnershipById', 'partnershipId', partnershipId)
             const localVarPath = `/tenants/{tenantId}/partnerships/{partnershipId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"partnershipId"}}`, encodeURIComponent(String(partnershipId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{partnershipId}', encodeURIComponent(String(partnershipId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -139,8 +138,8 @@ export const PartnershipsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['excludeSoftDeleted'] = excludeSoftDeleted;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -155,7 +154,6 @@ export const PartnershipsApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * PartnershipsApi - functional programming interface
- * @export
  */
 export const PartnershipsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PartnershipsApiAxiosParamCreator(configuration)
@@ -199,7 +197,6 @@ export const PartnershipsApiFp = function(configuration?: Configuration) {
 
 /**
  * PartnershipsApi - factory interface
- * @export
  */
 export const PartnershipsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PartnershipsApiFp(configuration)
@@ -229,93 +226,66 @@ export const PartnershipsApiFactory = function (configuration?: Configuration, b
 
 /**
  * Request parameters for getAllPartnerships operation in PartnershipsApi.
- * @export
- * @interface PartnershipsApiGetAllPartnershipsRequest
  */
 export interface PartnershipsApiGetAllPartnershipsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof PartnershipsApiGetAllPartnerships
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof PartnershipsApiGetAllPartnerships
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof PartnershipsApiGetAllPartnerships
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof PartnershipsApiGetAllPartnerships
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof PartnershipsApiGetAllPartnerships
      */
     readonly partnerTenantId?: string
 
     /**
      * 
-     * @type {Array<string>}
-     * @memberof PartnershipsApiGetAllPartnerships
      */
     readonly partnershipType?: Array<string>
 
     /**
      * 
-     * @type {boolean}
-     * @memberof PartnershipsApiGetAllPartnerships
      */
     readonly excludeSoftDeleted?: boolean
 }
 
 /**
  * Request parameters for getPartnershipById operation in PartnershipsApi.
- * @export
- * @interface PartnershipsApiGetPartnershipByIdRequest
  */
 export interface PartnershipsApiGetPartnershipByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof PartnershipsApiGetPartnershipById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof PartnershipsApiGetPartnershipById
      */
     readonly partnershipId: string
 
     /**
      * 
-     * @type {boolean}
-     * @memberof PartnershipsApiGetPartnershipById
      */
     readonly excludeSoftDeleted?: boolean
 }
 
 /**
  * PartnershipsApi - object-oriented interface
- * @export
- * @class PartnershipsApi
- * @extends {BaseAPI}
  */
 export class PartnershipsApi extends BaseAPI {
     /**
@@ -324,7 +294,6 @@ export class PartnershipsApi extends BaseAPI {
      * @param {PartnershipsApiGetAllPartnershipsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PartnershipsApi
      */
     public getAllPartnerships(requestParameters: PartnershipsApiGetAllPartnershipsRequest, options?: RawAxiosRequestConfig) {
         return PartnershipsApiFp(this.configuration).getAllPartnerships(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.partnerTenantId, requestParameters.partnershipType, requestParameters.excludeSoftDeleted, options).then((request) => request(this.axios, this.basePath));
@@ -336,7 +305,6 @@ export class PartnershipsApi extends BaseAPI {
      * @param {PartnershipsApiGetPartnershipByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PartnershipsApi
      */
     public getPartnershipById(requestParameters: PartnershipsApiGetPartnershipByIdRequest, options?: RawAxiosRequestConfig) {
         return PartnershipsApiFp(this.configuration).getPartnershipById(requestParameters.tenantId, requestParameters.partnershipId, requestParameters.excludeSoftDeleted, options).then((request) => request(this.axios, this.basePath));

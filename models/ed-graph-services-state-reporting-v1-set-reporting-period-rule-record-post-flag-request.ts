@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagRequest
- */
 export interface EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagRequest
-     */
     'environmentId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagRequest
-     */
     'ruleId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagRequest
-     */
     'recordId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagRequest
-     */
     'excludeFromPost'?: boolean;
 }
 

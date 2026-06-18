@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { GoogleProtobufWellKnownTypesValue } from './google-protobuf-well-known-types-value';
 
-/**
- * 
- * @export
- * @interface GoogleProtobufWellKnownTypesListValue
- */
 export interface GoogleProtobufWellKnownTypesListValue {
-    /**
-     * 
-     * @type {Array<GoogleProtobufWellKnownTypesValue>}
-     * @memberof GoogleProtobufWellKnownTypesListValue
-     */
     'values'?: Array<GoogleProtobufWellKnownTypesValue> | null;
 }
 

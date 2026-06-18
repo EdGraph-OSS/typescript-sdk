@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiJobsV1Metric
- */
 export interface ValidationsApiJobsV1Metric {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiJobsV1Metric
-     */
     'entity'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiJobsV1Metric
-     */
     'processed'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiJobsV1Metric
-     */
     'success'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ValidationsApiJobsV1Metric
-     */
     'errors'?: number;
 }
 

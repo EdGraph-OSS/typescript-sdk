@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -39,7 +39,6 @@ import type { IdentityApiUserV1EducationOrganizationUpdatedResponse } from '../m
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * UsersEducationOrganizationsApi - axios parameter creator
- * @export
  */
 export const UsersEducationOrganizationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -58,8 +57,8 @@ export const UsersEducationOrganizationsApiAxiosParamCreator = function (configu
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('addUserEducationOrganization', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/educationorganizations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -75,9 +74,8 @@ export const UsersEducationOrganizationsApiAxiosParamCreator = function (configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -103,8 +101,8 @@ export const UsersEducationOrganizationsApiAxiosParamCreator = function (configu
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('getUserEducationOrganizations', 'userId', userId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/educationorganizations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -120,8 +118,8 @@ export const UsersEducationOrganizationsApiAxiosParamCreator = function (configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -148,9 +146,9 @@ export const UsersEducationOrganizationsApiAxiosParamCreator = function (configu
             // verify required parameter 'educationOrganizationId' is not null or undefined
             assertParamExists('removeUserEducationOrganization', 'educationOrganizationId', educationOrganizationId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/educationorganizations/{educationOrganizationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)))
-                .replace(`{${"educationOrganizationId"}}`, encodeURIComponent(String(educationOrganizationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)))
+                .replace('{educationOrganizationId}', encodeURIComponent(String(educationOrganizationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -166,8 +164,8 @@ export const UsersEducationOrganizationsApiAxiosParamCreator = function (configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -195,9 +193,9 @@ export const UsersEducationOrganizationsApiAxiosParamCreator = function (configu
             // verify required parameter 'educationOrganizationId' is not null or undefined
             assertParamExists('updateUserEducationOrganization', 'educationOrganizationId', educationOrganizationId)
             const localVarPath = `/tenants/{tenantId}/users/{userId}/educationorganizations/{educationOrganizationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)))
-                .replace(`{${"educationOrganizationId"}}`, encodeURIComponent(String(educationOrganizationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{userId}', encodeURIComponent(String(userId)))
+                .replace('{educationOrganizationId}', encodeURIComponent(String(educationOrganizationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -213,9 +211,8 @@ export const UsersEducationOrganizationsApiAxiosParamCreator = function (configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -232,7 +229,6 @@ export const UsersEducationOrganizationsApiAxiosParamCreator = function (configu
 
 /**
  * UsersEducationOrganizationsApi - functional programming interface
- * @export
  */
 export const UsersEducationOrganizationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = UsersEducationOrganizationsApiAxiosParamCreator(configuration)
@@ -302,7 +298,6 @@ export const UsersEducationOrganizationsApiFp = function(configuration?: Configu
 
 /**
  * UsersEducationOrganizationsApi - factory interface
- * @export
  */
 export const UsersEducationOrganizationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = UsersEducationOrganizationsApiFp(configuration)
@@ -352,121 +347,86 @@ export const UsersEducationOrganizationsApiFactory = function (configuration?: C
 
 /**
  * Request parameters for addUserEducationOrganization operation in UsersEducationOrganizationsApi.
- * @export
- * @interface UsersEducationOrganizationsApiAddUserEducationOrganizationRequest
  */
 export interface UsersEducationOrganizationsApiAddUserEducationOrganizationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersEducationOrganizationsApiAddUserEducationOrganization
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersEducationOrganizationsApiAddUserEducationOrganization
      */
     readonly userId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest}
-     * @memberof UsersEducationOrganizationsApiAddUserEducationOrganization
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest
 }
 
 /**
  * Request parameters for getUserEducationOrganizations operation in UsersEducationOrganizationsApi.
- * @export
- * @interface UsersEducationOrganizationsApiGetUserEducationOrganizationsRequest
  */
 export interface UsersEducationOrganizationsApiGetUserEducationOrganizationsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersEducationOrganizationsApiGetUserEducationOrganizations
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersEducationOrganizationsApiGetUserEducationOrganizations
      */
     readonly userId: string
 }
 
 /**
  * Request parameters for removeUserEducationOrganization operation in UsersEducationOrganizationsApi.
- * @export
- * @interface UsersEducationOrganizationsApiRemoveUserEducationOrganizationRequest
  */
 export interface UsersEducationOrganizationsApiRemoveUserEducationOrganizationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersEducationOrganizationsApiRemoveUserEducationOrganization
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersEducationOrganizationsApiRemoveUserEducationOrganization
      */
     readonly userId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersEducationOrganizationsApiRemoveUserEducationOrganization
      */
     readonly educationOrganizationId: number
 }
 
 /**
  * Request parameters for updateUserEducationOrganization operation in UsersEducationOrganizationsApi.
- * @export
- * @interface UsersEducationOrganizationsApiUpdateUserEducationOrganizationRequest
  */
 export interface UsersEducationOrganizationsApiUpdateUserEducationOrganizationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof UsersEducationOrganizationsApiUpdateUserEducationOrganization
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof UsersEducationOrganizationsApiUpdateUserEducationOrganization
      */
     readonly userId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof UsersEducationOrganizationsApiUpdateUserEducationOrganization
      */
     readonly educationOrganizationId: number
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest}
-     * @memberof UsersEducationOrganizationsApiUpdateUserEducationOrganization
      */
     readonly edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest
 }
 
 /**
  * UsersEducationOrganizationsApi - object-oriented interface
- * @export
- * @class UsersEducationOrganizationsApi
- * @extends {BaseAPI}
  */
 export class UsersEducationOrganizationsApi extends BaseAPI {
     /**
@@ -475,7 +435,6 @@ export class UsersEducationOrganizationsApi extends BaseAPI {
      * @param {UsersEducationOrganizationsApiAddUserEducationOrganizationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersEducationOrganizationsApi
      */
     public addUserEducationOrganization(requestParameters: UsersEducationOrganizationsApiAddUserEducationOrganizationRequest, options?: RawAxiosRequestConfig) {
         return UsersEducationOrganizationsApiFp(this.configuration).addUserEducationOrganization(requestParameters.tenantId, requestParameters.userId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest, options).then((request) => request(this.axios, this.basePath));
@@ -487,7 +446,6 @@ export class UsersEducationOrganizationsApi extends BaseAPI {
      * @param {UsersEducationOrganizationsApiGetUserEducationOrganizationsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersEducationOrganizationsApi
      */
     public getUserEducationOrganizations(requestParameters: UsersEducationOrganizationsApiGetUserEducationOrganizationsRequest, options?: RawAxiosRequestConfig) {
         return UsersEducationOrganizationsApiFp(this.configuration).getUserEducationOrganizations(requestParameters.tenantId, requestParameters.userId, options).then((request) => request(this.axios, this.basePath));
@@ -499,7 +457,6 @@ export class UsersEducationOrganizationsApi extends BaseAPI {
      * @param {UsersEducationOrganizationsApiRemoveUserEducationOrganizationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersEducationOrganizationsApi
      */
     public removeUserEducationOrganization(requestParameters: UsersEducationOrganizationsApiRemoveUserEducationOrganizationRequest, options?: RawAxiosRequestConfig) {
         return UsersEducationOrganizationsApiFp(this.configuration).removeUserEducationOrganization(requestParameters.tenantId, requestParameters.userId, requestParameters.educationOrganizationId, options).then((request) => request(this.axios, this.basePath));
@@ -511,7 +468,6 @@ export class UsersEducationOrganizationsApi extends BaseAPI {
      * @param {UsersEducationOrganizationsApiUpdateUserEducationOrganizationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersEducationOrganizationsApi
      */
     public updateUserEducationOrganization(requestParameters: UsersEducationOrganizationsApiUpdateUserEducationOrganizationRequest, options?: RawAxiosRequestConfig) {
         return UsersEducationOrganizationsApiFp(this.configuration).updateUserEducationOrganization(requestParameters.tenantId, requestParameters.userId, requestParameters.educationOrganizationId, requestParameters.edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest, options).then((request) => request(this.axios, this.basePath));

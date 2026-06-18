@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1TenantSetting
- */
 export interface TenantApiTenantV1TenantSetting {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantSetting
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantSetting
-     */
     'value'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1TenantSetting
-     */
     'dataType'?: string | null;
 }
 

@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { FormApiFormComponentsV1FormComponentResponse } from './form-api-form-components-v1-form-component-response';
 
-/**
- * 
- * @export
- * @interface FormApiFormComponentsV1FormComponentResponsePaginatedItemsViewModel
- */
 export interface FormApiFormComponentsV1FormComponentResponsePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof FormApiFormComponentsV1FormComponentResponsePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof FormApiFormComponentsV1FormComponentResponsePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof FormApiFormComponentsV1FormComponentResponsePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<FormApiFormComponentsV1FormComponentResponse>}
-     * @memberof FormApiFormComponentsV1FormComponentResponsePaginatedItemsViewModel
-     */
     'data'?: Array<FormApiFormComponentsV1FormComponentResponse> | null;
 }
 

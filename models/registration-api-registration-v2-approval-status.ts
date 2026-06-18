@@ -14,11 +14,6 @@
 
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const RegistrationApiRegistrationV2ApprovalStatus = {
     Unknown: 'Unknown',
@@ -26,7 +21,7 @@ export const RegistrationApiRegistrationV2ApprovalStatus = {
     Approved: 'Approved',
     Denied: 'Denied',
     Failed: 'Failed',
-    Completed: 'Completed'
+    Completed: 'Completed',
 } as const;
 
 export type RegistrationApiRegistrationV2ApprovalStatus = typeof RegistrationApiRegistrationV2ApprovalStatus[keyof typeof RegistrationApiRegistrationV2ApprovalStatus];

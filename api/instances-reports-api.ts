@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -45,7 +45,6 @@ import type { EdfiAdminApiEdfiAdminV1TotalEnrollmentsReportResponse } from '../m
 import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 /**
  * InstancesReportsApi - axios parameter creator
- * @export
  */
 export const InstancesReportsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -63,8 +62,8 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'instanceId' is not null or undefined
             assertParamExists('generateReportsAsync', 'instanceId', instanceId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/reports/generate`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -80,8 +79,8 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -105,8 +104,8 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'instanceId' is not null or undefined
             assertParamExists('getReportsStatusAsync', 'instanceId', instanceId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/reports/status`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -122,8 +121,8 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -150,9 +149,9 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'localEducationAgencyId' is not null or undefined
             assertParamExists('getSchoolsByTypeReportAsync', 'localEducationAgencyId', localEducationAgencyId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/reports/schoolsbytype/{localEducationAgencyId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"localEducationAgencyId"}}`, encodeURIComponent(String(localEducationAgencyId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{localEducationAgencyId}', encodeURIComponent(String(localEducationAgencyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -168,8 +167,8 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -196,9 +195,9 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'localEducationAgencyId' is not null or undefined
             assertParamExists('getStudentEconomicSituationReportAsync', 'localEducationAgencyId', localEducationAgencyId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/reports/studentseconomicsituation/{localEducationAgencyId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"localEducationAgencyId"}}`, encodeURIComponent(String(localEducationAgencyId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{localEducationAgencyId}', encodeURIComponent(String(localEducationAgencyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -214,8 +213,8 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -242,9 +241,9 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'localEducationAgencyId' is not null or undefined
             assertParamExists('getStudentEnrollmentByEthnicityReport', 'localEducationAgencyId', localEducationAgencyId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/reports/studentenrollment/ethnicity/{localEducationAgencyId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"localEducationAgencyId"}}`, encodeURIComponent(String(localEducationAgencyId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{localEducationAgencyId}', encodeURIComponent(String(localEducationAgencyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -260,8 +259,8 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -288,9 +287,9 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'localEducationAgencyId' is not null or undefined
             assertParamExists('getStudentEnrollmentByGenderReportAsync', 'localEducationAgencyId', localEducationAgencyId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/reports/studentenrollment/gender/{localEducationAgencyId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"localEducationAgencyId"}}`, encodeURIComponent(String(localEducationAgencyId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{localEducationAgencyId}', encodeURIComponent(String(localEducationAgencyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -306,8 +305,8 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -334,9 +333,9 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'localEducationAgencyId' is not null or undefined
             assertParamExists('getStudentEnrollmentByRaceReportAsync', 'localEducationAgencyId', localEducationAgencyId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/reports/studentenrollment/race/{localEducationAgencyId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"localEducationAgencyId"}}`, encodeURIComponent(String(localEducationAgencyId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{localEducationAgencyId}', encodeURIComponent(String(localEducationAgencyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -352,8 +351,8 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -380,9 +379,9 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'localEducationAgencyId' is not null or undefined
             assertParamExists('getStudentsByProgramReportAsync', 'localEducationAgencyId', localEducationAgencyId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/reports/studentsbyprogram/{localEducationAgencyId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"localEducationAgencyId"}}`, encodeURIComponent(String(localEducationAgencyId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{localEducationAgencyId}', encodeURIComponent(String(localEducationAgencyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -398,8 +397,8 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -426,9 +425,9 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'localEducationAgencyId' is not null or undefined
             assertParamExists('getTotalEnrollmentsReportAsync', 'localEducationAgencyId', localEducationAgencyId)
             const localVarPath = `/tenants/{tenantId}/edfiadmin/instances/{instanceId}/reports/totalenrollments/{localEducationAgencyId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"instanceId"}}`, encodeURIComponent(String(instanceId)))
-                .replace(`{${"localEducationAgencyId"}}`, encodeURIComponent(String(localEducationAgencyId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)))
+                .replace('{localEducationAgencyId}', encodeURIComponent(String(localEducationAgencyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -444,8 +443,8 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -460,7 +459,6 @@ export const InstancesReportsApiAxiosParamCreator = function (configuration?: Co
 
 /**
  * InstancesReportsApi - functional programming interface
- * @export
  */
 export const InstancesReportsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InstancesReportsApiAxiosParamCreator(configuration)
@@ -603,7 +601,6 @@ export const InstancesReportsApiFp = function(configuration?: Configuration) {
 
 /**
  * InstancesReportsApi - factory interface
- * @export
  */
 export const InstancesReportsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InstancesReportsApiFp(configuration)
@@ -703,247 +700,176 @@ export const InstancesReportsApiFactory = function (configuration?: Configuratio
 
 /**
  * Request parameters for generateReportsAsync operation in InstancesReportsApi.
- * @export
- * @interface InstancesReportsApiGenerateReportsAsyncRequest
  */
 export interface InstancesReportsApiGenerateReportsAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGenerateReportsAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGenerateReportsAsync
      */
     readonly instanceId: string
 }
 
 /**
  * Request parameters for getReportsStatusAsync operation in InstancesReportsApi.
- * @export
- * @interface InstancesReportsApiGetReportsStatusAsyncRequest
  */
 export interface InstancesReportsApiGetReportsStatusAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetReportsStatusAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetReportsStatusAsync
      */
     readonly instanceId: string
 }
 
 /**
  * Request parameters for getSchoolsByTypeReportAsync operation in InstancesReportsApi.
- * @export
- * @interface InstancesReportsApiGetSchoolsByTypeReportAsyncRequest
  */
 export interface InstancesReportsApiGetSchoolsByTypeReportAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetSchoolsByTypeReportAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetSchoolsByTypeReportAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesReportsApiGetSchoolsByTypeReportAsync
      */
     readonly localEducationAgencyId: number
 }
 
 /**
  * Request parameters for getStudentEconomicSituationReportAsync operation in InstancesReportsApi.
- * @export
- * @interface InstancesReportsApiGetStudentEconomicSituationReportAsyncRequest
  */
 export interface InstancesReportsApiGetStudentEconomicSituationReportAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetStudentEconomicSituationReportAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetStudentEconomicSituationReportAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesReportsApiGetStudentEconomicSituationReportAsync
      */
     readonly localEducationAgencyId: number
 }
 
 /**
  * Request parameters for getStudentEnrollmentByEthnicityReport operation in InstancesReportsApi.
- * @export
- * @interface InstancesReportsApiGetStudentEnrollmentByEthnicityReportRequest
  */
 export interface InstancesReportsApiGetStudentEnrollmentByEthnicityReportRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetStudentEnrollmentByEthnicityReport
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetStudentEnrollmentByEthnicityReport
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesReportsApiGetStudentEnrollmentByEthnicityReport
      */
     readonly localEducationAgencyId: number
 }
 
 /**
  * Request parameters for getStudentEnrollmentByGenderReportAsync operation in InstancesReportsApi.
- * @export
- * @interface InstancesReportsApiGetStudentEnrollmentByGenderReportAsyncRequest
  */
 export interface InstancesReportsApiGetStudentEnrollmentByGenderReportAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetStudentEnrollmentByGenderReportAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetStudentEnrollmentByGenderReportAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesReportsApiGetStudentEnrollmentByGenderReportAsync
      */
     readonly localEducationAgencyId: number
 }
 
 /**
  * Request parameters for getStudentEnrollmentByRaceReportAsync operation in InstancesReportsApi.
- * @export
- * @interface InstancesReportsApiGetStudentEnrollmentByRaceReportAsyncRequest
  */
 export interface InstancesReportsApiGetStudentEnrollmentByRaceReportAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetStudentEnrollmentByRaceReportAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetStudentEnrollmentByRaceReportAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesReportsApiGetStudentEnrollmentByRaceReportAsync
      */
     readonly localEducationAgencyId: number
 }
 
 /**
  * Request parameters for getStudentsByProgramReportAsync operation in InstancesReportsApi.
- * @export
- * @interface InstancesReportsApiGetStudentsByProgramReportAsyncRequest
  */
 export interface InstancesReportsApiGetStudentsByProgramReportAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetStudentsByProgramReportAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetStudentsByProgramReportAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesReportsApiGetStudentsByProgramReportAsync
      */
     readonly localEducationAgencyId: number
 }
 
 /**
  * Request parameters for getTotalEnrollmentsReportAsync operation in InstancesReportsApi.
- * @export
- * @interface InstancesReportsApiGetTotalEnrollmentsReportAsyncRequest
  */
 export interface InstancesReportsApiGetTotalEnrollmentsReportAsyncRequest {
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetTotalEnrollmentsReportAsync
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof InstancesReportsApiGetTotalEnrollmentsReportAsync
      */
     readonly instanceId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof InstancesReportsApiGetTotalEnrollmentsReportAsync
      */
     readonly localEducationAgencyId: number
 }
 
 /**
  * InstancesReportsApi - object-oriented interface
- * @export
- * @class InstancesReportsApi
- * @extends {BaseAPI}
  */
 export class InstancesReportsApi extends BaseAPI {
     /**
@@ -952,7 +878,6 @@ export class InstancesReportsApi extends BaseAPI {
      * @param {InstancesReportsApiGenerateReportsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesReportsApi
      */
     public generateReportsAsync(requestParameters: InstancesReportsApiGenerateReportsAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesReportsApiFp(this.configuration).generateReportsAsync(requestParameters.tenantId, requestParameters.instanceId, options).then((request) => request(this.axios, this.basePath));
@@ -964,7 +889,6 @@ export class InstancesReportsApi extends BaseAPI {
      * @param {InstancesReportsApiGetReportsStatusAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesReportsApi
      */
     public getReportsStatusAsync(requestParameters: InstancesReportsApiGetReportsStatusAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesReportsApiFp(this.configuration).getReportsStatusAsync(requestParameters.tenantId, requestParameters.instanceId, options).then((request) => request(this.axios, this.basePath));
@@ -976,7 +900,6 @@ export class InstancesReportsApi extends BaseAPI {
      * @param {InstancesReportsApiGetSchoolsByTypeReportAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesReportsApi
      */
     public getSchoolsByTypeReportAsync(requestParameters: InstancesReportsApiGetSchoolsByTypeReportAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesReportsApiFp(this.configuration).getSchoolsByTypeReportAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.localEducationAgencyId, options).then((request) => request(this.axios, this.basePath));
@@ -988,7 +911,6 @@ export class InstancesReportsApi extends BaseAPI {
      * @param {InstancesReportsApiGetStudentEconomicSituationReportAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesReportsApi
      */
     public getStudentEconomicSituationReportAsync(requestParameters: InstancesReportsApiGetStudentEconomicSituationReportAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesReportsApiFp(this.configuration).getStudentEconomicSituationReportAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.localEducationAgencyId, options).then((request) => request(this.axios, this.basePath));
@@ -1000,7 +922,6 @@ export class InstancesReportsApi extends BaseAPI {
      * @param {InstancesReportsApiGetStudentEnrollmentByEthnicityReportRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesReportsApi
      */
     public getStudentEnrollmentByEthnicityReport(requestParameters: InstancesReportsApiGetStudentEnrollmentByEthnicityReportRequest, options?: RawAxiosRequestConfig) {
         return InstancesReportsApiFp(this.configuration).getStudentEnrollmentByEthnicityReport(requestParameters.tenantId, requestParameters.instanceId, requestParameters.localEducationAgencyId, options).then((request) => request(this.axios, this.basePath));
@@ -1012,7 +933,6 @@ export class InstancesReportsApi extends BaseAPI {
      * @param {InstancesReportsApiGetStudentEnrollmentByGenderReportAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesReportsApi
      */
     public getStudentEnrollmentByGenderReportAsync(requestParameters: InstancesReportsApiGetStudentEnrollmentByGenderReportAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesReportsApiFp(this.configuration).getStudentEnrollmentByGenderReportAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.localEducationAgencyId, options).then((request) => request(this.axios, this.basePath));
@@ -1024,7 +944,6 @@ export class InstancesReportsApi extends BaseAPI {
      * @param {InstancesReportsApiGetStudentEnrollmentByRaceReportAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesReportsApi
      */
     public getStudentEnrollmentByRaceReportAsync(requestParameters: InstancesReportsApiGetStudentEnrollmentByRaceReportAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesReportsApiFp(this.configuration).getStudentEnrollmentByRaceReportAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.localEducationAgencyId, options).then((request) => request(this.axios, this.basePath));
@@ -1036,7 +955,6 @@ export class InstancesReportsApi extends BaseAPI {
      * @param {InstancesReportsApiGetStudentsByProgramReportAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesReportsApi
      */
     public getStudentsByProgramReportAsync(requestParameters: InstancesReportsApiGetStudentsByProgramReportAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesReportsApiFp(this.configuration).getStudentsByProgramReportAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.localEducationAgencyId, options).then((request) => request(this.axios, this.basePath));
@@ -1048,7 +966,6 @@ export class InstancesReportsApi extends BaseAPI {
      * @param {InstancesReportsApiGetTotalEnrollmentsReportAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InstancesReportsApi
      */
     public getTotalEnrollmentsReportAsync(requestParameters: InstancesReportsApiGetTotalEnrollmentsReportAsyncRequest, options?: RawAxiosRequestConfig) {
         return InstancesReportsApiFp(this.configuration).getTotalEnrollmentsReportAsync(requestParameters.tenantId, requestParameters.instanceId, requestParameters.localEducationAgencyId, options).then((request) => request(this.axios, this.basePath));

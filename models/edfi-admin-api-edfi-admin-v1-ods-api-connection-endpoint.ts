@@ -13,36 +13,15 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { EdfiAdminApiEdfiAdminV1OdsApiDiscoveryApi } from './edfi-admin-api-edfi-admin-v1-ods-api-discovery-api';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1OdsApiConnectionEndpoint
- */
 export interface EdfiAdminApiEdfiAdminV1OdsApiConnectionEndpoint {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1OdsApiConnectionEndpoint
-     */
     'accessTypeId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1OdsApiConnectionEndpoint
-     */
     'compositesUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1OdsApiConnectionEndpoint
-     */
     'resourcesUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1OdsApiConnectionEndpoint
-     */
     'discoveryUrl'?: string | null;
+    'discoveryDocument'?: EdfiAdminApiEdfiAdminV1OdsApiDiscoveryApi;
 }
 

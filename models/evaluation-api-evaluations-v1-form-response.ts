@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EvaluationApiEvaluationsV1FormResponse
- */
 export interface EvaluationApiEvaluationsV1FormResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1FormResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1FormResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1FormResponse
-     */
     'version'?: string | null;
 }
 

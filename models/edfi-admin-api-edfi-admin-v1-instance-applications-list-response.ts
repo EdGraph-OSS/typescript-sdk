@@ -17,65 +17,15 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1InstanceApiClientListResponse } from './edfi-admin-api-edfi-admin-v1-instance-api-client-list-response';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse
- */
 export interface EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse
-     */
     'instanceApplicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1InstanceApiClientListResponse>}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse
-     */
     'apiClients'?: Array<EdfiAdminApiEdfiAdminV1InstanceApiClientListResponse> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1InstanceApplicationsListResponse
-     */
     'lastModifiedDateTime'?: string | null;
 }
 

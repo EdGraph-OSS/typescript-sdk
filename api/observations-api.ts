@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -83,7 +83,6 @@ import type { MicrosoftAspNetCoreMvcValidationProblemDetails } from '../models';
 import type { TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse } from '../models';
 /**
  * ObservationsApi - axios parameter creator
- * @export
  */
 export const ObservationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -99,7 +98,7 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createObservation', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -115,9 +114,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -147,9 +145,9 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'observationId' is not null or undefined
             assertParamExists('createObservationSubmission', 'observationId', observationId)
             const localVarPath = `/tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/submit`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
-                .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)))
+                .replace('{observationId}', encodeURIComponent(String(observationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -165,9 +163,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -193,8 +190,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'observationId' is not null or undefined
             assertParamExists('deleteObservation', 'observationId', observationId)
             const localVarPath = `/tenants/{tenantId}/observations/{observationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{observationId}', encodeURIComponent(String(observationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -210,8 +207,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -236,8 +233,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'dashboardId' is not null or undefined
             assertParamExists('getDashboard', 'dashboardId', dashboardId)
             const localVarPath = `/tenants/{tenantId}/observations/dashboards/{dashboardId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"dashboardId"}}`, encodeURIComponent(String(dashboardId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{dashboardId}', encodeURIComponent(String(dashboardId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -257,8 +254,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['personaIdentifier'] = personaIdentifier;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -282,8 +279,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'dashboardId' is not null or undefined
             assertParamExists('getDashboardPreferences', 'dashboardId', dashboardId)
             const localVarPath = `/tenants/{tenantId}/observations/dashboards/{dashboardId}/preferences`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"dashboardId"}}`, encodeURIComponent(String(dashboardId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{dashboardId}', encodeURIComponent(String(dashboardId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -299,8 +296,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -328,8 +325,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'evalueeId' is not null or undefined
             assertParamExists('getEvalueeSections', 'evalueeId', evalueeId)
             const localVarPath = `/tenants/{tenantId}/observations/evaluees/{evalueeId}/sections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"evalueeId"}}`, encodeURIComponent(String(evalueeId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{evalueeId}', encodeURIComponent(String(evalueeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -361,8 +358,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['filterBy'] = filterBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -391,9 +388,9 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'sectionId' is not null or undefined
             assertParamExists('getFormQuestions', 'sectionId', sectionId)
             const localVarPath = `/tenants/{tenantId}/observations/available-forms/{formId}/sections/{sectionId}/questions`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)))
-                .replace(`{${"sectionId"}}`, encodeURIComponent(String(sectionId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)))
+                .replace('{sectionId}', encodeURIComponent(String(sectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -417,8 +414,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['pageSize'] = pageSize;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -444,8 +441,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('getFormSections', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/observations/available-forms/{formId}/sections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -469,8 +466,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['pageSize'] = pageSize;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -494,8 +491,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'observationId' is not null or undefined
             assertParamExists('getObservationById', 'observationId', observationId)
             const localVarPath = `/tenants/{tenantId}/observations/{observationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{observationId}', encodeURIComponent(String(observationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -511,8 +508,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -539,9 +536,9 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('getObservationDraft', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/draft`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{observationId}', encodeURIComponent(String(observationId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -557,8 +554,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -585,9 +582,9 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('getObservationSubmission', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/submission`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{observationId}', encodeURIComponent(String(observationId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -603,8 +600,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -629,7 +626,7 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getPaginatedAvailableCampuses', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/campuses`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -661,8 +658,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['nameOfInstitution'] = nameOfInstitution;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -687,7 +684,7 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getPaginatedAvailableForms', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/available-forms`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -719,8 +716,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -748,8 +745,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'campusId' is not null or undefined
             assertParamExists('getPaginatedCampusSections', 'campusId', campusId)
             const localVarPath = `/tenants/{tenantId}/observations/campuses/{campusId}/sections`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"campusId"}}`, encodeURIComponent(String(campusId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{campusId}', encodeURIComponent(String(campusId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -781,8 +778,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['filter'] = filter;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -810,7 +807,7 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getPaginatedEvaluees', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/evaluees`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -854,8 +851,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['lastName'] = lastName;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -886,7 +883,7 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getPaginatedObservations', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -942,8 +939,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['to'] = to;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -966,7 +963,7 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getSubmittedObservationsCount', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/submittedobservations`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -990,8 +987,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['campus'] = campus;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1016,8 +1013,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'dashboardId' is not null or undefined
             assertParamExists('saveDashboardPreferences', 'dashboardId', dashboardId)
             const localVarPath = `/tenants/{tenantId}/observations/dashboards/{dashboardId}/preferences`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"dashboardId"}}`, encodeURIComponent(String(dashboardId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{dashboardId}', encodeURIComponent(String(dashboardId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1033,9 +1030,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1063,7 +1059,7 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('searchPaginatedEvaluees', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/search/evaluees`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1099,8 +1095,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['lastName'] = lastName;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1125,8 +1121,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'observationId' is not null or undefined
             assertParamExists('updateObservation', 'observationId', observationId)
             const localVarPath = `/tenants/{tenantId}/observations/{observationId}`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{observationId}', encodeURIComponent(String(observationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1142,9 +1138,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1174,9 +1169,9 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('upsertObservationDraft', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/draft`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)))
-                .replace(`{${"observationId"}}`, encodeURIComponent(String(observationId)))
-                .replace(`{${"formId"}}`, encodeURIComponent(String(formId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{observationId}', encodeURIComponent(String(observationId)))
+                .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1192,9 +1187,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1218,7 +1212,7 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('verifyDashboardAccess', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/observations/dashboards/access`
-                .replace(`{${"tenantId"}}`, encodeURIComponent(String(tenantId)));
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1234,9 +1228,8 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1253,7 +1246,6 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * ObservationsApi - functional programming interface
- * @export
  */
 export const ObservationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ObservationsApiAxiosParamCreator(configuration)
@@ -1619,7 +1611,6 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
 
 /**
  * ObservationsApi - factory interface
- * @export
  */
 export const ObservationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ObservationsApiFp(configuration)
@@ -1849,807 +1840,573 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
 
 /**
  * Request parameters for createObservation operation in ObservationsApi.
- * @export
- * @interface ObservationsApiCreateObservationRequest
  */
 export interface ObservationsApiCreateObservationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiCreateObservation
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest}
-     * @memberof ObservationsApiCreateObservation
      */
     readonly edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest
 }
 
 /**
  * Request parameters for createObservationSubmission operation in ObservationsApi.
- * @export
- * @interface ObservationsApiCreateObservationSubmissionRequest
  */
 export interface ObservationsApiCreateObservationSubmissionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiCreateObservationSubmission
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiCreateObservationSubmission
      */
     readonly formId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ObservationsApiCreateObservationSubmission
-     */
     readonly observationId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest}
-     * @memberof ObservationsApiCreateObservationSubmission
      */
     readonly edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest
 }
 
 /**
  * Request parameters for deleteObservation operation in ObservationsApi.
- * @export
- * @interface ObservationsApiDeleteObservationRequest
  */
 export interface ObservationsApiDeleteObservationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiDeleteObservation
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiDeleteObservation
      */
     readonly observationId: string
 }
 
 /**
  * Request parameters for getDashboard operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetDashboardRequest
  */
 export interface ObservationsApiGetDashboardRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetDashboard
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetDashboard
      */
     readonly dashboardId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetDashboard
      */
     readonly personaIdentifier?: string
 }
 
 /**
  * Request parameters for getDashboardPreferences operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetDashboardPreferencesRequest
  */
 export interface ObservationsApiGetDashboardPreferencesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetDashboardPreferences
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetDashboardPreferences
      */
     readonly dashboardId: string
 }
 
 /**
  * Request parameters for getEvalueeSections operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetEvalueeSectionsRequest
  */
 export interface ObservationsApiGetEvalueeSectionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetEvalueeSections
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetEvalueeSections
      */
     readonly evalueeId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetEvalueeSections
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetEvalueeSections
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetEvalueeSections
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetEvalueeSections
      */
     readonly filterBy?: string
 }
 
 /**
  * Request parameters for getFormQuestions operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetFormQuestionsRequest
  */
 export interface ObservationsApiGetFormQuestionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetFormQuestions
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetFormQuestions
      */
     readonly formId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetFormQuestions
      */
     readonly sectionId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetFormQuestions
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetFormQuestions
      */
     readonly pageSize?: number
 }
 
 /**
  * Request parameters for getFormSections operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetFormSectionsRequest
  */
 export interface ObservationsApiGetFormSectionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetFormSections
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetFormSections
      */
     readonly formId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetFormSections
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetFormSections
      */
     readonly pageSize?: number
 }
 
 /**
  * Request parameters for getObservationById operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetObservationByIdRequest
  */
 export interface ObservationsApiGetObservationByIdRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetObservationById
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetObservationById
      */
     readonly observationId: string
 }
 
 /**
  * Request parameters for getObservationDraft operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetObservationDraftRequest
  */
 export interface ObservationsApiGetObservationDraftRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetObservationDraft
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetObservationDraft
      */
     readonly observationId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetObservationDraft
      */
     readonly formId: string
 }
 
 /**
  * Request parameters for getObservationSubmission operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetObservationSubmissionRequest
  */
 export interface ObservationsApiGetObservationSubmissionRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetObservationSubmission
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetObservationSubmission
      */
     readonly observationId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetObservationSubmission
      */
     readonly formId: string
 }
 
 /**
  * Request parameters for getPaginatedAvailableCampuses operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetPaginatedAvailableCampusesRequest
  */
 export interface ObservationsApiGetPaginatedAvailableCampusesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedAvailableCampuses
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetPaginatedAvailableCampuses
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetPaginatedAvailableCampuses
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedAvailableCampuses
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedAvailableCampuses
      */
     readonly nameOfInstitution?: string
 }
 
 /**
  * Request parameters for getPaginatedAvailableForms operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetPaginatedAvailableFormsRequest
  */
 export interface ObservationsApiGetPaginatedAvailableFormsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedAvailableForms
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetPaginatedAvailableForms
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetPaginatedAvailableForms
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedAvailableForms
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedAvailableForms
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getPaginatedCampusSections operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetPaginatedCampusSectionsRequest
  */
 export interface ObservationsApiGetPaginatedCampusSectionsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedCampusSections
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedCampusSections
      */
     readonly campusId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetPaginatedCampusSections
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetPaginatedCampusSections
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedCampusSections
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedCampusSections
      */
     readonly filter?: string
 }
 
 /**
  * Request parameters for getPaginatedEvaluees operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetPaginatedEvalueesRequest
  */
 export interface ObservationsApiGetPaginatedEvalueesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedEvaluees
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetPaginatedEvaluees
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetPaginatedEvaluees
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedEvaluees
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedEvaluees
      */
     readonly campus?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedEvaluees
      */
     readonly evalueeId?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedEvaluees
      */
     readonly firstName?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedEvaluees
      */
     readonly lastName?: string
 }
 
 /**
  * Request parameters for getPaginatedObservations operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetPaginatedObservationsRequest
  */
 export interface ObservationsApiGetPaginatedObservationsRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly campus?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly evalueeName?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly evalueeId?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly formId?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly status?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly from?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetPaginatedObservations
      */
     readonly to?: string
 }
 
 /**
  * Request parameters for getSubmittedObservationsCount operation in ObservationsApi.
- * @export
- * @interface ObservationsApiGetSubmittedObservationsCountRequest
  */
 export interface ObservationsApiGetSubmittedObservationsCountRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetSubmittedObservationsCount
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetSubmittedObservationsCount
      */
     readonly evalueeId?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiGetSubmittedObservationsCount
      */
     readonly campus?: string
 }
 
 /**
  * Request parameters for saveDashboardPreferences operation in ObservationsApi.
- * @export
- * @interface ObservationsApiSaveDashboardPreferencesRequest
  */
 export interface ObservationsApiSaveDashboardPreferencesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiSaveDashboardPreferences
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiSaveDashboardPreferences
      */
     readonly dashboardId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest}
-     * @memberof ObservationsApiSaveDashboardPreferences
      */
     readonly edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest
 }
 
 /**
  * Request parameters for searchPaginatedEvaluees operation in ObservationsApi.
- * @export
- * @interface ObservationsApiSearchPaginatedEvalueesRequest
  */
 export interface ObservationsApiSearchPaginatedEvalueesRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiSearchPaginatedEvaluees
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiSearchPaginatedEvaluees
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof ObservationsApiSearchPaginatedEvaluees
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiSearchPaginatedEvaluees
      */
     readonly orderBy?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiSearchPaginatedEvaluees
      */
     readonly firstName?: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiSearchPaginatedEvaluees
      */
     readonly lastName?: string
 }
 
 /**
  * Request parameters for updateObservation operation in ObservationsApi.
- * @export
- * @interface ObservationsApiUpdateObservationRequest
  */
 export interface ObservationsApiUpdateObservationRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiUpdateObservation
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiUpdateObservation
      */
     readonly observationId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest}
-     * @memberof ObservationsApiUpdateObservation
      */
     readonly edGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest
 }
 
 /**
  * Request parameters for upsertObservationDraft operation in ObservationsApi.
- * @export
- * @interface ObservationsApiUpsertObservationDraftRequest
  */
 export interface ObservationsApiUpsertObservationDraftRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiUpsertObservationDraft
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiUpsertObservationDraft
      */
     readonly observationId: string
 
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiUpsertObservationDraft
      */
     readonly formId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest}
-     * @memberof ObservationsApiUpsertObservationDraft
      */
     readonly edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest
 }
 
 /**
  * Request parameters for verifyDashboardAccess operation in ObservationsApi.
- * @export
- * @interface ObservationsApiVerifyDashboardAccessRequest
  */
 export interface ObservationsApiVerifyDashboardAccessRequest {
     /**
      * 
-     * @type {string}
-     * @memberof ObservationsApiVerifyDashboardAccess
      */
     readonly tenantId: string
 
     /**
      * 
-     * @type {EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest}
-     * @memberof ObservationsApiVerifyDashboardAccess
      */
     readonly edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest?: EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest
 }
 
 /**
  * ObservationsApi - object-oriented interface
- * @export
- * @class ObservationsApi
- * @extends {BaseAPI}
  */
 export class ObservationsApi extends BaseAPI {
     /**
@@ -2658,7 +2415,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiCreateObservationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public createObservation(requestParameters: ObservationsApiCreateObservationRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).createObservation(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2670,7 +2426,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiCreateObservationSubmissionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public createObservationSubmission(requestParameters: ObservationsApiCreateObservationSubmissionRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).createObservationSubmission(requestParameters.tenantId, requestParameters.formId, requestParameters.observationId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2682,7 +2437,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiDeleteObservationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public deleteObservation(requestParameters: ObservationsApiDeleteObservationRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).deleteObservation(requestParameters.tenantId, requestParameters.observationId, options).then((request) => request(this.axios, this.basePath));
@@ -2694,7 +2448,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetDashboardRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getDashboard(requestParameters: ObservationsApiGetDashboardRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getDashboard(requestParameters.tenantId, requestParameters.dashboardId, requestParameters.personaIdentifier, options).then((request) => request(this.axios, this.basePath));
@@ -2706,7 +2459,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetDashboardPreferencesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getDashboardPreferences(requestParameters: ObservationsApiGetDashboardPreferencesRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getDashboardPreferences(requestParameters.tenantId, requestParameters.dashboardId, options).then((request) => request(this.axios, this.basePath));
@@ -2718,7 +2470,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetEvalueeSectionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getEvalueeSections(requestParameters: ObservationsApiGetEvalueeSectionsRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getEvalueeSections(requestParameters.tenantId, requestParameters.evalueeId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filterBy, options).then((request) => request(this.axios, this.basePath));
@@ -2730,7 +2481,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetFormQuestionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getFormQuestions(requestParameters: ObservationsApiGetFormQuestionsRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getFormQuestions(requestParameters.tenantId, requestParameters.formId, requestParameters.sectionId, requestParameters.pageIndex, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
@@ -2742,7 +2492,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetFormSectionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getFormSections(requestParameters: ObservationsApiGetFormSectionsRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getFormSections(requestParameters.tenantId, requestParameters.formId, requestParameters.pageIndex, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
@@ -2754,7 +2503,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetObservationByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getObservationById(requestParameters: ObservationsApiGetObservationByIdRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getObservationById(requestParameters.tenantId, requestParameters.observationId, options).then((request) => request(this.axios, this.basePath));
@@ -2766,7 +2514,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetObservationDraftRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getObservationDraft(requestParameters: ObservationsApiGetObservationDraftRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getObservationDraft(requestParameters.tenantId, requestParameters.observationId, requestParameters.formId, options).then((request) => request(this.axios, this.basePath));
@@ -2778,7 +2525,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetObservationSubmissionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getObservationSubmission(requestParameters: ObservationsApiGetObservationSubmissionRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getObservationSubmission(requestParameters.tenantId, requestParameters.observationId, requestParameters.formId, options).then((request) => request(this.axios, this.basePath));
@@ -2790,7 +2536,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetPaginatedAvailableCampusesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getPaginatedAvailableCampuses(requestParameters: ObservationsApiGetPaginatedAvailableCampusesRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getPaginatedAvailableCampuses(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.nameOfInstitution, options).then((request) => request(this.axios, this.basePath));
@@ -2802,7 +2547,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetPaginatedAvailableFormsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getPaginatedAvailableForms(requestParameters: ObservationsApiGetPaginatedAvailableFormsRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getPaginatedAvailableForms(requestParameters.tenantId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -2814,7 +2558,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetPaginatedCampusSectionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getPaginatedCampusSections(requestParameters: ObservationsApiGetPaginatedCampusSectionsRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getPaginatedCampusSections(requestParameters.tenantId, requestParameters.campusId, requestParameters.pageIndex, requestParameters.pageSize, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
@@ -2826,7 +2569,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetPaginatedEvalueesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getPaginatedEvaluees(requestParameters: ObservationsApiGetPaginatedEvalueesRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getPaginatedEvaluees(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.campus, requestParameters.evalueeId, requestParameters.firstName, requestParameters.lastName, options).then((request) => request(this.axios, this.basePath));
@@ -2838,7 +2580,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetPaginatedObservationsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getPaginatedObservations(requestParameters: ObservationsApiGetPaginatedObservationsRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getPaginatedObservations(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.campus, requestParameters.evalueeName, requestParameters.evalueeId, requestParameters.formId, requestParameters.status, requestParameters.from, requestParameters.to, options).then((request) => request(this.axios, this.basePath));
@@ -2850,7 +2591,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiGetSubmittedObservationsCountRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public getSubmittedObservationsCount(requestParameters: ObservationsApiGetSubmittedObservationsCountRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).getSubmittedObservationsCount(requestParameters.tenantId, requestParameters.evalueeId, requestParameters.campus, options).then((request) => request(this.axios, this.basePath));
@@ -2862,7 +2602,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiSaveDashboardPreferencesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public saveDashboardPreferences(requestParameters: ObservationsApiSaveDashboardPreferencesRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).saveDashboardPreferences(requestParameters.tenantId, requestParameters.dashboardId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2874,7 +2613,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiSearchPaginatedEvalueesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public searchPaginatedEvaluees(requestParameters: ObservationsApiSearchPaginatedEvalueesRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).searchPaginatedEvaluees(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.firstName, requestParameters.lastName, options).then((request) => request(this.axios, this.basePath));
@@ -2886,7 +2624,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiUpdateObservationRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public updateObservation(requestParameters: ObservationsApiUpdateObservationRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).updateObservation(requestParameters.tenantId, requestParameters.observationId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2898,7 +2635,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiUpsertObservationDraftRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public upsertObservationDraft(requestParameters: ObservationsApiUpsertObservationDraftRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).upsertObservationDraft(requestParameters.tenantId, requestParameters.observationId, requestParameters.formId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2910,7 +2646,6 @@ export class ObservationsApi extends BaseAPI {
      * @param {ObservationsApiVerifyDashboardAccessRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ObservationsApi
      */
     public verifyDashboardAccess(requestParameters: ObservationsApiVerifyDashboardAccessRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).verifyDashboardAccess(requestParameters.tenantId, requestParameters.edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, options).then((request) => request(this.axios, this.basePath));

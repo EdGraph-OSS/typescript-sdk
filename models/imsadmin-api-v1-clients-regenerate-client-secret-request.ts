@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IMSAdminApiV1ClientsRegenerateClientSecretRequest
- */
 export interface IMSAdminApiV1ClientsRegenerateClientSecretRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsRegenerateClientSecretRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsRegenerateClientSecretRequest
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsRegenerateClientSecretRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IMSAdminApiV1ClientsRegenerateClientSecretRequest
-     */
     'secretExpirationDateTime'?: string | null;
 }
 

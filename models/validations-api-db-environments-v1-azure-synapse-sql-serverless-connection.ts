@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection
- */
 export interface ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection
-     */
     'server'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection
-     */
     'database'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection
-     */
     'username'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection
-     */
     'password'?: string | null;
 }
 

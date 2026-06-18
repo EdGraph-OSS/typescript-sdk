@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1EdFiConnectionListModel } from './edfi-admin-api-edfi-admin-v1-ed-fi-connection-list-model';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1EdFiConnectionPaginatedItemsResponse
- */
 export interface EdfiAdminApiEdfiAdminV1EdFiConnectionPaginatedItemsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionPaginatedItemsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionPaginatedItemsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionPaginatedItemsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1EdFiConnectionListModel>}
-     * @memberof EdfiAdminApiEdfiAdminV1EdFiConnectionPaginatedItemsResponse
-     */
     'data'?: Array<EdfiAdminApiEdfiAdminV1EdFiConnectionListModel> | null;
 }
 

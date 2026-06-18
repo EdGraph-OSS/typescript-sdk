@@ -17,41 +17,11 @@
 // @ts-ignore
 import type { IdentityApiUserV1UserTenantProfile Types UserTenantLicenseProfile Types UserTenantLicenseRoleProfile } from './identity-api-user-v1-user-tenant-profile types user-tenant-license-profile types user-tenant-license-role-profile';
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfile
- */
 export interface IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfile
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfile
-     */
     'applicationName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfile
-     */
     'startDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfile
-     */
     'endDateTime'?: string | null;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV1UserTenantProfile Types UserTenantLicenseProfile Types UserTenantLicenseRoleProfile>}
-     * @memberof IdentityApiUserV1UserTenantProfileTypesUserTenantLicenseProfile
-     */
     'roles'?: Array<IdentityApiUserV1UserTenantProfile Types UserTenantLicenseProfile Types UserTenantLicenseRoleProfile> | null;
 }
 

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { AnalyticsApiADLSGen2ConnectorsV1ServicePrincipalAuthentication } from './analytics-api-adlsgen2-connectors-v1-service-principal-authentication';
 
-/**
- * 
- * @export
- * @interface AnalyticsApiADLSGen2ConnectorsV1AuthenticationType
- */
 export interface AnalyticsApiADLSGen2ConnectorsV1AuthenticationType {
-    /**
-     * 
-     * @type {AnalyticsApiADLSGen2ConnectorsV1ServicePrincipalAuthentication}
-     * @memberof AnalyticsApiADLSGen2ConnectorsV1AuthenticationType
-     */
     'servicePrincipalAuthentication'?: AnalyticsApiADLSGen2ConnectorsV1ServicePrincipalAuthentication;
 }
 

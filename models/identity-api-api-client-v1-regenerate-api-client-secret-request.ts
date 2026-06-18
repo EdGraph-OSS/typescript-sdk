@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiApiClientV1RegenerateApiClientSecretRequest
- */
 export interface IdentityApiApiClientV1RegenerateApiClientSecretRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1RegenerateApiClientSecretRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1RegenerateApiClientSecretRequest
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1RegenerateApiClientSecretRequest
-     */
     'secretExpirationDateTime'?: string | null;
 }
 

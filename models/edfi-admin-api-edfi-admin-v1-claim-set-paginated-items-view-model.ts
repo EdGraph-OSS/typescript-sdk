@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1ClaimSet } from './edfi-admin-api-edfi-admin-v1-claim-set';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1ClaimSetPaginatedItemsViewModel
- */
 export interface EdfiAdminApiEdfiAdminV1ClaimSetPaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetPaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetPaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetPaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1ClaimSet>}
-     * @memberof EdfiAdminApiEdfiAdminV1ClaimSetPaginatedItemsViewModel
-     */
     'data'?: Array<EdfiAdminApiEdfiAdminV1ClaimSet> | null;
 }
 

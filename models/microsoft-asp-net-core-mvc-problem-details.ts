@@ -14,43 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface MicrosoftAspNetCoreMvcProblemDetails
- */
 export interface MicrosoftAspNetCoreMvcProblemDetails {
     [key: string]: any;
 
-    /**
-     * 
-     * @type {string}
-     * @memberof MicrosoftAspNetCoreMvcProblemDetails
-     */
     'type'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof MicrosoftAspNetCoreMvcProblemDetails
-     */
     'title'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof MicrosoftAspNetCoreMvcProblemDetails
-     */
     'status'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof MicrosoftAspNetCoreMvcProblemDetails
-     */
     'detail'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof MicrosoftAspNetCoreMvcProblemDetails
-     */
     'instance'?: string | null;
 }
 

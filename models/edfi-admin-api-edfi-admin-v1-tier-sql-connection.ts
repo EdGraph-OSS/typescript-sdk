@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1TierSqlConnection
- */
 export interface EdfiAdminApiEdfiAdminV1TierSqlConnection {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TierSqlConnection
-     */
     'sqlServer'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TierSqlConnection
-     */
     'sqlServerUserName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TierSqlConnection
-     */
     'sqlServerPassword'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TierSqlConnection
-     */
     'azureSubscriptionId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TierSqlConnection
-     */
     'azureResourceGroupName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TierSqlConnection
-     */
     'azureServerName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1TierSqlConnection
-     */
     'azureServerElasticPoolName'?: string | null;
 }
 

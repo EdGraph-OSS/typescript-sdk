@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { GoogleProtobufWellKnownTypesValue } from './google-protobuf-well-known-types-value';
 
-/**
- * 
- * @export
- * @interface GoogleProtobufWellKnownTypesStruct
- */
 export interface GoogleProtobufWellKnownTypesStruct {
-    /**
-     * 
-     * @type {{ [key: string]: GoogleProtobufWellKnownTypesValue; }}
-     * @memberof GoogleProtobufWellKnownTypesStruct
-     */
     'fields'?: { [key: string]: GoogleProtobufWellKnownTypesValue; } | null;
 }
 

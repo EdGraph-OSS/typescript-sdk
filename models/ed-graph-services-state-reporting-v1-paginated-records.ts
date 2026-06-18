@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { EdGraphServicesStateReportingV1PaginatedRecords Types ReportingPeriodRecords } from './ed-graph-services-state-reporting-v1-paginated-records types reporting-period-records';
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1PaginatedRecords
- */
 export interface EdGraphServicesStateReportingV1PaginatedRecords {
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedRecords
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedRecords
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1PaginatedRecords
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<EdGraphServicesStateReportingV1PaginatedRecords Types ReportingPeriodRecords>}
-     * @memberof EdGraphServicesStateReportingV1PaginatedRecords
-     */
     'data'?: Array<EdGraphServicesStateReportingV1PaginatedRecords Types ReportingPeriodRecords> | null;
 }
 

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,7 +33,6 @@ import type { RegistrationApiRegistrationV2ApprovalStatus } from '../models';
 import type { RegistrationApiRegistrationV2SubmitTenantRegistrationRequest } from '../models';
 /**
  * RegistrationsApi - axios parameter creator
- * @export
  */
 export const RegistrationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -75,8 +74,8 @@ export const RegistrationsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['orderBy'] = orderBy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -97,7 +96,7 @@ export const RegistrationsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'registrationId' is not null or undefined
             assertParamExists('getRegistrationApprovalStatusAsync', 'registrationId', registrationId)
             const localVarPath = `/registrations/{registrationId}`
-                .replace(`{${"registrationId"}}`, encodeURIComponent(String(registrationId)));
+                .replace('{registrationId}', encodeURIComponent(String(registrationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -113,8 +112,8 @@ export const RegistrationsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -148,9 +147,8 @@ export const RegistrationsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -167,7 +165,6 @@ export const RegistrationsApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * RegistrationsApi - functional programming interface
- * @export
  */
 export const RegistrationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RegistrationsApiAxiosParamCreator(configuration)
@@ -218,7 +215,6 @@ export const RegistrationsApiFp = function(configuration?: Configuration) {
 
 /**
  * RegistrationsApi - factory interface
- * @export
  */
 export const RegistrationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = RegistrationsApiFp(configuration)
@@ -258,65 +254,43 @@ export const RegistrationsApiFactory = function (configuration?: Configuration, 
 
 /**
  * Request parameters for getOnboardingApplicationsAsync operation in RegistrationsApi.
- * @export
- * @interface RegistrationsApiGetOnboardingApplicationsAsyncRequest
  */
 export interface RegistrationsApiGetOnboardingApplicationsAsyncRequest {
     /**
      * 
-     * @type {number}
-     * @memberof RegistrationsApiGetOnboardingApplicationsAsync
      */
     readonly pageSize?: number
 
     /**
      * 
-     * @type {number}
-     * @memberof RegistrationsApiGetOnboardingApplicationsAsync
      */
     readonly pageIndex?: number
 
     /**
      * 
-     * @type {string}
-     * @memberof RegistrationsApiGetOnboardingApplicationsAsync
      */
     readonly orderBy?: string
 }
 
 /**
  * Request parameters for getRegistrationApprovalStatusAsync operation in RegistrationsApi.
- * @export
- * @interface RegistrationsApiGetRegistrationApprovalStatusAsyncRequest
  */
 export interface RegistrationsApiGetRegistrationApprovalStatusAsyncRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof RegistrationsApiGetRegistrationApprovalStatusAsync
-     */
     readonly registrationId: string
 }
 
 /**
  * Request parameters for submitTenantRegistrationAsync operation in RegistrationsApi.
- * @export
- * @interface RegistrationsApiSubmitTenantRegistrationAsyncRequest
  */
 export interface RegistrationsApiSubmitTenantRegistrationAsyncRequest {
     /**
      * 
-     * @type {RegistrationApiRegistrationV2SubmitTenantRegistrationRequest}
-     * @memberof RegistrationsApiSubmitTenantRegistrationAsync
      */
     readonly registrationApiRegistrationV2SubmitTenantRegistrationRequest?: RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
 }
 
 /**
  * RegistrationsApi - object-oriented interface
- * @export
- * @class RegistrationsApi
- * @extends {BaseAPI}
  */
 export class RegistrationsApi extends BaseAPI {
     /**
@@ -325,7 +299,6 @@ export class RegistrationsApi extends BaseAPI {
      * @param {RegistrationsApiGetOnboardingApplicationsAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RegistrationsApi
      */
     public getOnboardingApplicationsAsync(requestParameters: RegistrationsApiGetOnboardingApplicationsAsyncRequest = {}, options?: RawAxiosRequestConfig) {
         return RegistrationsApiFp(this.configuration).getOnboardingApplicationsAsync(requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
@@ -337,7 +310,6 @@ export class RegistrationsApi extends BaseAPI {
      * @param {RegistrationsApiGetRegistrationApprovalStatusAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RegistrationsApi
      */
     public getRegistrationApprovalStatusAsync(requestParameters: RegistrationsApiGetRegistrationApprovalStatusAsyncRequest, options?: RawAxiosRequestConfig) {
         return RegistrationsApiFp(this.configuration).getRegistrationApprovalStatusAsync(requestParameters.registrationId, options).then((request) => request(this.axios, this.basePath));
@@ -349,7 +321,6 @@ export class RegistrationsApi extends BaseAPI {
      * @param {RegistrationsApiSubmitTenantRegistrationAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RegistrationsApi
      */
     public submitTenantRegistrationAsync(requestParameters: RegistrationsApiSubmitTenantRegistrationAsyncRequest = {}, options?: RawAxiosRequestConfig) {
         return RegistrationsApiFp(this.configuration).submitTenantRegistrationAsync(requestParameters.registrationApiRegistrationV2SubmitTenantRegistrationRequest, options).then((request) => request(this.axios, this.basePath));

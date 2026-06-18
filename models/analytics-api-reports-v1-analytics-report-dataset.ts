@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface AnalyticsApiReportsV1AnalyticsReportDataset
- */
 export interface AnalyticsApiReportsV1AnalyticsReportDataset {
-    /**
-     * 
-     * @type {string}
-     * @memberof AnalyticsApiReportsV1AnalyticsReportDataset
-     */
     'datasetId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AnalyticsApiReportsV1AnalyticsReportDataset
-     */
     'isEffectiveIdentityRequired'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AnalyticsApiReportsV1AnalyticsReportDataset
-     */
     'isEffectiveIdentityRolesRequired'?: boolean;
 }
 

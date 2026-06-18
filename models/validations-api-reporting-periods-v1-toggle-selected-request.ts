@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiReportingPeriodsV1ToggleSelectedRequest
- */
 export interface ValidationsApiReportingPeriodsV1ToggleSelectedRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiReportingPeriodsV1ToggleSelectedRequest
-     */
     'reportingPeriodId'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiReportingPeriodsV1ToggleSelectedRequest
-     */
     'selected'?: boolean | null;
 }
 

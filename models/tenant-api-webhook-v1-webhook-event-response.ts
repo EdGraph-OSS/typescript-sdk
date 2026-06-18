@@ -14,77 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiWebhookV1WebhookEventResponse
- */
 export interface TenantApiWebhookV1WebhookEventResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookEventResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookEventResponse
-     */
     'createdAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookEventResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookEventResponse
-     */
     'updatedAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookEventResponse
-     */
     'updatedBy'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TenantApiWebhookV1WebhookEventResponse
-     */
     'isDeleted'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookEventResponse
-     */
     'provider'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookEventResponse
-     */
     'group'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookEventResponse
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiWebhookV1WebhookEventResponse
-     */
     'displayName'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof TenantApiWebhookV1WebhookEventResponse
-     */
     'scope'?: Array<string> | null;
 }
 

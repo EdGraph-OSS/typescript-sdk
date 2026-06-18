@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiTagsV1TagDto
- */
 export interface ValidationsApiTagsV1TagDto {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiTagsV1TagDto
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiTagsV1TagDto
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiTagsV1TagDto
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiTagsV1TagDto
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ValidationsApiTagsV1TagDto
-     */
     'isPublic'?: boolean;
 }
 

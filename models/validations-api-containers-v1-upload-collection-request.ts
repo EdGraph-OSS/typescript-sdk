@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface ValidationsApiContainersV1UploadCollectionRequest
- */
 export interface ValidationsApiContainersV1UploadCollectionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1UploadCollectionRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1UploadCollectionRequest
-     */
     'collectionJson'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationsApiContainersV1UploadCollectionRequest
-     */
     'environmentId'?: string | null;
 }
 

@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1LocalEducationAgency } from './edfi-admin-api-edfi-admin-v1-local-education-agency';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1LocalEducationAgencyCreatedResponse
- */
 export interface EdfiAdminApiEdfiAdminV1LocalEducationAgencyCreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgencyCreatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgencyCreatedResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {EdfiAdminApiEdfiAdminV1LocalEducationAgency}
-     * @memberof EdfiAdminApiEdfiAdminV1LocalEducationAgencyCreatedResponse
-     */
     'localEducationAgency'?: EdfiAdminApiEdfiAdminV1LocalEducationAgency;
 }
 

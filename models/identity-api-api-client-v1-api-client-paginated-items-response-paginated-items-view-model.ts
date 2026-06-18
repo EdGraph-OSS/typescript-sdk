@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IdentityApiApiClientV1ApiClientPaginatedItemsResponse } from './identity-api-api-client-v1-api-client-paginated-items-response';
 
-/**
- * 
- * @export
- * @interface IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel
- */
 export interface IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<IdentityApiApiClientV1ApiClientPaginatedItemsResponse>}
-     * @memberof IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel
-     */
     'data'?: Array<IdentityApiApiClientV1ApiClientPaginatedItemsResponse> | null;
 }
 

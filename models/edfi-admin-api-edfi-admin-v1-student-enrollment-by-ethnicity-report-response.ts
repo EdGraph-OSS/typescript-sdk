@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1StudentEnrollmentByEthnicityReportResponse
- */
 export interface EdfiAdminApiEdfiAdminV1StudentEnrollmentByEthnicityReportResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEnrollmentByEthnicityReportResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEnrollmentByEthnicityReportResponse
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEnrollmentByEthnicityReportResponse
-     */
     'localEducationAgencyId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEnrollmentByEthnicityReportResponse
-     */
     'localEducationAgencyName'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEnrollmentByEthnicityReportResponse
-     */
     'totalStudentCount'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1StudentEnrollmentByEthnicityReportResponse
-     */
     'hispanicLatinoPercent'?: number;
 }
 

@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface EvaluationApiEvaluationsV1CreateEvaluationRequest
- */
 export interface EvaluationApiEvaluationsV1CreateEvaluationRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1CreateEvaluationRequest
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1CreateEvaluationRequest
-     */
     'evaluationDate'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1CreateEvaluationRequest
-     */
     'campus'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1CreateEvaluationRequest
-     */
     'appraiserUserId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1CreateEvaluationRequest
-     */
     'staffUserId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1CreateEvaluationRequest
-     */
     'formId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1CreateEvaluationRequest
-     */
     'formVersion'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EvaluationApiEvaluationsV1CreateEvaluationRequest
-     */
     'campusClassId'?: string | null;
 }
 

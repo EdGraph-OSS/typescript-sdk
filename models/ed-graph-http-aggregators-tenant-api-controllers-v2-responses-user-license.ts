@@ -17,59 +17,14 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseRole } from './ed-graph-http-aggregators-tenant-api-controllers-v2-responses-user-license-role';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense
- */
 export interface EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense
-     */
     'applicationId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense
-     */
     'applicationName'?: string | null;
-    /**
-     * 
-     * @type {EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseRole}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense
-     */
     'role'?: EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseRole;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense
-     */
     'licenseStatus'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense
-     */
     'licenseSource'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense
-     */
     'educationOrganizationId'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense
-     */
     'educationOrganizationSource'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense
-     */
     'staffClassification'?: string | null;
 }
 

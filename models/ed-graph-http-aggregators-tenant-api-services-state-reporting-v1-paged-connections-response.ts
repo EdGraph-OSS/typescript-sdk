@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse } from './ed-graph-http-aggregators-tenant-api-services-state-reporting-v1-connection-profile-response';
 
-/**
- * 
- * @export
- * @interface EdGraphHttpAggregatorsTenantApiServicesStateReportingV1PagedConnectionsResponse
- */
 export interface EdGraphHttpAggregatorsTenantApiServicesStateReportingV1PagedConnectionsResponse {
-    /**
-     * 
-     * @type {Array<EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse>}
-     * @memberof EdGraphHttpAggregatorsTenantApiServicesStateReportingV1PagedConnectionsResponse
-     */
     'data'?: Array<EdGraphHttpAggregatorsTenantApiServicesStateReportingV1ConnectionProfileResponse> | null;
 }
 

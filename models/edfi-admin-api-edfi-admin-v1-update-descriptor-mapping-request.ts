@@ -17,65 +17,15 @@
 // @ts-ignore
 import type { EdfiAdminApiEdfiAdminV1DescriptorMappingModelEntity } from './edfi-admin-api-edfi-admin-v1-descriptor-mapping-model-entity';
 
-/**
- * 
- * @export
- * @interface EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest
- */
 export interface EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest
-     */
     'mappedNamespace'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest
-     */
     'mappedValue'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest
-     */
     'namespace'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest
-     */
     'value'?: string | null;
-    /**
-     * 
-     * @type {Array<EdfiAdminApiEdfiAdminV1DescriptorMappingModelEntity>}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest
-     */
     'modelEntities'?: Array<EdfiAdminApiEdfiAdminV1DescriptorMappingModelEntity> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest
-     */
     'etag'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest
-     */
     'instanceId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdfiAdminApiEdfiAdminV1UpdateDescriptorMappingRequest
-     */
     'year'?: number;
 }
 

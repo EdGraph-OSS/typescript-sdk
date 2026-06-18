@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface TenantApiTenantV1OnboardingStep
- */
 export interface TenantApiTenantV1OnboardingStep {
-    /**
-     * 
-     * @type {number}
-     * @memberof TenantApiTenantV1OnboardingStep
-     */
     'number'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1OnboardingStep
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1OnboardingStep
-     */
     'status'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1OnboardingStep
-     */
     'startedAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1OnboardingStep
-     */
     'completedAt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TenantApiTenantV1OnboardingStep
-     */
     'details'?: string | null;
 }
 

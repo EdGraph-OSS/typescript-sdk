@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiApiClientV1ApiClientCreatedResponse
- */
 export interface IdentityApiApiClientV1ApiClientCreatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientCreatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientCreatedResponse
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiApiClientV1ApiClientCreatedResponse
-     */
     'secretValue'?: string | null;
 }
 

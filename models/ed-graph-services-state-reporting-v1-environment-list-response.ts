@@ -14,71 +14,16 @@
 
 
 
-/**
- * 
- * @export
- * @interface EdGraphServicesStateReportingV1EnvironmentListResponse
- */
 export interface EdGraphServicesStateReportingV1EnvironmentListResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentListResponse
-     */
     'id'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentListResponse
-     */
     'createdBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentListResponse
-     */
     'createdDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentListResponse
-     */
     'lastModifiedBy'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentListResponse
-     */
     'lastModifiedDateTime'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentListResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentListResponse
-     */
     'year'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentListResponse
-     */
     'dbEnvironmentId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentListResponse
-     */
     'edFiInstanceId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdGraphServicesStateReportingV1EnvironmentListResponse
-     */
     'mode'?: string | null;
 }
 

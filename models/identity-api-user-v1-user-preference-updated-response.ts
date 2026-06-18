@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1UserPreferenceUpdatedResponse
- */
 export interface IdentityApiUserV1UserPreferenceUpdatedResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserPreferenceUpdatedResponse
-     */
     'tenantId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserPreferenceUpdatedResponse
-     */
     'clientId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserPreferenceUpdatedResponse
-     */
     'code'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityApiUserV1UserPreferenceUpdatedResponse
-     */
     'value'?: string | null;
 }
 

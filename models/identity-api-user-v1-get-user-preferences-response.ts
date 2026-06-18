@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IdentityApiUserV1Preference } from './identity-api-user-v1-preference';
 
-/**
- * 
- * @export
- * @interface IdentityApiUserV1GetUserPreferencesResponse
- */
 export interface IdentityApiUserV1GetUserPreferencesResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1GetUserPreferencesResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1GetUserPreferencesResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiUserV1GetUserPreferencesResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<IdentityApiUserV1Preference>}
-     * @memberof IdentityApiUserV1GetUserPreferencesResponse
-     */
     'data'?: Array<IdentityApiUserV1Preference> | null;
 }
 

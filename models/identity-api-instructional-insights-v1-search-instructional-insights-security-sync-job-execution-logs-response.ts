@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionLogMessage } from './identity-api-instructional-insights-v1-instructional-insights-security-sync-job-execution-log-message';
 
-/**
- * 
- * @export
- * @interface IdentityApiInstructionalInsightsV1SearchInstructionalInsightsSecuritySyncJobExecutionLogsResponse
- */
 export interface IdentityApiInstructionalInsightsV1SearchInstructionalInsightsSecuritySyncJobExecutionLogsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiInstructionalInsightsV1SearchInstructionalInsightsSecuritySyncJobExecutionLogsResponse
-     */
     'pageIndex'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiInstructionalInsightsV1SearchInstructionalInsightsSecuritySyncJobExecutionLogsResponse
-     */
     'pageSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdentityApiInstructionalInsightsV1SearchInstructionalInsightsSecuritySyncJobExecutionLogsResponse
-     */
     'count'?: number;
-    /**
-     * 
-     * @type {Array<IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionLogMessage>}
-     * @memberof IdentityApiInstructionalInsightsV1SearchInstructionalInsightsSecuritySyncJobExecutionLogsResponse
-     */
     'data'?: Array<IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionLogMessage> | null;
 }
 
