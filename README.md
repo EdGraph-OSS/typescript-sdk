@@ -1,4 +1,4 @@
-## @edgraph-oss/platform-client@0.0.43
+## @edgraph-oss/platform-client@0.0.44
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
@@ -36,7 +36,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install @edgraph-oss/platform-client@0.0.43 --save
+npm install @edgraph-oss/platform-client@0.0.44 --save
 ```
 
 _unPublished (not recommended):_
@@ -522,6 +522,7 @@ Class | Method | HTTP request | Description
 *SectionsApi* | [**getSections**](docs/SectionsApi.md#getsections) | **GET** /tenants/{tenantId}/sections | Retrieves a list of Sections.
 *SectionsApi* | [**searchSections**](docs/SectionsApi.md#searchsections) | **GET** /tenants/{tenantId}/forms/{formId}/sections | Search Sections
 *SectionsApi* | [**updateSection**](docs/SectionsApi.md#updatesection) | **PUT** /tenants/{tenantId}/forms/{formId}/sections/{sectionId} | Updates a Section.
+*SettingsApi* | [**getTenantSettingByCode**](docs/SettingsApi.md#gettenantsettingbycode) | **GET** /tenants/{tenantId}/tenantsettings/{code} | Retrieves a Tenant\&#39;s settings by code.
 *SettingsApi* | [**getTenantSettings**](docs/SettingsApi.md#gettenantsettings) | **GET** /tenants/{tenantId}/settings | Retrieves a list of the Tenant\&#39;s settings.
 *SettingsApi* | [**getTenantSettingsByCode**](docs/SettingsApi.md#gettenantsettingsbycode) | **GET** /tenants/{tenantId}/settings/{code} | Retrieves a Tenant\&#39;s settings by code.
 *SettingsApi* | [**setTenantSettings**](docs/SettingsApi.md#settenantsettings) | **POST** /tenants/{tenantId}/settings/{code} | Creates/updates a Tenant\&#39;s settings.
