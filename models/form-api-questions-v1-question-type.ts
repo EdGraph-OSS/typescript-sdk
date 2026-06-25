@@ -25,6 +25,7 @@ export const FormApiQuestionsV1QuestionType = {
     Scoring: 'Scoring',
     Html: 'Html',
     Image: 'Image',
+    Checkbox: 'Checkbox',
 } as const;
 
 export type FormApiQuestionsV1QuestionType = typeof FormApiQuestionsV1QuestionType[keyof typeof FormApiQuestionsV1QuestionType];

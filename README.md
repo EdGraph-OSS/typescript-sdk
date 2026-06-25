@@ -1,4 +1,4 @@
-## @edgraph-oss/platform-client@0.0.44
+## @edgraph-oss/platform-client@0.0.45
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
@@ -36,7 +36,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install @edgraph-oss/platform-client@0.0.44 --save
+npm install @edgraph-oss/platform-client@0.0.45 --save
 ```
 
 _unPublished (not recommended):_
@@ -431,6 +431,7 @@ Class | Method | HTTP request | Description
 *ObservationsApi* | [**createObservation**](docs/ObservationsApi.md#createobservation) | **POST** /tenants/{tenantId}/observations | Creates a new Observation for a given tenant
 *ObservationsApi* | [**createObservationSubmission**](docs/ObservationsApi.md#createobservationsubmission) | **POST** /tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/submit | Creates a submission for an available form referencing an existing observation
 *ObservationsApi* | [**deleteObservation**](docs/ObservationsApi.md#deleteobservation) | **DELETE** /tenants/{tenantId}/observations/{observationId} | Deletes an Observation for a given tenant
+*ObservationsApi* | [**getAvailableCampusesTotalEvaluees**](docs/ObservationsApi.md#getavailablecampusestotalevaluees) | **GET** /tenants/{tenantId}/observations/total-evaluees | Get the total number of evaluees across all available campuses
 *ObservationsApi* | [**getDashboard**](docs/ObservationsApi.md#getdashboard) | **GET** /tenants/{tenantId}/observations/dashboards/{dashboardId} | Get Observation Dashboard
 *ObservationsApi* | [**getDashboardPreferences**](docs/ObservationsApi.md#getdashboardpreferences) | **GET** /tenants/{tenantId}/observations/dashboards/{dashboardId}/preferences | Save user preferences for a given Dashboard
 *ObservationsApi* | [**getEvalueeSections**](docs/ObservationsApi.md#getevalueesections) | **GET** /tenants/{tenantId}/observations/evaluees/{evalueeId}/sections | Gets the Sections of an evaluee.
@@ -847,6 +848,7 @@ Class | Method | HTTP request | Description
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationRequest](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationRequest.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationResponse.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetApplicationSettingsResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetApplicationSettingsResponse.md)
+ - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetAvailableCampusesTotalEvalueesResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetAvailableCampusesTotalEvalueesResponse.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse.md)

@@ -207,6 +207,7 @@ export * from './ed-graph-http-aggregators-tenant-api-services-observations-form
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-version-configuration-request';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-version-configuration-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-get-application-settings-response';
+export * from './ed-graph-http-aggregators-tenant-api-services-observations-get-available-campuses-total-evaluees-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-get-staff-classification-settings-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-get-submitted-observations-count-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-observation-draft-response';

@@ -50,6 +50,8 @@ import type { EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponsePaginatedItemsViewModel } from '../models';
 // @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesObservationsGetAvailableCampusesTotalEvalueesResponse } from '../models';
+// @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse } from '../models';
@@ -200,6 +202,44 @@ export const ObservationsApiAxiosParamCreator = function (configuration?: Config
             }
 
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get the total number of evaluees across all available campuses
+         * @param {string} tenantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAvailableCampusesTotalEvaluees: async (tenantId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getAvailableCampusesTotalEvaluees', 'tenantId', tenantId)
+            const localVarPath = `/tenants/{tenantId}/observations/total-evaluees`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -1296,6 +1336,19 @@ export const ObservationsApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Get the total number of evaluees across all available campuses
+         * @param {string} tenantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAvailableCampusesTotalEvaluees(tenantId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsGetAvailableCampusesTotalEvalueesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAvailableCampusesTotalEvaluees(tenantId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ObservationsApi.getAvailableCampusesTotalEvaluees']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Get Observation Dashboard
          * @param {string} tenantId 
          * @param {string} dashboardId 
@@ -1647,6 +1700,16 @@ export const ObservationsApiFactory = function (configuration?: Configuration, b
         },
         /**
          * 
+         * @summary Get the total number of evaluees across all available campuses
+         * @param {ObservationsApiGetAvailableCampusesTotalEvalueesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAvailableCampusesTotalEvaluees(requestParameters: ObservationsApiGetAvailableCampusesTotalEvalueesRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesObservationsGetAvailableCampusesTotalEvalueesResponse> {
+            return localVarFp.getAvailableCampusesTotalEvaluees(requestParameters.tenantId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Get Observation Dashboard
          * @param {ObservationsApiGetDashboardRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -1888,6 +1951,16 @@ export interface ObservationsApiDeleteObservationRequest {
      * 
      */
     readonly observationId: string
+}
+
+/**
+ * Request parameters for getAvailableCampusesTotalEvaluees operation in ObservationsApi.
+ */
+export interface ObservationsApiGetAvailableCampusesTotalEvalueesRequest {
+    /**
+     * 
+     */
+    readonly tenantId: string
 }
 
 /**
@@ -2440,6 +2513,17 @@ export class ObservationsApi extends BaseAPI {
      */
     public deleteObservation(requestParameters: ObservationsApiDeleteObservationRequest, options?: RawAxiosRequestConfig) {
         return ObservationsApiFp(this.configuration).deleteObservation(requestParameters.tenantId, requestParameters.observationId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get the total number of evaluees across all available campuses
+     * @param {ObservationsApiGetAvailableCampusesTotalEvalueesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getAvailableCampusesTotalEvaluees(requestParameters: ObservationsApiGetAvailableCampusesTotalEvalueesRequest, options?: RawAxiosRequestConfig) {
+        return ObservationsApiFp(this.configuration).getAvailableCampusesTotalEvaluees(requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
