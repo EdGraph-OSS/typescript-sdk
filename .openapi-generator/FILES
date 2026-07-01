@@ -664,9 +664,7 @@ docs/FormApiFormsV1FormSource.md
 docs/FormApiFormsV1FormStatus.md
 docs/FormApiFormsV1FormUpdatedResponse.md
 docs/FormApiFormsV1FullFormCreatedResponse.md
-docs/FormApiFormsV1FullFormSchemaResponse.md
 docs/FormApiFormsV1FullFormUpdatedResponse.md
-docs/FormApiFormsV1SchemaStatus.md
 docs/FormApiFormsV1SetFormAccessRequest.md
 docs/FormApiFormsV1UpdateFormRequest.md
 docs/FormApiFormsV1UpdateFullFormRequest.md
@@ -1681,9 +1679,7 @@ models/form-api-forms-v1-form-source.ts
 models/form-api-forms-v1-form-status.ts
 models/form-api-forms-v1-form-updated-response.ts
 models/form-api-forms-v1-full-form-created-response.ts
-models/form-api-forms-v1-full-form-schema-response.ts
 models/form-api-forms-v1-full-form-updated-response.ts
-models/form-api-forms-v1-schema-status.ts
 models/form-api-forms-v1-set-form-access-request.ts
 models/form-api-forms-v1-update-form-request.ts
 models/form-api-forms-v1-update-full-form-request.ts

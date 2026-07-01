@@ -46,8 +46,6 @@ import type { FormApiFormsV1FormUpdatedResponse } from '../models';
 // @ts-ignore
 import type { FormApiFormsV1FullFormCreatedResponse } from '../models';
 // @ts-ignore
-import type { FormApiFormsV1FullFormSchemaResponse } from '../models';
-// @ts-ignore
 import type { FormApiFormsV1FullFormUpdatedResponse } from '../models';
 // @ts-ignore
 import type { FormApiFormsV1SetFormAccessRequest } from '../models';
@@ -286,48 +284,6 @@ export const FormsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'formId' is not null or undefined
             assertParamExists('getFormAccess', 'formId', formId)
             const localVarPath = `/tenants/{tenantId}/forms/{formId}/access`
-                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
-                .replace('{formId}', encodeURIComponent(String(formId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
-
-            localVarHeaderParameter['Accept'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Get a Forms Json and UI React JSON compatible Schema.
-         * @param {string} tenantId 
-         * @param {string} formId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getFullFormSchema: async (tenantId: string, formId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenantId' is not null or undefined
-            assertParamExists('getFullFormSchema', 'tenantId', tenantId)
-            // verify required parameter 'formId' is not null or undefined
-            assertParamExists('getFullFormSchema', 'formId', formId)
-            const localVarPath = `/tenants/{tenantId}/forms/{formId}/full/schemas`
                 .replace('{tenantId}', encodeURIComponent(String(tenantId)))
                 .replace('{formId}', encodeURIComponent(String(formId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -685,20 +641,6 @@ export const FormsApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @summary Get a Forms Json and UI React JSON compatible Schema.
-         * @param {string} tenantId 
-         * @param {string} formId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getFullFormSchema(tenantId: string, formId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormApiFormsV1FullFormSchemaResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFullFormSchema(tenantId, formId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['FormsApi.getFullFormSchema']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
          * @summary Imports all form data for a given tenant.
          * @param {string} tenantId 
          * @param {object} [body] 
@@ -844,16 +786,6 @@ export const FormsApiFactory = function (configuration?: Configuration, basePath
         },
         /**
          * 
-         * @summary Get a Forms Json and UI React JSON compatible Schema.
-         * @param {FormsApiGetFullFormSchemaRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getFullFormSchema(requestParameters: FormsApiGetFullFormSchemaRequest, options?: RawAxiosRequestConfig): AxiosPromise<FormApiFormsV1FullFormSchemaResponse> {
-            return localVarFp.getFullFormSchema(requestParameters.tenantId, requestParameters.formId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
          * @summary Imports all form data for a given tenant.
          * @param {FormsApiImportFormRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -984,21 +916,6 @@ export interface FormsApiGetFormRequest {
  * Request parameters for getFormAccess operation in FormsApi.
  */
 export interface FormsApiGetFormAccessRequest {
-    /**
-     * 
-     */
-    readonly tenantId: string
-
-    /**
-     * 
-     */
-    readonly formId: string
-}
-
-/**
- * Request parameters for getFullFormSchema operation in FormsApi.
- */
-export interface FormsApiGetFullFormSchemaRequest {
     /**
      * 
      */
@@ -1183,17 +1100,6 @@ export class FormsApi extends BaseAPI {
      */
     public getFormAccess(requestParameters: FormsApiGetFormAccessRequest, options?: RawAxiosRequestConfig) {
         return FormsApiFp(this.configuration).getFormAccess(requestParameters.tenantId, requestParameters.formId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Get a Forms Json and UI React JSON compatible Schema.
-     * @param {FormsApiGetFullFormSchemaRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public getFullFormSchema(requestParameters: FormsApiGetFullFormSchemaRequest, options?: RawAxiosRequestConfig) {
-        return FormsApiFp(this.configuration).getFullFormSchema(requestParameters.tenantId, requestParameters.formId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

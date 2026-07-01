@@ -1,4 +1,4 @@
-## @edgraph-oss/platform-client@0.0.45
+## @edgraph-oss/platform-client@0.0.46
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
@@ -36,7 +36,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install @edgraph-oss/platform-client@0.0.45 --save
+npm install @edgraph-oss/platform-client@0.0.46 --save
 ```
 
 _unPublished (not recommended):_
@@ -68,10 +68,8 @@ Class | Method | HTTP request | Description
 *ApplicationsApi* | [**getTenantApplicationProfileByIdAsync**](docs/ApplicationsApi.md#gettenantapplicationprofilebyidasync) | **GET** /tenants/{tenantId}/applications/{applicationId} | Retrieves an application
 *ApplicationsApi* | [**getTenantApplicationsAsync**](docs/ApplicationsApi.md#gettenantapplicationsasync) | **GET** /tenants/{tenantId}/applications | Retrieves a list of applications associated to this tenant
 *ApplicationsSettingsApi* | [**getClientSettingsAsync**](docs/ApplicationsSettingsApi.md#getclientsettingsasync) | **GET** /tenants/{tenantId}/clients/{clientId}/settings | Retrieves a list of a Tenant\&#39;s ClientSettings.
-*ApplicationsSettingsApi* | [**getClientSettingsByCodeAsync**](docs/ApplicationsSettingsApi.md#getclientsettingsbycodeasync) | **GET** /tenants/{tenantId}/clients/{clientId}/settings/{code} | Retrieves a Tenant\&#39;s ClientSetting by code.
 *ApplicationsSettingsApi* | [**getClientSettingsTypesAsync**](docs/ApplicationsSettingsApi.md#getclientsettingstypesasync) | **GET** /tenants/{tenantId}/clients/{clientId}/settingstypes | Retrieves a list of ClientSettingsTypes.
 *ApplicationsSettingsApi* | [**setClientSettingsAsync**](docs/ApplicationsSettingsApi.md#setclientsettingsasync) | **POST** /tenants/{tenantId}/clients/{clientId}/settings | Creates/updates a Tenant\&#39;s ClientSettings.
-*ApplicationsSettingsApi* | [**setClientSettingsByCodeAsync**](docs/ApplicationsSettingsApi.md#setclientsettingsbycodeasync) | **POST** /tenants/{tenantId}/clients/{clientId}/settings/{code} | Creates/updates a Tenant\&#39;s ClientSetting by code.
 *ApplicationsTilesApi* | [**getTenantApplicationTilesAsync**](docs/ApplicationsTilesApi.md#gettenantapplicationtilesasync) | **GET** /tenants/{tenantId}/applicationtiles | Retrieves a list of applications licensed to the user that is currently logged in the context of this tenant
 *CacheApi* | [**refreshUserProfileCache**](docs/CacheApi.md#refreshuserprofilecache) | **POST** /me/cache/refresh | Refreshes the user\&#39;s profile cache.
 *CapacitiesApi* | [**assignMyGroupToCapacity**](docs/CapacitiesApi.md#assignmygrouptocapacity) | **POST** /tenants/{tenantId}/analytics/capacities | Assigns the specified group to the specified capacity.
@@ -233,7 +231,6 @@ Class | Method | HTTP request | Description
 *FormsApi* | [**duplicateForm**](docs/FormsApi.md#duplicateform) | **POST** /tenants/{tenantId}/forms/{formId}/duplicate | Duplicates all Form data for a given tenant (with Sections and Questions).
 *FormsApi* | [**getForm**](docs/FormsApi.md#getform) | **GET** /tenants/{tenantId}/forms/{formId} | Get Form.
 *FormsApi* | [**getFormAccess**](docs/FormsApi.md#getformaccess) | **GET** /tenants/{tenantId}/forms/{formId}/access | Get the Access Type for a Form.
-*FormsApi* | [**getFullFormSchema**](docs/FormsApi.md#getfullformschema) | **GET** /tenants/{tenantId}/forms/{formId}/full/schemas | Get a Forms Json and UI React JSON compatible Schema.
 *FormsApi* | [**importForm**](docs/FormsApi.md#importform) | **POST** /tenants/{tenantId}/forms/import | Imports all form data for a given tenant.
 *FormsApi* | [**searchForms**](docs/FormsApi.md#searchforms) | **GET** /tenants/{tenantId}/forms | Search Forms
 *FormsApi* | [**setFormAccess**](docs/FormsApi.md#setformaccess) | **PUT** /tenants/{tenantId}/forms/{formId}/access | Sets the Access Type for a Form.
@@ -523,7 +520,6 @@ Class | Method | HTTP request | Description
 *SectionsApi* | [**getSections**](docs/SectionsApi.md#getsections) | **GET** /tenants/{tenantId}/sections | Retrieves a list of Sections.
 *SectionsApi* | [**searchSections**](docs/SectionsApi.md#searchsections) | **GET** /tenants/{tenantId}/forms/{formId}/sections | Search Sections
 *SectionsApi* | [**updateSection**](docs/SectionsApi.md#updatesection) | **PUT** /tenants/{tenantId}/forms/{formId}/sections/{sectionId} | Updates a Section.
-*SettingsApi* | [**getTenantSettingByCode**](docs/SettingsApi.md#gettenantsettingbycode) | **GET** /tenants/{tenantId}/tenantsettings/{code} | Retrieves a Tenant\&#39;s settings by code.
 *SettingsApi* | [**getTenantSettings**](docs/SettingsApi.md#gettenantsettings) | **GET** /tenants/{tenantId}/settings | Retrieves a list of the Tenant\&#39;s settings.
 *SettingsApi* | [**getTenantSettingsByCode**](docs/SettingsApi.md#gettenantsettingsbycode) | **GET** /tenants/{tenantId}/settings/{code} | Retrieves a Tenant\&#39;s settings by code.
 *SettingsApi* | [**setTenantSettings**](docs/SettingsApi.md#settenantsettings) | **POST** /tenants/{tenantId}/settings/{code} | Creates/updates a Tenant\&#39;s settings.
@@ -614,7 +610,10 @@ Class | Method | HTTP request | Description
 *UsersSectionsApi* | [**removeUserSectionBulk**](docs/UsersSectionsApi.md#removeusersectionbulk) | **DELETE** /tenants/{tenantId}/users/{userId}/sections/bulk | Removes Sections from a user in bulk.
 *UsersSectionsApi* | [**updateUserSection**](docs/UsersSectionsApi.md#updateusersection) | **PUT** /tenants/{tenantId}/users/{userId}/sections/{userSectionId} | Updates the Section of a user.
 *UsersSectionsApi* | [**updateUserSectionBulk**](docs/UsersSectionsApi.md#updateusersectionbulk) | **PUT** /tenants/{tenantId}/users/{userId}/sections/bulk | Updates the Section of a user in bulk.
+*V1Api* | [**getStudentProfile**](docs/V1Api.md#getstudentprofile) | **GET** /students/{tenantId}/students/{id} | Returns the admin profile for a single student.
+*V1Api* | [**getStudents**](docs/V1Api.md#getstudents) | **GET** /students/{tenantId} | Returns a paginated list of students for the given tenant.
 *V1Api* | [**releaseUserLockout**](docs/V1Api.md#releaseuserlockout) | **PUT** /tenants/{tenantId}/users/{userId}/releaselockout | 
+*V1Api* | [**updateStudentContacts**](docs/V1Api.md#updatestudentcontacts) | **PUT** /students/{tenantId}/{studentId}/contacts | Updates the contact overrides for a student.
 *ValidationResultsAPIApi* | [**findResultsApiJobRunRecordsAsync**](docs/ValidationResultsAPIApi.md#findresultsapijobrunrecordsasync) | **GET** /tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/records | Retrieves a list of Job Run Records from the Validation Results API.
 *ValidationResultsAPIApi* | [**findResultsApiJobRunRuleRecordsAsync**](docs/ValidationResultsAPIApi.md#findresultsapijobrunrulerecordsasync) | **GET** /tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/rules/{ruleId}/records | Retrieves a list of Job Run Rule Records from the Validation Results API.
 *ValidationResultsAPIApi* | [**findResultsApiJobRunRulesAsync**](docs/ValidationResultsAPIApi.md#findresultsapijobrunrulesasync) | **GET** /tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/rules | Retrieves a list of Job Run Rules from the Validation Results API.
@@ -1168,9 +1167,7 @@ Class | Method | HTTP request | Description
  - [FormApiFormsV1FormStatus](docs/FormApiFormsV1FormStatus.md)
  - [FormApiFormsV1FormUpdatedResponse](docs/FormApiFormsV1FormUpdatedResponse.md)
  - [FormApiFormsV1FullFormCreatedResponse](docs/FormApiFormsV1FullFormCreatedResponse.md)
- - [FormApiFormsV1FullFormSchemaResponse](docs/FormApiFormsV1FullFormSchemaResponse.md)
  - [FormApiFormsV1FullFormUpdatedResponse](docs/FormApiFormsV1FullFormUpdatedResponse.md)
- - [FormApiFormsV1SchemaStatus](docs/FormApiFormsV1SchemaStatus.md)
  - [FormApiFormsV1SetFormAccessRequest](docs/FormApiFormsV1SetFormAccessRequest.md)
  - [FormApiFormsV1UpdateFormRequest](docs/FormApiFormsV1UpdateFormRequest.md)
  - [FormApiFormsV1UpdateFullFormRequest](docs/FormApiFormsV1UpdateFullFormRequest.md)

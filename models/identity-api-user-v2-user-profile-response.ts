@@ -42,8 +42,5 @@ export interface IdentityApiUserV2UserProfileResponse {
     'platformRole'?: string | null;
     'tenantStatus'?: string | null;
     'tenantAdmin'?: boolean | null;
-    'isDeleted'?: boolean;
-    'deletedDateTime'?: string | null;
-    'deletedBy'?: string | null;
 }
 

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **tenantId** | **string** |  | [optional] [default to undefined]
 **role** | **string** |  | [optional] [default to undefined]
 **assignedPersonaIdentifiers** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
+**ignoreOrganization** | **boolean** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -18,6 +19,7 @@ const instance: EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfig
     tenantId,
     role,
     assignedPersonaIdentifiers,
+    ignoreOrganization,
 };
 ```
 

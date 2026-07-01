@@ -40,8 +40,5 @@ export interface EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsR
     'source'?: string | null;
     'lastLoginDateTime'?: string | null;
     'mfaCompleted'?: boolean;
-    'isDeleted'?: boolean;
-    'deletedDateTime'?: string | null;
-    'deletedBy'?: string | null;
 }
 

@@ -33,55 +33,11 @@ import type { TenantApiTenantV1SetAppSettingsRequest } from '../models';
 import type { TenantApiTenantV1SetAppSettingsResponse } from '../models';
 // @ts-ignore
 import type { TenantApiTenantV1TenantAppSettings } from '../models';
-// @ts-ignore
-import type { TenantApiTenantV1TenantSetting } from '../models';
 /**
  * SettingsApi - axios parameter creator
  */
 export const SettingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
-        /**
-         * 
-         * @summary Retrieves a Tenant\'s settings by code.
-         * @param {string} tenantId 
-         * @param {string} code 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getTenantSettingByCode: async (tenantId: string, code: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenantId' is not null or undefined
-            assertParamExists('getTenantSettingByCode', 'tenantId', tenantId)
-            // verify required parameter 'code' is not null or undefined
-            assertParamExists('getTenantSettingByCode', 'code', code)
-            const localVarPath = `/tenants/{tenantId}/tenantsettings/{code}`
-                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
-                .replace('{code}', encodeURIComponent(String(code)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
-
-            localVarHeaderParameter['Accept'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
         /**
          * 
          * @summary Retrieves a list of the Tenant\'s settings.
@@ -238,20 +194,6 @@ export const SettingsApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @summary Retrieves a Tenant\'s settings by code.
-         * @param {string} tenantId 
-         * @param {string} code 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getTenantSettingByCode(tenantId: string, code: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiTenantV1TenantSetting>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTenantSettingByCode(tenantId, code, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SettingsApi.getTenantSettingByCode']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
          * @summary Retrieves a list of the Tenant\'s settings.
          * @param {string} tenantId 
          * @param {number} [pageIndex] 
@@ -307,16 +249,6 @@ export const SettingsApiFactory = function (configuration?: Configuration, baseP
     return {
         /**
          * 
-         * @summary Retrieves a Tenant\'s settings by code.
-         * @param {SettingsApiGetTenantSettingByCodeRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getTenantSettingByCode(requestParameters: SettingsApiGetTenantSettingByCodeRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiTenantV1TenantSetting> {
-            return localVarFp.getTenantSettingByCode(requestParameters.tenantId, requestParameters.code, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
          * @summary Retrieves a list of the Tenant\'s settings.
          * @param {SettingsApiGetTenantSettingsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -347,21 +279,6 @@ export const SettingsApiFactory = function (configuration?: Configuration, baseP
         },
     };
 };
-
-/**
- * Request parameters for getTenantSettingByCode operation in SettingsApi.
- */
-export interface SettingsApiGetTenantSettingByCodeRequest {
-    /**
-     * 
-     */
-    readonly tenantId: string
-
-    /**
-     * 
-     */
-    readonly code: string
-}
 
 /**
  * Request parameters for getTenantSettings operation in SettingsApi.
@@ -432,17 +349,6 @@ export interface SettingsApiSetTenantSettingsRequest {
  * SettingsApi - object-oriented interface
  */
 export class SettingsApi extends BaseAPI {
-    /**
-     * 
-     * @summary Retrieves a Tenant\'s settings by code.
-     * @param {SettingsApiGetTenantSettingByCodeRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public getTenantSettingByCode(requestParameters: SettingsApiGetTenantSettingByCodeRequest, options?: RawAxiosRequestConfig) {
-        return SettingsApiFp(this.configuration).getTenantSettingByCode(requestParameters.tenantId, requestParameters.code, options).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * 
      * @summary Retrieves a list of the Tenant\'s settings.

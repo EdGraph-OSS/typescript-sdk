@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **edFiInstanceId** | **string** |  | [optional] [default to undefined]
 **useSSAInsteadOfSEOAA** | [**DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions**](DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions.md) |  | [optional] [default to undefined]
 **importSectionAndCourseData** | **boolean** |  | [optional] [default to undefined]
+**useStaffEdOrgContactAssociationForEmails** | **boolean** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -40,6 +41,7 @@ const instance: DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile = {
     edFiInstanceId,
     useSSAInsteadOfSEOAA,
     importSectionAndCourseData,
+    useStaffEdOrgContactAssociationForEmails,
 };
 ```
 

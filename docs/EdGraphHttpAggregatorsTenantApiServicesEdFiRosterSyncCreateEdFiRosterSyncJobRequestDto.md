@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **mode** | **string** |  | [optional] [default to undefined]
 **use_SSA_InsteadOf_SEOAA** | [**DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions**](DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions.md) |  | [optional] [default to undefined]
 **importSectionAndCourseData** | **boolean** |  | [optional] [default to undefined]
+**useStaffEdOrgContactAssociationForEmails** | **boolean** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -18,6 +19,7 @@ const instance: EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiR
     mode,
     use_SSA_InsteadOf_SEOAA,
     importSectionAndCourseData,
+    useStaffEdOrgContactAssociationForEmails,
 };
 ```
 

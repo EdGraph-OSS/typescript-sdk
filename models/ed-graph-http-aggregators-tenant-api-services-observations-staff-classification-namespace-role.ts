@@ -17,5 +17,6 @@
 export interface EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole {
     'role'?: string | null;
     'assignedPersonaIdentifiers'?: Array<string> | null;
+    'ignoreOrganization'?: boolean;
 }
 

@@ -38,6 +38,7 @@ export interface DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile {
     'edFiInstanceId'?: string | null;
     'useSSAInsteadOfSEOAA'?: DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions;
     'importSectionAndCourseData'?: boolean | null;
+    'useStaffEdOrgContactAssociationForEmails'?: boolean | null;
 }
 
 

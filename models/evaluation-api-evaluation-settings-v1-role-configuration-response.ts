@@ -20,5 +20,6 @@
 export interface EvaluationApiEvaluationSettingsV1RoleConfigurationResponse {
     'role'?: string | null;
     'assignedPersonaIdentifiers'?: Array<string> | null;
+    'ignoreOrganization'?: boolean | null;
 }
 

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **role** | **string** |  | [optional] [default to undefined]
 **assignedPersonaIdentifiers** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
+**ignoreOrganization** | **boolean** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -16,6 +17,7 @@ import { EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationN
 const instance: EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole = {
     role,
     assignedPersonaIdentifiers,
+    ignoreOrganization,
 };
 ```
 

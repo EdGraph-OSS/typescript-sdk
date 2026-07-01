@@ -24,9 +24,6 @@ Name | Type | Description | Notes
 **platformRole** | **string** |  | [optional] [default to undefined]
 **tenantStatus** | **string** |  | [optional] [default to undefined]
 **tenantAdmin** | **boolean** |  | [optional] [default to undefined]
-**isDeleted** | **boolean** |  | [optional] [default to undefined]
-**deletedDateTime** | **string** |  | [optional] [default to undefined]
-**deletedBy** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -52,9 +49,6 @@ const instance: IdentityApiUserV2UserProfileResponse = {
     platformRole,
     tenantStatus,
     tenantAdmin,
-    isDeleted,
-    deletedDateTime,
-    deletedBy,
 };
 ```
 

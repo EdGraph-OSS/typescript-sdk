@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **role** | **string** |  | [optional] [default to undefined]
 **assignedPersonaIdentifiers** | **Array&lt;string&gt;** |  | [optional] [readonly] [default to undefined]
+**ignoreOrganization** | **boolean** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -17,6 +18,7 @@ import { EvaluationApiEvaluationSettingsV1RoleConfigurationResponse } from '@edg
 const instance: EvaluationApiEvaluationSettingsV1RoleConfigurationResponse = {
     role,
     assignedPersonaIdentifiers,
+    ignoreOrganization,
 };
 ```
 

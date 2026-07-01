@@ -34,6 +34,111 @@ export const V1ApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
+         * @summary Returns the admin profile for a single student.
+         * @param {string} tenantId 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudentProfile: async (tenantId: string, id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getStudentProfile', 'tenantId', tenantId)
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getStudentProfile', 'id', id)
+            const localVarPath = `/students/{tenantId}/students/{id}`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Returns a paginated list of students for the given tenant.
+         * @param {string} tenantId 
+         * @param {string} [campus] 
+         * @param {string} [pathway] 
+         * @param {string} [status] 
+         * @param {number} [pageIndex] 
+         * @param {number} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudents: async (tenantId: string, campus?: string, pathway?: string, status?: string, pageIndex?: number, pageSize?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getStudents', 'tenantId', tenantId)
+            const localVarPath = `/students/{tenantId}`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            if (campus !== undefined) {
+                localVarQueryParameter['campus'] = campus;
+            }
+
+            if (pathway !== undefined) {
+                localVarQueryParameter['pathway'] = pathway;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (pageIndex !== undefined) {
+                localVarQueryParameter['pageIndex'] = pageIndex;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {string} tenantId 
          * @param {string} userId 
          * @param {*} [options] Override http request option.
@@ -73,6 +178,51 @@ export const V1ApiAxiosParamCreator = function (configuration?: Configuration) {
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Updates the contact overrides for a student.
+         * @param {string} tenantId 
+         * @param {string} studentId 
+         * @param {any} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateStudentContacts: async (tenantId: string, studentId: string, body?: any, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('updateStudentContacts', 'tenantId', tenantId)
+            // verify required parameter 'studentId' is not null or undefined
+            assertParamExists('updateStudentContacts', 'studentId', studentId)
+            const localVarPath = `/students/{tenantId}/{studentId}/contacts`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{studentId}', encodeURIComponent(String(studentId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -82,6 +232,38 @@ export const V1ApiAxiosParamCreator = function (configuration?: Configuration) {
 export const V1ApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = V1ApiAxiosParamCreator(configuration)
     return {
+        /**
+         * 
+         * @summary Returns the admin profile for a single student.
+         * @param {string} tenantId 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getStudentProfile(tenantId: string, id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStudentProfile(tenantId, id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['V1Api.getStudentProfile']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Returns a paginated list of students for the given tenant.
+         * @param {string} tenantId 
+         * @param {string} [campus] 
+         * @param {string} [pathway] 
+         * @param {string} [status] 
+         * @param {number} [pageIndex] 
+         * @param {number} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getStudents(tenantId: string, campus?: string, pathway?: string, status?: string, pageIndex?: number, pageSize?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStudents(tenantId, campus, pathway, status, pageIndex, pageSize, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['V1Api.getStudents']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
         /**
          * 
          * @param {string} tenantId 
@@ -95,6 +277,21 @@ export const V1ApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['V1Api.releaseUserLockout']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * 
+         * @summary Updates the contact overrides for a student.
+         * @param {string} tenantId 
+         * @param {string} studentId 
+         * @param {any} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateStudentContacts(tenantId: string, studentId: string, body?: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStudentContacts(tenantId, studentId, body, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['V1Api.updateStudentContacts']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -106,6 +303,26 @@ export const V1ApiFactory = function (configuration?: Configuration, basePath?: 
     return {
         /**
          * 
+         * @summary Returns the admin profile for a single student.
+         * @param {V1ApiGetStudentProfileRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudentProfile(requestParameters: V1ApiGetStudentProfileRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.getStudentProfile(requestParameters.tenantId, requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Returns a paginated list of students for the given tenant.
+         * @param {V1ApiGetStudentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudents(requestParameters: V1ApiGetStudentsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.getStudents(requestParameters.tenantId, requestParameters.campus, requestParameters.pathway, requestParameters.status, requestParameters.pageIndex, requestParameters.pageSize, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {V1ApiReleaseUserLockoutRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -113,8 +330,44 @@ export const V1ApiFactory = function (configuration?: Configuration, basePath?: 
         releaseUserLockout(requestParameters: V1ApiReleaseUserLockoutRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdentityApiUserV1ReleaseUserLockoutResponse> {
             return localVarFp.releaseUserLockout(requestParameters.tenantId, requestParameters.userId, options).then((request) => request(axios, basePath));
         },
+        /**
+         * 
+         * @summary Updates the contact overrides for a student.
+         * @param {V1ApiUpdateStudentContactsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateStudentContacts(requestParameters: V1ApiUpdateStudentContactsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.updateStudentContacts(requestParameters.tenantId, requestParameters.studentId, requestParameters.body, options).then((request) => request(axios, basePath));
+        },
     };
 };
+
+/**
+ * Request parameters for getStudentProfile operation in V1Api.
+ */
+export interface V1ApiGetStudentProfileRequest {
+    readonly tenantId: string
+
+    readonly id: string
+}
+
+/**
+ * Request parameters for getStudents operation in V1Api.
+ */
+export interface V1ApiGetStudentsRequest {
+    readonly tenantId: string
+
+    readonly campus?: string
+
+    readonly pathway?: string
+
+    readonly status?: string
+
+    readonly pageIndex?: number
+
+    readonly pageSize?: number
+}
 
 /**
  * Request parameters for releaseUserLockout operation in V1Api.
@@ -126,9 +379,42 @@ export interface V1ApiReleaseUserLockoutRequest {
 }
 
 /**
+ * Request parameters for updateStudentContacts operation in V1Api.
+ */
+export interface V1ApiUpdateStudentContactsRequest {
+    readonly tenantId: string
+
+    readonly studentId: string
+
+    readonly body?: any
+}
+
+/**
  * V1Api - object-oriented interface
  */
 export class V1Api extends BaseAPI {
+    /**
+     * 
+     * @summary Returns the admin profile for a single student.
+     * @param {V1ApiGetStudentProfileRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getStudentProfile(requestParameters: V1ApiGetStudentProfileRequest, options?: RawAxiosRequestConfig) {
+        return V1ApiFp(this.configuration).getStudentProfile(requestParameters.tenantId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Returns a paginated list of students for the given tenant.
+     * @param {V1ApiGetStudentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getStudents(requestParameters: V1ApiGetStudentsRequest, options?: RawAxiosRequestConfig) {
+        return V1ApiFp(this.configuration).getStudents(requestParameters.tenantId, requestParameters.campus, requestParameters.pathway, requestParameters.status, requestParameters.pageIndex, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 
      * @param {V1ApiReleaseUserLockoutRequest} requestParameters Request parameters.
@@ -137,6 +423,17 @@ export class V1Api extends BaseAPI {
      */
     public releaseUserLockout(requestParameters: V1ApiReleaseUserLockoutRequest, options?: RawAxiosRequestConfig) {
         return V1ApiFp(this.configuration).releaseUserLockout(requestParameters.tenantId, requestParameters.userId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Updates the contact overrides for a student.
+     * @param {V1ApiUpdateStudentContactsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateStudentContacts(requestParameters: V1ApiUpdateStudentContactsRequest, options?: RawAxiosRequestConfig) {
+        return V1ApiFp(this.configuration).updateStudentContacts(requestParameters.tenantId, requestParameters.studentId, requestParameters.body, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

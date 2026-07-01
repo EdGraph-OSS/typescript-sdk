@@ -24,9 +24,6 @@ Name | Type | Description | Notes
 **source** | **string** |  | [optional] [default to undefined]
 **lastLoginDateTime** | **string** |  | [optional] [default to undefined]
 **mfaCompleted** | **boolean** |  | [optional] [default to undefined]
-**isDeleted** | **boolean** |  | [optional] [default to undefined]
-**deletedDateTime** | **string** |  | [optional] [default to undefined]
-**deletedBy** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -53,9 +50,6 @@ const instance: EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRe
     source,
     lastLoginDateTime,
     mfaCompleted,
-    isDeleted,
-    deletedDateTime,
-    deletedBy,
 };
 ```
 
