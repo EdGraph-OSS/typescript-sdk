@@ -45,7 +45,7 @@ export const V1ApiAxiosParamCreator = function (configuration?: Configuration) {
             assertParamExists('getStudentProfile', 'tenantId', tenantId)
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getStudentProfile', 'id', id)
-            const localVarPath = `/students/{tenantId}/students/{id}`
+            const localVarPath = `/tenants/{tenantId}/students/{id}`
                 .replace('{tenantId}', encodeURIComponent(String(tenantId)))
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -89,7 +89,7 @@ export const V1ApiAxiosParamCreator = function (configuration?: Configuration) {
         getStudents: async (tenantId: string, campus?: string, pathway?: string, status?: string, pageIndex?: number, pageSize?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('getStudents', 'tenantId', tenantId)
-            const localVarPath = `/students/{tenantId}`
+            const localVarPath = `/tenants/{tenantId}/students`
                 .replace('{tenantId}', encodeURIComponent(String(tenantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -192,7 +192,7 @@ export const V1ApiAxiosParamCreator = function (configuration?: Configuration) {
             assertParamExists('updateStudentContacts', 'tenantId', tenantId)
             // verify required parameter 'studentId' is not null or undefined
             assertParamExists('updateStudentContacts', 'studentId', studentId)
-            const localVarPath = `/students/{tenantId}/{studentId}/contacts`
+            const localVarPath = `/tenants/{tenantId}/{studentId}/contacts`
                 .replace('{tenantId}', encodeURIComponent(String(tenantId)))
                 .replace('{studentId}', encodeURIComponent(String(studentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.

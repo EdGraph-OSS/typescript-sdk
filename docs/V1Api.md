@@ -4,10 +4,10 @@ All URIs are relative to *https://api.dev.edgraph.com/tenant*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**getStudentProfile**](#getstudentprofile) | **GET** /students/{tenantId}/students/{id} | Returns the admin profile for a single student.|
-|[**getStudents**](#getstudents) | **GET** /students/{tenantId} | Returns a paginated list of students for the given tenant.|
+|[**getStudentProfile**](#getstudentprofile) | **GET** /tenants/{tenantId}/students/{id} | Returns the admin profile for a single student.|
+|[**getStudents**](#getstudents) | **GET** /tenants/{tenantId}/students | Returns a paginated list of students for the given tenant.|
 |[**releaseUserLockout**](#releaseuserlockout) | **PUT** /tenants/{tenantId}/users/{userId}/releaselockout | |
-|[**updateStudentContacts**](#updatestudentcontacts) | **PUT** /students/{tenantId}/{studentId}/contacts | Updates the contact overrides for a student.|
+|[**updateStudentContacts**](#updatestudentcontacts) | **PUT** /tenants/{tenantId}/{studentId}/contacts | Updates the contact overrides for a student.|
 
 # **getStudentProfile**
 > getStudentProfile()

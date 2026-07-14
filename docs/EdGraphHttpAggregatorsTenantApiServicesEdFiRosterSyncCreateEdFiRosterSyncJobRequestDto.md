@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **use_SSA_InsteadOf_SEOAA** | [**DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions**](DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions.md) |  | [optional] [default to undefined]
 **importSectionAndCourseData** | **boolean** |  | [optional] [default to undefined]
 **useStaffEdOrgContactAssociationForEmails** | **boolean** |  | [optional] [default to undefined]
+**ignoreEndDates** | **boolean** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -20,6 +21,7 @@ const instance: EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiR
     use_SSA_InsteadOf_SEOAA,
     importSectionAndCourseData,
     useStaffEdOrgContactAssociationForEmails,
+    ignoreEndDates,
 };
 ```
 

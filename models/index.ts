@@ -194,6 +194,7 @@ export * from './ed-graph-http-aggregators-tenant-api-services-observations-add-
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-add-available-persona-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-campus-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-campus-response-get-paginated-items-response';
+export * from './ed-graph-http-aggregators-tenant-api-services-observations-campus-with-evaluees-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-create-observation-request';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-create-observation-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-create-observation-submission-request';
@@ -208,6 +209,7 @@ export * from './ed-graph-http-aggregators-tenant-api-services-observations-form
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-form-version-configuration-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-get-application-settings-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-get-available-campuses-total-evaluees-response';
+export * from './ed-graph-http-aggregators-tenant-api-services-observations-get-campuses-with-evaluees-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-get-staff-classification-settings-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-get-submitted-observations-count-response';
 export * from './ed-graph-http-aggregators-tenant-api-services-observations-observation-draft-response';
@@ -721,6 +723,7 @@ export * from './microsoft-asp-net-core-mvc-validation-problem-details';
 export * from './registration-api-registration-v2-approval-status';
 export * from './registration-api-registration-v2-submit-tenant-registration-request';
 export * from './registration-api-registration-v2-tenant-type';
+export * from './system-net-http-status-code';
 export * from './tenant-api-integrations-v1-create-integration-product-request';
 export * from './tenant-api-integrations-v1-create-integration-product-response';
 export * from './tenant-api-integrations-v1-create-integration-request';

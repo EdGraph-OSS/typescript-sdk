@@ -16,10 +16,16 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi } from './ed-graph-http-aggregators-tenant-api-services-onboarding-steps-ed-fi-api';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { SystemNetHttpStatusCode } from './system-net-http-status-code';
 
 export interface EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult {
     'isSuccess'?: boolean;
     'value'?: EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi;
     'error'?: string | null;
+    'statusCode'?: SystemNetHttpStatusCode;
 }
+
+
 

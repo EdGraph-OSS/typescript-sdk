@@ -22,5 +22,6 @@ export interface EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFi
     'use_SSA_InsteadOf_SEOAA'?: DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions;
     'importSectionAndCourseData'?: boolean;
     'useStaffEdOrgContactAssociationForEmails'?: boolean;
+    'ignoreEndDates'?: boolean;
 }
 

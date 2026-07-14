@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **useSSAInsteadOfSEOAA** | [**DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions**](DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions.md) |  | [optional] [default to undefined]
 **importSectionAndCourseData** | **boolean** |  | [optional] [default to undefined]
 **useStaffEdOrgContactAssociationForEmails** | **boolean** |  | [optional] [default to undefined]
+**ignoreEndDates** | **boolean** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -42,6 +43,7 @@ const instance: DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile = {
     useSSAInsteadOfSEOAA,
     importSectionAndCourseData,
     useStaffEdOrgContactAssociationForEmails,
+    ignoreEndDates,
 };
 ```
 

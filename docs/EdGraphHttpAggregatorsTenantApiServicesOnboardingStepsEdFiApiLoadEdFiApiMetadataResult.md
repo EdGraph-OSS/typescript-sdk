@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **isSuccess** | **boolean** |  | [optional] [default to undefined]
 **value** | [**EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi**](EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi.md) |  | [optional] [default to undefined]
 **error** | **string** |  | [optional] [default to undefined]
+**statusCode** | [**SystemNetHttpStatusCode**](SystemNetHttpStatusCode.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -18,6 +19,7 @@ const instance: EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoa
     isSuccess,
     value,
     error,
+    statusCode,
 };
 ```
 

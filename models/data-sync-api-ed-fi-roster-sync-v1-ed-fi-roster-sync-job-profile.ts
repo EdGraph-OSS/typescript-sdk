@@ -39,6 +39,7 @@ export interface DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile {
     'useSSAInsteadOfSEOAA'?: DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions;
     'importSectionAndCourseData'?: boolean | null;
     'useStaffEdOrgContactAssociationForEmails'?: boolean | null;
+    'ignoreEndDates'?: boolean | null;
 }
 
 

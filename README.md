@@ -1,4 +1,4 @@
-## @edgraph-oss/platform-client@0.0.46
+## @edgraph-oss/platform-client@0.0.47
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
@@ -36,7 +36,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install @edgraph-oss/platform-client@0.0.46 --save
+npm install @edgraph-oss/platform-client@0.0.47 --save
 ```
 
 _unPublished (not recommended):_
@@ -440,6 +440,7 @@ Class | Method | HTTP request | Description
 *ObservationsApi* | [**getPaginatedAvailableCampuses**](docs/ObservationsApi.md#getpaginatedavailablecampuses) | **GET** /tenants/{tenantId}/observations/campuses | Get Available Campuses
 *ObservationsApi* | [**getPaginatedAvailableForms**](docs/ObservationsApi.md#getpaginatedavailableforms) | **GET** /tenants/{tenantId}/observations/available-forms | Get Paginated Available Forms
 *ObservationsApi* | [**getPaginatedCampusSections**](docs/ObservationsApi.md#getpaginatedcampussections) | **GET** /tenants/{tenantId}/observations/campuses/{campusId}/sections | Retrieves a list of Sections for a given available campus.
+*ObservationsApi* | [**getPaginatedCampusesWithEvaluees**](docs/ObservationsApi.md#getpaginatedcampuseswithevaluees) | **GET** /tenants/{tenantId}/observations/campuses-with-evaluees | Get a paginated list of the available campuses that have evaluees, each with its complete list of evaluees.
 *ObservationsApi* | [**getPaginatedEvaluees**](docs/ObservationsApi.md#getpaginatedevaluees) | **GET** /tenants/{tenantId}/observations/evaluees | Get paginated evaluees
 *ObservationsApi* | [**getPaginatedObservations**](docs/ObservationsApi.md#getpaginatedobservations) | **GET** /tenants/{tenantId}/observations | Get Paginated Observations for a given tenant
 *ObservationsApi* | [**getSubmittedObservationsCount**](docs/ObservationsApi.md#getsubmittedobservationscount) | **GET** /tenants/{tenantId}/submittedobservations | Get submitted Observations count
@@ -610,10 +611,10 @@ Class | Method | HTTP request | Description
 *UsersSectionsApi* | [**removeUserSectionBulk**](docs/UsersSectionsApi.md#removeusersectionbulk) | **DELETE** /tenants/{tenantId}/users/{userId}/sections/bulk | Removes Sections from a user in bulk.
 *UsersSectionsApi* | [**updateUserSection**](docs/UsersSectionsApi.md#updateusersection) | **PUT** /tenants/{tenantId}/users/{userId}/sections/{userSectionId} | Updates the Section of a user.
 *UsersSectionsApi* | [**updateUserSectionBulk**](docs/UsersSectionsApi.md#updateusersectionbulk) | **PUT** /tenants/{tenantId}/users/{userId}/sections/bulk | Updates the Section of a user in bulk.
-*V1Api* | [**getStudentProfile**](docs/V1Api.md#getstudentprofile) | **GET** /students/{tenantId}/students/{id} | Returns the admin profile for a single student.
-*V1Api* | [**getStudents**](docs/V1Api.md#getstudents) | **GET** /students/{tenantId} | Returns a paginated list of students for the given tenant.
+*V1Api* | [**getStudentProfile**](docs/V1Api.md#getstudentprofile) | **GET** /tenants/{tenantId}/students/{id} | Returns the admin profile for a single student.
+*V1Api* | [**getStudents**](docs/V1Api.md#getstudents) | **GET** /tenants/{tenantId}/students | Returns a paginated list of students for the given tenant.
 *V1Api* | [**releaseUserLockout**](docs/V1Api.md#releaseuserlockout) | **PUT** /tenants/{tenantId}/users/{userId}/releaselockout | 
-*V1Api* | [**updateStudentContacts**](docs/V1Api.md#updatestudentcontacts) | **PUT** /students/{tenantId}/{studentId}/contacts | Updates the contact overrides for a student.
+*V1Api* | [**updateStudentContacts**](docs/V1Api.md#updatestudentcontacts) | **PUT** /tenants/{tenantId}/{studentId}/contacts | Updates the contact overrides for a student.
 *ValidationResultsAPIApi* | [**findResultsApiJobRunRecordsAsync**](docs/ValidationResultsAPIApi.md#findresultsapijobrunrecordsasync) | **GET** /tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/records | Retrieves a list of Job Run Records from the Validation Results API.
 *ValidationResultsAPIApi* | [**findResultsApiJobRunRuleRecordsAsync**](docs/ValidationResultsAPIApi.md#findresultsapijobrunrulerecordsasync) | **GET** /tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/rules/{ruleId}/records | Retrieves a list of Job Run Rule Records from the Validation Results API.
 *ValidationResultsAPIApi* | [**findResultsApiJobRunRulesAsync**](docs/ValidationResultsAPIApi.md#findresultsapijobrunrulesasync) | **GET** /tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/rules | Retrieves a list of Job Run Rules from the Validation Results API.
@@ -834,6 +835,7 @@ Class | Method | HTTP request | Description
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaResponse.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse.md)
+ - [EdGraphHttpAggregatorsTenantApiServicesObservationsCampusWithEvalueesResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsCampusWithEvalueesResponse.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest.md)
@@ -848,6 +850,7 @@ Class | Method | HTTP request | Description
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationResponse.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetApplicationSettingsResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetApplicationSettingsResponse.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetAvailableCampusesTotalEvalueesResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetAvailableCampusesTotalEvalueesResponse.md)
+ - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetCampusesWithEvalueesResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetCampusesWithEvalueesResponse.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse.md)
  - [EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse](docs/EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse.md)
@@ -1361,6 +1364,7 @@ Class | Method | HTTP request | Description
  - [RegistrationApiRegistrationV2ApprovalStatus](docs/RegistrationApiRegistrationV2ApprovalStatus.md)
  - [RegistrationApiRegistrationV2SubmitTenantRegistrationRequest](docs/RegistrationApiRegistrationV2SubmitTenantRegistrationRequest.md)
  - [RegistrationApiRegistrationV2TenantType](docs/RegistrationApiRegistrationV2TenantType.md)
+ - [SystemNetHttpStatusCode](docs/SystemNetHttpStatusCode.md)
  - [TenantApiIntegrationsV1CreateIntegrationProductRequest](docs/TenantApiIntegrationsV1CreateIntegrationProductRequest.md)
  - [TenantApiIntegrationsV1CreateIntegrationProductResponse](docs/TenantApiIntegrationsV1CreateIntegrationProductResponse.md)
  - [TenantApiIntegrationsV1CreateIntegrationRequest](docs/TenantApiIntegrationsV1CreateIntegrationRequest.md)

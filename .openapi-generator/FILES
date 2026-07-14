@@ -322,6 +322,7 @@ docs/EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaReque
 docs/EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaResponse.md
 docs/EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse.md
 docs/EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse.md
+docs/EdGraphHttpAggregatorsTenantApiServicesObservationsCampusWithEvalueesResponse.md
 docs/EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest.md
 docs/EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse.md
 docs/EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest.md
@@ -336,6 +337,7 @@ docs/EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfiguration
 docs/EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationResponse.md
 docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetApplicationSettingsResponse.md
 docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetAvailableCampusesTotalEvalueesResponse.md
+docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetCampusesWithEvalueesResponse.md
 docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse.md
 docs/EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse.md
 docs/EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse.md
@@ -911,6 +913,7 @@ docs/StaffClassificationsApi.md
 docs/StateReportingStepsApi.md
 docs/SubmissionsApi.md
 docs/SubscriptionsApi.md
+docs/SystemNetHttpStatusCode.md
 docs/TagsApi.md
 docs/TenantApiIntegrationsV1CreateIntegrationProductRequest.md
 docs/TenantApiIntegrationsV1CreateIntegrationProductResponse.md
@@ -1346,6 +1349,7 @@ models/ed-graph-http-aggregators-tenant-api-services-observations-add-available-
 models/ed-graph-http-aggregators-tenant-api-services-observations-add-available-persona-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-campus-response-get-paginated-items-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-campus-response.ts
+models/ed-graph-http-aggregators-tenant-api-services-observations-campus-with-evaluees-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-create-observation-request.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-create-observation-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-create-observation-submission-request.ts
@@ -1360,6 +1364,7 @@ models/ed-graph-http-aggregators-tenant-api-services-observations-form-version-c
 models/ed-graph-http-aggregators-tenant-api-services-observations-form-version-configuration-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-get-application-settings-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-get-available-campuses-total-evaluees-response.ts
+models/ed-graph-http-aggregators-tenant-api-services-observations-get-campuses-with-evaluees-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-get-staff-classification-settings-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-get-submitted-observations-count-response.ts
 models/ed-graph-http-aggregators-tenant-api-services-observations-observation-draft-response.ts
@@ -1874,6 +1879,7 @@ models/microsoft-asp-net-core-mvc-validation-problem-details.ts
 models/registration-api-registration-v2-approval-status.ts
 models/registration-api-registration-v2-submit-tenant-registration-request.ts
 models/registration-api-registration-v2-tenant-type.ts
+models/system-net-http-status-code.ts
 models/tenant-api-integrations-v1-create-integration-product-request.ts
 models/tenant-api-integrations-v1-create-integration-product-response.ts
 models/tenant-api-integrations-v1-create-integration-request.ts
