@@ -42,5 +42,9 @@ export interface IdentityApiUserV2UserProfileResponse {
     'platformRole'?: string | null;
     'tenantStatus'?: string | null;
     'tenantAdmin'?: boolean | null;
+    /**
+     * The user\'s status across all their tenants: Active if any membership is active, Inactive if every  membership is inactive, Unknown if they have no memberships. Unlike tenantStatus this does not  depend on a tenantId being supplied on the request.
+     */
+    'status'?: string | null;
 }
 

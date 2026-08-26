@@ -26,6 +26,9 @@ import type { EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTena
 export interface EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest {
     'additionalSettings'?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantAdditionalSetting;
     'identityProviders'?: Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders> | null;
+    /**
+     * @deprecated
+     */
     'settings'?: Array<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting> | null;
 }
 

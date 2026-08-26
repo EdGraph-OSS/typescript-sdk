@@ -40,12 +40,13 @@ export const MyPreferencesApiAxiosParamCreator = function (configuration?: Confi
     return {
         /**
          * 
-         * @summary Retrieves the user\'s preferences.
+         * @summary Retrieves the user\'s preferences.  <br><b>Deprecated.</b> Use `/me/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {number} [pageIndex] 
          * @param {number} [pageSize] 
          * @param {string} [orderBy] 
          * @param {string} [filter] 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getUserPreferences: async (pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -94,9 +95,10 @@ export const MyPreferencesApiAxiosParamCreator = function (configuration?: Confi
         },
         /**
          * 
-         * @summary Retrieves a user\'s preference by code.
+         * @summary Retrieves a user\'s preference by code.  <br><b>Deprecated.</b> Use `/me/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {string} code 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         preference: async (code: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -132,9 +134,10 @@ export const MyPreferencesApiAxiosParamCreator = function (configuration?: Confi
         },
         /**
          * 
-         * @summary Creates or update a user\'s preference.
+         * @summary Creates or update a user\'s preference.  <br><b>Deprecated.</b> Use `/me/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest} [edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest] 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         updateUserPreferenceAsync: async (edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -178,12 +181,13 @@ export const MyPreferencesApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @summary Retrieves the user\'s preferences.
+         * @summary Retrieves the user\'s preferences.  <br><b>Deprecated.</b> Use `/me/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {number} [pageIndex] 
          * @param {number} [pageSize] 
          * @param {string} [orderBy] 
          * @param {string} [filter] 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getUserPreferences(pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityApiUserV1GetUserPreferencesResponse>> {
@@ -194,9 +198,10 @@ export const MyPreferencesApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @summary Retrieves a user\'s preference by code.
+         * @summary Retrieves a user\'s preference by code.  <br><b>Deprecated.</b> Use `/me/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {string} code 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async preference(code: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse>> {
@@ -207,9 +212,10 @@ export const MyPreferencesApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @summary Creates or update a user\'s preference.
+         * @summary Creates or update a user\'s preference.  <br><b>Deprecated.</b> Use `/me/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest} [edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest] 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async updateUserPreferenceAsync(edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest?: EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityApiUserV1UserPreferenceUpdatedResponse>> {
@@ -229,9 +235,10 @@ export const MyPreferencesApiFactory = function (configuration?: Configuration, 
     return {
         /**
          * 
-         * @summary Retrieves the user\'s preferences.
+         * @summary Retrieves the user\'s preferences.  <br><b>Deprecated.</b> Use `/me/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {MyPreferencesApiGetUserPreferencesRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getUserPreferences(requestParameters: MyPreferencesApiGetUserPreferencesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<IdentityApiUserV1GetUserPreferencesResponse> {
@@ -239,9 +246,10 @@ export const MyPreferencesApiFactory = function (configuration?: Configuration, 
         },
         /**
          * 
-         * @summary Retrieves a user\'s preference by code.
+         * @summary Retrieves a user\'s preference by code.  <br><b>Deprecated.</b> Use `/me/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {MyPreferencesApiPreferenceRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         preference(requestParameters: MyPreferencesApiPreferenceRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse> {
@@ -249,9 +257,10 @@ export const MyPreferencesApiFactory = function (configuration?: Configuration, 
         },
         /**
          * 
-         * @summary Creates or update a user\'s preference.
+         * @summary Creates or update a user\'s preference.  <br><b>Deprecated.</b> Use `/me/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {MyPreferencesApiUpdateUserPreferenceAsyncRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         updateUserPreferenceAsync(requestParameters: MyPreferencesApiUpdateUserPreferenceAsyncRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<IdentityApiUserV1UserPreferenceUpdatedResponse> {
@@ -311,9 +320,10 @@ export interface MyPreferencesApiUpdateUserPreferenceAsyncRequest {
 export class MyPreferencesApi extends BaseAPI {
     /**
      * 
-     * @summary Retrieves the user\'s preferences.
+     * @summary Retrieves the user\'s preferences.  <br><b>Deprecated.</b> Use `/me/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      * @param {MyPreferencesApiGetUserPreferencesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     public getUserPreferences(requestParameters: MyPreferencesApiGetUserPreferencesRequest = {}, options?: RawAxiosRequestConfig) {
@@ -322,9 +332,10 @@ export class MyPreferencesApi extends BaseAPI {
 
     /**
      * 
-     * @summary Retrieves a user\'s preference by code.
+     * @summary Retrieves a user\'s preference by code.  <br><b>Deprecated.</b> Use `/me/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      * @param {MyPreferencesApiPreferenceRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     public preference(requestParameters: MyPreferencesApiPreferenceRequest, options?: RawAxiosRequestConfig) {
@@ -333,9 +344,10 @@ export class MyPreferencesApi extends BaseAPI {
 
     /**
      * 
-     * @summary Creates or update a user\'s preference.
+     * @summary Creates or update a user\'s preference.  <br><b>Deprecated.</b> Use `/me/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      * @param {MyPreferencesApiUpdateUserPreferenceAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     public updateUserPreferenceAsync(requestParameters: MyPreferencesApiUpdateUserPreferenceAsyncRequest = {}, options?: RawAxiosRequestConfig) {

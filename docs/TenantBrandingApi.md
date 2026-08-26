@@ -26,13 +26,17 @@ let logoFile: File; // (optional) (default to undefined)
 let backgroundFile: File; // (optional) (default to undefined)
 let brandName: string; // (optional) (default to undefined)
 let enabled: boolean; // (optional) (default to undefined)
+let removeBackground: boolean; // (optional) (default to undefined)
+let removeLogo: boolean; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.updateTenantBranding(
     tenantId,
     logoFile,
     backgroundFile,
     brandName,
-    enabled
+    enabled,
+    removeBackground,
+    removeLogo
 );
 ```
 
@@ -45,6 +49,8 @@ const { status, data } = await apiInstance.updateTenantBranding(
 | **backgroundFile** | [**File**] |  | (optional) defaults to undefined|
 | **brandName** | [**string**] |  | (optional) defaults to undefined|
 | **enabled** | [**boolean**] |  | (optional) defaults to undefined|
+| **removeBackground** | [**boolean**] |  | (optional) defaults to undefined|
+| **removeLogo** | [**boolean**] |  | (optional) defaults to undefined|
 
 
 ### Return type

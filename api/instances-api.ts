@@ -24,6 +24,8 @@ import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError
 // @ts-ignore
 import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 // @ts-ignore
+import type { EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse } from '../models';
+// @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponsePaginatedItemsViewModel } from '../models';
 // @ts-ignore
 import type { EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult } from '../models';
@@ -945,6 +947,48 @@ export const InstancesApiAxiosParamCreator = function (configuration?: Configura
             if (filter !== undefined) {
                 localVarQueryParameter['filter'] = filter;
             }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get Instance by Id
+         * @param {string} tenantId 
+         * @param {string} instanceId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTenantInstanceByIdV2: async (tenantId: string, instanceId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getTenantInstanceByIdV2', 'tenantId', tenantId)
+            // verify required parameter 'instanceId' is not null or undefined
+            assertParamExists('getTenantInstanceByIdV2', 'instanceId', instanceId)
+            const localVarPath = `/v2/tenants/{tenantId}/instances/{instanceId}`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{instanceId}', encodeURIComponent(String(instanceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -1966,6 +2010,20 @@ export const InstancesApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Get Instance by Id
+         * @param {string} tenantId 
+         * @param {string} instanceId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTenantInstanceByIdV2(tenantId: string, instanceId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTenantInstanceByIdV2(tenantId, instanceId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InstancesApi.getTenantInstanceByIdV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Get list of all instances for a tenant - V2
          * @param {string} tenantId 
          * @param {number} [pageSize] 
@@ -2398,6 +2456,16 @@ export const InstancesApiFactory = function (configuration?: Configuration, base
          */
         getPagedInstances(requestParameters: InstancesApiGetPagedInstancesRequest, options?: RawAxiosRequestConfig): AxiosPromise<IMSAdminApiV1InstancesPagedInstancesResponse> {
             return localVarFp.getPagedInstances(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get Instance by Id
+         * @param {InstancesApiGetTenantInstanceByIdV2Request} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTenantInstanceByIdV2(requestParameters: InstancesApiGetTenantInstanceByIdV2Request, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse> {
+            return localVarFp.getTenantInstanceByIdV2(requestParameters.tenantId, requestParameters.instanceId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2928,6 +2996,21 @@ export interface InstancesApiGetPagedInstancesRequest {
 }
 
 /**
+ * Request parameters for getTenantInstanceByIdV2 operation in InstancesApi.
+ */
+export interface InstancesApiGetTenantInstanceByIdV2Request {
+    /**
+     * 
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     */
+    readonly instanceId: string
+}
+
+/**
  * Request parameters for getTenantInstancesV2 operation in InstancesApi.
  */
 export interface InstancesApiGetTenantInstancesV2Request {
@@ -3438,6 +3521,17 @@ export class InstancesApi extends BaseAPI {
      */
     public getPagedInstances(requestParameters: InstancesApiGetPagedInstancesRequest, options?: RawAxiosRequestConfig) {
         return InstancesApiFp(this.configuration).getPagedInstances(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Instance by Id
+     * @param {InstancesApiGetTenantInstanceByIdV2Request} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getTenantInstanceByIdV2(requestParameters: InstancesApiGetTenantInstanceByIdV2Request, options?: RawAxiosRequestConfig) {
+        return InstancesApiFp(this.configuration).getTenantInstanceByIdV2(requestParameters.tenantId, requestParameters.instanceId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

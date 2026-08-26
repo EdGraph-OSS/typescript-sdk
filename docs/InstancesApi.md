@@ -23,6 +23,7 @@ All URIs are relative to *https://api.dev.edgraph.com/tenant*
 |[**getInstanceEndpoints**](#getinstanceendpoints) | **GET** /tenants/{tenantId}/oneroster/instances/{instanceId}/endpoints | Retrieves the One Roster endpoint URLs of an Instance.|
 |[**getInstancesAsync**](#getinstancesasync) | **GET** /tenants/{tenantId}/edfiadmin/instances | Retrieves a list of Instances.|
 |[**getPagedInstances**](#getpagedinstances) | **GET** /tenants/{tenantId}/oneroster/instances | Retrieves a list of Instances.|
+|[**getTenantInstanceByIdV2**](#gettenantinstancebyidv2) | **GET** /v2/tenants/{tenantId}/instances/{instanceId} | Get Instance by Id|
 |[**getTenantInstancesV2**](#gettenantinstancesv2) | **GET** /v2/tenants/{tenantId}/instances | Get list of all instances for a tenant - V2|
 |[**isInstanceCustomIdAvailable**](#isinstancecustomidavailable) | **GET** /tenants/{tenantId}/oneroster/instances/isinstancecustomidavailable/{customId} | Validate if instance is available|
 |[**loadApiMetadata**](#loadapimetadata) | **POST** /tenants/{tenantId}/edfiadmin/api-metadata | Loads connection metadata.|
@@ -1191,6 +1192,63 @@ const { status, data } = await apiInstance.getPagedInstances(
 |**500** | An unhandled error occurred on the server.See the response body for details. |  -  |
 |**200** | The requested resource was successfully retrieved. |  -  |
 |**400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getTenantInstanceByIdV2**
+> EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse getTenantInstanceByIdV2()
+
+
+### Example
+
+```typescript
+import {
+    InstancesApi,
+    Configuration
+} from '@edgraph-oss/platform-client';
+
+const configuration = new Configuration();
+const apiInstance = new InstancesApi(configuration);
+
+let tenantId: string; // (default to undefined)
+let instanceId: string; // (default to undefined)
+
+const { status, data } = await apiInstance.getTenantInstanceByIdV2(
+    tenantId,
+    instanceId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | [**string**] |  | defaults to undefined|
+| **instanceId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse**
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+|**403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+|**500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+|**200** | The requested resource was successfully retrieved. |  -  |
+|**404** | The resource could not be found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

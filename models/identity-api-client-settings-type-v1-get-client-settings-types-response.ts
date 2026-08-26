@@ -21,6 +21,9 @@ export interface IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse {
     'pageIndex'?: number;
     'pageSize'?: number;
     'count'?: number;
+    /**
+     * @deprecated
+     */
     'data'?: Array<IdentityApiClientSettingsTypeV1ClientSettingsTypeResponse> | null;
 }
 

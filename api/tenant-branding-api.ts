@@ -40,10 +40,12 @@ export const TenantBrandingApiAxiosParamCreator = function (configuration?: Conf
          * @param {File} [backgroundFile] 
          * @param {string} [brandName] 
          * @param {boolean} [enabled] 
+         * @param {boolean} [removeBackground] 
+         * @param {boolean} [removeLogo] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTenantBranding: async (tenantId: string, logoFile?: File, backgroundFile?: File, brandName?: string, enabled?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateTenantBranding: async (tenantId: string, logoFile?: File, backgroundFile?: File, brandName?: string, enabled?: boolean, removeBackground?: boolean, removeLogo?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('updateTenantBranding', 'tenantId', tenantId)
             const localVarPath = `/tenants/{tenantId}/branding`
@@ -80,6 +82,14 @@ export const TenantBrandingApiAxiosParamCreator = function (configuration?: Conf
             if (enabled !== undefined) { 
                 localVarFormParams.append('Enabled', String(enabled) as any);
             }
+
+            if (removeBackground !== undefined) { 
+                localVarFormParams.append('RemoveBackground', String(removeBackground) as any);
+            }
+
+            if (removeLogo !== undefined) { 
+                localVarFormParams.append('RemoveLogo', String(removeLogo) as any);
+            }
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -110,11 +120,13 @@ export const TenantBrandingApiFp = function(configuration?: Configuration) {
          * @param {File} [backgroundFile] 
          * @param {string} [brandName] 
          * @param {boolean} [enabled] 
+         * @param {boolean} [removeBackground] 
+         * @param {boolean} [removeLogo] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTenantBranding(tenantId: string, logoFile?: File, backgroundFile?: File, brandName?: string, enabled?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiTenantV1TenantUpdatedResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTenantBranding(tenantId, logoFile, backgroundFile, brandName, enabled, options);
+        async updateTenantBranding(tenantId: string, logoFile?: File, backgroundFile?: File, brandName?: string, enabled?: boolean, removeBackground?: boolean, removeLogo?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiTenantV1TenantUpdatedResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTenantBranding(tenantId, logoFile, backgroundFile, brandName, enabled, removeBackground, removeLogo, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TenantBrandingApi.updateTenantBranding']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -136,7 +148,7 @@ export const TenantBrandingApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         updateTenantBranding(requestParameters: TenantBrandingApiUpdateTenantBrandingRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiTenantV1TenantUpdatedResponse> {
-            return localVarFp.updateTenantBranding(requestParameters.tenantId, requestParameters.logoFile, requestParameters.backgroundFile, requestParameters.brandName, requestParameters.enabled, options).then((request) => request(axios, basePath));
+            return localVarFp.updateTenantBranding(requestParameters.tenantId, requestParameters.logoFile, requestParameters.backgroundFile, requestParameters.brandName, requestParameters.enabled, requestParameters.removeBackground, requestParameters.removeLogo, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -157,6 +169,10 @@ export interface TenantBrandingApiUpdateTenantBrandingRequest {
     readonly brandName?: string
 
     readonly enabled?: boolean
+
+    readonly removeBackground?: boolean
+
+    readonly removeLogo?: boolean
 }
 
 /**
@@ -171,7 +187,7 @@ export class TenantBrandingApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public updateTenantBranding(requestParameters: TenantBrandingApiUpdateTenantBrandingRequest, options?: RawAxiosRequestConfig) {
-        return TenantBrandingApiFp(this.configuration).updateTenantBranding(requestParameters.tenantId, requestParameters.logoFile, requestParameters.backgroundFile, requestParameters.brandName, requestParameters.enabled, options).then((request) => request(this.axios, this.basePath));
+        return TenantBrandingApiFp(this.configuration).updateTenantBranding(requestParameters.tenantId, requestParameters.logoFile, requestParameters.backgroundFile, requestParameters.brandName, requestParameters.enabled, requestParameters.removeBackground, requestParameters.removeLogo, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

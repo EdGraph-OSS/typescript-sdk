@@ -40,13 +40,14 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
     return {
         /**
          * 
-         * @summary Retrieves a list of the Tenant\'s settings.
+         * @summary Retrieves a list of the Tenant\'s settings.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {string} tenantId 
          * @param {number} [pageIndex] 
          * @param {number} [pageSize] 
          * @param {string} [orderBy] 
          * @param {string} [filter] 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getTenantSettings: async (tenantId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -98,10 +99,11 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
         },
         /**
          * 
-         * @summary Retrieves a Tenant\'s settings by code.
+         * @summary Retrieves a Tenant\'s settings by code.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {string} tenantId 
          * @param {string} code 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getTenantSettingsByCode: async (tenantId: string, code: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -140,11 +142,12 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
         },
         /**
          * 
-         * @summary Creates/updates a Tenant\'s settings.
+         * @summary Creates/updates a Tenant\'s settings.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {string} tenantId 
          * @param {string} code 
          * @param {TenantApiTenantV1SetAppSettingsRequest} [tenantApiTenantV1SetAppSettingsRequest] 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         setTenantSettings: async (tenantId: string, code: string, tenantApiTenantV1SetAppSettingsRequest?: TenantApiTenantV1SetAppSettingsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -194,13 +197,14 @@ export const SettingsApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @summary Retrieves a list of the Tenant\'s settings.
+         * @summary Retrieves a list of the Tenant\'s settings.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {string} tenantId 
          * @param {number} [pageIndex] 
          * @param {number} [pageSize] 
          * @param {string} [orderBy] 
          * @param {string} [filter] 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getTenantSettings(tenantId: string, pageIndex?: number, pageSize?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiTenantV1GetAppSettingsResponse>> {
@@ -211,10 +215,11 @@ export const SettingsApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @summary Retrieves a Tenant\'s settings by code.
+         * @summary Retrieves a Tenant\'s settings by code.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {string} tenantId 
          * @param {string} code 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getTenantSettingsByCode(tenantId: string, code: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiTenantV1TenantAppSettings>> {
@@ -225,11 +230,12 @@ export const SettingsApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @summary Creates/updates a Tenant\'s settings.
+         * @summary Creates/updates a Tenant\'s settings.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {string} tenantId 
          * @param {string} code 
          * @param {TenantApiTenantV1SetAppSettingsRequest} [tenantApiTenantV1SetAppSettingsRequest] 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async setTenantSettings(tenantId: string, code: string, tenantApiTenantV1SetAppSettingsRequest?: TenantApiTenantV1SetAppSettingsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantApiTenantV1SetAppSettingsResponse>> {
@@ -249,9 +255,10 @@ export const SettingsApiFactory = function (configuration?: Configuration, baseP
     return {
         /**
          * 
-         * @summary Retrieves a list of the Tenant\'s settings.
+         * @summary Retrieves a list of the Tenant\'s settings.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {SettingsApiGetTenantSettingsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getTenantSettings(requestParameters: SettingsApiGetTenantSettingsRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiTenantV1GetAppSettingsResponse> {
@@ -259,9 +266,10 @@ export const SettingsApiFactory = function (configuration?: Configuration, baseP
         },
         /**
          * 
-         * @summary Retrieves a Tenant\'s settings by code.
+         * @summary Retrieves a Tenant\'s settings by code.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {SettingsApiGetTenantSettingsByCodeRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getTenantSettingsByCode(requestParameters: SettingsApiGetTenantSettingsByCodeRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiTenantV1TenantAppSettings> {
@@ -269,9 +277,10 @@ export const SettingsApiFactory = function (configuration?: Configuration, baseP
         },
         /**
          * 
-         * @summary Creates/updates a Tenant\'s settings.
+         * @summary Creates/updates a Tenant\'s settings.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {SettingsApiSetTenantSettingsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         setTenantSettings(requestParameters: SettingsApiSetTenantSettingsRequest, options?: RawAxiosRequestConfig): AxiosPromise<TenantApiTenantV1SetAppSettingsResponse> {
@@ -351,9 +360,10 @@ export interface SettingsApiSetTenantSettingsRequest {
 export class SettingsApi extends BaseAPI {
     /**
      * 
-     * @summary Retrieves a list of the Tenant\'s settings.
+     * @summary Retrieves a list of the Tenant\'s settings.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      * @param {SettingsApiGetTenantSettingsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     public getTenantSettings(requestParameters: SettingsApiGetTenantSettingsRequest, options?: RawAxiosRequestConfig) {
@@ -362,9 +372,10 @@ export class SettingsApi extends BaseAPI {
 
     /**
      * 
-     * @summary Retrieves a Tenant\'s settings by code.
+     * @summary Retrieves a Tenant\'s settings by code.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      * @param {SettingsApiGetTenantSettingsByCodeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     public getTenantSettingsByCode(requestParameters: SettingsApiGetTenantSettingsByCodeRequest, options?: RawAxiosRequestConfig) {
@@ -373,9 +384,10 @@ export class SettingsApi extends BaseAPI {
 
     /**
      * 
-     * @summary Creates/updates a Tenant\'s settings.
+     * @summary Creates/updates a Tenant\'s settings.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      * @param {SettingsApiSetTenantSettingsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     public setTenantSettings(requestParameters: SettingsApiSetTenantSettingsRequest, options?: RawAxiosRequestConfig) {

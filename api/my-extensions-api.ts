@@ -38,9 +38,10 @@ export const MyExtensionsApiAxiosParamCreator = function (configuration?: Config
     return {
         /**
          * 
-         * @summary Removes a user\'s profile extension.
+         * @summary Removes a user\'s profile extension.  <br><b>Deprecated.</b> Use `/me/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {string} code 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         removeUserExtension: async (code: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -76,9 +77,10 @@ export const MyExtensionsApiAxiosParamCreator = function (configuration?: Config
         },
         /**
          * 
-         * @summary Creates or update a user\'s profile extension.
+         * @summary Creates or update a user\'s profile extension.  <br><b>Deprecated.</b> Use `/me/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {IdentityApiUserV1SetUserExtensionRequest} [identityApiUserV1SetUserExtensionRequest] 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         setUserExtension: async (identityApiUserV1SetUserExtensionRequest?: IdentityApiUserV1SetUserExtensionRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -122,9 +124,10 @@ export const MyExtensionsApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @summary Removes a user\'s profile extension.
+         * @summary Removes a user\'s profile extension.  <br><b>Deprecated.</b> Use `/me/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {string} code 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async removeUserExtension(code: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityApiUserV1UserExtensionRemovedResponse>> {
@@ -135,9 +138,10 @@ export const MyExtensionsApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @summary Creates or update a user\'s profile extension.
+         * @summary Creates or update a user\'s profile extension.  <br><b>Deprecated.</b> Use `/me/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {IdentityApiUserV1SetUserExtensionRequest} [identityApiUserV1SetUserExtensionRequest] 
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async setUserExtension(identityApiUserV1SetUserExtensionRequest?: IdentityApiUserV1SetUserExtensionRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityApiUserV1UserExtensionSetResponse>> {
@@ -157,9 +161,10 @@ export const MyExtensionsApiFactory = function (configuration?: Configuration, b
     return {
         /**
          * 
-         * @summary Removes a user\'s profile extension.
+         * @summary Removes a user\'s profile extension.  <br><b>Deprecated.</b> Use `/me/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {MyExtensionsApiRemoveUserExtensionRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         removeUserExtension(requestParameters: MyExtensionsApiRemoveUserExtensionRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdentityApiUserV1UserExtensionRemovedResponse> {
@@ -167,9 +172,10 @@ export const MyExtensionsApiFactory = function (configuration?: Configuration, b
         },
         /**
          * 
-         * @summary Creates or update a user\'s profile extension.
+         * @summary Creates or update a user\'s profile extension.  <br><b>Deprecated.</b> Use `/me/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
          * @param {MyExtensionsApiSetUserExtensionRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         setUserExtension(requestParameters: MyExtensionsApiSetUserExtensionRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<IdentityApiUserV1UserExtensionSetResponse> {
@@ -204,9 +210,10 @@ export interface MyExtensionsApiSetUserExtensionRequest {
 export class MyExtensionsApi extends BaseAPI {
     /**
      * 
-     * @summary Removes a user\'s profile extension.
+     * @summary Removes a user\'s profile extension.  <br><b>Deprecated.</b> Use `/me/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      * @param {MyExtensionsApiRemoveUserExtensionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     public removeUserExtension(requestParameters: MyExtensionsApiRemoveUserExtensionRequest, options?: RawAxiosRequestConfig) {
@@ -215,9 +222,10 @@ export class MyExtensionsApi extends BaseAPI {
 
     /**
      * 
-     * @summary Creates or update a user\'s profile extension.
+     * @summary Creates or update a user\'s profile extension.  <br><b>Deprecated.</b> Use `/me/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      * @param {MyExtensionsApiSetUserExtensionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     public setUserExtension(requestParameters: MyExtensionsApiSetUserExtensionRequest = {}, options?: RawAxiosRequestConfig) {

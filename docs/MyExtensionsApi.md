@@ -4,8 +4,8 @@ All URIs are relative to *https://api.dev.edgraph.com/tenant*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**removeUserExtension**](#removeuserextension) | **DELETE** /me/extensions/{code} | Removes a user\&#39;s profile extension.|
-|[**setUserExtension**](#setuserextension) | **POST** /me/extensions | Creates or update a user\&#39;s profile extension.|
+|[**removeUserExtension**](#removeuserextension) | **DELETE** /me/extensions/{code} | Removes a user\&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.|
+|[**setUserExtension**](#setuserextension) | **POST** /me/extensions | Creates or update a user\&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.|
 
 # **removeUserExtension**
 > IdentityApiUserV1UserExtensionRemovedResponse removeUserExtension()

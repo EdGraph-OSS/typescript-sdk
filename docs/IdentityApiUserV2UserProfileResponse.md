@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **platformRole** | **string** |  | [optional] [default to undefined]
 **tenantStatus** | **string** |  | [optional] [default to undefined]
 **tenantAdmin** | **boolean** |  | [optional] [default to undefined]
+**status** | **string** | The user\&#39;s status across all their tenants: Active if any membership is active, Inactive if every  membership is inactive, Unknown if they have no memberships. Unlike tenantStatus this does not  depend on a tenantId being supplied on the request. | [optional] [default to undefined]
 
 ## Example
 
@@ -49,6 +50,7 @@ const instance: IdentityApiUserV2UserProfileResponse = {
     platformRole,
     tenantStatus,
     tenantAdmin,
+    status,
 };
 ```
 

@@ -1,11 +1,11 @@
 {
   "name": "@edgraph-oss/platform-client",
-  "version": "0.0.52",
+  "version": "0.0.54",
   "description": "OpenAPI client for @edgraph-oss/platform-client",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
     "type": "git",
-    "url": "https://github.com/EdGraph-OSS/typescript-sdk.git"
+    "url": "https://github.com/EdGraph-OSS/eg-sdk-typescript.git"
   },
   "keywords": [
     "axios",
@@ -31,6 +31,6 @@
     "typescript": "^4.0 || ^5.0"
   },
   "publishConfig": {
-    "registry": "https://github.com/EdGraph-OSS/typescript-sdk"
+    "registry": "https://github.com/EdGraph-OSS/eg-sdk-typescript"
   }
 }

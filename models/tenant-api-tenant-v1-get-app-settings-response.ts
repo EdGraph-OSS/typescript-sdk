@@ -18,6 +18,9 @@
 import type { TenantApiTenantV1TenantAppSettings } from './tenant-api-tenant-v1-tenant-app-settings';
 
 export interface TenantApiTenantV1GetAppSettingsResponse {
+    /**
+     * @deprecated
+     */
     'data'?: Array<TenantApiTenantV1TenantAppSettings> | null;
     'pageIndex'?: number;
     'pageSize'?: number;

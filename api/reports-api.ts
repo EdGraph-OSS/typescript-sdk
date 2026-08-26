@@ -38,6 +38,12 @@ import type { AnalyticsApiReportsV1SyncWorkspacesRequest } from '../models';
 // @ts-ignore
 import type { EdGraphCommonErrorsCoreProblemDetails } from '../models';
 // @ts-ignore
+import type { EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest } from '../models';
+// @ts-ignore
+import type { EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto } from '../models';
+// @ts-ignore
+import type { IdentityApiUserV1UserListResponsePaginatedItemsViewModel } from '../models';
+// @ts-ignore
 import type { MicrosoftAspNetCoreMvcProblemDetails } from '../models';
 /**
  * ReportsApi - axios parameter creator
@@ -178,8 +184,8 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
-         * @summary Retrieves the PBIX for any report in the list in order to download
+         * Admin-only. This resolves the PowerBI artifact straight from its report/group ids, so it  cannot apply the report\'s audience targeting the way the list and get-by-id paths do.  Restricting it to Analytics.Admin — the role that bypasses audience targeting anyway —  keeps a non-admin from downloading the source of a report they are not granted.
+         * @summary Retrieves the PBIX for any report in the list in order to download.
          * @param {string} tenantId 
          * @param {string} reportId 
          * @param {string} groupId 
@@ -269,6 +275,106 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             if (filter !== undefined) {
                 localVarQueryParameter['filter'] = filter;
             }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Searchable, paginated list of tenant users for the Manage Access \"specific users\" picker.
+         * @param {string} tenantId 
+         * @param {number} [pageSize] 
+         * @param {number} [pageIndex] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAnalyticsTenantUsersAsync: async (tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getAnalyticsTenantUsersAsync', 'tenantId', tenantId)
+            const localVarPath = `/tenants/{tenantId}/analytics/users`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (pageIndex !== undefined) {
+                localVarQueryParameter['pageIndex'] = pageIndex;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['orderBy'] = orderBy;
+            }
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Retrieves the audience-targeting (Manage Access) configuration for a report.
+         * @param {string} tenantId 
+         * @param {string} reportId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getReportAccessAsync: async (tenantId: string, reportId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('getReportAccessAsync', 'tenantId', tenantId)
+            // verify required parameter 'reportId' is not null or undefined
+            assertParamExists('getReportAccessAsync', 'reportId', reportId)
+            const localVarPath = `/tenants/{tenantId}/analytics/reports/{reportId}/access`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportId}', encodeURIComponent(String(reportId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -399,6 +505,51 @@ export const ReportsApiAxiosParamCreator = function (configuration?: Configurati
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(analyticsApiReportsV1SyncWorkspacesRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Updates the audience-targeting (Manage Access) configuration for a report.
+         * @param {string} tenantId 
+         * @param {string} reportId 
+         * @param {EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest} [edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateReportAccessAsync: async (tenantId: string, reportId: string, edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest?: EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantId' is not null or undefined
+            assertParamExists('updateReportAccessAsync', 'tenantId', tenantId)
+            // verify required parameter 'reportId' is not null or undefined
+            assertParamExists('updateReportAccessAsync', 'reportId', reportId)
+            const localVarPath = `/tenants/{tenantId}/analytics/reports/{reportId}/access`
+                .replace('{tenantId}', encodeURIComponent(String(tenantId)))
+                .replace('{reportId}', encodeURIComponent(String(reportId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["https://api.edgraph.com/auth/tenant"], configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -552,8 +703,8 @@ export const ReportsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
-         * @summary Retrieves the PBIX for any report in the list in order to download
+         * Admin-only. This resolves the PowerBI artifact straight from its report/group ids, so it  cannot apply the report\'s audience targeting the way the list and get-by-id paths do.  Restricting it to Analytics.Admin — the role that bypasses audience targeting anyway —  keeps a non-admin from downloading the source of a report they are not granted.
+         * @summary Retrieves the PBIX for any report in the list in order to download.
          * @param {string} tenantId 
          * @param {string} reportId 
          * @param {string} groupId 
@@ -581,6 +732,37 @@ export const ReportsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAllTenantAnalyticsWorkspaceReportsAsync(tenantId, pageSize, pageIndex, orderBy, filter, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ReportsApi.getAllTenantAnalyticsWorkspaceReportsAsync']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Searchable, paginated list of tenant users for the Manage Access \"specific users\" picker.
+         * @param {string} tenantId 
+         * @param {number} [pageSize] 
+         * @param {number} [pageIndex] 
+         * @param {string} [orderBy] 
+         * @param {string} [filter] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAnalyticsTenantUsersAsync(tenantId: string, pageSize?: number, pageIndex?: number, orderBy?: string, filter?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityApiUserV1UserListResponsePaginatedItemsViewModel>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAnalyticsTenantUsersAsync(tenantId, pageSize, pageIndex, orderBy, filter, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ReportsApi.getAnalyticsTenantUsersAsync']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Retrieves the audience-targeting (Manage Access) configuration for a report.
+         * @param {string} tenantId 
+         * @param {string} reportId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getReportAccessAsync(tenantId: string, reportId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getReportAccessAsync(tenantId, reportId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ReportsApi.getReportAccessAsync']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -623,6 +805,21 @@ export const ReportsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.syncWorkspacesAsync(tenantId, analyticsApiReportsV1SyncWorkspacesRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ReportsApi.syncWorkspacesAsync']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Updates the audience-targeting (Manage Access) configuration for a report.
+         * @param {string} tenantId 
+         * @param {string} reportId 
+         * @param {EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest} [edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateReportAccessAsync(tenantId: string, reportId: string, edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest?: EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnalyticsApiReportsV1ReportIdResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateReportAccessAsync(tenantId, reportId, edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ReportsApi.updateReportAccessAsync']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -680,8 +877,8 @@ export const ReportsApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deleteReportAsync(requestParameters.tenantId, requestParameters.reportId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Retrieves the PBIX for any report in the list in order to download
+         * Admin-only. This resolves the PowerBI artifact straight from its report/group ids, so it  cannot apply the report\'s audience targeting the way the list and get-by-id paths do.  Restricting it to Analytics.Admin — the role that bypasses audience targeting anyway —  keeps a non-admin from downloading the source of a report they are not granted.
+         * @summary Retrieves the PBIX for any report in the list in order to download.
          * @param {ReportsApiDownloadReportAsyncRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -698,6 +895,26 @@ export const ReportsApiFactory = function (configuration?: Configuration, basePa
          */
         getAllTenantAnalyticsWorkspaceReportsAsync(requestParameters: ReportsApiGetAllTenantAnalyticsWorkspaceReportsAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<AnalyticsApiReportsV1ReportPaginatedItemsResponse> {
             return localVarFp.getAllTenantAnalyticsWorkspaceReportsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Searchable, paginated list of tenant users for the Manage Access \"specific users\" picker.
+         * @param {ReportsApiGetAnalyticsTenantUsersAsyncRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAnalyticsTenantUsersAsync(requestParameters: ReportsApiGetAnalyticsTenantUsersAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdentityApiUserV1UserListResponsePaginatedItemsViewModel> {
+            return localVarFp.getAnalyticsTenantUsersAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Retrieves the audience-targeting (Manage Access) configuration for a report.
+         * @param {ReportsApiGetReportAccessAsyncRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getReportAccessAsync(requestParameters: ReportsApiGetReportAccessAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto> {
+            return localVarFp.getReportAccessAsync(requestParameters.tenantId, requestParameters.reportId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -728,6 +945,16 @@ export const ReportsApiFactory = function (configuration?: Configuration, basePa
          */
         syncWorkspacesAsync(requestParameters: ReportsApiSyncWorkspacesAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<object> {
             return localVarFp.syncWorkspacesAsync(requestParameters.tenantId, requestParameters.analyticsApiReportsV1SyncWorkspacesRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Updates the audience-targeting (Manage Access) configuration for a report.
+         * @param {ReportsApiUpdateReportAccessAsyncRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateReportAccessAsync(requestParameters: ReportsApiUpdateReportAccessAsyncRequest, options?: RawAxiosRequestConfig): AxiosPromise<AnalyticsApiReportsV1ReportIdResponse> {
+            return localVarFp.updateReportAccessAsync(requestParameters.tenantId, requestParameters.reportId, requestParameters.edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -835,6 +1062,51 @@ export interface ReportsApiGetAllTenantAnalyticsWorkspaceReportsAsyncRequest {
 }
 
 /**
+ * Request parameters for getAnalyticsTenantUsersAsync operation in ReportsApi.
+ */
+export interface ReportsApiGetAnalyticsTenantUsersAsyncRequest {
+    /**
+     * 
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     */
+    readonly pageSize?: number
+
+    /**
+     * 
+     */
+    readonly pageIndex?: number
+
+    /**
+     * 
+     */
+    readonly orderBy?: string
+
+    /**
+     * 
+     */
+    readonly filter?: string
+}
+
+/**
+ * Request parameters for getReportAccessAsync operation in ReportsApi.
+ */
+export interface ReportsApiGetReportAccessAsyncRequest {
+    /**
+     * 
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     */
+    readonly reportId: string
+}
+
+/**
  * Request parameters for getReportByIdAsync operation in ReportsApi.
  */
 export interface ReportsApiGetReportByIdAsyncRequest {
@@ -877,6 +1149,26 @@ export interface ReportsApiSyncWorkspacesAsyncRequest {
      * 
      */
     readonly analyticsApiReportsV1SyncWorkspacesRequest?: AnalyticsApiReportsV1SyncWorkspacesRequest
+}
+
+/**
+ * Request parameters for updateReportAccessAsync operation in ReportsApi.
+ */
+export interface ReportsApiUpdateReportAccessAsyncRequest {
+    /**
+     * 
+     */
+    readonly tenantId: string
+
+    /**
+     * 
+     */
+    readonly reportId: string
+
+    /**
+     * 
+     */
+    readonly edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest?: EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest
 }
 
 /**
@@ -943,8 +1235,8 @@ export class ReportsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Retrieves the PBIX for any report in the list in order to download
+     * Admin-only. This resolves the PowerBI artifact straight from its report/group ids, so it  cannot apply the report\'s audience targeting the way the list and get-by-id paths do.  Restricting it to Analytics.Admin — the role that bypasses audience targeting anyway —  keeps a non-admin from downloading the source of a report they are not granted.
+     * @summary Retrieves the PBIX for any report in the list in order to download.
      * @param {ReportsApiDownloadReportAsyncRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -962,6 +1254,28 @@ export class ReportsApi extends BaseAPI {
      */
     public getAllTenantAnalyticsWorkspaceReportsAsync(requestParameters: ReportsApiGetAllTenantAnalyticsWorkspaceReportsAsyncRequest, options?: RawAxiosRequestConfig) {
         return ReportsApiFp(this.configuration).getAllTenantAnalyticsWorkspaceReportsAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Searchable, paginated list of tenant users for the Manage Access \"specific users\" picker.
+     * @param {ReportsApiGetAnalyticsTenantUsersAsyncRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getAnalyticsTenantUsersAsync(requestParameters: ReportsApiGetAnalyticsTenantUsersAsyncRequest, options?: RawAxiosRequestConfig) {
+        return ReportsApiFp(this.configuration).getAnalyticsTenantUsersAsync(requestParameters.tenantId, requestParameters.pageSize, requestParameters.pageIndex, requestParameters.orderBy, requestParameters.filter, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Retrieves the audience-targeting (Manage Access) configuration for a report.
+     * @param {ReportsApiGetReportAccessAsyncRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getReportAccessAsync(requestParameters: ReportsApiGetReportAccessAsyncRequest, options?: RawAxiosRequestConfig) {
+        return ReportsApiFp(this.configuration).getReportAccessAsync(requestParameters.tenantId, requestParameters.reportId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -995,6 +1309,17 @@ export class ReportsApi extends BaseAPI {
      */
     public syncWorkspacesAsync(requestParameters: ReportsApiSyncWorkspacesAsyncRequest, options?: RawAxiosRequestConfig) {
         return ReportsApiFp(this.configuration).syncWorkspacesAsync(requestParameters.tenantId, requestParameters.analyticsApiReportsV1SyncWorkspacesRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Updates the audience-targeting (Manage Access) configuration for a report.
+     * @param {ReportsApiUpdateReportAccessAsyncRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateReportAccessAsync(requestParameters: ReportsApiUpdateReportAccessAsyncRequest, options?: RawAxiosRequestConfig) {
+        return ReportsApiFp(this.configuration).updateReportAccessAsync(requestParameters.tenantId, requestParameters.reportId, requestParameters.edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

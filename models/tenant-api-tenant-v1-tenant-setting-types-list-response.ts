@@ -31,6 +31,9 @@ export interface TenantApiTenantV1TenantSettingTypesListResponse {
     'minValue'?: number | null;
     'maxValue'?: number | null;
     'maxLength'?: number | null;
+    /**
+     * @deprecated
+     */
     'attributes'?: Array<TenantApiTenantV1TenantSettingsTypeAttribute> | null;
 }
 

@@ -4,9 +4,9 @@ All URIs are relative to *https://api.dev.edgraph.com/tenant*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**getUserPreferences**](#getuserpreferences) | **GET** /me/preferences | Retrieves the user\&#39;s preferences.|
-|[**preference**](#preference) | **GET** /me/preferences/{code} | Retrieves a user\&#39;s preference by code.|
-|[**updateUserPreferenceAsync**](#updateuserpreferenceasync) | **POST** /me/preferences | Creates or update a user\&#39;s preference.|
+|[**getUserPreferences**](#getuserpreferences) | **GET** /me/preferences | Retrieves the user\&#39;s preferences.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.|
+|[**preference**](#preference) | **GET** /me/preferences/{code} | Retrieves a user\&#39;s preference by code.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.|
+|[**updateUserPreferenceAsync**](#updateuserpreferenceasync) | **POST** /me/preferences | Creates or update a user\&#39;s preference.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.|
 
 # **getUserPreferences**
 > IdentityApiUserV1GetUserPreferencesResponse getUserPreferences()

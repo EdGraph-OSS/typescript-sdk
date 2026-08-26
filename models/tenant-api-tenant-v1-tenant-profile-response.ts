@@ -66,6 +66,9 @@ export interface TenantApiTenantV1TenantProfileResponse {
     'onboarding'?: TenantApiTenantV1Onboarding;
     'organizations'?: Array<TenantApiTenantV1Organization> | null;
     'organizationIdentifierHash'?: string | null;
+    /**
+     * @deprecated
+     */
     'settings'?: Array<TenantApiTenantV1TenantSetting> | null;
     'additionalSettings'?: TenantApiTenantV1TenantAdditionalSetting;
     'tenantType'?: string | null;
